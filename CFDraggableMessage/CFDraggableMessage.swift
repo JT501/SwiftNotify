@@ -49,12 +49,12 @@ open class CFDraggableMessage: NSObject {
         return view
     }
     
-    open func showMessage(withText text: String, viewController: UIViewController) {
+    open func showMessage(withText text: String) {
         let view = createMessageView(withText: text)
-        self.showMessage(withView: view, viewController: viewController)
+        self.showMessage(withView: view)
     }
     
-    open func showMessage(withView view: UIView, viewController: UIViewController) {
+    open func showMessage(withView view: UIView) {
         
         guard let appDelegate = UIApplication.shared.delegate else { return }
         guard let keyWindow = appDelegate.window! else { return }

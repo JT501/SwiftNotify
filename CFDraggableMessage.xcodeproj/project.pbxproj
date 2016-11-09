@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05B9FE611DD32E7C003EFC10 /* CFDraggableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFDraggableMessage.swift */; };
 		05C827271DD31B7A003E0C5E /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */; };
 		05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */; };
 		05C8272E1DD31B7A003E0C5E /* CFDraggableMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05C827391DD31FCE003E0C5E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C827381DD31FCE003E0C5E /* Nimble.framework */; };
 		05C8273B1DD31FD5003E0C5E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8273A1DD31FD5003E0C5E /* Quick.framework */; };
-		05C8273D1DD323F1003E0C5E /* CFDraggableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8273C1DD323F1003E0C5E /* CFDraggableMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05B9FE601DD32E7C003EFC10 /* CFDraggableMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFDraggableMessage.swift; sourceTree = "<group>"; };
 		05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CFDraggableMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFDraggableMessage.h; sourceTree = "<group>"; };
 		05C827211DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C827381DD31FCE003E0C5E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		05C8273A1DD31FD5003E0C5E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
-		05C8273C1DD323F1003E0C5E /* CFDraggableMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFDraggableMessage.swift; path = "../../../DA/Dynamic Demo/CFDraggableMessage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		05C8271F1DD31B7A003E0C5E /* CFDraggableMessage */ = {
 			isa = PBXGroup;
 			children = (
-				05C8273C1DD323F1003E0C5E /* CFDraggableMessage.swift */,
+				05B9FE601DD32E7C003EFC10 /* CFDraggableMessage.swift */,
 				05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 			);
@@ -218,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05C8273D1DD323F1003E0C5E /* CFDraggableMessage.swift in Sources */,
+				05B9FE611DD32E7C003EFC10 /* CFDraggableMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,8 @@
 		05C8272E1DD31B7A003E0C5E /* CFDraggableMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05C827391DD31FCE003E0C5E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C827381DD31FCE003E0C5E /* Nimble.framework */; };
 		05C8273B1DD31FD5003E0C5E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8273A1DD31FD5003E0C5E /* Quick.framework */; };
+		05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */; };
+		05E003731DD46261003DBE35 /* CFMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003721DD46261003DBE35 /* CFMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C827381DD31FCE003E0C5E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		05C8273A1DD31FD5003E0C5E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
+		05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessageProtocols.swift; sourceTree = "<group>"; };
+		05E003721DD46261003DBE35 /* CFMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,10 @@
 		05C8271F1DD31B7A003E0C5E /* CFDraggableMessage */ = {
 			isa = PBXGroup;
 			children = (
+				05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */,
 				05B9FE601DD32E7C003EFC10 /* CFDraggableMessage.swift */,
 				05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */,
+				05E003721DD46261003DBE35 /* CFMessageView.swift */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 			);
 			path = CFDraggableMessage;
@@ -218,6 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E003731DD46261003DBE35 /* CFMessageView.swift in Sources */,
+				05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */,
 				05B9FE611DD32E7C003EFC10 /* CFDraggableMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,17 +9,14 @@
 import UIKit
 import CFDraggableMessage
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, CFMessageDelegate {
+    
     var messager = CFDraggableMessage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
+        messager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,8 +24,30 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - CFMessageDelegate
+    func cfMessageDidAppear() {
+        print("Messgae is showing? \(messager.isShowing())")
+    }
+    
+    func cfMessageIsDragging(atPoint: CGPoint) {
+        print("Dragging at Point \(atPoint)")
+    }
+    
+    func cfMessageDidTap() {
+        print("Message is Tapped")
+    }
+    
+    func cfMessageDidDismiss() {
+        print("Message is Dismissed")
+        print("Messgae is showing? \(messager.isShowing())")
+    }
+    
     @IBAction func showMessage() {
-//        messager.showMessage(withText: "hi")
+        messager.showMessage(withText: "hi")
+    }
+    
+    @IBAction func dismissMessage() {
+        messager.dismissMessage()
     }
 
 

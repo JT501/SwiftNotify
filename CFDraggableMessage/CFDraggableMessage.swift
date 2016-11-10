@@ -6,7 +6,6 @@
 //  Copyright © 2016 Johnny@Co-fire. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 open class CFDraggableMessage: NSObject {
@@ -17,9 +16,13 @@ open class CFDraggableMessage: NSObject {
     let defaultMagnitude : CGFloat = 12
     let reduceAngularVelocityFactor : Float = 0.8
     
-    var messageView: UIView!
-    var messageLabel: UILabel!
-    var containerView: UIView!
+    open var delegate: CFMessageDelegate!
+    open var isAutoDismiss : Bool = true
+    open var autoDismissDelay : TimeInterval = 2.0
+    
+    var messageViews: [UIView] = []
+    var messageLabels: [UILabel] = []
+    var containerViews: [UIView] = []
     var panGesture : UIPanGestureRecognizer!
     var tapGesture : UITapGestureRecognizer!
     var animator : UIDynamicAnimator!
@@ -27,10 +30,33 @@ open class CFDraggableMessage: NSObject {
     var collisionBehaviour : UICollisionBehavior!
     var attachmentBehaviour : UIAttachmentBehavior!
     var snapBehaviour : UISnapBehavior!
+    
+    var tapAction: (()->Void)? = nil
+    var dismissAction: (()->Void)? = nil
     var startpoint = CGPoint()
+    var _isDragging: Bool = false
+    var _isShowing: Bool = false
+    let sysnQueue = DispatchQueue(label: "CFMessage.Queue", attributes: [])
     
     public override init() {
         super.init()
+    }
+    
+    // MARK: - Public Method
+    open func setDidTapAction(_ action: @escaping ()->Void ) {
+        tapAction = action
+    }
+    
+    open func setDidDismissAction(_ action: @escaping ()->Void) {
+        dismissAction = action
+    }
+    
+    open func isDragging() -> Bool {
+        return self._isDragging
+    }
+    
+    open func isShowing() -> Bool {
+        return self._isShowing
     }
     
     open func createMessageView(withText text: String) -> UIView {
@@ -61,30 +87,36 @@ open class CFDraggableMessage: NSObject {
         
         self.animator = UIDynamicAnimator(referenceView: keyWindow)
         
-        self.messageView = view
+        self.messageViews.append(view)
+        guard let messageView = self.messageViews.last else { return }
         
-        self.containerView = UIView()
+        self.containerViews.append(UIView())
+        guard let containerView = self.containerViews.last else { return }
+        
         self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(CFDraggableMessage.pan))
         self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(CFDraggableMessage.tap))
-        self.containerView.addGestureRecognizer(self.panGesture)
-        self.containerView.addGestureRecognizer(self.tapGesture)
-        self.containerView.isUserInteractionEnabled = true
+        containerView.addGestureRecognizer(self.panGesture)
+        containerView.addGestureRecognizer(self.tapGesture)
+        containerView.isUserInteractionEnabled = true
         
-        self.containerView.frame = CGRect(x: 0, y: 0, width: 250, height: 70)
-        self.containerView.backgroundColor = UIColor.clear
-        self.containerView.addSubview(self.messageView)
-        self.containerView.bringSubview(toFront: self.messageView)
-        self.messageView.autoresizingMask = [.flexibleWidth]
-        self.containerView.autoresizingMask = [.flexibleWidth]
+        containerView.frame = CGRect(x: 0, y: 0, width: 250, height: 70)
+        containerView.backgroundColor = UIColor.clear
+        containerView.addSubview(messageView)
+        containerView.bringSubview(toFront: messageView)
         
-        keyWindow.addSubview(self.containerView)
+        keyWindow.addSubview(containerView)
+        self._isShowing = true
+        if let delegate = self.delegate {
+            delegate.cfMessageDidAppear()
+        }
         
         self.startpoint = keyWindow.center
-        self.addSnap(view: self.containerView, toPoint: self.startpoint)
+        self.addSnap(view: containerView, toPoint: self.startpoint)
+//        self.queueAutoDismiss()
     }
     
     open func dismissMessage() {
-        if let containerView = self.containerView {
+        if let containerView = self.containerViews.last {
             self.dismissMessage(messageView: containerView)
         }
         else {
@@ -93,11 +125,18 @@ open class CFDraggableMessage: NSObject {
     }
     
     // MARK: - Private Method
+    // MARK: Gesture Recognizer
     func pan(gesture: UIPanGestureRecognizer) {
         let gestureView = gesture.view!
         let dragPoint : CGPoint = gesture.location(in: gestureView)
         let viewCenter = gestureView.center
         let movedDistance = distance(from: startpoint, to: viewCenter)
+        
+        self._isDragging = true
+        
+        if let delegate = self.delegate {
+            delegate.cfMessageIsDragging(atPoint: dragPoint)
+        }
         
         if gesture.state == UIGestureRecognizerState.began {
             //Start Dragging
@@ -118,6 +157,7 @@ open class CFDraggableMessage: NSObject {
             attachmentBehaviour.anchorPoint = touchPoint
         }
         else if gesture.state == UIGestureRecognizerState.ended {
+            self._isDragging = false
             self.animator.removeAllBehaviors()
             
             if movedDistance < 50 {
@@ -178,32 +218,63 @@ open class CFDraggableMessage: NSObject {
                 
                 itemBehaviour.allowsRotation = true
                 itemBehaviour.addAngularVelocity(CGFloat(angularVelocity) * direction, for: gestureView)
-                itemBehaviour.action = { [weak self] in self?.removeView(gestureView: gestureView) }
+                itemBehaviour.action = { [weak self] in self?.removeView(view: gestureView) }
                 self.animator.addBehavior(itemBehaviour)
             }
         }
     }
     
-    func dismissMessage(messageView: UIView) {
-        animator.removeAllBehaviors()
-        
-        if let gestureViewGestureRecognizers = messageView.gestureRecognizers {
-            for gestureRecongnizers in gestureViewGestureRecognizers {
-                messageView.removeGestureRecognizer(gestureRecongnizers)
-            }
-        }
-        
-        gravityBehaviour = UIGravityBehavior(items: [messageView])
-        gravityBehaviour.action = { [weak self] in
-            self?.removeView(gestureView: messageView)
-        }
-        animator.addBehavior(gravityBehaviour)
-    }
-    
-    
     func tap(gesture: UITapGestureRecognizer) {
         guard let gestureView = gesture.view else { return }
+        
+        // Message Did Tap Delegation
+        if let delegate = self.delegate {
+            delegate.cfMessageDidTap()
+        }
+        else if let tapAction = self.tapAction {
+            tapAction()
+        }
+        
         dismissMessage(messageView: gestureView)
+    }
+    
+    // MARK: Uilties Methods
+    func queueAutoDismiss() {
+        let dismissTime = DispatchTime.now() + autoDismissDelay
+        sysnQueue.asyncAfter(deadline: dismissTime, execute: { [weak self] in
+            guard let strongself = self else { return }
+            guard let containerView = strongself.containerViews.last else { return }
+            strongself.dismissMessage(messageView: containerView)
+        })
+    }
+    
+    func dismissMessage(messageView: UIView) {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+        
+            strongSelf.animator.removeAllBehaviors()
+            
+            if let gestureViewGestureRecognizers = messageView.gestureRecognizers {
+                for gestureRecongnizers in gestureViewGestureRecognizers {
+                    messageView.removeGestureRecognizer(gestureRecongnizers)
+                }
+            }
+            
+            strongSelf.gravityBehaviour = UIGravityBehavior(items: [messageView])
+            strongSelf.gravityBehaviour.action = { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.removeView(view: messageView)
+            }
+            strongSelf.animator.addBehavior((strongSelf.gravityBehaviour)!)
+            
+            // Message Did Tap Delegation
+            if let delegate = strongSelf.delegate {
+                delegate.cfMessageDidDismiss()
+            }
+            else if let dismissAction = strongSelf.dismissAction {
+                dismissAction()
+            }
+        }
     }
     
     func addSnap(view: UIView, toPoint: CGPoint) {
@@ -218,24 +289,35 @@ open class CFDraggableMessage: NSObject {
     
     func resetViews() {
         print("view removed")
-        self.containerView.removeFromSuperview()
-        self.containerView = nil
-        self.messageView = nil
-        self.messageLabel = nil
+        guard let containerView = self.containerViews.last else { return }
+        containerView.removeFromSuperview()
+        self.containerViews.removeLast()
+        
+        guard let messageView = self.messageViews.last else { return }
+        self.messageViews.removeLast()
+        
+        guard let messageLabel = self.messageLabels.last else { return }
+        self.messageLabels.removeLast()
+        
+        self._isShowing = false
     }
     
-    func removeView(gestureView: UIView) {
-        if gestureView.superview != nil {
-            if gestureView.frame.origin.y >= (gestureView.superview!.bounds.origin.y + gestureView.superview!.bounds.size.height + 250) {
+    func removeView(view: UIView) {
+        if view.superview != nil {
+            //TOP
+            if view.frame.origin.y >= (view.superview!.bounds.origin.y + view.superview!.bounds.size.height + fieldMargin) {
                 self.resetViews()
             }
-            else if (gestureView.frame.origin.y + gestureView.frame.size.height) <= (gestureView.superview!.bounds.origin.y - 250) {
+            //BOTTOM
+            else if (view.frame.origin.y + view.frame.size.height) <= (view.superview!.bounds.origin.y - fieldMargin) {
                 self.resetViews()
             }
-            else if (gestureView.frame.origin.x + gestureView.frame.size.width) <= (gestureView.superview!.bounds.origin.x - 250) {
+            //RIGHT
+            else if (view.frame.origin.x + view.frame.size.width) <= (view.superview!.bounds.origin.x - fieldMargin) {
                 self.resetViews()
             }
-            else if gestureView.frame.origin.x >= (gestureView.superview!.bounds.origin.x + gestureView.frame.size.width + 250 ) {
+            //LEFT
+            else if view.frame.origin.x >= (view.superview!.bounds.origin.x + view.superview!.bounds.size.width + fieldMargin) {
                 self.resetViews()
             }
         }

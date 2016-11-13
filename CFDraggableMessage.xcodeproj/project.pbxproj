@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05B9FE611DD32E7C003EFC10 /* CFDraggableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFDraggableMessage.swift */; };
+		05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFMessage.swift */; };
 		05C827271DD31B7A003E0C5E /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */; };
 		05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */; };
 		05C8272E1DD31B7A003E0C5E /* CFDraggableMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,6 +15,7 @@
 		05C8273B1DD31FD5003E0C5E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8273A1DD31FD5003E0C5E /* Quick.framework */; };
 		05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */; };
 		05E003731DD46261003DBE35 /* CFMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003721DD46261003DBE35 /* CFMessageView.swift */; };
+		B231B3971DD700FB00D29BD5 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3961DD700FB00D29BD5 /* Messenger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05B9FE601DD32E7C003EFC10 /* CFDraggableMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFDraggableMessage.swift; sourceTree = "<group>"; };
+		05B9FE601DD32E7C003EFC10 /* CFMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessage.swift; sourceTree = "<group>"; };
 		05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CFDraggableMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFDraggableMessage.h; sourceTree = "<group>"; };
 		05C827211DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +40,7 @@
 		05C8273A1DD31FD5003E0C5E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessageProtocols.swift; sourceTree = "<group>"; };
 		05E003721DD46261003DBE35 /* CFMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessageView.swift; sourceTree = "<group>"; };
+		B231B3961DD700FB00D29BD5 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */,
-				05B9FE601DD32E7C003EFC10 /* CFDraggableMessage.swift */,
-				05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */,
+				05B9FE601DD32E7C003EFC10 /* CFMessage.swift */,
+				B231B3961DD700FB00D29BD5 /* Messenger.swift */,
 				05E003721DD46261003DBE35 /* CFMessageView.swift */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
+				05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */,
 			);
 			path = CFDraggableMessage;
 			sourceTree = "<group>";
@@ -224,9 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B231B3971DD700FB00D29BD5 /* Messenger.swift in Sources */,
 				05E003731DD46261003DBE35 /* CFMessageView.swift in Sources */,
 				05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */,
-				05B9FE611DD32E7C003EFC10 /* CFDraggableMessage.swift in Sources */,
+				05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

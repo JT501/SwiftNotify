@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05E0036D1DD40F3D003DBE35 /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E0036C1DD40F3D003DBE35 /* CFDraggableMessage.framework */; };
-		05E0036E1DD40F88003DBE35 /* CFDraggableMessage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05E0036C1DD40F3D003DBE35 /* CFDraggableMessage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3731DD35A1400D29BD5 /* AppDelegate.swift */; };
 		B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3751DD35A1400D29BD5 /* ViewController.swift */; };
 		B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B3771DD35A1400D29BD5 /* Main.storyboard */; };
 		B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B231B37A1DD35A1400D29BD5 /* Assets.xcassets */; };
 		B231B37E1DD35A1400D29BD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B37C1DD35A1400D29BD5 /* LaunchScreen.storyboard */; };
+		B231B3931DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */; };
+		B231B3941DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		05E0036B1DD40F27003DBE35 /* CopyFiles */ = {
+		B231B3951DD6F5FE00D29BD5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				05E0036E1DD40F88003DBE35 /* CFDraggableMessage.framework in CopyFiles */,
+				B231B3941DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05E0036C1DD40F3D003DBE35 /* CFDraggableMessage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFDraggableMessage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFDraggableMessage.framework"; sourceTree = "<group>"; };
 		B231B3701DD35A1400D29BD5 /* CFMessageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFMessageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3731DD35A1400D29BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B231B3751DD35A1400D29BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +38,7 @@
 		B231B37A1DD35A1400D29BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B231B37D1DD35A1400D29BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B231B37F1DD35A1400D29BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CFDraggableMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E0036D1DD40F3D003DBE35 /* CFDraggableMessage.framework in Frameworks */,
+				B231B3931DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +86,7 @@
 		B231B3851DD35A2A00D29BD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				05E0036C1DD40F3D003DBE35 /* CFDraggableMessage.framework */,
+				B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -100,7 +101,7 @@
 				B231B36C1DD35A1400D29BD5 /* Sources */,
 				B231B36D1DD35A1400D29BD5 /* Frameworks */,
 				B231B36E1DD35A1400D29BD5 /* Resources */,
-				05E0036B1DD40F27003DBE35 /* CopyFiles */,
+				B231B3951DD6F5FE00D29BD5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

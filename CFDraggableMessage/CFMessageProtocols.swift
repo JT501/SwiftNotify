@@ -14,3 +14,12 @@ public protocol CFMessageDelegate {
     func cfMessageDidTap()
     func cfMessageDidDismiss()
 }
+
+protocol MessengerDelegate: class {
+    func messengerDidAppear()
+    func messengerStartDragging(atPoint: CGPoint)
+    func messengerIsDragging(atPoint: CGPoint)
+    func messengerEndDragging(atPoint: CGPoint)
+    func messengerDidDisappear(messenger: Messenger)
+    func messengerIsTapped()
+}

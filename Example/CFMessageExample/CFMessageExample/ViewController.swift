@@ -11,7 +11,7 @@ import CFDraggableMessage
 
 class ViewController: UIViewController, CFMessageDelegate {
     
-    var messager = CFMessage()
+    var messenger = CFMessage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +43,16 @@ class ViewController: UIViewController, CFMessageDelegate {
     }
     
     @IBAction func showMessage() {
-        messager.show(view: self.createMessageView(withText: "Test"))
+        var config = CFMessage.Config()
+        config.dismissTime = .never
+        config.tapToDismiss = false
+        config.appearPosition = .center
+        messenger.show(config: config, view: self.createMessageView(withText: "Test"))
+//        messenger.show(view: self.createMessageView(withText: "Test"))
     }
     
     @IBAction func dismissMessage() {
-        messager.dismiss()
+        messenger.dismiss()
     }
 
     public func createMessageView(withText text: String) -> UIView {

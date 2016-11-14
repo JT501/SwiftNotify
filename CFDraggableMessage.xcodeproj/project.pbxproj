@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053212231DD95F700008581A /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212221DD95F700008581A /* CGRectEx.swift */; };
 		05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFMessage.swift */; };
 		05C827271DD31B7A003E0C5E /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */; };
 		05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053212221DD95F700008581A /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
 		05B9FE601DD32E7C003EFC10 /* CFMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessage.swift; sourceTree = "<group>"; };
 		05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CFDraggableMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFDraggableMessage.h; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0532121F1DD95F0D0008581A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				053212221DD95F700008581A /* CGRectEx.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		05C827131DD31B7A003E0C5E = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		05C8271F1DD31B7A003E0C5E /* CFDraggableMessage */ = {
 			isa = PBXGroup;
 			children = (
+				0532121F1DD95F0D0008581A /* Helper */,
 				05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */,
 				05B9FE601DD32E7C003EFC10 /* CFMessage.swift */,
 				B231B3961DD700FB00D29BD5 /* Messenger.swift */,
@@ -228,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B231B3971DD700FB00D29BD5 /* Messenger.swift in Sources */,
+				053212231DD95F700008581A /* CGRectEx.swift in Sources */,
 				05E003731DD46261003DBE35 /* CFMessageView.swift in Sources */,
 				05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */,
 				05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */,

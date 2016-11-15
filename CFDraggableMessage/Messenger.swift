@@ -16,7 +16,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
     let panRecognizer: UIPanGestureRecognizer
     let tapRecognizer: UITapGestureRecognizer
     var animator: UIDynamicAnimator
-    var startPoint: CGPoint
+    var snapPoint: CGPoint
     var snapBehaviour : UISnapBehavior!
     var attachmentBehaviour : UIAttachmentBehavior!
     var gravityBehaviour : UIGravityBehavior!
@@ -34,7 +34,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         self.panRecognizer = UIPanGestureRecognizer()
         self.tapRecognizer = UITapGestureRecognizer()
         self.animator = UIDynamicAnimator()
-        self.startPoint = CGPoint.zero
+        self.snapPoint = CGPoint.zero
         self.isDismissing = false
         self.delegate = delegate
         self.fieldMargin = 300
@@ -66,6 +66,35 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         
         self.animator = UIDynamicAnimator(referenceView: keyWindow)
         
+        let initPoint: CGPoint
+        switch self.config.initPosition {
+        case .top(let position):
+            switch position {
+            case .center:
+                initPoint = CGPoint(keyWindow.bounds.midX, 0 - self.view.bounds.height)
+            case .left:
+                initPoint = CGPoint(0 - self.view.bounds.width, 0 - self.view.bounds.height)
+            case .right:
+                initPoint = CGPoint(keyWindow.bounds.width, 0 - self.view.bounds.height)
+            }
+        case .bottom(let position):
+            switch position {
+            case .center:
+                initPoint = CGPoint(keyWindow.bounds.midX, keyWindow.bounds.height)
+            case .left:
+                initPoint = CGPoint(0 - self.view.bounds.width, keyWindow.bounds.height)
+            case .right:
+                initPoint = CGPoint(keyWindow.bounds.width, keyWindow.bounds.height)
+            }
+        case .left:
+            initPoint = CGPoint(0 - self.view.bounds.width, keyWindow.bounds.midY)
+        case .right:
+            initPoint = CGPoint(keyWindow.bounds.width, keyWindow.bounds.midY)
+        case .custom(let point):
+            initPoint = point
+        }
+        
+        self.containerView.frame.origin = initPoint
         self.containerView.bounds = self.view.bounds
         self.containerView.backgroundColor = UIColor.clear
         self.containerView.addSubview(self.view)
@@ -83,13 +112,15 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         
         switch self.config.appearPosition {
         case .bottom:
-            self.startPoint = CGPoint(x: keyWindow.bounds.midX, y: keyWindow.bounds.bottom - 30 - self.containerView.bounds.midY)
+            self.snapPoint = CGPoint(x: keyWindow.bounds.midX, y: keyWindow.bounds.bottom - 40 - self.containerView.bounds.midY)
         case .center:
-            self.startPoint = keyWindow.bounds.center
+            self.snapPoint = keyWindow.bounds.center
         case .top:
-            self.startPoint = CGPoint(x: keyWindow.bounds.midX, y: 30 + self.containerView.bounds.midY)
+            self.snapPoint = CGPoint(x: keyWindow.bounds.midX, y: 70 + self.containerView.bounds.midY)
+        case .custom(let point):
+            self.snapPoint = point
         }
-        self.addSnap(view: self.containerView, toPoint: self.startPoint) { (completed) in
+        self.addSnap(view: self.containerView, toPoint: self.snapPoint) { (completed) in
             completion(completed)
         }
     }
@@ -148,7 +179,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
     func addSnap(view: UIView, toPoint: CGPoint, completion: ((_ completed: Bool) -> Void)? = nil) {
         var counter = 0
         snapBehaviour = UISnapBehavior(item: view, snapTo: toPoint)
-        snapBehaviour.damping = 0.5
+        snapBehaviour.damping = self.config.snapDamping
         snapBehaviour.action = {
             // Check if the view reach the snap point
             if self.distance(from: view.center, to: toPoint) < 1 && counter == 0 {
@@ -173,7 +204,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         let gestureView = gesture.view!
         let dragPoint: CGPoint = gesture.location(in: gestureView)
         let viewCenter = gestureView.center  //Center of message view in its superview
-        let movedDistance = distance(from: startPoint, to: viewCenter)
+        let movedDistance = distance(from: snapPoint, to: viewCenter)
         
         let offsetFromCenterInView: UIOffset = UIOffset(horizontal: dragPoint.x - gestureView.bounds.midX, vertical: dragPoint.y - gestureView.bounds.midY)
         let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
@@ -222,7 +253,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
             self.animator.removeAllBehaviors()
             
             if movedDistance < self.config.thresholdDistance {
-                addSnap(view: gestureView, toPoint: self.startPoint)
+                addSnap(view: gestureView, toPoint: self.snapPoint)
             }
             else
             {

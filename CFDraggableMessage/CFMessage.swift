@@ -12,10 +12,25 @@ private let globalInstance = CFMessage()
 
 open class CFMessage: MessengerDelegate {
     
+    public enum InitPosition {
+        case top(HorizontalPosition)
+        case bottom(HorizontalPosition)
+        case left
+        case right
+        case custom(CGPoint)
+    }
+    
+    public enum HorizontalPosition {
+        case left
+        case right
+        case center
+    }
+    
     public enum AppearPosition {
         case top
         case center
         case bottom
+        case custom(CGPoint)
     }
     
     public enum DismissTime {
@@ -26,6 +41,7 @@ open class CFMessage: MessengerDelegate {
     
     public struct Config {
         public init() {}
+        public var initPosition = InitPosition.top(.center)
         public var appearPosition = AppearPosition.center
         public var dismissTime = DismissTime.default
         public var tapToDismiss = true
@@ -35,6 +51,7 @@ open class CFMessage: MessengerDelegate {
         public var defaultPushForce : CGFloat = 12
         public var angularVelocityFactor: CGFloat = 0.8
         public var angularResistance: CGFloat = 1.5
+        public var snapDamping: CGFloat = 0.6
     }
     
     public init() {}

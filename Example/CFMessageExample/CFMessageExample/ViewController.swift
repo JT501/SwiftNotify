@@ -44,10 +44,11 @@ class ViewController: UIViewController, CFMessageDelegate {
     
     @IBAction func showMessage() {
         var config = CFMessage.Config()
+        config.initPosition = .top(.left)
         config.thresholdDistance = 30
         config.dismissTime = .never
         config.tapToDismiss = true
-        config.appearPosition = .center
+        config.appearPosition = .top
         messenger.show(config: config, view: self.createMessageView(withText: "Test"))
         messenger.show(config: config, view: self.createMessageView(withText: "TapHandler"), tapHandler: {
             let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)

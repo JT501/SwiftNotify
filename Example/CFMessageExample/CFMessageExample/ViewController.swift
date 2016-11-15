@@ -49,6 +49,12 @@ class ViewController: UIViewController, CFMessageDelegate {
         config.tapToDismiss = true
         config.appearPosition = .center
         messenger.show(config: config, view: self.createMessageView(withText: "Test"))
+        messenger.show(config: config, view: self.createMessageView(withText: "TapHandler"), tapHandler: {
+            let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+        })
 //        messenger.show(view: self.createMessageView(withText: "Test"))
     }
     

@@ -24,15 +24,10 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
     var isDismissing: Bool
     weak var delegate: MessengerDelegate?
     var fieldMargin: CGFloat  //Margin to remove message from view
+    var angularVelocity: CGFloat = 0
+    let tapAction: (()->Void)?
     
-    // Constants
-    let minMagnitude : CGFloat = 8
-    let magnitudePadding : CGFloat = 250
-    let defaultMagnitude : CGFloat = 12
-    let angularVelocityFactor: CGFloat = 0.8
-    let angularResistance: CGFloat = 1.5
-    
-    init(config: CFMessage.Config, view: UIView, delegate: MessengerDelegate) {
+    init(config: CFMessage.Config, view: UIView, tapHandler: (()->Void)?, delegate: MessengerDelegate) {
         self.config = config
         self.view = view
         self.containerView = UIView()
@@ -43,6 +38,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         self.isDismissing = false
         self.delegate = delegate
         self.fieldMargin = 300
+        self.tapAction = tapHandler
         
         super.init()
         self.panRecognizer.addTarget(self, action: #selector(Messenger.pan(gesture:)))
@@ -173,8 +169,6 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         self.animator.removeBehavior(snapBehaviour)
     }
     
-    var angularVelocity: CGFloat = 0
-    
     func pan(gesture: UIPanGestureRecognizer) {
         let gestureView = gesture.view!
         let dragPoint: CGPoint = gesture.location(in: gestureView)
@@ -182,10 +176,6 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         let movedDistance = distance(from: startPoint, to: viewCenter)
         
         let offsetFromCenterInView: UIOffset = UIOffset(horizontal: dragPoint.x - gestureView.bounds.midX, vertical: dragPoint.y - gestureView.bounds.midY)
-
-        let dragPointInWindow: CGPoint = gesture.location(in: gestureView.superview)
-        let offsetFromCenterInWindow: UIOffset = UIOffset(horizontal: dragPointInWindow.x - viewCenter.x, vertical: dragPointInWindow.y - viewCenter.y)
-        
         let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
         let vector = CGVector(dx: (velocity.x), dy: (velocity.y))
         
@@ -208,6 +198,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
             
             attachmentBehaviour.action = { [weak self] in
                 guard let strongSelf = self else { return }
+                //Calculate Angular Velocity
                 let time = CFAbsoluteTimeGetCurrent()
                 let angle = CGFloat(strongSelf.angleOfView(view: gestureView))
                 if time > lastTime {
@@ -246,16 +237,16 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
                 let pushBehavior = UIPushBehavior(items: [gestureView], mode: UIPushBehaviorMode.instantaneous)
                 pushBehavior.pushDirection = vector
                 
-                let pushMagnitude : CGFloat = pushBehavior.magnitude / magnitudePadding
+                let pushMagnitude : CGFloat = pushBehavior.magnitude * self.config.pushForceFactor
                 
-                pushBehavior.magnitude = (pushMagnitude > minMagnitude) ? pushMagnitude : defaultMagnitude
+                pushBehavior.magnitude = (pushMagnitude > self.config.minPushForce) ? pushMagnitude : self.config.defaultPushForce
 //                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
                 self.animator.addBehavior(pushBehavior)
                 
                 //Add Item Behaviour
                 let itemBehaviour = UIDynamicItemBehavior(items: [gestureView])
-                itemBehaviour.addAngularVelocity(angularVelocity*angularVelocityFactor, for: gestureView)
-                itemBehaviour.angularResistance = angularResistance
+                itemBehaviour.addAngularVelocity(angularVelocity * self.config.angularVelocityFactor, for: gestureView)
+                itemBehaviour.angularResistance = self.config.angularResistance
                 
                 itemBehaviour.action = { [weak self] in
                     guard let strongSelf = self else { return }
@@ -276,6 +267,9 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
     func tap(gesture: UITapGestureRecognizer) {
         if let delegate = self.delegate {
             delegate.messengerIsTapped()
+        }
+        if let tapAction = self.tapAction {
+            tapAction()
         }
     }
     

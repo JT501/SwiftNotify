@@ -30,16 +30,25 @@ open class CFMessage: MessengerDelegate {
         public var dismissTime = DismissTime.default
         public var tapToDismiss = true
         public var thresholdDistance : CGFloat = 50
+        public var minPushForce : CGFloat = 8
+        public var pushForceFactor : CGFloat = 0.005
+        public var defaultPushForce : CGFloat = 12
+        public var angularVelocityFactor: CGFloat = 0.8
+        public var angularResistance: CGFloat = 1.5
     }
     
     public init() {}
     
-    open func show(config: Config, view: UIView) {
+    open func show(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
         syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
-            let message = Messenger(config: config, view: view, delegate: strongSelf)
+            let message = Messenger(config: config, view: view, tapHandler: tapHandler, delegate: strongSelf)
             strongSelf.enqueue(message: message)
         }
+    }
+    
+    open func show(config: Config, view: UIView) {
+        show(config: config, view: view, tapHandler: nil)
     }
     
     open func show(view: UIView) {
@@ -75,6 +84,7 @@ open class CFMessage: MessengerDelegate {
         }
     }
     
+    open var delegate: CFMessageDelegate!
     public var defaultConfig = Config()
     
     open var intervalBetweenMessages: TimeInterval = 0.5
@@ -182,13 +192,4 @@ open class CFMessage: MessengerDelegate {
         self.msgToAutoDismiss = nil
         self.dismissCurrent()
     }
-    
-    open var delegate: CFMessageDelegate!
-
-//    var tapAction: (()->Void)? = nil
-//    var dismissAction: (()->Void)? = nil
-//    var startpoint = CGPoint()
-//    var _isDragging: Bool = false
-//    var _isShowing: Bool = false
-
 }

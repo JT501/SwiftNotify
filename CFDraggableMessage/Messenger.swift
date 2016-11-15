@@ -8,13 +8,12 @@
 
 import UIKit
 
-class Messenger: NSObject {
+class Messenger: NSObject, UIGestureRecognizerDelegate {
     
     let config: CFMessage.Config
     let view: UIView
     let containerView: UIView
     let panRecognizer: UIPanGestureRecognizer
-//    let panRecognizer2: UIPanGestureRecognizer
     let tapRecognizer: UITapGestureRecognizer
     var animator: UIDynamicAnimator
     var startPoint: CGPoint
@@ -28,16 +27,16 @@ class Messenger: NSObject {
     
     // Constants
     let minMagnitude : CGFloat = 8
-    let magnitudePadding : CGFloat = 300
+    let magnitudePadding : CGFloat = 250
     let defaultMagnitude : CGFloat = 12
-    let reduceAngularVelocityFactor : Float = 0.8
+    let angularVelocityFactor: CGFloat = 0.8
+    let angularResistance: CGFloat = 1.5
     
     init(config: CFMessage.Config, view: UIView, delegate: MessengerDelegate) {
         self.config = config
         self.view = view
         self.containerView = UIView()
         self.panRecognizer = UIPanGestureRecognizer()
-//        self.panRecognizer2 = UIPanGestureRecognizer()
         self.tapRecognizer = UITapGestureRecognizer()
         self.animator = UIDynamicAnimator()
         self.startPoint = CGPoint.zero
@@ -47,7 +46,7 @@ class Messenger: NSObject {
         
         super.init()
         self.panRecognizer.addTarget(self, action: #selector(Messenger.pan(gesture:)))
-//        self.panRecognizer2.addTarget(self, action: #selector(Messenger.pan(gesture:)))
+        self.panRecognizer.maximumNumberOfTouches = 1
         self.tapRecognizer.addTarget(self, action: #selector(Messenger.tap(gesture:)))
         self.fieldMargin = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height
     }
@@ -174,27 +173,24 @@ class Messenger: NSObject {
         self.animator.removeBehavior(snapBehaviour)
     }
     
+    var angularVelocity: CGFloat = 0
+    
     func pan(gesture: UIPanGestureRecognizer) {
         let gestureView = gesture.view!
-        let dragPoint : CGPoint = gesture.location(in: gestureView)
+        let dragPoint: CGPoint = gesture.location(in: gestureView)
         let viewCenter = gestureView.center  //Center of message view in its superview
         let movedDistance = distance(from: startPoint, to: viewCenter)
         
         let offsetFromCenterInView: UIOffset = UIOffset(horizontal: dragPoint.x - gestureView.bounds.midX, vertical: dragPoint.y - gestureView.bounds.midY)
-        var dragAngleInView : Float = atan2f(Float(offsetFromCenterInView.vertical), Float(offsetFromCenterInView.horizontal))
-        dragAngleInView = (dragAngleInView > 0)  ? dragAngleInView - Float(M_PI*2) : dragAngleInView
-//        print("dragAngleInView = \(dragAngleInView*180 / Float(M_PI))")
+
+        let dragPointInWindow: CGPoint = gesture.location(in: gestureView.superview)
+        let offsetFromCenterInWindow: UIOffset = UIOffset(horizontal: dragPointInWindow.x - viewCenter.x, vertical: dragPointInWindow.y - viewCenter.y)
         
-        let dragPointInWindow : CGPoint = gesture.location(in: gestureView.superview)
-        let offsetFromCenterInWindow : UIOffset = UIOffset(horizontal: dragPointInWindow.x - viewCenter.x, vertical: dragPointInWindow.y - viewCenter.y)
-        var dragAngleInWindow : Float = atan2f(Float(offsetFromCenterInWindow.vertical), Float(offsetFromCenterInWindow.horizontal))
-        dragAngleInWindow = (dragAngleInWindow > 0) ? dragAngleInWindow - Float(M_PI*2) : dragAngleInWindow
-//        print("dragAngleInWindow = \(dragAngleInWindow*180 / Float(M_PI))")
+        let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
+        let vector = CGVector(dx: (velocity.x), dy: (velocity.y))
         
-        var actualDraggedAngle = fabsf(dragAngleInWindow) - fabsf(dragAngleInView)
-        actualDraggedAngle = (actualDraggedAngle > 0) ? actualDraggedAngle - Float(M_PI*2) : actualDraggedAngle
-        actualDraggedAngle = fabsf(actualDraggedAngle)
-        print("actualDraggedAngle = \(actualDraggedAngle*180 / Float(M_PI))")
+        var lastTime: CFAbsoluteTime
+        var lastAngle: CGFloat
         
         switch gesture.state {
         //Start Dragging
@@ -204,13 +200,23 @@ class Messenger: NSObject {
             }
             self.animator.removeAllBehaviors()
             
-            let offsetFromCenter: UIOffset = UIOffsetMake(
-                dragPoint.x - gestureView.bounds.midX,
-                dragPoint.y - gestureView.bounds.midY
-            )
             let anchorPoint: CGPoint = gesture.location(in: gestureView.superview)
+            attachmentBehaviour = UIAttachmentBehavior(item: gestureView, offsetFromCenter: offsetFromCenterInView, attachedToAnchor: anchorPoint)
             
-            attachmentBehaviour = UIAttachmentBehavior(item: gestureView, offsetFromCenter: offsetFromCenter, attachedToAnchor: anchorPoint)
+            lastTime = CFAbsoluteTime()
+            lastAngle = CGFloat(self.angleOfView(view: gestureView))
+            
+            attachmentBehaviour.action = { [weak self] in
+                guard let strongSelf = self else { return }
+                let time = CFAbsoluteTimeGetCurrent()
+                let angle = CGFloat(strongSelf.angleOfView(view: gestureView))
+                if time > lastTime {
+                    strongSelf.angularVelocity = (angle - lastAngle) / CGFloat((time - lastTime))
+                    lastTime = time
+                    lastAngle = angle
+                }
+            }
+            
             self.animator.addBehavior(attachmentBehaviour)
         //Dragging
         case .changed:
@@ -236,9 +242,6 @@ class Messenger: NSObject {
                     }
                 }
                 
-                let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
-                let vector = CGVector(dx: (velocity.x), dy: (velocity.y))
-                
                 //Add Push Behaviour
                 let pushBehavior = UIPushBehavior(items: [gestureView], mode: UIPushBehaviorMode.instantaneous)
                 pushBehavior.pushDirection = vector
@@ -246,53 +249,14 @@ class Messenger: NSObject {
                 let pushMagnitude : CGFloat = pushBehavior.magnitude / magnitudePadding
                 
                 pushBehavior.magnitude = (pushMagnitude > minMagnitude) ? pushMagnitude : defaultMagnitude
+//                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
                 self.animator.addBehavior(pushBehavior)
                 
                 //Add Item Behaviour
                 let itemBehaviour = UIDynamicItemBehavior(items: [gestureView])
+                itemBehaviour.addAngularVelocity(angularVelocity*angularVelocityFactor, for: gestureView)
+                itemBehaviour.angularResistance = angularResistance
                 
-                // calculate angles needed for angular velocity formula
-                // https://github.com/u10int/URBMediaFocusViewController/blob/master/URBMediaFocusViewController.m#L691-L731
-                let offsetFromCenter : UIOffset = UIOffset(horizontal: dragPoint.x - gestureView.bounds.midX, vertical: dragPoint.y - gestureView.bounds.midY)
-                let radius = sqrtf(powf(Float(offsetFromCenter.horizontal), 2.0) + powf(Float(offsetFromCenter.vertical), 2.0))
-                let velocityAngle : Float = atan2f(Float(velocity.y), Float(velocity.x))
-                var locationAngle : Float = atan2f(Float(offsetFromCenter.vertical), Float(offsetFromCenter.horizontal))
-                
-                
-                if (locationAngle > 0) {
-                    locationAngle -= Float(M_PI * 2)
-                }
-                
-                // rotation direction is dependent upon which corner was pushed relative to the center of the view
-                // when velocity.y is positive, pushes to the right of center rotate clockwise, left is counterclockwise
-                var direction : CGFloat = (dragPoint.x < gestureView.center.x) ? -1.0 : 1.0
-                // when y component of velocity is negative, reverse direction
-                if (velocity.y < 0) {
-                    direction *= -1
-                }
-                
-                if ((actualDraggedAngle*180 / Float(M_PI)) > 180 && offsetFromCenter.horizontal > 0) {
-                    direction *= -1
-                } else if ((actualDraggedAngle*180 / Float(M_PI)) < 180 && offsetFromCenter.horizontal < 0) {
-                    direction *= -1
-                }
-                
-                // angle (θ) is the angle between the push vector (V) and vector component parallel to radius, so it should always be positive
-                let angle : Float = fabs(fabs(velocityAngle) - fabs(locationAngle))
-                // angular velocity formula: w = (abs(V) * sin(θ)) / abs(r)
-                var angularVelocity : Float = fabs((Float(fabs(pushMagnitude*magnitudePadding)) * sinf(angle)) / fabs(radius))
-                
-                // amount of angular velocity should be relative to how close to the edge of the view the force originated
-                // angular velocity is reduced the closer to the center the force is applied
-                // for angular velocity: positive = clockwise, negative = counterclockwise
-                let xRatioFromCenter : CGFloat = fabs(offsetFromCenter.horizontal) / (gestureView.bounds.size.width / 2.0)
-                let yRatioFromCetner : CGFloat = fabs(offsetFromCenter.vertical) / (gestureView.bounds.size.height / 2.0)
-                angularVelocity *= (Float((xRatioFromCenter + yRatioFromCetner)) / 2.0);
-                // reduce the angularVelocity (trial & error)
-                angularVelocity *= reduceAngularVelocityFactor
-                
-                itemBehaviour.allowsRotation = true
-                itemBehaviour.addAngularVelocity(CGFloat(angularVelocity) * direction, for: gestureView)
                 itemBehaviour.action = { [weak self] in
                     guard let strongSelf = self else { return }
                     strongSelf.removeFromSuperView(completion: { [weak self] (completed) in
@@ -319,5 +283,9 @@ class Messenger: NSObject {
         let xDist = (to.x - from.x)
         let yDist = (to.y - from.y)
         return sqrt((xDist * xDist) + (yDist * yDist))
+    }
+    
+    func angleOfView(view: UIView) -> Float {
+        return Float(atan2(view.transform.b, view.transform.a))
     }
 }

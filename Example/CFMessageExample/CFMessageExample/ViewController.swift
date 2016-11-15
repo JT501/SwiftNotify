@@ -44,8 +44,9 @@ class ViewController: UIViewController, CFMessageDelegate {
     
     @IBAction func showMessage() {
         var config = CFMessage.Config()
+        config.thresholdDistance = 30
         config.dismissTime = .never
-        config.tapToDismiss = false
+        config.tapToDismiss = true
         config.appearPosition = .center
         messenger.show(config: config, view: self.createMessageView(withText: "Test"))
 //        messenger.show(view: self.createMessageView(withText: "Test"))

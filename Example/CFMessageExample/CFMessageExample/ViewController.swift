@@ -43,20 +43,21 @@ class ViewController: UIViewController, CFMessageDelegate {
     }
     
     @IBAction func showMessage() {
+        let view = CFMessageView()
+        view.bodyLabel.text = "Test"
         var config = CFMessage.Config()
         config.initPosition = .top(.left)
         config.thresholdDistance = 30
         config.dismissTime = .never
         config.tapToDismiss = true
         config.appearPosition = .top
-        messenger.show(config: config, view: self.createMessageView(withText: "Test"))
+        messenger.show(config: config, view: view)
         messenger.show(config: config, view: self.createMessageView(withText: "TapHandler"), tapHandler: {
             let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(alertAction)
             self.present(alertController, animated: true, completion: nil)
         })
-//        messenger.show(view: self.createMessageView(withText: "Test"))
     }
     
     @IBAction func dismissMessage() {

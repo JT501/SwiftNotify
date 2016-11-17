@@ -24,6 +24,7 @@ open class CFMessage: MessengerDelegate {
         case left
         case right
         case center
+        case random
     }
     
     public enum AppearPosition {
@@ -50,8 +51,8 @@ open class CFMessage: MessengerDelegate {
         public var pushForceFactor : CGFloat = 0.005
         public var defaultPushForce : CGFloat = 12
         public var angularVelocityFactor: CGFloat = 0.8
-        public var angularResistance: CGFloat = 1.5
-        public var snapDamping: CGFloat = 0.6
+        public var angularResistance: CGFloat = 1.2
+        public var snapDamping: CGFloat = 0.3
     }
     
     public init() {}

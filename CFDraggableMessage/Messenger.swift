@@ -76,6 +76,8 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
                 initPoint = CGPoint(0 - self.view.bounds.width, 0 - self.view.bounds.height)
             case .right:
                 initPoint = CGPoint(keyWindow.bounds.width, 0 - self.view.bounds.height)
+            case .random:
+                initPoint = CGPoint(randomBetweenNumbers(firstNum: 0 - self.view.bounds.width, secondNum: keyWindow.bounds.width + self.view.bounds.width), 0 - self.view.bounds.height)
             }
         case .bottom(let position):
             switch position {
@@ -85,6 +87,8 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
                 initPoint = CGPoint(0 - self.view.bounds.width, keyWindow.bounds.height)
             case .right:
                 initPoint = CGPoint(keyWindow.bounds.width, keyWindow.bounds.height)
+            case .random:
+                initPoint = CGPoint(randomBetweenNumbers(firstNum: 0 - self.view.bounds.width, secondNum: keyWindow.bounds.width + self.view.bounds.width), keyWindow.bounds.height)
             }
         case .left:
             initPoint = CGPoint(0 - self.view.bounds.width, keyWindow.bounds.midY)
@@ -94,6 +98,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
             initPoint = point
         }
         
+        self.view.frame.origin = CGPoint.zero
         self.containerView.frame.origin = initPoint
         self.containerView.bounds = self.view.bounds
         self.containerView.backgroundColor = UIColor.clear
@@ -116,7 +121,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         case .center:
             self.snapPoint = keyWindow.bounds.center
         case .top:
-            self.snapPoint = CGPoint(x: keyWindow.bounds.midX, y: 70 + self.containerView.bounds.midY)
+            self.snapPoint = CGPoint(x: keyWindow.bounds.midX, y: 70 + self.containerView.bounds.height/2)
         case .custom(let point):
             self.snapPoint = point
         }
@@ -312,5 +317,10 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
     
     func angleOfView(view: UIView) -> Float {
         return Float(atan2(view.transform.b, view.transform.a))
+    }
+    
+    //http://stackoverflow.com/questions/26029393/random-number-between-two-decimals-in-swift
+    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
 }

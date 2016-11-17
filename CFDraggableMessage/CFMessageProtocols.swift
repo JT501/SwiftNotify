@@ -15,6 +15,7 @@ public protocol CFMessageDelegate {
     func cfMessageDidDismiss()
 }
 
+// Internal Use
 protocol MessengerDelegate: class {
     func messengerDidAppear()
     func messengerStartDragging(atPoint: CGPoint)

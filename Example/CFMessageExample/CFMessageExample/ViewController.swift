@@ -43,16 +43,28 @@ class ViewController: UIViewController, CFMessageDelegate {
     }
     
     @IBAction func showMessage() {
-        let view = CFMessageView()
-        view.bodyLabel.text = "Test"
+        let view = SimpleView(text: "Testing Long Text: ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+//        view.width = 100
+//        view.height = 100
+        view.minHeight = 20
+        view.cornerRadius = view.height / 2
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        imageView.image = #imageLiteral(resourceName: "Dog.jpg")
+        imageView.layer.cornerRadius = imageView.bounds.height / 2
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        
         var config = CFMessage.Config()
-        config.initPosition = .top(.left)
+        config.initPosition = .top(.random)
         config.thresholdDistance = 30
         config.dismissTime = .never
         config.tapToDismiss = true
         config.appearPosition = .top
+        config.angularResistance = 1
         messenger.show(config: config, view: view)
-        messenger.show(config: config, view: self.createMessageView(withText: "TapHandler"), tapHandler: {
+        messenger.show(config: config, view: imageView)
+        messenger.show(config: config, view: SimpleView(text: "TapHandler"), tapHandler: {
             let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(alertAction)

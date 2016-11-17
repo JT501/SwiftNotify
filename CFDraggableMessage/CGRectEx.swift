@@ -45,7 +45,7 @@ extension CGRect {
             return self.size.width
         }
         set {
-            self = CGRect(self.x, self.width, newValue, self.height)
+            self = CGRect(self.x, self.y, newValue, self.height)
         }
     }
     
@@ -54,7 +54,7 @@ extension CGRect {
             return self.size.height
         }
         set {
-            self = CGRect(self.x, self.minY, self.width, newValue)
+            self = CGRect(self.x, self.y, self.width, newValue)
         }
     }
     

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		053212231DD95F700008581A /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212221DD95F700008581A /* CGRectEx.swift */; };
+		053212291DDE96470008581A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212281DDE96470008581A /* TitleView.swift */; };
+		0532122D1DDEEAA80008581A /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532122C1DDEEAA80008581A /* BaseLabel.swift */; };
+		053212301DDEF6F80008581A /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532122F1DDEF6F80008581A /* BaseImageView.swift */; };
+		053212321DDF044E0008581A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053212311DDF044E0008581A /* Images.xcassets */; };
+		053212351DDF06460008581A /* CFDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212341DDF06460008581A /* CFDefaultView.swift */; };
 		05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFMessage.swift */; };
 		05C827271DD31B7A003E0C5E /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */; };
 		05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */; };
@@ -31,6 +36,11 @@
 
 /* Begin PBXFileReference section */
 		053212221DD95F700008581A /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
+		053212281DDE96470008581A /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		0532122C1DDEEAA80008581A /* BaseLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		0532122F1DDEF6F80008581A /* BaseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
+		053212311DDF044E0008581A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		053212341DDF06460008581A /* CFDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFDefaultView.swift; sourceTree = "<group>"; };
 		05B9FE601DD32E7C003EFC10 /* CFMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessage.swift; sourceTree = "<group>"; };
 		05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CFDraggableMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFDraggableMessage.h; sourceTree = "<group>"; };
@@ -78,8 +88,26 @@
 			isa = PBXGroup;
 			children = (
 				05E003721DD46261003DBE35 /* SimpleView.swift */,
+				053212281DDE96470008581A /* TitleView.swift */,
 			);
 			name = CFMessageView;
+			sourceTree = "<group>";
+		};
+		0532122E1DDEEAD10008581A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0532122C1DDEEAA80008581A /* BaseLabel.swift */,
+				0532122F1DDEF6F80008581A /* BaseImageView.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		053212331DDF04570008581A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				053212311DDF044E0008581A /* Images.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		05C827131DD31B7A003E0C5E = {
@@ -104,10 +132,13 @@
 		05C8271F1DD31B7A003E0C5E /* CFDraggableMessage */ = {
 			isa = PBXGroup;
 			children = (
+				0532122E1DDEEAD10008581A /* Base */,
 				0532121F1DD95F0D0008581A /* Helper */,
+				053212331DDF04570008581A /* Resources */,
 				053212271DDDB7FB0008581A /* CFMessageView */,
 				05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */,
 				05B9FE601DD32E7C003EFC10 /* CFMessage.swift */,
+				053212341DDF06460008581A /* CFDefaultView.swift */,
 				B231B3961DD700FB00D29BD5 /* Messenger.swift */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */,
@@ -229,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053212321DDF044E0008581A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,10 +279,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B231B3971DD700FB00D29BD5 /* Messenger.swift in Sources */,
+				0532122D1DDEEAA80008581A /* BaseLabel.swift in Sources */,
 				053212231DD95F700008581A /* CGRectEx.swift in Sources */,
 				05E003731DD46261003DBE35 /* SimpleView.swift in Sources */,
+				053212351DDF06460008581A /* CFDefaultView.swift in Sources */,
 				05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */,
 				05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */,
+				053212291DDE96470008581A /* TitleView.swift in Sources */,
+				053212301DDEF6F80008581A /* BaseImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

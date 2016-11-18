@@ -27,7 +27,7 @@ extension CGRect {
             return self.origin.x
         }
         set {
-            self = CGRect(newValue, self.minY, self.width, self.height)
+            self = CGRect(newValue, self.y, self.width, self.height)
         }
     }
     

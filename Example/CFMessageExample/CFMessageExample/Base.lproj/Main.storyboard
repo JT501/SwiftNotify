@@ -20,25 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-TF-3DQ">
-                                <rect key="frame" x="135" y="557" width="104" height="30"/>
-                                <state key="normal" title="Show Message"/>
-                                <connections>
-                                    <action selector="showMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="C2p-7g-0fe"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WDg-hh-MeC">
-                                <rect key="frame" x="128" y="595" width="119" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-cE-vJG">
-                                        <rect key="frame" x="0.0" y="0.0" width="119" height="30"/>
-                                        <state key="normal" title="Dismiss Message"/>
-                                        <connections>
-                                            <action selector="dismissMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBT-ug-9sD"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Iz-VT-LMK">
                                 <rect key="frame" x="131" y="629" width="112" height="30"/>
                                 <state key="normal" title="Show Next Page"/>
@@ -46,15 +27,47 @@
                                     <segue destination="nTT-Mo-uif" kind="show" id="iu6-Ff-cPf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-cq-Vrt">
+                                <rect key="frame" x="150" y="591" width="75" height="30"/>
+                                <state key="normal" title="Dismiss All"/>
+                                <connections>
+                                    <action selector="dismissAll" destination="BYZ-38-t0r" eventType="touchUpInside" id="gNF-w7-Wns"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-cE-vJG">
+                                <rect key="frame" x="128" y="553" width="119" height="30"/>
+                                <state key="normal" title="Dismiss Message"/>
+                                <connections>
+                                    <action selector="dismissMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBT-ug-9sD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-TF-3DQ">
+                                <rect key="frame" x="135" y="515" width="104" height="30"/>
+                                <state key="normal" title="Show Message"/>
+                                <connections>
+                                    <action selector="showMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="C2p-7g-0fe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w36-di-nf0">
+                                <rect key="frame" x="172" y="477" width="30" height="30"/>
+                                <state key="normal" title="Test"/>
+                                <connections>
+                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJk-4b-LFn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WDg-hh-MeC" firstAttribute="top" secondItem="lFm-TF-3DQ" secondAttribute="bottom" constant="8" id="7fY-qa-hkY"/>
+                            <constraint firstItem="lFm-TF-3DQ" firstAttribute="top" secondItem="w36-di-nf0" secondAttribute="bottom" constant="8" id="4Hm-jk-bAp"/>
+                            <constraint firstItem="Qoe-cq-Vrt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jV-B5-vYA"/>
                             <constraint firstItem="5Iz-VT-LMK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BFK-ph-lft"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5Iz-VT-LMK" secondAttribute="bottom" constant="8" id="F2v-Um-Lvo"/>
                             <constraint firstItem="lFm-TF-3DQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NLS-Pm-Ddy"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lFm-TF-3DQ" secondAttribute="bottom" constant="80" id="Rbf-nT-wyF"/>
-                            <constraint firstItem="WDg-hh-MeC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cpB-3q-Zke"/>
-                            <constraint firstItem="5Iz-VT-LMK" firstAttribute="top" secondItem="WDg-hh-MeC" secondAttribute="bottom" constant="4" id="ddQ-VI-wwF"/>
+                            <constraint firstItem="Hys-cE-vJG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rgf-JZ-nBe"/>
+                            <constraint firstItem="Qoe-cq-Vrt" firstAttribute="top" secondItem="Hys-cE-vJG" secondAttribute="bottom" constant="8" id="SHA-Qt-8BX"/>
+                            <constraint firstItem="5Iz-VT-LMK" firstAttribute="top" secondItem="Qoe-cq-Vrt" secondAttribute="bottom" constant="8" id="ogG-ar-Y9T"/>
+                            <constraint firstItem="w36-di-nf0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ohp-fA-veO"/>
+                            <constraint firstItem="Hys-cE-vJG" firstAttribute="top" secondItem="lFm-TF-3DQ" secondAttribute="bottom" constant="8" id="vat-dg-ZqP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="h38-Wv-Lif"/>

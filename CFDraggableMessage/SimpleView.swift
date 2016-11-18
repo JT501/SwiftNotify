@@ -10,7 +10,7 @@ import UIKit
 open class SimpleView: UIView {
     
     /**
-        Get the width of message view
+    Get & set the width of message view
     */
     open var width: CGFloat {
         get {
@@ -24,7 +24,9 @@ open class SimpleView: UIView {
     }
     
     /**
-        Get the height of message view
+    Get & set the height of message view
+    - PS. 
+     It will override the height calculated by text length
     */
     open var height: CGFloat {
         get {
@@ -37,7 +39,7 @@ open class SimpleView: UIView {
     }
     
     /**
-        Set the min. height of message view
+    Set the min. height of message view
     */
     open var minHeight: CGFloat = 30 {
         didSet {
@@ -46,7 +48,7 @@ open class SimpleView: UIView {
     }
     
     /**
-        Set the corner radius of message view
+    Set the corner radius of message view
     */
     open var cornerRadius: CGFloat = 10 {
         didSet {
@@ -56,12 +58,12 @@ open class SimpleView: UIView {
     }
     
     /**
-        Get the instance of title label to take full control of it
+    Get the instance of title label to take full control of it
     */
     open var titleLabel: UILabel!
     
     /**
-        Set the title text & the height of message view will be calculated
+    Set the title text & the height of message view will be calculated
     */
     open var titleText: String {
         didSet {
@@ -71,7 +73,7 @@ open class SimpleView: UIView {
     }
     
     /**
-        Set title text font and font size & the height of message view will be calculated
+    Set title text font and font size & the height of message view will be calculated
     */
     open var titleTextFont: UIFont = .systemFont(ofSize: 14) {
         didSet {
@@ -81,7 +83,7 @@ open class SimpleView: UIView {
     }
     
     /** 
-        Set title text alignment
+    Set title text alignment
      */
     open var textAlignment: NSTextAlignment = .center {
         didSet {
@@ -90,7 +92,7 @@ open class SimpleView: UIView {
     }
     
     /**
-        Set title text color
+    Set title text color
     */
     open var textColor: UIColor = .white {
         didSet {
@@ -99,9 +101,9 @@ open class SimpleView: UIView {
     }
     
     /**
-        Set title label background color
+    Set title label background color
     */
-    open var titleBackgroundColor: UIColor = .black {
+    open var titleBackgroundColor: UIColor = .clear {
         didSet {
             titleLabel.backgroundColor = titleBackgroundColor
         }
@@ -131,7 +133,7 @@ open class SimpleView: UIView {
     }
     
     /**
-        Set the width of message view & the height of message view will be calculated
+    Set the width of message view & the height of message view will be calculated
      */
     func setWidth(width: CGFloat) {
         self.bounds.width = width
@@ -139,8 +141,8 @@ open class SimpleView: UIView {
     }
     
     /**
-        Set the height of message view
-        PS. It will override the calculated height by text length
+    Set the height of message view
+    PS. It will override the calculated height by text length
      */
     func setHeight(height: CGFloat) {
         self.bounds.height = height

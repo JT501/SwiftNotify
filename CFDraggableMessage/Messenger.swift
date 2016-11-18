@@ -274,8 +274,9 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
                 pushBehavior.pushDirection = vector
                 
                 let pushMagnitude : CGFloat = pushBehavior.magnitude * self.config.pushForceFactor
+                let massFactor: CGFloat = (gestureView.bounds.height * gestureView.bounds.width) / (100*100)
                 
-                pushBehavior.magnitude = (pushMagnitude > self.config.minPushForce) ? pushMagnitude : self.config.defaultPushForce
+                pushBehavior.magnitude = (pushMagnitude > self.config.minPushForce) ? pushMagnitude*massFactor : self.config.defaultPushForce*massFactor
 //                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
                 self.animator.addBehavior(pushBehavior)
                 

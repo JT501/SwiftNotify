@@ -51,6 +51,9 @@ open class CFMessage: MessengerDelegate {
         public var pushForceFactor : CGFloat = 0.005
         public var defaultPushForce : CGFloat = 12
         public var angularVelocityFactor: CGFloat = 0.8
+        /**
+        Rotation resistance, default: 1.2
+        */
         public var angularResistance: CGFloat = 1.2
         public var snapDamping: CGFloat = 0.3
     }

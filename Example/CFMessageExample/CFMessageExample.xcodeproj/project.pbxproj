@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		053212261DDDB3D90008581A /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 053212251DDDB3D90008581A /* Dog.jpg */; };
+		0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532122A1DDEDE1D0008581A /* Dog2.jpg */; };
 		B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3731DD35A1400D29BD5 /* AppDelegate.swift */; };
 		B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3751DD35A1400D29BD5 /* ViewController.swift */; };
 		B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B3771DD35A1400D29BD5 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		053212251DDDB3D90008581A /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = ../Dog.jpg; sourceTree = "<group>"; };
+		0532122A1DDEDE1D0008581A /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2.jpg; sourceTree = "<group>"; };
 		B231B3701DD35A1400D29BD5 /* CFMessageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFMessageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3731DD35A1400D29BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B231B3751DD35A1400D29BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		053212241DDDB3C70008581A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0532122A1DDEDE1D0008581A /* Dog2.jpg */,
 				053212251DDDB3D90008581A /* Dog.jpg */,
 			);
 			path = Resource;
@@ -165,6 +168,7 @@
 			files = (
 				053212261DDDB3D90008581A /* Dog.jpg in Resources */,
 				B231B37E1DD35A1400D29BD5 /* LaunchScreen.storyboard in Resources */,
+				0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */,
 				B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */,
 				B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */,
 			);

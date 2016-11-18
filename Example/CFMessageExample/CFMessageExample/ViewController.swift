@@ -12,6 +12,7 @@ import CFDraggableMessage
 class ViewController: UIViewController, CFMessageDelegate {
     
     var messenger = CFMessage()
+    var titleView = TitleView(title: "", body: "", image: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +44,28 @@ class ViewController: UIViewController, CFMessageDelegate {
     }
     
     @IBAction func showMessage() {
-        let view = SimpleView(text: "Testing Long Text: ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-//        view.width = 100
-//        view.height = 100
-        view.minHeight = 20
-        view.cornerRadius = view.height / 2
+        titleView = TitleView(title: "Pembroke Welsh Corgi", body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", image: #imageLiteral(resourceName: "Dog.jpg"))
+        titleView.width = self.view.bounds.width*0.9
+        
+        var titleViewConfig = CFMessage.Config()
+        titleViewConfig.initPosition = .top(.random)
+        titleViewConfig.appearPosition = .top
+        titleViewConfig.thresholdDistance = 30
+        titleViewConfig.dismissTime = .never
+        
+        let simpleView = CFDefaultView.createSimpleView(text: "Testing Long Text: ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        simpleView.backgroundColor = UIColor.red
+//        simpleView.width = 100
+//        simpleView.height = 100
+        simpleView.minHeight = 30
+        simpleView.cornerRadius = simpleView.height / 2
+        
+        var simpleViewConfig = CFMessage.Config()
+        simpleViewConfig.initPosition = .bottom(.random)
+        simpleViewConfig.appearPosition = .bottom
+        simpleViewConfig.thresholdDistance = 30
+        simpleViewConfig.dismissTime = .never
+        simpleViewConfig.angularResistance = 1
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         imageView.image = #imageLiteral(resourceName: "Dog.jpg")
@@ -55,16 +73,17 @@ class ViewController: UIViewController, CFMessageDelegate {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         
-        var config = CFMessage.Config()
-        config.initPosition = .top(.random)
-        config.thresholdDistance = 30
-        config.dismissTime = .never
-        config.tapToDismiss = true
-        config.appearPosition = .top
-        config.angularResistance = 1
-        messenger.show(config: config, view: view)
-        messenger.show(config: config, view: imageView)
-        messenger.show(config: config, view: SimpleView(text: "TapHandler"), tapHandler: {
+        var imageViewConfig = CFMessage.Config()
+        imageViewConfig.initPosition = .top(.random)
+        imageViewConfig.thresholdDistance = 999
+        imageViewConfig.dismissTime = .never
+        imageViewConfig.tapToDismiss = true
+        imageViewConfig.appearPosition = .center
+        
+        messenger.show(config: titleViewConfig, view: titleView)
+        messenger.show(config: simpleViewConfig, view: simpleView)
+        messenger.show(config: imageViewConfig, view: imageView)
+        messenger.show(config: simpleViewConfig, view: SimpleView(text: "TapHandler"), tapHandler: {
             let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(alertAction)
@@ -74,6 +93,23 @@ class ViewController: UIViewController, CFMessageDelegate {
     
     @IBAction func dismissMessage() {
         messenger.dismiss()
+    }
+    
+    @IBAction func dismissAll() {
+        messenger.dismissAll()
+    }
+    
+    @IBAction func test() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.titleView.imageView.image = #imageLiteral(resourceName: "Dog2.jpg")
+            self.titleView.imageViewWidth = 70
+            self.titleView.imageViewHeight = 70
+            self.titleView.imageViewCornerRadus = 35
+            self.titleView.titleText = "Shiba Inu"
+            self.titleView.bodyText = "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+        }, completion: { completed in
+            self.titleView.width = 200
+        })
     }
 
     public func createMessageView(withText text: String) -> UIView {

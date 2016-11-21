@@ -37,21 +37,20 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         self.snapPoint = CGPoint.zero
         self.isDismissing = false
         self.delegate = delegate
-        self.fieldMargin = 300
+        self.fieldMargin = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height
         self.tapAction = tapHandler
         
         super.init()
         self.panRecognizer.addTarget(self, action: #selector(Messenger.pan(gesture:)))
         self.panRecognizer.maximumNumberOfTouches = 1
         self.tapRecognizer.addTarget(self, action: #selector(Messenger.tap(gesture:)))
-        self.fieldMargin = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height
     }
     
     var dismissTime: TimeInterval? {
         let duration: TimeInterval?
         switch self.config.dismissTime {
         case .default:
-            duration = 2.0
+            duration = 3.0
         case .never:
             duration = nil
         case .custom(let seconds):

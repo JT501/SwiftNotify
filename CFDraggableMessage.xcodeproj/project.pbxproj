@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		053212231DD95F700008581A /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212221DD95F700008581A /* CGRectEx.swift */; };
-		053212291DDE96470008581A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212281DDE96470008581A /* TitleView.swift */; };
+		053212291DDE96470008581A /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212281DDE96470008581A /* ClassicView.swift */; };
 		0532122D1DDEEAA80008581A /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532122C1DDEEAA80008581A /* BaseLabel.swift */; };
 		053212301DDEF6F80008581A /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532122F1DDEF6F80008581A /* BaseImageView.swift */; };
 		053212321DDF044E0008581A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053212311DDF044E0008581A /* Images.xcassets */; };
@@ -20,7 +20,7 @@
 		05C827391DD31FCE003E0C5E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C827381DD31FCE003E0C5E /* Nimble.framework */; };
 		05C8273B1DD31FD5003E0C5E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8273A1DD31FD5003E0C5E /* Quick.framework */; };
 		05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */; };
-		05E003731DD46261003DBE35 /* SimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003721DD46261003DBE35 /* SimpleView.swift */; };
+		05E003731DD46261003DBE35 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003721DD46261003DBE35 /* ToastView.swift */; };
 		B231B3971DD700FB00D29BD5 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3961DD700FB00D29BD5 /* Messenger.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		053212221DD95F700008581A /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
-		053212281DDE96470008581A /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		053212281DDE96470008581A /* ClassicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicView.swift; sourceTree = "<group>"; };
 		0532122C1DDEEAA80008581A /* BaseLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		0532122F1DDEF6F80008581A /* BaseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
 		053212311DDF044E0008581A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		05C827381DD31FCE003E0C5E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		05C8273A1DD31FD5003E0C5E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessageProtocols.swift; sourceTree = "<group>"; };
-		05E003721DD46261003DBE35 /* SimpleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleView.swift; sourceTree = "<group>"; };
+		05E003721DD46261003DBE35 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		B231B3961DD700FB00D29BD5 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,8 +87,8 @@
 		053212271DDDB7FB0008581A /* CFMessageView */ = {
 			isa = PBXGroup;
 			children = (
-				05E003721DD46261003DBE35 /* SimpleView.swift */,
-				053212281DDE96470008581A /* TitleView.swift */,
+				05E003721DD46261003DBE35 /* ToastView.swift */,
+				053212281DDE96470008581A /* ClassicView.swift */,
 			);
 			name = CFMessageView;
 			sourceTree = "<group>";
@@ -281,11 +281,11 @@
 				B231B3971DD700FB00D29BD5 /* Messenger.swift in Sources */,
 				0532122D1DDEEAA80008581A /* BaseLabel.swift in Sources */,
 				053212231DD95F700008581A /* CGRectEx.swift in Sources */,
-				05E003731DD46261003DBE35 /* SimpleView.swift in Sources */,
+				05E003731DD46261003DBE35 /* ToastView.swift in Sources */,
 				053212351DDF06460008581A /* CFDefaultView.swift in Sources */,
 				05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */,
 				05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */,
-				053212291DDE96470008581A /* TitleView.swift in Sources */,
+				053212291DDE96470008581A /* ClassicView.swift in Sources */,
 				053212301DDEF6F80008581A /* BaseImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //
 import UIKit
 
-open class SimpleView: UIView {
+open class ToastView: UIView {
     
     /**
     Get & set the width of message view
@@ -18,7 +18,7 @@ open class SimpleView: UIView {
         }
         set {
             self.bounds.width = newValue
-            titleLabel.bounds.width = newValue * 0.9
+            textLabel.bounds.width = newValue * 0.9
             resizeToFitText()
         }
     }
@@ -34,18 +34,32 @@ open class SimpleView: UIView {
         }
         set {
             self.bounds.height = newValue
-            titleLabel.center = CGPoint(self.width/2, newValue/2)
+            textLabel.center = CGPoint(self.width/2, newValue/2)
+        }
+    }
+    
+    /**
+    Set the max. width of message view
+    */
+    open var maxWidth: CGFloat = UIScreen.main.bounds.size.width * 0.8 {
+        didSet {
+            resizeToFitText()
         }
     }
     
     /**
     Set the min. height of message view
     */
-    open var minHeight: CGFloat = 30 {
+    open var minHeight: CGFloat = 50 {
         didSet {
             resizeToFitText()
         }
     }
+    
+    /**
+     Set the padding between each elements
+     */
+    open var paddingOffset: CGFloat = 10
     
     /**
     Set the corner radius of message view
@@ -60,14 +74,14 @@ open class SimpleView: UIView {
     /**
     Get the instance of title label to take full control of it
     */
-    open var titleLabel: UILabel!
+    open var textLabel: UILabel!
     
     /**
     Set the title text & the height of message view will be calculated
     */
-    open var titleText: String {
+    open var text: String {
         didSet {
-            titleLabel.text = titleText
+            textLabel.text = text
             resizeToFitText()
         }
     }
@@ -75,9 +89,9 @@ open class SimpleView: UIView {
     /**
     Set title text font and font size & the height of message view will be calculated
     */
-    open var titleTextFont: UIFont = .systemFont(ofSize: 14) {
+    open var textFont: UIFont = .boldSystemFont(ofSize: 17) {
         didSet {
-            titleLabel.font = titleTextFont
+            textLabel.font = textFont
             resizeToFitText()
         }
     }
@@ -87,7 +101,7 @@ open class SimpleView: UIView {
      */
     open var textAlignment: NSTextAlignment = .center {
         didSet {
-            titleLabel.textAlignment = textAlignment
+            textLabel.textAlignment = textAlignment
         }
     }
     
@@ -96,7 +110,7 @@ open class SimpleView: UIView {
     */
     open var textColor: UIColor = .white {
         didSet {
-            titleLabel.textColor = textColor
+            textLabel.textColor = textColor
         }
     }
     
@@ -105,25 +119,25 @@ open class SimpleView: UIView {
     */
     open var titleBackgroundColor: UIColor = .clear {
         didSet {
-            titleLabel.backgroundColor = titleBackgroundColor
+            textLabel.backgroundColor = titleBackgroundColor
         }
     }
     
     // MARK: - Initialization
     public init(text: String) {
-        titleText = text
+        self.text = text
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width * 0.8, height: 0))
         self.backgroundColor = .black
-        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.width*0.9, height: 0))
-        titleLabel.numberOfLines = 0
-        titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.text = titleText
-        titleLabel.font = titleTextFont
-        titleLabel.textAlignment = textAlignment
-        titleLabel.textColor = textColor
-        titleLabel.backgroundColor = titleBackgroundColor
+        textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.width*0.9, height: 0))
+        textLabel.numberOfLines = 0
+        textLabel.lineBreakMode = .byWordWrapping
+        textLabel.text = text
+        textLabel.font = textFont
+        textLabel.textAlignment = textAlignment
+        textLabel.textColor = textColor
+        textLabel.backgroundColor = titleBackgroundColor
         resizeToFitText()
-        self.addSubview(titleLabel)
+        self.addSubview(textLabel)
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
     }
@@ -146,24 +160,41 @@ open class SimpleView: UIView {
      */
     func setHeight(height: CGFloat) {
         self.bounds.height = height
-        titleLabel.center = self.center
+        textLabel.center = self.center
     }
     
     // MARK: - Convenience functions
-    func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
-        let label:UILabel = UILabel(frame: CGRect(0, 0, width, CGFloat.greatestFiniteMagnitude))
+    func sizeForView(text:String, font:UIFont, width:CGFloat? = nil) -> CGRect{
+        let _width: CGFloat
+        if width != nil {
+            _width = width!
+        } else {
+            _width = CGFloat.greatestFiniteMagnitude
+        }
+        let label:UILabel = UILabel(frame: CGRect(0, 0, _width, CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
         label.text = text
         
         label.sizeToFit()
-        return label.frame.height
+        return label.bounds
     }
     
     func resizeToFitText() {
-        titleLabel.bounds.height = heightForView(text: titleText, font: titleTextFont, width: self.bounds.width*0.9)
-        self.bounds.height = ((titleLabel.bounds.height / 0.8) < minHeight) ? minHeight : (titleLabel.bounds.height / 0.7)
-        titleLabel.center = self.bounds.center
+        var labelBounds = sizeForView(text: text, font: textFont)
+        var viewWidth = labelBounds.width + paddingOffset * 2
+        var viewHeight = labelBounds.height + paddingOffset * 2
+        
+        if viewWidth > maxWidth {
+            labelBounds = sizeForView(text: text, font: textFont, width: maxWidth - paddingOffset * 2)
+            viewWidth = labelBounds.width + paddingOffset * 2
+            viewHeight = labelBounds.height + paddingOffset * 2
+        }
+        
+        textLabel.bounds = labelBounds
+        self.bounds.width = viewWidth
+        self.bounds.height = viewHeight
+        textLabel.center = self.bounds.center
     }
 }

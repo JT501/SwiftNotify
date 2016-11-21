@@ -12,7 +12,7 @@ import CFDraggableMessage
 class ViewController: UIViewController, CFMessageDelegate {
     
     var messenger = CFMessage()
-    var titleView = TitleView(title: "", body: "", image: nil)
+    var titleView = ClassicView(title: "", body: "", image: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,85 @@ class ViewController: UIViewController, CFMessageDelegate {
 //        print("Messgae is showing? \(messager.isShowing())")
     }
     
+    @IBAction func showSimpleView() {
+        let simpleView = CFDefaultView.toastWith(text: "Pembroke Welsh Corgi", theme: .Info(.Light))
+        let simpleViewD = CFDefaultView.toastWith(text: "Pembroke Welsh Corgi", theme: .Info(.Dark))
+        
+        let simpleView2 = CFDefaultView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Success(.Light))
+        let simpleView2D = CFDefaultView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Success(.Dark))
+        
+        let simpleView3 = CFDefaultView.toastWith(text: "Pembroke Welsh Corgi", theme: .Fail(.Light))
+        let simpleView3D = CFDefaultView.toastWith(text: "Pembroke Welsh Corgi", theme: .Fail(.Dark))
+        
+        let simpleView4 = CFDefaultView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Warning(.Light))
+        let simpleView4D = CFDefaultView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Warning(.Dark))
+        
+        var simpleViewConfig = CFMessage.Config()
+        simpleViewConfig.initPosition = .bottom(.random)
+        simpleViewConfig.appearPosition = .center
+        simpleViewConfig.thresholdDistance = 30
+        simpleViewConfig.dismissTime = .never
+        simpleViewConfig.angularResistance = 1
+        
+        messenger.show(config: simpleViewConfig, view: simpleView)
+        messenger.show(config: simpleViewConfig, view: simpleView2)
+        messenger.show(config: simpleViewConfig, view: simpleView3)
+        messenger.show(config: simpleViewConfig, view: simpleView4)
+        
+        messenger.show(config: simpleViewConfig, view: simpleViewD)
+        messenger.show(config: simpleViewConfig, view: simpleView2D)
+        messenger.show(config: simpleViewConfig, view: simpleView3D)
+        messenger.show(config: simpleViewConfig, view: simpleView4D)
+    }
+    
+    @IBAction func showClassicView() {
+        let customClassicView = CFDefaultView.classicWith(title: "Pembroke Welsh Corgi",
+                                                          titleFont: .italicSystemFont(ofSize: 17),
+                                                          titleColor: UIColor.black,
+                                                          body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                          bodyFont: .systemFont(ofSize: 15),
+                                                          bodyColor: .brown,
+                                                          image: #imageLiteral(resourceName: "Dog2.jpg"),
+                                                          backgroundColor: .white)
+        customClassicView.layer.borderColor = UIColor.black.cgColor
+        customClassicView.layer.borderWidth = 1.0
+        customClassicView.imageView.layer.borderColor = UIColor.black.cgColor
+        customClassicView.imageView.layer.borderWidth = 1.0
+        
+        let classicView = CFDefaultView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Light))
+        let classicViewD = CFDefaultView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Dark))
+        
+        let classicView2 = CFDefaultView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Light))
+        let classicView2D = CFDefaultView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Dark))
+        
+        let classicView3 = CFDefaultView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Light))
+        let classicView3D = CFDefaultView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Dark))
+        
+        let classicView4 = CFDefaultView.classicWith(title: "Warning", body: "Once you go black, you can't come back", theme: .Warning(.Light))
+        let classicView4D = CFDefaultView.classicWith(title: "Warning", body: "Once you go black, you can't come back", theme: .Warning(.Dark))
+        
+        var classicViewConfig = CFMessage.Config()
+        classicViewConfig.initPosition = .top(.random)
+        classicViewConfig.appearPosition = .top
+        classicViewConfig.dismissTime = .never
+        
+        messenger.show(config: classicViewConfig, view: customClassicView)
+        
+        messenger.show(config: classicViewConfig, view: classicView)
+        messenger.show(config: classicViewConfig, view: classicView2)
+        messenger.show(config: classicViewConfig, view: classicView3)
+        messenger.show(config: classicViewConfig, view: classicView4)
+        
+        messenger.show(config: classicViewConfig, view: classicViewD)
+        messenger.show(config: classicViewConfig, view: classicView2D)
+        messenger.show(config: classicViewConfig, view: classicView3D)
+        messenger.show(config: classicViewConfig, view: classicView4D)
+    }
+    
+    
     @IBAction func showMessage() {
-        titleView = TitleView(title: "Pembroke Welsh Corgi", body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", image: #imageLiteral(resourceName: "Dog.jpg"))
+        
+        titleView = ClassicView(title: "Pembroke Welsh Corgi", body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", image: #imageLiteral(resourceName: "Dog.jpg"))
         titleView.width = self.view.bounds.width*0.9
         
         var titleViewConfig = CFMessage.Config()
@@ -52,20 +129,6 @@ class ViewController: UIViewController, CFMessageDelegate {
         titleViewConfig.appearPosition = .top
         titleViewConfig.thresholdDistance = 30
         titleViewConfig.dismissTime = .never
-        
-        let simpleView = CFDefaultView.createSimpleView(text: "Testing Long Text: ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-        simpleView.backgroundColor = UIColor.red
-//        simpleView.width = 100
-//        simpleView.height = 100
-        simpleView.minHeight = 30
-        simpleView.cornerRadius = simpleView.height / 2
-        
-        var simpleViewConfig = CFMessage.Config()
-        simpleViewConfig.initPosition = .bottom(.random)
-        simpleViewConfig.appearPosition = .bottom
-        simpleViewConfig.thresholdDistance = 30
-        simpleViewConfig.dismissTime = .never
-        simpleViewConfig.angularResistance = 1
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         imageView.image = #imageLiteral(resourceName: "Dog.jpg")
@@ -81,14 +144,13 @@ class ViewController: UIViewController, CFMessageDelegate {
         imageViewConfig.appearPosition = .center
         
         messenger.show(config: titleViewConfig, view: titleView)
-        messenger.show(config: simpleViewConfig, view: simpleView)
         messenger.show(config: imageViewConfig, view: imageView)
-        messenger.show(config: simpleViewConfig, view: SimpleView(text: "TapHandler"), tapHandler: {
-            let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alertController.addAction(alertAction)
-            self.present(alertController, animated: true, completion: nil)
-        })
+//        messenger.show(config: simpleViewConfig, view: SimpleView(text: "TapHandler"), tapHandler: {
+//            let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
+//            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//            alertController.addAction(alertAction)
+//            self.present(alertController, animated: true, completion: nil)
+//        })
     }
     
     @IBAction func dismissMessage() {
@@ -108,7 +170,7 @@ class ViewController: UIViewController, CFMessageDelegate {
             self.titleView.titleText = "Shiba Inu"
             self.titleView.bodyText = "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
         }, completion: { completed in
-            self.titleView.width = 200
+//            self.titleView.width = 200
         })
     }
 

@@ -7,7 +7,7 @@
 //
 import UIKit
 
-open class TitleView: UIView {
+open class ClassicView: UIView {
     
     /**
      Get the width of message view
@@ -76,7 +76,7 @@ open class TitleView: UIView {
     /**
      Set title text font and font size & the height of message view will be calculated
      */
-    open var titleTextFont: UIFont = .boldSystemFont(ofSize: 15) {
+    open var titleTextFont: UIFont = .boldSystemFont(ofSize: 16) {
         didSet {
             titleLabel.font = titleTextFont
             resizeToFit()
@@ -104,7 +104,7 @@ open class TitleView: UIView {
     /**
      Set title label background color
      */
-    open var titleBackgroundColor: UIColor = .black {
+    open var titleBackgroundColor: UIColor = .clear {
         didSet {
             titleLabel.backgroundColor = titleBackgroundColor
         }
@@ -128,7 +128,7 @@ open class TitleView: UIView {
     /**
      Set title text font and font size & the height of message view will be calculated
      */
-    open var bodyTextFont: UIFont = .systemFont(ofSize: 12, weight: UIFontWeightLight) {
+    open var bodyTextFont: UIFont = .systemFont(ofSize: 12, weight: UIFontWeightRegular) {
         didSet {
             bodyLabel.font = bodyTextFont
             resizeToFit()
@@ -156,7 +156,7 @@ open class TitleView: UIView {
     /**
      Set title label background color
      */
-    open var bodyBackgroundColor: UIColor = .black {
+    open var bodyBackgroundColor: UIColor = .clear {
         didSet {
             bodyLabel.backgroundColor = bodyBackgroundColor
         }
@@ -207,9 +207,9 @@ open class TitleView: UIView {
     }
     
     // MARK: - Initialization
-    public init(title: String, body: String, image: UIImage? = nil) {
-        titleText = title
-        bodyText = body
+    public init(title: String? = nil, body: String? = nil, image: UIImage? = nil) {
+        titleText = title ?? ""
+        bodyText = body ?? ""
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width * 0.8, height: 0))
         self.backgroundColor = .black
         imageView = BaseImageView(frame: CGRect(paddingOffset, paddingOffset, imageViewWidth, imageViewHeight))
@@ -239,6 +239,11 @@ open class TitleView: UIView {
         bodyLabel.textColor = bodyTextColor
         bodyLabel.backgroundColor = bodyBackgroundColor
         resizeToFit()
+        
+        imageView.isHidden = (imageView == nil)
+        titleLabel.isHidden = (titleText == "")
+        bodyLabel.isHidden = (bodyText == "")
+        
         self.addSubview(imageView)
         self.addSubview(titleLabel)
         self.addSubview(bodyLabel)

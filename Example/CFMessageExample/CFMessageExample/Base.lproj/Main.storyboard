@@ -42,17 +42,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-TF-3DQ">
-                                <rect key="frame" x="135" y="515" width="104" height="30"/>
-                                <state key="normal" title="Show Message"/>
+                                <rect key="frame" x="123" y="515" width="128" height="30"/>
+                                <state key="normal" title="Show Classic View"/>
                                 <connections>
-                                    <action selector="showMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="C2p-7g-0fe"/>
+                                    <action selector="showClassicView" destination="BYZ-38-t0r" eventType="touchUpInside" id="jzF-CU-WR5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w36-di-nf0">
-                                <rect key="frame" x="172" y="477" width="30" height="30"/>
-                                <state key="normal" title="Test"/>
+                                <rect key="frame" x="124" y="477" width="126" height="30"/>
+                                <state key="normal" title="Show Simple View"/>
                                 <connections>
-                                    <action selector="test" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJk-4b-LFn"/>
+                                    <action selector="showSimpleView" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ec1-wA-S9T"/>
                                 </connections>
                             </button>
                         </subviews>

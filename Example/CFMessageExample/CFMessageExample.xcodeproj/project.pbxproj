@@ -10,6 +10,7 @@
 		053212261DDDB3D90008581A /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 053212251DDDB3D90008581A /* Dog.jpg */; };
 		0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532122A1DDEDE1D0008581A /* Dog2.jpg */; };
 		053212391DE301D00008581A /* Assets.car in Resources */ = {isa = PBXBuildFile; fileRef = 053212381DE301D00008581A /* Assets.car */; };
+		0532123D1DE437ED0008581A /* Prism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532123C1DE437ED0008581A /* Prism.jpg */; };
 		B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3731DD35A1400D29BD5 /* AppDelegate.swift */; };
 		B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3751DD35A1400D29BD5 /* ViewController.swift */; };
 		B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B3771DD35A1400D29BD5 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		053212251DDDB3D90008581A /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = ../Dog.jpg; sourceTree = "<group>"; };
 		0532122A1DDEDE1D0008581A /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2.jpg; sourceTree = "<group>"; };
 		053212381DE301D00008581A /* Assets.car */ = {isa = PBXFileReference; lastKnownFileType = file; name = Assets.car; path = "../../../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFDraggableMessage.framework/Assets.car"; sourceTree = "<group>"; };
+		0532123C1DE437ED0008581A /* Prism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Prism.jpg; sourceTree = "<group>"; };
 		B231B3701DD35A1400D29BD5 /* CFMessageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFMessageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3731DD35A1400D29BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B231B3751DD35A1400D29BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		053212241DDDB3C70008581A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0532123C1DE437ED0008581A /* Prism.jpg */,
 				053212381DE301D00008581A /* Assets.car */,
 				0532122A1DDEDE1D0008581A /* Dog2.jpg */,
 				053212251DDDB3D90008581A /* Dog.jpg */,
@@ -173,6 +176,7 @@
 				B231B37E1DD35A1400D29BD5 /* LaunchScreen.storyboard in Resources */,
 				0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */,
 				B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */,
+				0532123D1DE437ED0008581A /* Prism.jpg in Resources */,
 				B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */,
 				053212391DE301D00008581A /* Assets.car in Resources */,
 			);
@@ -309,7 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = CFMessageExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFMessageExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -323,7 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = CFMessageExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFMessageExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";

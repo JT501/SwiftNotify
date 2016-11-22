@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,54 +21,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prism.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Qg3-3z-P8F">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Iz-VT-LMK">
-                                <rect key="frame" x="131" y="629" width="112" height="30"/>
-                                <state key="normal" title="Show Next Page"/>
+                                <rect key="frame" x="126" y="629" width="122" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="V5i-pf-NjK"/>
+                                </constraints>
+                                <state key="normal" title="Show Next Page">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="nTT-Mo-uif" kind="show" id="iu6-Ff-cPf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-cq-Vrt">
-                                <rect key="frame" x="150" y="591" width="75" height="30"/>
-                                <state key="normal" title="Dismiss All"/>
+                                <rect key="frame" x="145" y="591" width="85" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="PQE-DH-LAo"/>
+                                </constraints>
+                                <state key="normal" title="Dismiss All">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="dismissAll" destination="BYZ-38-t0r" eventType="touchUpInside" id="gNF-w7-Wns"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-cE-vJG">
-                                <rect key="frame" x="128" y="553" width="119" height="30"/>
-                                <state key="normal" title="Dismiss Message"/>
+                                <rect key="frame" x="123" y="553" width="129" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="nnL-W4-ryt"/>
+                                </constraints>
+                                <state key="normal" title="Dismiss Message">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="dismissMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBT-ug-9sD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-TF-3DQ">
-                                <rect key="frame" x="123" y="515" width="128" height="30"/>
-                                <state key="normal" title="Show Classic View"/>
+                                <rect key="frame" x="118" y="515" width="138" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="NsG-9w-P7h"/>
+                                </constraints>
+                                <state key="normal" title="Show Classic View">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="showClassicView" destination="BYZ-38-t0r" eventType="touchUpInside" id="jzF-CU-WR5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w36-di-nf0">
-                                <rect key="frame" x="124" y="477" width="126" height="30"/>
-                                <state key="normal" title="Show Simple View"/>
+                                <rect key="frame" x="123.5" y="477" width="127" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="aST-FJ-l2C"/>
+                                </constraints>
+                                <state key="normal" title="Show Toast View">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="showSimpleView" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ec1-wA-S9T"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-Bc-eyH">
+                                <rect key="frame" x="122" y="439" width="130" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.6510783450704225" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="ZZ7-tg-toE"/>
+                                </constraints>
+                                <state key="normal" title="Show Cyber View">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showCyberView" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1x-v8-zpP"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lFm-TF-3DQ" firstAttribute="top" secondItem="w36-di-nf0" secondAttribute="bottom" constant="8" id="4Hm-jk-bAp"/>
+                            <constraint firstAttribute="trailing" secondItem="Qg3-3z-P8F" secondAttribute="trailing" id="5Oa-K9-Me1"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jV-B5-vYA"/>
                             <constraint firstItem="5Iz-VT-LMK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BFK-ph-lft"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5Iz-VT-LMK" secondAttribute="bottom" constant="8" id="F2v-Um-Lvo"/>
+                            <constraint firstAttribute="bottom" secondItem="Qg3-3z-P8F" secondAttribute="bottom" id="IU4-Dw-VYc"/>
                             <constraint firstItem="lFm-TF-3DQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NLS-Pm-Ddy"/>
                             <constraint firstItem="Hys-cE-vJG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rgf-JZ-nBe"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="top" secondItem="Hys-cE-vJG" secondAttribute="bottom" constant="8" id="SHA-Qt-8BX"/>
+                            <constraint firstItem="Qg3-3z-P8F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bN9-yP-njb"/>
+                            <constraint firstItem="HIl-Bc-eyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mck-ig-uut"/>
                             <constraint firstItem="5Iz-VT-LMK" firstAttribute="top" secondItem="Qoe-cq-Vrt" secondAttribute="bottom" constant="8" id="ogG-ar-Y9T"/>
                             <constraint firstItem="w36-di-nf0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ohp-fA-veO"/>
                             <constraint firstItem="Hys-cE-vJG" firstAttribute="top" secondItem="lFm-TF-3DQ" secondAttribute="bottom" constant="8" id="vat-dg-ZqP"/>
+                            <constraint firstItem="Qg3-3z-P8F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xTb-vj-4lc"/>
+                            <constraint firstItem="w36-di-nf0" firstAttribute="top" secondItem="HIl-Bc-eyH" secondAttribute="bottom" constant="8" id="xfH-NS-q14"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="h38-Wv-Lif"/>
@@ -105,12 +158,15 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gHA-Ll-UxQ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oZt-E9-5mP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oh5-zB-5wX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="167" y="35"/>
+            <point key="canvasLocation" x="137" y="35"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Prism.jpg" width="1028" height="1920"/>
+    </resources>
 </document>

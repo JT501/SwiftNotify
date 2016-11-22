@@ -54,7 +54,47 @@ class ViewController: UIViewController, CFMessageDelegate {
 //        print("Messgae is showing? \(messager.isShowing())")
     }
     
+    @IBAction func showCyberView() {
+        let cyberView = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                theme: .Info(.Light))
+        let cyberViewD = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                theme: .Info(.Dark))
+        let cyberView2 = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                theme: .Success(.Light))
+        let cyberView2D = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                 theme: .Success(.Dark))
+        let cyberView3 = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                theme: .Fail(.Light))
+        let cyberView3D = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                 theme: .Fail(.Dark))
+        let cyberView4 = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                theme: .Warning(.Light))
+        let cyberView4D = CFDefaultView.cyberWith(title: "Pembroke Welsh Corgi",
+                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+                                                 theme: .Warning(.Dark))
+        
+        var config = CFMessage.Config()
+        config.dismissTime = .never
+        
+        CFMessage.show(config: config, view: cyberView)
+        CFMessage.show(config: config, view: cyberViewD)
+        CFMessage.show(config: config, view: cyberView2)
+        CFMessage.show(config: config, view: cyberView2D)
+        CFMessage.show(config: config, view: cyberView3)
+        CFMessage.show(config: config, view: cyberView3D)
+        CFMessage.show(config: config, view: cyberView4)
+        CFMessage.show(config: config, view: cyberView4D)
+    }
+    
     @IBAction func showSimpleView() {
+        
         let simpleView = CFDefaultView.toastWith(text: "Pembroke Welsh Corgi", theme: .Info(.Light))
         let simpleViewD = CFDefaultView.toastWith(text: "Pembroke Welsh Corgi", theme: .Info(.Dark))
         
@@ -87,7 +127,7 @@ class ViewController: UIViewController, CFMessageDelegate {
     
     @IBAction func showClassicView() {
         let customClassicView = CFDefaultView.classicWith(title: "Pembroke Welsh Corgi",
-                                                          titleFont: .italicSystemFont(ofSize: 17),
+                                                          titleFont: .italicSystemFont(ofSize: 16),
                                                           titleColor: UIColor.black,
                                                           body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                           bodyFont: .systemFont(ofSize: 15),
@@ -129,40 +169,6 @@ class ViewController: UIViewController, CFMessageDelegate {
         CFMessage.show(config: classicViewConfig, view: classicView4D)
     }
     
-    
-    @IBAction func showMessage() {
-        
-        titleView = ClassicView(title: "Pembroke Welsh Corgi", body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", image: #imageLiteral(resourceName: "Dog.jpg"))
-        titleView.width = self.view.bounds.width*0.9
-        
-        var titleViewConfig = CFMessage.Config()
-        titleViewConfig.initPosition = .top(.random)
-        titleViewConfig.appearPosition = .top
-        titleViewConfig.thresholdDistance = 30
-        titleViewConfig.dismissTime = .never
-        
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-        imageView.image = #imageLiteral(resourceName: "Dog.jpg")
-        imageView.layer.cornerRadius = imageView.bounds.height / 2
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        
-        var imageViewConfig = CFMessage.Config()
-        imageViewConfig.initPosition = .top(.random)
-        imageViewConfig.thresholdDistance = 999
-        imageViewConfig.dismissTime = .never
-        imageViewConfig.appearPosition = .center
-        
-        CFMessage.show(config: titleViewConfig, view: titleView)
-        CFMessage.show(config: imageViewConfig, view: imageView)
-//        CFMessage.show(config: simpleViewConfig, view: SimpleView(text: "TapHandler"), tapHandler: {
-//            let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
-//            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//            alertController.addAction(alertAction)
-//            self.present(alertController, animated: true, completion: nil)
-//        })
-    }
-    
     @IBAction func dismissMessage() {
         CFMessage.dismiss()
     }
@@ -170,35 +176,5 @@ class ViewController: UIViewController, CFMessageDelegate {
     @IBAction func dismissAll() {
         CFMessage.dismissAll()
     }
-    
-    @IBAction func test() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.titleView.imageView.image = #imageLiteral(resourceName: "Dog2.jpg")
-            self.titleView.imageViewWidth = 70
-            self.titleView.imageViewHeight = 70
-            self.titleView.imageViewCornerRadus = 35
-            self.titleView.titleText = "Shiba Inu"
-            self.titleView.bodyText = "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
-        }, completion: { completed in
-//            self.titleView.width = 200
-        })
-    }
-
-    public func createMessageView(withText text: String) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 70))
-        view.layer.cornerRadius = 10
-        view.clipsToBounds = true
-        view.backgroundColor = UIColor.black
-
-        let viewLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 70))
-        viewLabel.text = text
-        viewLabel.textAlignment = .center
-        viewLabel.textColor = UIColor.white
-        viewLabel.center = CGPoint(x: view.frame.size.width/2, y: view.frame.size.height/2)
-        view.addSubview(viewLabel)
-        
-        return view
-    }
-
 }
 

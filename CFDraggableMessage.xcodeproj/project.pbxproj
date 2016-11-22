@@ -13,6 +13,7 @@
 		053212301DDEF6F80008581A /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532122F1DDEF6F80008581A /* BaseImageView.swift */; };
 		053212321DDF044E0008581A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053212311DDF044E0008581A /* Images.xcassets */; };
 		053212351DDF06460008581A /* CFDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212341DDF06460008581A /* CFDefaultView.swift */; };
+		0532123B1DE423E80008581A /* CyberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532123A1DE423E80008581A /* CyberView.swift */; };
 		05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFMessage.swift */; };
 		05C827271DD31B7A003E0C5E /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */; };
 		05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */; };
@@ -41,6 +42,7 @@
 		0532122F1DDEF6F80008581A /* BaseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
 		053212311DDF044E0008581A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		053212341DDF06460008581A /* CFDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFDefaultView.swift; sourceTree = "<group>"; };
+		0532123A1DE423E80008581A /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberView.swift; sourceTree = "<group>"; };
 		05B9FE601DD32E7C003EFC10 /* CFMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMessage.swift; sourceTree = "<group>"; };
 		05C8271D1DD31B7A003E0C5E /* CFDraggableMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CFDraggableMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C827201DD31B7A003E0C5E /* CFDraggableMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFDraggableMessage.h; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				05E003721DD46261003DBE35 /* ToastView.swift */,
 				053212281DDE96470008581A /* ClassicView.swift */,
+				0532123A1DE423E80008581A /* CyberView.swift */,
 			);
 			name = CFMessageView;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0532123B1DE423E80008581A /* CyberView.swift in Sources */,
 				B231B3971DD700FB00D29BD5 /* Messenger.swift in Sources */,
 				0532122D1DDEEAA80008581A /* BaseLabel.swift in Sources */,
 				053212231DD95F700008581A /* CGRectEx.swift in Sources */,
@@ -420,7 +424,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CFDraggableMessage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFDraggableMessage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,7 +447,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CFDraggableMessage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFDraggableMessage";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -45,7 +45,6 @@ open class CFMessage: MessengerDelegate {
         public var initPosition = InitPosition.top(.center)
         public var appearPosition = AppearPosition.center
         public var dismissTime = DismissTime.default
-        public var tapToDismiss = true
         /**
         The max. drag distance that the view will return to snap point.
         If exceed the thresholdDistance, the view will be dismissed.
@@ -70,6 +69,10 @@ open class CFMessage: MessengerDelegate {
     
     public init() {}
     
+    // MARK: - Public functions
+    /**
+    Show message with config and add tap handler to it
+    */
     open func show(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
         syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
@@ -115,7 +118,7 @@ open class CFMessage: MessengerDelegate {
         }
     }
     
-    open var delegate: CFMessageDelegate!
+    open weak var delegate: CFMessageDelegate!
     public var defaultConfig = Config()
     
     open var intervalBetweenMessages: TimeInterval = 0.5
@@ -140,7 +143,7 @@ open class CFMessage: MessengerDelegate {
     }
     
     func dequeueNext() {
-        print("Count = \(self.messageQueue.count)")
+//        print("Count = \(self.messageQueue.count)")
         guard self.currentMsg == nil else { return }
         guard messageQueue.count > 0 else { return }
         let current = messageQueue.removeFirst()
@@ -150,9 +153,6 @@ open class CFMessage: MessengerDelegate {
             current.show(completion: { (completed) in
                 guard completed else { return }
                 if completed {
-                    if let delegate = strongSelf.delegate {
-                        delegate.cfMessageDidAppear()
-                    }
                     strongSelf.queueAutoDismiss()
                 }
             })
@@ -195,32 +195,91 @@ open class CFMessage: MessengerDelegate {
     
     // MARK: - MessengerDelegate
     func messengerDidAppear() {
-        
+        if let delegate = delegate {
+            delegate.cfMessageDidAppear()
+        }
     }
     
     func messengerStartDragging(atPoint: CGPoint) {
-        print("start dragging")
+        if let delegate = delegate {
+            delegate.cfMessageStartDragging(atPoint: atPoint)
+        }
         self.msgToAutoDismiss = nil
     }
     
     func messengerIsDragging(atPoint: CGPoint) {
-        
+        if let delegate = delegate {
+            delegate.cfMessageIsDragging(atPoint: atPoint)
+        }
     }
     
     func messengerEndDragging(atPoint: CGPoint) {
+        if let delegate = delegate {
+            delegate.cfMessageEndDragging(atPoint: atPoint)
+        }
         self.queueAutoDismiss()
     }
     
     func messengerDidDisappear(messenger: Messenger) {
+        if let delegate = delegate {
+            delegate.cfMessageDidDisappear()
+        }
         self.syncQueue.async {
-            print("Removed")
             self.messageQueue = self.messageQueue.filter{ $0 !== messenger }
             self.currentMsg = nil
         }
     }
     
     func messengerIsTapped() {
+        if let delegate = delegate {
+            delegate.cfMessageIsTapped()
+        }
         self.msgToAutoDismiss = nil
         self.dismissCurrent()
+    }
+}
+
+/* MARK: - Static APIs **/
+extension CFMessage {
+    
+    public static var sharedInstance: CFMessage {
+        return globalInstance
+    }
+    
+    public static weak var delegate: CFMessageDelegate? {
+        get {
+            return globalInstance.delegate
+        }
+        set {
+            globalInstance.delegate = newValue
+        }
+    }
+    
+    public static func show(view: UIView) {
+        globalInstance.show(view: view)
+    }
+    
+    public static func show(config: Config, view: UIView) {
+        globalInstance.show(config: config, view: view)
+    }
+    
+    public static func show(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
+        globalInstance.show(config: config, view: view, tapHandler: tapHandler)
+    }
+    
+    public static func show(viewProvider: @escaping ViewProvider) {
+        globalInstance.show(viewProvider: viewProvider)
+    }
+    
+    public static func show(config: Config, viewProvider: @escaping ViewProvider) {
+        globalInstance.show(config: config, viewProvider: viewProvider)
+    }
+    
+    public static func dismiss() {
+        globalInstance.dismiss()
+    }
+    
+    public static func dismissAll() {
+        globalInstance.dismissAll()
     }
 }

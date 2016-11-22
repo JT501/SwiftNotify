@@ -104,7 +104,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         self.containerView.addSubview(self.view)
         self.containerView.bringSubview(toFront: self.view)
         self.containerView.addGestureRecognizer(self.panRecognizer)
-        if self.config.tapToDismiss {
+        if self.tapAction != nil {
             self.containerView.addGestureRecognizer(self.tapRecognizer)
         }
         
@@ -248,6 +248,9 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         case .changed:
             let touchPoint : CGPoint = gesture.location(in: gestureView.superview)
             attachmentBehaviour.anchorPoint = touchPoint
+            if let delegate = delegate {
+                delegate.messengerIsDragging(atPoint: touchPoint)
+            }
         //End Dragging
         case .ended:
             if let delegate = self.delegate {

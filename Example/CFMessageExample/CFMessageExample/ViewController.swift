@@ -11,13 +11,12 @@ import CFDraggableMessage
 
 class ViewController: UIViewController, CFMessageDelegate {
     
-    var messenger = CFMessage()
     var titleView = ClassicView(title: "", body: "", image: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        messager.delegate = self
+        CFMessage.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,12 +29,24 @@ class ViewController: UIViewController, CFMessageDelegate {
         print("Messgae is shown")
     }
     
-    func cfMessageIsDragging(atPoint: CGPoint) {
-        print("Dragging at Point \(atPoint)")
+    func cfMessageStartDragging(atPoint: CGPoint) {
+        print("Start dragging")
     }
     
-    func cfMessageDidTap() {
-        print("Message is Tapped")
+    public func cfMessageIsDragging(atPoint: CGPoint) {
+        print("Is dragging at \(atPoint)")
+    }
+    
+    func cfMessageEndDragging(atPoint: CGPoint) {
+        print("End dragging")
+    }
+    
+    func cfMessageDidDisappear() {
+        print("Message removed from view")
+    }
+    
+    public func cfMessageIsTapped() {
+        print("Message is tapped")
     }
     
     func cfMessageDidDismiss() {
@@ -63,15 +74,15 @@ class ViewController: UIViewController, CFMessageDelegate {
         simpleViewConfig.dismissTime = .never
         simpleViewConfig.angularResistance = 1
         
-        messenger.show(config: simpleViewConfig, view: simpleView)
-        messenger.show(config: simpleViewConfig, view: simpleView2)
-        messenger.show(config: simpleViewConfig, view: simpleView3)
-        messenger.show(config: simpleViewConfig, view: simpleView4)
+        CFMessage.show(config: simpleViewConfig, view: simpleView)
+        CFMessage.show(config: simpleViewConfig, view: simpleView2)
+        CFMessage.show(config: simpleViewConfig, view: simpleView3)
+        CFMessage.show(config: simpleViewConfig, view: simpleView4)
         
-        messenger.show(config: simpleViewConfig, view: simpleViewD)
-        messenger.show(config: simpleViewConfig, view: simpleView2D)
-        messenger.show(config: simpleViewConfig, view: simpleView3D)
-        messenger.show(config: simpleViewConfig, view: simpleView4D)
+        CFMessage.show(config: simpleViewConfig, view: simpleViewD)
+        CFMessage.show(config: simpleViewConfig, view: simpleView2D)
+        CFMessage.show(config: simpleViewConfig, view: simpleView3D)
+        CFMessage.show(config: simpleViewConfig, view: simpleView4D)
     }
     
     @IBAction func showClassicView() {
@@ -97,25 +108,25 @@ class ViewController: UIViewController, CFMessageDelegate {
         let classicView3 = CFDefaultView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Light))
         let classicView3D = CFDefaultView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Dark))
         
-        let classicView4 = CFDefaultView.classicWith(title: "Warning", body: "Once you go black, you can't come back", theme: .Warning(.Light))
-        let classicView4D = CFDefaultView.classicWith(title: "Warning", body: "Once you go black, you can't come back", theme: .Warning(.Dark))
+        let classicView4 = CFDefaultView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Light))
+        let classicView4D = CFDefaultView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Dark))
         
         var classicViewConfig = CFMessage.Config()
         classicViewConfig.initPosition = .top(.random)
         classicViewConfig.appearPosition = .top
         classicViewConfig.dismissTime = .never
         
-        messenger.show(config: classicViewConfig, view: customClassicView)
+        CFMessage.show(config: classicViewConfig, view: customClassicView)
         
-        messenger.show(config: classicViewConfig, view: classicView)
-        messenger.show(config: classicViewConfig, view: classicView2)
-        messenger.show(config: classicViewConfig, view: classicView3)
-        messenger.show(config: classicViewConfig, view: classicView4)
+        CFMessage.show(config: classicViewConfig, view: classicView)
+        CFMessage.show(config: classicViewConfig, view: classicView2)
+        CFMessage.show(config: classicViewConfig, view: classicView3)
+        CFMessage.show(config: classicViewConfig, view: classicView4)
         
-        messenger.show(config: classicViewConfig, view: classicViewD)
-        messenger.show(config: classicViewConfig, view: classicView2D)
-        messenger.show(config: classicViewConfig, view: classicView3D)
-        messenger.show(config: classicViewConfig, view: classicView4D)
+        CFMessage.show(config: classicViewConfig, view: classicViewD)
+        CFMessage.show(config: classicViewConfig, view: classicView2D)
+        CFMessage.show(config: classicViewConfig, view: classicView3D)
+        CFMessage.show(config: classicViewConfig, view: classicView4D)
     }
     
     
@@ -140,12 +151,11 @@ class ViewController: UIViewController, CFMessageDelegate {
         imageViewConfig.initPosition = .top(.random)
         imageViewConfig.thresholdDistance = 999
         imageViewConfig.dismissTime = .never
-        imageViewConfig.tapToDismiss = true
         imageViewConfig.appearPosition = .center
         
-        messenger.show(config: titleViewConfig, view: titleView)
-        messenger.show(config: imageViewConfig, view: imageView)
-//        messenger.show(config: simpleViewConfig, view: SimpleView(text: "TapHandler"), tapHandler: {
+        CFMessage.show(config: titleViewConfig, view: titleView)
+        CFMessage.show(config: imageViewConfig, view: imageView)
+//        CFMessage.show(config: simpleViewConfig, view: SimpleView(text: "TapHandler"), tapHandler: {
 //            let alertController = UIAlertController(title: "Tapped", message: "Message Tapped", preferredStyle: .alert)
 //            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 //            alertController.addAction(alertAction)
@@ -154,11 +164,11 @@ class ViewController: UIViewController, CFMessageDelegate {
     }
     
     @IBAction func dismissMessage() {
-        messenger.dismiss()
+        CFMessage.dismiss()
     }
     
     @IBAction func dismissAll() {
-        messenger.dismissAll()
+        CFMessage.dismissAll()
     }
     
     @IBAction func test() {

@@ -8,11 +8,23 @@
 
 import Foundation
 
-public protocol CFMessageDelegate {
+public protocol CFMessageDelegate: class {
     func cfMessageDidAppear()
+    func cfMessageStartDragging(atPoint: CGPoint)
     func cfMessageIsDragging(atPoint: CGPoint)
-    func cfMessageDidTap()
-    func cfMessageDidDismiss()
+    func cfMessageEndDragging(atPoint: CGPoint)
+    func cfMessageDidDisappear()
+    func cfMessageIsTapped()
+}
+
+// Make the protocol methods to be optional
+public extension CFMessageDelegate {
+    func cfMessageDidAppear() {}
+    func cfMessageStartDragging(atPoint: CGPoint) {}
+    func cfMessageIsDragging(atPoint: CGPoint) {}
+    func cfMessageEndDragging(atPoint: CGPoint) {}
+    func cfMessageDidDisappear() {}
+    func cfMessageIsTapped() {}
 }
 
 // Internal Use

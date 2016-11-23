@@ -116,7 +116,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         
         switch self.config.appearPosition {
         case .bottom:
-            self.snapPoint = CGPoint(x: keyWindow.bounds.midX, y: keyWindow.bounds.bottom - 40 - self.containerView.bounds.midY)
+            self.snapPoint = CGPoint(x: keyWindow.bounds.midX, y: keyWindow.bounds.bottom - 50 - self.containerView.bounds.midY)
         case .center:
             self.snapPoint = keyWindow.bounds.center
         case .top:

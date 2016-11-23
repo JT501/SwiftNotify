@@ -78,15 +78,15 @@ extension CFDefaultView {
     
     public static func cyberWith(title: String, body: String, theme: Theme) -> CyberView {
         
-        let view = CyberView(title: title, body: body)
+        let view = CyberView(title: title, body: body, blurStyle: .extraLight)
         setCyberThemeFor(view: view, theme: theme)
         
         return view
     }
     
-    public static func cyberWith(title: String? = nil, titleFont: UIFont, titleColor: UIColor, body: String? = nil, bodyFont: UIFont, bodyColor: UIColor, image: UIImage? = nil, backgroundColor: UIColor) -> CyberView {
+    public static func cyberWith(title: String? = nil, titleFont: UIFont, titleColor: UIColor, body: String? = nil, bodyFont: UIFont, bodyColor: UIColor, image: UIImage? = nil, backgroundColor: UIColor, blurStyle: UIBlurEffectStyle) -> CyberView {
         
-        let view = CyberView(title: title, body: body, image: image)
+        let view = CyberView(title: title, body: body, image: image, blurStyle: blurStyle)
         view.titleTextFont = titleFont
         view.titleTextColor = titleColor
         view.bodyTextFont = bodyFont
@@ -149,7 +149,9 @@ extension CFDefaultView {
                 view.backgroundColor = UIColor(red: 65.0/256.0, green: 131.0/256.0, blue: 215.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                view.imageView.image = #imageLiteral(resourceName: "icon_success")
+                let image = #imageLiteral(resourceName: "icon_success").withRenderingMode(.alwaysTemplate)
+                view.imageView.image = image
+                view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 31.0/256.0, green: 58.0/256.0, blue: 147.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
@@ -164,7 +166,9 @@ extension CFDefaultView {
                 view.backgroundColor = UIColor(red: 231.0/256.0, green: 76.0/256.0, blue: 60.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                view.imageView.image = #imageLiteral(resourceName: "icon_fail")
+                let image = #imageLiteral(resourceName: "icon_fail").withRenderingMode(.alwaysTemplate)
+                view.imageView.image = image
+                view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 185.0/256.0, green: 29.0/256.0, blue: 71.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
@@ -179,7 +183,9 @@ extension CFDefaultView {
                 view.backgroundColor = UIColor(red: 191.0/256.0, green: 191.0/256.0, blue: 191.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                view.imageView.image = #imageLiteral(resourceName: "icon_info")
+                let image = #imageLiteral(resourceName: "icon_info").withRenderingMode(.alwaysTemplate)
+                view.imageView.image = image
+                view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 29.0/256.0, green: 29.0/256.0, blue: 29.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
@@ -194,7 +200,9 @@ extension CFDefaultView {
                 view.backgroundColor = UIColor(red: 245.0/256.0, green: 171.0/256.0, blue: 53.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                view.imageView.image = #imageLiteral(resourceName: "icon_warning")
+                let image = #imageLiteral(resourceName: "icon_warning").withRenderingMode(.alwaysTemplate)
+                view.imageView.image = image
+                view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 218.0/256.0, green: 83.0/256.0, blue: 44.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
@@ -211,13 +219,13 @@ extension CFDefaultView {
         case .Success(let style):
             switch style {
             case .Light:
-                view.backgroundColor = UIColor(red: 65.0/256.0, green: 131.0/256.0, blue: 215.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 65.0/256.0, green: 131.0/256.0, blue: 215.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_success").withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
-                view.backgroundColor = UIColor(red: 31.0/256.0, green: 58.0/256.0, blue: 147.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 31.0/256.0, green: 58.0/256.0, blue: 147.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_success_dark").withRenderingMode(.alwaysTemplate)
@@ -226,13 +234,13 @@ extension CFDefaultView {
         case .Fail(let style):
             switch style {
             case .Light:
-                view.backgroundColor = UIColor(red: 231.0/256.0, green: 76.0/256.0, blue: 60.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 231.0/256.0, green: 76.0/256.0, blue: 60.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_fail").withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
-                view.backgroundColor = UIColor(red: 185.0/256.0, green: 29.0/256.0, blue: 71.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 185.0/256.0, green: 29.0/256.0, blue: 71.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_fail_dark").withRenderingMode(.alwaysTemplate)
@@ -241,13 +249,13 @@ extension CFDefaultView {
         case .Info(let style):
             switch style {
             case .Light:
-                view.backgroundColor = UIColor(red: 191.0/256.0, green: 191.0/256.0, blue: 191.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 191.0/256.0, green: 191.0/256.0, blue: 191.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_info").withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
-                view.backgroundColor = UIColor(red: 29.0/256.0, green: 29.0/256.0, blue: 29.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 29.0/256.0, green: 29.0/256.0, blue: 29.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_info_dark").withRenderingMode(.alwaysTemplate)
@@ -256,13 +264,13 @@ extension CFDefaultView {
         case .Warning(let style):
             switch style {
             case .Light:
-                view.backgroundColor = UIColor(red: 245.0/256.0, green: 171.0/256.0, blue: 53.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 245.0/256.0, green: 171.0/256.0, blue: 53.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_warning").withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
-                view.backgroundColor = UIColor(red: 218.0/256.0, green: 83.0/256.0, blue: 44.0/256.0, alpha: 0.6)
+                view.backgroundColor = UIColor(red: 218.0/256.0, green: 83.0/256.0, blue: 44.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
                 let image = #imageLiteral(resourceName: "icon_warning_dark").withRenderingMode(.alwaysTemplate)

@@ -206,13 +206,14 @@ open class CyberView: UIView {
         }
     }
     
-    open var blurEffect: UIBlurEffect = UIBlurEffect(style: .extraLight)
+    var blurEffect: UIBlurEffect
     var blurEffectView: UIVisualEffectView
     var vibrancyEffect: UIVibrancyEffect
     var vibrancyEffectView: UIVisualEffectView
     
     // MARK: - Initialization
-    public init(title: String? = nil, body: String? = nil, image: UIImage? = nil) {
+    public init(title: String? = nil, body: String? = nil, image: UIImage? = nil, blurStyle: UIBlurEffectStyle) {
+        blurEffect = UIBlurEffect(style: blurStyle)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
         vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)

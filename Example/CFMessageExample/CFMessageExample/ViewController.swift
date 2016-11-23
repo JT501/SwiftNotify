@@ -109,7 +109,7 @@ class ViewController: UIViewController, CFMessageDelegate {
         
         var simpleViewConfig = CFMessage.Config()
         simpleViewConfig.initPosition = .bottom(.random)
-        simpleViewConfig.appearPosition = .center
+        simpleViewConfig.appearPosition = .bottom
         simpleViewConfig.thresholdDistance = 30
         simpleViewConfig.dismissTime = .never
         simpleViewConfig.angularResistance = 1

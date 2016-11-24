@@ -240,7 +240,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 05C827171DD31B7A003E0C5E /* Build configuration list for PBXProject "CFNotify" */;
+			buildConfigurationList = 05C827171DD31B7A003E0C5E /* Build configuration list for PBXProject "CFDraggableMessage" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -486,7 +486,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05C827171DD31B7A003E0C5E /* Build configuration list for PBXProject "CFNotify" */ = {
+		05C827171DD31B7A003E0C5E /* Build configuration list for PBXProject "CFDraggableMessage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05C8272F1DD31B7A003E0C5E /* Debug */,

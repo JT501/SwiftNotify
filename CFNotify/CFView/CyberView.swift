@@ -1,6 +1,6 @@
 //
 //  TitleView.swift
-//  CFDraggableMessage
+//  CFNotify
 //
 //  Created by Johnny Choi on 22/11/2016.
 //  Copyright © 2016 Johnny Choi@Co-Fire. All rights reserved.

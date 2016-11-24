@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/johnnychoi/Desktop/CFDraggableMessage/Example/CFMessageExample/CFNotifyExample.xcodeproj">
+      location = "group:Example/CFMessageExample/CFNotifyExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:/Users/johnnychoi/Desktop/CFDraggableMessage/CFNotify.xcodeproj">
+      location = "container:CFNotify.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Carthage/Checkouts/Nimble/Nimble.xcodeproj">

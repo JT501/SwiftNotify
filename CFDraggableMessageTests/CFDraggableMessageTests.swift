@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CFDraggableMessage
+@testable import CFNotify
 
 class CFDraggableMessageTests: XCTestCase {
     

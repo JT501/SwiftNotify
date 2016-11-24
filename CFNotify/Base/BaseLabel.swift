@@ -1,6 +1,6 @@
 //
-//  BaseImageView.swift
-//  CFDraggableMessage
+//  BaseLabel.swift
+//  CFNotify
 //
 //  Created by Johnny Choi on 18/11/2016.
 //  Copyright © 2016 Johnny Choi@Co-Fire. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseImageView: UIImageView {
+open class BaseLabel: UILabel {
     
     var onDidSetHidden: ((Bool) -> ())?
     var onWillSetHidden: ((Bool) -> ())?

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B231B36F1DD35A1400D29BD5"
-               BuildableName = "CFMessageExample.app"
-               BlueprintName = "CFMessageExample"
-               ReferencedContainer = "container:CFMessageExample.xcodeproj">
+               BlueprintIdentifier = "05C8271C1DD31B7A003E0C5E"
+               BuildableName = "CFNotify.framework"
+               BlueprintName = "CFNotify"
+               ReferencedContainer = "container:CFNotify.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,24 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05C827251DD31B7A003E0C5E"
+               BuildableName = "CFNotifyTests.xctest"
+               BlueprintName = "CFNotifyTests"
+               ReferencedContainer = "container:CFNotify.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B231B36F1DD35A1400D29BD5"
-            BuildableName = "CFMessageExample.app"
-            BlueprintName = "CFMessageExample"
-            ReferencedContainer = "container:CFMessageExample.xcodeproj">
+            BlueprintIdentifier = "05C8271C1DD31B7A003E0C5E"
+            BuildableName = "CFNotify.framework"
+            BlueprintName = "CFNotify"
+            ReferencedContainer = "container:CFNotify.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -51,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B231B36F1DD35A1400D29BD5"
-            BuildableName = "CFMessageExample.app"
-            BlueprintName = "CFMessageExample"
-            ReferencedContainer = "container:CFMessageExample.xcodeproj">
+            BlueprintIdentifier = "05C8271C1DD31B7A003E0C5E"
+            BuildableName = "CFNotify.framework"
+            BlueprintName = "CFNotify"
+            ReferencedContainer = "container:CFNotify.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B231B36F1DD35A1400D29BD5"
-            BuildableName = "CFMessageExample.app"
-            BlueprintName = "CFMessageExample"
-            ReferencedContainer = "container:CFMessageExample.xcodeproj">
+            BlueprintIdentifier = "05C8271C1DD31B7A003E0C5E"
+            BuildableName = "CFNotify.framework"
+            BlueprintName = "CFNotify"
+            ReferencedContainer = "container:CFNotify.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

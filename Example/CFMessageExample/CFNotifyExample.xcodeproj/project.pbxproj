@@ -11,25 +11,25 @@
 		0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532122A1DDEDE1D0008581A /* Dog2.jpg */; };
 		0532123D1DE437ED0008581A /* Prism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532123C1DE437ED0008581A /* Prism.jpg */; };
 		05E512351DE6C9BF00D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E512341DE6C9BF00D3B765 /* CFResources.bundle */; };
+		05E5123D1DE6E3A300D3B765 /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E5123C1DE6E3A300D3B765 /* CFNotify.framework */; };
+		05E5123F1DE6E41700D3B765 /* CFNotify.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 05E5123C1DE6E3A300D3B765 /* CFNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3731DD35A1400D29BD5 /* AppDelegate.swift */; };
 		B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3751DD35A1400D29BD5 /* ViewController.swift */; };
 		B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B3771DD35A1400D29BD5 /* Main.storyboard */; };
 		B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B231B37A1DD35A1400D29BD5 /* Assets.xcassets */; };
 		B231B37E1DD35A1400D29BD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B37C1DD35A1400D29BD5 /* LaunchScreen.storyboard */; };
-		B231B3931DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */; };
-		B231B3941DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B231B3951DD6F5FE00D29BD5 /* Embed Frameworks */ = {
+		05E5123A1DE6E2CE00D3B765 /* Copy Files (1 item) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B231B3941DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Embed Frameworks */,
+				05E5123F1DE6E41700D3B765 /* CFNotify.framework in Copy Files (1 item) */,
 			);
-			name = "Embed Frameworks";
+			name = "Copy Files (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -39,14 +39,14 @@
 		0532122A1DDEDE1D0008581A /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2.jpg; sourceTree = "<group>"; };
 		0532123C1DE437ED0008581A /* Prism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Prism.jpg; sourceTree = "<group>"; };
 		05E512341DE6C9BF00D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CFResources.bundle; path = "../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFResources.bundle"; sourceTree = "<group>"; };
-		B231B3701DD35A1400D29BD5 /* CFMessageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFMessageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E5123C1DE6E3A300D3B765 /* CFNotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNotify.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFNotify.framework"; sourceTree = "<group>"; };
+		B231B3701DD35A1400D29BD5 /* CFNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3731DD35A1400D29BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B231B3751DD35A1400D29BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B231B3781DD35A1400D29BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B231B37A1DD35A1400D29BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B231B37D1DD35A1400D29BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B231B37F1DD35A1400D29BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CFDraggableMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B231B3931DD6F5FD00D29BD5 /* CFDraggableMessage.framework in Frameworks */,
+				05E5123D1DE6E3A300D3B765 /* CFNotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		B231B3711DD35A1400D29BD5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B231B3701DD35A1400D29BD5 /* CFMessageExample.app */,
+				B231B3701DD35A1400D29BD5 /* CFNotifyExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,8 +105,8 @@
 		B231B3851DD35A2A00D29BD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05E5123C1DE6E3A300D3B765 /* CFNotify.framework */,
 				05E512341DE6C9BF00D3B765 /* CFResources.bundle */,
-				B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,22 +114,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B231B36F1DD35A1400D29BD5 /* CFMessageExample */ = {
+		B231B36F1DD35A1400D29BD5 /* CFNotifyExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B231B3821DD35A1400D29BD5 /* Build configuration list for PBXNativeTarget "CFMessageExample" */;
+			buildConfigurationList = B231B3821DD35A1400D29BD5 /* Build configuration list for PBXNativeTarget "CFNotifyExample" */;
 			buildPhases = (
 				B231B36C1DD35A1400D29BD5 /* Sources */,
 				B231B36D1DD35A1400D29BD5 /* Frameworks */,
 				B231B36E1DD35A1400D29BD5 /* Resources */,
-				B231B3951DD6F5FE00D29BD5 /* Embed Frameworks */,
+				05E5123A1DE6E2CE00D3B765 /* Copy Files (1 item) */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CFMessageExample;
+			name = CFNotifyExample;
 			productName = CFMessageExample;
-			productReference = B231B3701DD35A1400D29BD5 /* CFMessageExample.app */;
+			productReference = B231B3701DD35A1400D29BD5 /* CFNotifyExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -149,7 +149,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B231B36B1DD35A1400D29BD5 /* Build configuration list for PBXProject "CFMessageExample" */;
+			buildConfigurationList = B231B36B1DD35A1400D29BD5 /* Build configuration list for PBXProject "CFNotifyExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -162,7 +162,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B231B36F1DD35A1400D29BD5 /* CFMessageExample */,
+				B231B36F1DD35A1400D29BD5 /* CFNotifyExample */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = CFMessageExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFMessageExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -327,7 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = CFMessageExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFMessageExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -338,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B231B36B1DD35A1400D29BD5 /* Build configuration list for PBXProject "CFMessageExample" */ = {
+		B231B36B1DD35A1400D29BD5 /* Build configuration list for PBXProject "CFNotifyExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B231B3801DD35A1400D29BD5 /* Debug */,
@@ -347,7 +347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B231B3821DD35A1400D29BD5 /* Build configuration list for PBXNativeTarget "CFMessageExample" */ = {
+		B231B3821DD35A1400D29BD5 /* Build configuration list for PBXNativeTarget "CFNotifyExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B231B3831DD35A1400D29BD5 /* Debug */,

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CFDraggableMessage
+import CFNotify
 
 class ViewController: UIViewController, CFMessageDelegate {
     

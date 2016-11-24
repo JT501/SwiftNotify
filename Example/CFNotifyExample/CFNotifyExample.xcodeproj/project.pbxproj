@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		053212261DDDB3D90008581A /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 053212251DDDB3D90008581A /* Dog.jpg */; };
-		0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532122A1DDEDE1D0008581A /* Dog2.jpg */; };
-		0532123D1DE437ED0008581A /* Prism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532123C1DE437ED0008581A /* Prism.jpg */; };
+		05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DC1DE6F4F8003611FE /* AppDelegate.swift */; };
+		05B074DF1DE6F4FE003611FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DE1DE6F4FE003611FE /* ViewController.swift */; };
+		05B074E31DE6F552003611FE /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E01DE6F552003611FE /* Dog.jpg */; };
+		05B074E41DE6F552003611FE /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E11DE6F552003611FE /* Dog2.jpg */; };
+		05B074E51DE6F552003611FE /* Prism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E21DE6F552003611FE /* Prism.jpg */; };
+		05B074E71DE6F5A6003611FE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E61DE6F5A6003611FE /* Info.plist */; };
+		05B074EA1DE6F61E003611FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E81DE6F61E003611FE /* Main.storyboard */; };
+		05B074EB1DE6F63A003611FE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */; };
 		05E512461DE6E8E100D3B765 /* CFResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05E512481DE6EC7100D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; };
 		05E512491DE6ED8D00D3B765 /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E512421DE6E8C100D3B765 /* CFNotify.framework */; };
 		05E5124A1DE6ED8D00D3B765 /* CFNotify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E512421DE6E8C100D3B765 /* CFNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3731DD35A1400D29BD5 /* AppDelegate.swift */; };
-		B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3751DD35A1400D29BD5 /* ViewController.swift */; };
-		B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B3771DD35A1400D29BD5 /* Main.storyboard */; };
-		B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B231B37A1DD35A1400D29BD5 /* Assets.xcassets */; };
-		B231B37E1DD35A1400D29BD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B37C1DD35A1400D29BD5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,18 +47,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		053212251DDDB3D90008581A /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = ../Dog.jpg; sourceTree = "<group>"; };
-		0532122A1DDEDE1D0008581A /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2.jpg; sourceTree = "<group>"; };
-		0532123C1DE437ED0008581A /* Prism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Prism.jpg; sourceTree = "<group>"; };
+		05B074DC1DE6F4F8003611FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = CFNotifyExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		05B074DE1DE6F4FE003611FE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = CFNotifyExample/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		05B074E01DE6F552003611FE /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = CFNotifyExample/Resource/Dog.jpg; sourceTree = SOURCE_ROOT; };
+		05B074E11DE6F552003611FE /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog2.jpg; path = CFNotifyExample/Resource/Dog2.jpg; sourceTree = SOURCE_ROOT; };
+		05B074E21DE6F552003611FE /* Prism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Prism.jpg; path = CFNotifyExample/Resource/Prism.jpg; sourceTree = SOURCE_ROOT; };
+		05B074E61DE6F5A6003611FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CFNotifyExample/Info.plist; sourceTree = SOURCE_ROOT; };
+		05B074E91DE6F61E003611FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CFNotifyExample/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		05B074EC1DE6F63A003611FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		05E512421DE6E8C100D3B765 /* CFNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CFNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E512451DE6E8E100D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CFResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3701DD35A1400D29BD5 /* CFNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B231B3731DD35A1400D29BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B231B3751DD35A1400D29BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B231B3781DD35A1400D29BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B231B37A1DD35A1400D29BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B231B37D1DD35A1400D29BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B231B37F1DD35A1400D29BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +75,9 @@
 		053212241DDDB3C70008581A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				0532123C1DE437ED0008581A /* Prism.jpg */,
-				0532122A1DDEDE1D0008581A /* Dog2.jpg */,
-				053212251DDDB3D90008581A /* Dog.jpg */,
+				05B074E01DE6F552003611FE /* Dog.jpg */,
+				05B074E11DE6F552003611FE /* Dog2.jpg */,
+				05B074E21DE6F552003611FE /* Prism.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -86,7 +85,7 @@
 		B231B3671DD35A1400D29BD5 = {
 			isa = PBXGroup;
 			children = (
-				B231B3721DD35A1400D29BD5 /* CFMessageExample */,
+				B231B3721DD35A1400D29BD5 /* CFNotifyExample */,
 				B231B3711DD35A1400D29BD5 /* Products */,
 				B231B3851DD35A2A00D29BD5 /* Frameworks */,
 			);
@@ -100,17 +99,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B231B3721DD35A1400D29BD5 /* CFMessageExample */ = {
+		B231B3721DD35A1400D29BD5 /* CFNotifyExample */ = {
 			isa = PBXGroup;
 			children = (
 				053212241DDDB3C70008581A /* Resource */,
-				B231B3731DD35A1400D29BD5 /* AppDelegate.swift */,
-				B231B3751DD35A1400D29BD5 /* ViewController.swift */,
-				B231B3771DD35A1400D29BD5 /* Main.storyboard */,
-				B231B37A1DD35A1400D29BD5 /* Assets.xcassets */,
-				B231B37C1DD35A1400D29BD5 /* LaunchScreen.storyboard */,
-				B231B37F1DD35A1400D29BD5 /* Info.plist */,
+				05B074DE1DE6F4FE003611FE /* ViewController.swift */,
+				05B074DC1DE6F4F8003611FE /* AppDelegate.swift */,
+				05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */,
+				05B074E81DE6F61E003611FE /* Main.storyboard */,
+				05B074E61DE6F5A6003611FE /* Info.plist */,
 			);
+			name = CFNotifyExample;
 			path = CFMessageExample;
 			sourceTree = "<group>";
 		};
@@ -158,6 +157,7 @@
 					B231B36F1DD35A1400D29BD5 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 6J24DF2E7Y;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -185,13 +185,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B074EA1DE6F61E003611FE /* Main.storyboard in Resources */,
 				05E512481DE6EC7100D3B765 /* CFResources.bundle in Resources */,
-				053212261DDDB3D90008581A /* Dog.jpg in Resources */,
-				B231B37E1DD35A1400D29BD5 /* LaunchScreen.storyboard in Resources */,
-				0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */,
-				B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */,
-				0532123D1DE437ED0008581A /* Prism.jpg in Resources */,
-				B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */,
+				05B074EB1DE6F63A003611FE /* Launch Screen.storyboard in Resources */,
+				05B074E51DE6F552003611FE /* Prism.jpg in Resources */,
+				05B074E31DE6F552003611FE /* Dog.jpg in Resources */,
+				05B074E41DE6F552003611FE /* Dog2.jpg in Resources */,
+				05B074E71DE6F5A6003611FE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,29 +202,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */,
-				B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */,
+				05B074DF1DE6F4FE003611FE /* ViewController.swift in Sources */,
+				05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B231B3771DD35A1400D29BD5 /* Main.storyboard */ = {
+		05B074E81DE6F61E003611FE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B231B3781DD35A1400D29BD5 /* Base */,
+				05B074E91DE6F61E003611FE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B231B37C1DD35A1400D29BD5 /* LaunchScreen.storyboard */ = {
+		05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B231B37D1DD35A1400D29BD5 /* Base */,
+				05B074EC1DE6F63A003611FE /* Base */,
 			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
+			name = "Launch Screen.storyboard";
+			path = CFNotifyExample;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
@@ -324,12 +325,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
-				INFOPLIST_FILE = CFMessageExample/Info.plist;
+				INFOPLIST_FILE = CFNotifyExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFMessageExample";
+				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFNotifyExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -338,11 +341,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
-				INFOPLIST_FILE = CFMessageExample/Info.plist;
+				INFOPLIST_FILE = CFNotifyExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFMessageExample";
+				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFNotifyExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

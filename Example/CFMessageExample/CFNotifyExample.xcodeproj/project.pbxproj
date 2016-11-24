@@ -10,9 +10,10 @@
 		053212261DDDB3D90008581A /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 053212251DDDB3D90008581A /* Dog.jpg */; };
 		0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532122A1DDEDE1D0008581A /* Dog2.jpg */; };
 		0532123D1DE437ED0008581A /* Prism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532123C1DE437ED0008581A /* Prism.jpg */; };
-		05E512351DE6C9BF00D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E512341DE6C9BF00D3B765 /* CFResources.bundle */; };
-		05E5123D1DE6E3A300D3B765 /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E5123C1DE6E3A300D3B765 /* CFNotify.framework */; };
-		05E5123F1DE6E41700D3B765 /* CFNotify.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 05E5123C1DE6E3A300D3B765 /* CFNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05E512461DE6E8E100D3B765 /* CFResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05E512481DE6EC7100D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; };
+		05E512491DE6ED8D00D3B765 /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E512421DE6E8C100D3B765 /* CFNotify.framework */; };
+		05E5124A1DE6ED8D00D3B765 /* CFNotify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E512421DE6E8C100D3B765 /* CFNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3731DD35A1400D29BD5 /* AppDelegate.swift */; };
 		B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3751DD35A1400D29BD5 /* ViewController.swift */; };
 		B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B3771DD35A1400D29BD5 /* Main.storyboard */; };
@@ -21,15 +22,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		05E5123A1DE6E2CE00D3B765 /* Copy Files (1 item) */ = {
+		05E512471DE6E8E100D3B765 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				05E512461DE6E8E100D3B765 /* CFResources.bundle in Embed PlugIns */,
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05E5124B1DE6ED8D00D3B765 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				05E5123F1DE6E41700D3B765 /* CFNotify.framework in Copy Files (1 item) */,
+				05E5124A1DE6ED8D00D3B765 /* CFNotify.framework in Embed Frameworks */,
 			);
-			name = "Copy Files (1 item)";
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -38,8 +50,8 @@
 		053212251DDDB3D90008581A /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = ../Dog.jpg; sourceTree = "<group>"; };
 		0532122A1DDEDE1D0008581A /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2.jpg; sourceTree = "<group>"; };
 		0532123C1DE437ED0008581A /* Prism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Prism.jpg; sourceTree = "<group>"; };
-		05E512341DE6C9BF00D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CFResources.bundle; path = "../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFResources.bundle"; sourceTree = "<group>"; };
-		05E5123C1DE6E3A300D3B765 /* CFNotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNotify.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFNotify.framework"; sourceTree = "<group>"; };
+		05E512421DE6E8C100D3B765 /* CFNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CFNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E512451DE6E8E100D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CFResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3701DD35A1400D29BD5 /* CFNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3731DD35A1400D29BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B231B3751DD35A1400D29BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E5123D1DE6E3A300D3B765 /* CFNotify.framework in Frameworks */,
+				05E512491DE6ED8D00D3B765 /* CFNotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +117,8 @@
 		B231B3851DD35A2A00D29BD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				05E5123C1DE6E3A300D3B765 /* CFNotify.framework */,
-				05E512341DE6C9BF00D3B765 /* CFResources.bundle */,
+				05E512421DE6E8C100D3B765 /* CFNotify.framework */,
+				05E512451DE6E8E100D3B765 /* CFResources.bundle */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,7 +133,8 @@
 				B231B36C1DD35A1400D29BD5 /* Sources */,
 				B231B36D1DD35A1400D29BD5 /* Frameworks */,
 				B231B36E1DD35A1400D29BD5 /* Resources */,
-				05E5123A1DE6E2CE00D3B765 /* Copy Files (1 item) */,
+				05E512471DE6E8E100D3B765 /* Embed PlugIns */,
+				05E5124B1DE6ED8D00D3B765 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,12 +185,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E512481DE6EC7100D3B765 /* CFResources.bundle in Resources */,
 				053212261DDDB3D90008581A /* Dog.jpg in Resources */,
 				B231B37E1DD35A1400D29BD5 /* LaunchScreen.storyboard in Resources */,
 				0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */,
 				B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */,
 				0532123D1DE437ED0008581A /* Prism.jpg in Resources */,
-				05E512351DE6C9BF00D3B765 /* CFResources.bundle in Resources */,
 				B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

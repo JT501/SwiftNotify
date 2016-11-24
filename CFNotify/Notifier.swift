@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Messenger: NSObject, UIGestureRecognizerDelegate {
+class Notifier: NSObject, UIGestureRecognizerDelegate {
     
-    let config: CFMessage.Config
+    let config: CFNotify.Config
     let view: UIView
     let containerView: UIView
     let panRecognizer: UIPanGestureRecognizer
@@ -22,12 +22,12 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
     var gravityBehaviour : UIGravityBehavior!
     var collisionBehaviour : UICollisionBehavior!
     var isDismissing: Bool
-    weak var delegate: MessengerDelegate?
+    weak var delegate: NotifierDelegate?
     var fieldMargin: CGFloat  //Margin to remove message from view
     var angularVelocity: CGFloat = 0
     let tapAction: (()->Void)?
     
-    init(config: CFMessage.Config, view: UIView, tapHandler: (()->Void)?, delegate: MessengerDelegate) {
+    init(config: CFNotify.Config, view: UIView, tapHandler: (()->Void)?, delegate: NotifierDelegate) {
         self.config = config
         self.view = view
         self.containerView = UIView()
@@ -41,9 +41,9 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         self.tapAction = tapHandler
         
         super.init()
-        self.panRecognizer.addTarget(self, action: #selector(Messenger.pan(gesture:)))
+        self.panRecognizer.addTarget(self, action: #selector(Notifier.pan(gesture:)))
         self.panRecognizer.maximumNumberOfTouches = 1
-        self.tapRecognizer.addTarget(self, action: #selector(Messenger.tap(gesture:)))
+        self.tapRecognizer.addTarget(self, action: #selector(Notifier.tap(gesture:)))
     }
     
     var dismissTime: TimeInterval? {
@@ -111,7 +111,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         keyWindow.addSubview(self.containerView)
         
         if let delegate = self.delegate {
-            delegate.messengerDidAppear()
+            delegate.notifierDidAppear()
         }
         
         switch self.config.appearPosition {
@@ -143,7 +143,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
             guard let strongSelf = self else { return }
             strongSelf.removeFromSuperView(completion: { (completed) in
                 if let delegate = strongSelf.delegate, completed {
-                    delegate.messengerDidDisappear(messenger: strongSelf)
+                    delegate.notifierDidDisappear(notifier: strongSelf)
                 }
             })
         }
@@ -221,7 +221,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
         //Start Dragging
         case .began:
             if let delegate = self.delegate {
-                delegate.messengerStartDragging(atPoint: dragPoint)
+                delegate.notifierStartDragging(atPoint: dragPoint)
             }
             self.animator.removeAllBehaviors()
             
@@ -249,12 +249,12 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
             let touchPoint : CGPoint = gesture.location(in: gestureView.superview)
             attachmentBehaviour.anchorPoint = touchPoint
             if let delegate = delegate {
-                delegate.messengerIsDragging(atPoint: touchPoint)
+                delegate.notifierIsDragging(atPoint: touchPoint)
             }
         //End Dragging
         case .ended:
             if let delegate = self.delegate {
-                delegate.messengerEndDragging(atPoint: dragPoint)
+                delegate.notifierEndDragging(atPoint: dragPoint)
             }
 
             self.animator.removeAllBehaviors()
@@ -292,7 +292,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
                     strongSelf.removeFromSuperView(completion: { [weak self] (completed) in
                         guard let strongSelf = self else { return }
                         if let delegate = strongSelf.delegate, completed {
-                            delegate.messengerDidDisappear(messenger: strongSelf)
+                            delegate.notifierDidDisappear(notifier: strongSelf)
                         }
                     })
                 }
@@ -305,7 +305,7 @@ class Messenger: NSObject, UIGestureRecognizerDelegate {
     
     func tap(gesture: UITapGestureRecognizer) {
         if let delegate = self.delegate {
-            delegate.messengerIsTapped()
+            delegate.notifierIsTapped()
         }
         if let tapAction = self.tapAction {
             tapAction()

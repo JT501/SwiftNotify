@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CFDefaultView: NSObject {
+open class CFNoticeView: NSObject {
     
     /**
     Theme enum
@@ -29,7 +29,7 @@ open class CFDefaultView: NSObject {
     }
 }
 
-extension CFDefaultView {
+extension CFNoticeView {
     
     public static func toastWith(text: String, theme: Theme) -> ToastView {
         
@@ -98,7 +98,7 @@ extension CFDefaultView {
     }
 }
 
-extension CFDefaultView {
+extension CFNoticeView {
     
     static func setToastThemeFor(view: ToastView, theme: Theme) {
         switch theme {

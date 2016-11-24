@@ -11,15 +11,15 @@
 		053212291DDE96470008581A /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212281DDE96470008581A /* ClassicView.swift */; };
 		0532122D1DDEEAA80008581A /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532122C1DDEEAA80008581A /* BaseLabel.swift */; };
 		053212301DDEF6F80008581A /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532122F1DDEF6F80008581A /* BaseImageView.swift */; };
-		053212351DDF06460008581A /* CFDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212341DDF06460008581A /* CFDefaultView.swift */; };
+		053212351DDF06460008581A /* CFNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053212341DDF06460008581A /* CFNoticeView.swift */; };
 		0532123B1DE423E80008581A /* CyberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532123A1DE423E80008581A /* CyberView.swift */; };
-		05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFMessage.swift */; };
+		05B9FE611DD32E7C003EFC10 /* CFNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9FE601DD32E7C003EFC10 /* CFNotify.swift */; };
 		05C827271DD31B7A003E0C5E /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* CFNotify.framework */; };
 		05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */; };
 		05C8272E1DD31B7A003E0C5E /* CFNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C827201DD31B7A003E0C5E /* CFNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05C827391DD31FCE003E0C5E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C827381DD31FCE003E0C5E /* Nimble.framework */; };
 		05C8273B1DD31FD5003E0C5E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8273A1DD31FD5003E0C5E /* Quick.framework */; };
-		05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */; };
+		05E0036A1DD40B43003DBE35 /* CFNotifyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003691DD40B43003DBE35 /* CFNotifyProtocols.swift */; };
 		05E003731DD46261003DBE35 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E003721DD46261003DBE35 /* ToastView.swift */; };
 		05E511E61DE6BB3D00D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* CFResources.bundle */; };
 		05E512151DE6C89E00D3B765 /* icon_fail_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E511EE1DE6C89E00D3B765 /* icon_fail_dark.png */; };
@@ -46,7 +46,7 @@
 		05E512311DE6C89E00D3B765 /* icon_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E512111DE6C89E00D3B765 /* icon_warning.png */; };
 		05E512321DE6C89E00D3B765 /* icon_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E512121DE6C89E00D3B765 /* icon_warning@2x.png */; };
 		05E512331DE6C89E00D3B765 /* icon_warning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E512131DE6C89E00D3B765 /* icon_warning@3x.png */; };
-		05E512411DE6E84000D3B765 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E512401DE6E84000D3B765 /* Messenger.swift */; };
+		05E512411DE6E84000D3B765 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E512401DE6E84000D3B765 /* Notifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,9 +83,9 @@
 		053212281DDE96470008581A /* ClassicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassicView.swift; path = ../CFNotify/CFView/ClassicView.swift; sourceTree = "<group>"; };
 		0532122C1DDEEAA80008581A /* BaseLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLabel.swift; path = ../CFNotify/Base/BaseLabel.swift; sourceTree = "<group>"; };
 		0532122F1DDEF6F80008581A /* BaseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseImageView.swift; path = ../CFNotify/Base/BaseImageView.swift; sourceTree = "<group>"; };
-		053212341DDF06460008581A /* CFDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFDefaultView.swift; path = ../CFNotify/CFDefaultView.swift; sourceTree = "<group>"; };
+		053212341DDF06460008581A /* CFNoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFNoticeView.swift; path = ../CFNotify/CFNoticeView.swift; sourceTree = "<group>"; };
 		0532123A1DE423E80008581A /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CyberView.swift; path = ../CFNotify/CFView/CyberView.swift; sourceTree = "<group>"; };
-		05B9FE601DD32E7C003EFC10 /* CFMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFMessage.swift; path = ../CFNotify/CFMessage.swift; sourceTree = "<group>"; };
+		05B9FE601DD32E7C003EFC10 /* CFNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFNotify.swift; path = ../CFNotify/CFNotify.swift; sourceTree = "<group>"; };
 		05C8271D1DD31B7A003E0C5E /* CFNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CFNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C827201DD31B7A003E0C5E /* CFNotify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CFNotify.h; path = ../CFNotify/CFNotify.h; sourceTree = "<group>"; };
 		05C827211DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../CFNotify/Info.plist; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C827381DD31FCE003E0C5E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		05C8273A1DD31FD5003E0C5E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
-		05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFMessageProtocols.swift; path = ../CFNotify/CFMessageProtocols.swift; sourceTree = "<group>"; };
+		05E003691DD40B43003DBE35 /* CFNotifyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFNotifyProtocols.swift; path = ../CFNotify/CFNotifyProtocols.swift; sourceTree = "<group>"; };
 		05E003721DD46261003DBE35 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = ../CFNotify/CFView/ToastView.swift; sourceTree = "<group>"; };
 		05E511D91DE6A69900D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E511DB1DE6A69900D3B765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		05E512111DE6C89E00D3B765 /* icon_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_warning.png; sourceTree = "<group>"; };
 		05E512121DE6C89E00D3B765 /* icon_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_warning@2x.png"; sourceTree = "<group>"; };
 		05E512131DE6C89E00D3B765 /* icon_warning@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_warning@3x.png"; sourceTree = "<group>"; };
-		05E512401DE6E84000D3B765 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messenger.swift; path = CFNotify/Messenger.swift; sourceTree = SOURCE_ROOT; };
+		05E512401DE6E84000D3B765 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifier.swift; path = CFNotify/Notifier.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,14 +161,14 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
-		053212271DDDB7FB0008581A /* CFMessageView */ = {
+		053212271DDDB7FB0008581A /* CFNoticeView */ = {
 			isa = PBXGroup;
 			children = (
 				05E003721DD46261003DBE35 /* ToastView.swift */,
 				053212281DDE96470008581A /* ClassicView.swift */,
 				0532123A1DE423E80008581A /* CyberView.swift */,
 			);
-			name = CFMessageView;
+			name = CFNoticeView;
 			sourceTree = "<group>";
 		};
 		0532122E1DDEEAD10008581A /* Base */ = {
@@ -204,13 +204,13 @@
 		05C8271F1DD31B7A003E0C5E /* CFNotify */ = {
 			isa = PBXGroup;
 			children = (
-				05E512401DE6E84000D3B765 /* Messenger.swift */,
 				0532122E1DDEEAD10008581A /* Base */,
 				0532121F1DD95F0D0008581A /* Extension */,
-				053212271DDDB7FB0008581A /* CFMessageView */,
-				05E003691DD40B43003DBE35 /* CFMessageProtocols.swift */,
-				05B9FE601DD32E7C003EFC10 /* CFMessage.swift */,
-				053212341DDF06460008581A /* CFDefaultView.swift */,
+				053212271DDDB7FB0008581A /* CFNoticeView */,
+				05E003691DD40B43003DBE35 /* CFNotifyProtocols.swift */,
+				05B9FE601DD32E7C003EFC10 /* CFNotify.swift */,
+				05E512401DE6E84000D3B765 /* Notifier.swift */,
+				053212341DDF06460008581A /* CFNoticeView.swift */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				05C827201DD31B7A003E0C5E /* CFNotify.h */,
 			);
@@ -511,13 +511,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0532123B1DE423E80008581A /* CyberView.swift in Sources */,
-				05E512411DE6E84000D3B765 /* Messenger.swift in Sources */,
+				05E512411DE6E84000D3B765 /* Notifier.swift in Sources */,
 				0532122D1DDEEAA80008581A /* BaseLabel.swift in Sources */,
 				053212231DD95F700008581A /* CGRectEx.swift in Sources */,
 				05E003731DD46261003DBE35 /* ToastView.swift in Sources */,
-				053212351DDF06460008581A /* CFDefaultView.swift in Sources */,
-				05E0036A1DD40B43003DBE35 /* CFMessageProtocols.swift in Sources */,
-				05B9FE611DD32E7C003EFC10 /* CFMessage.swift in Sources */,
+				053212351DDF06460008581A /* CFNoticeView.swift in Sources */,
+				05E0036A1DD40B43003DBE35 /* CFNotifyProtocols.swift in Sources */,
+				05B9FE611DD32E7C003EFC10 /* CFNotify.swift in Sources */,
 				053212291DDE96470008581A /* ClassicView.swift in Sources */,
 				053212301DDEF6F80008581A /* BaseImageView.swift in Sources */,
 			);

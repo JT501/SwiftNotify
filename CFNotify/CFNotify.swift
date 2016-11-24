@@ -8,9 +8,9 @@
 
 import UIKit
 
-private let globalInstance = CFMessage()
+private let globalInstance = CFNotify()
 
-open class CFMessage: MessengerDelegate {
+open class CFNotify: NotifierDelegate {
     
     public enum InitPosition {
         case top(HorizontalPosition)
@@ -76,7 +76,7 @@ open class CFMessage: MessengerDelegate {
     open func show(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
         syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
-            let message = Messenger(config: config, view: view, tapHandler: tapHandler, delegate: strongSelf)
+            let message = Notifier(config: config, view: view, tapHandler: tapHandler, delegate: strongSelf)
             strongSelf.enqueue(message: message)
         }
     }
@@ -118,14 +118,14 @@ open class CFMessage: MessengerDelegate {
         }
     }
     
-    open weak var delegate: CFMessageDelegate!
+    open weak var delegate: CFNotifyDelegate!
     public var defaultConfig = Config()
     
     open var intervalBetweenMessages: TimeInterval = 0.5
     
     let syncQueue = DispatchQueue(label: "CFMessage.Queue", attributes: [])
-    var messageQueue: [Messenger] = []
-    var currentMsg: Messenger? = nil {
+    var messageQueue: [Notifier] = []
+    var currentMsg: Notifier? = nil {
         didSet {
             if oldValue != nil {
                 let delayTime = DispatchTime.now() + intervalBetweenMessages
@@ -137,7 +137,7 @@ open class CFMessage: MessengerDelegate {
         }
     }
     
-    func enqueue(message: Messenger) {
+    func enqueue(message: Notifier) {
         messageQueue.append(message)
         dequeueNext()
     }
@@ -159,7 +159,7 @@ open class CFMessage: MessengerDelegate {
         }
     }
     
-    fileprivate var msgToAutoDismiss: Messenger?
+    fileprivate var msgToAutoDismiss: Notifier?
     
     fileprivate func queueAutoDismiss() {
         guard let currentMsg = self.currentMsg else { return }
@@ -176,7 +176,7 @@ open class CFMessage: MessengerDelegate {
         }
     }
     
-    func dismiss(messager: Messenger) {
+    func dismiss(messager: Notifier) {
         self.syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
             if let currentMsg = strongSelf.currentMsg, messager === currentMsg {
@@ -194,45 +194,45 @@ open class CFMessage: MessengerDelegate {
     }
     
     // MARK: - MessengerDelegate
-    func messengerDidAppear() {
+    func notifierDidAppear() {
         if let delegate = delegate {
-            delegate.cfMessageDidAppear()
+            delegate.cfNotifyDidAppear()
         }
     }
     
-    func messengerStartDragging(atPoint: CGPoint) {
+    func notifierStartDragging(atPoint: CGPoint) {
         if let delegate = delegate {
-            delegate.cfMessageStartDragging(atPoint: atPoint)
+            delegate.cfNotifyStartDragging(atPoint: atPoint)
         }
         self.msgToAutoDismiss = nil
     }
     
-    func messengerIsDragging(atPoint: CGPoint) {
+    func notifierIsDragging(atPoint: CGPoint) {
         if let delegate = delegate {
-            delegate.cfMessageIsDragging(atPoint: atPoint)
+            delegate.cfNotifyIsDragging(atPoint: atPoint)
         }
     }
     
-    func messengerEndDragging(atPoint: CGPoint) {
+    func notifierEndDragging(atPoint: CGPoint) {
         if let delegate = delegate {
-            delegate.cfMessageEndDragging(atPoint: atPoint)
+            delegate.cfNotifyEndDragging(atPoint: atPoint)
         }
         self.queueAutoDismiss()
     }
     
-    func messengerDidDisappear(messenger: Messenger) {
+    func notifierDidDisappear(notifier: Notifier) {
         if let delegate = delegate {
-            delegate.cfMessageDidDisappear()
+            delegate.cfNotifyDidDisappear()
         }
         self.syncQueue.async {
-            self.messageQueue = self.messageQueue.filter{ $0 !== messenger }
+            self.messageQueue = self.messageQueue.filter{ $0 !== notifier }
             self.currentMsg = nil
         }
     }
     
-    func messengerIsTapped() {
+    func notifierIsTapped() {
         if let delegate = delegate {
-            delegate.cfMessageIsTapped()
+            delegate.cfNotifyIsTapped()
         }
         self.msgToAutoDismiss = nil
         self.dismissCurrent()
@@ -240,13 +240,13 @@ open class CFMessage: MessengerDelegate {
 }
 
 /* MARK: - Static APIs **/
-extension CFMessage {
+extension CFNotify {
     
-    public static var sharedInstance: CFMessage {
+    public static var sharedInstance: CFNotify {
         return globalInstance
     }
     
-    public static weak var delegate: CFMessageDelegate? {
+    public static weak var delegate: CFNotifyDelegate? {
         get {
             return globalInstance.delegate
         }

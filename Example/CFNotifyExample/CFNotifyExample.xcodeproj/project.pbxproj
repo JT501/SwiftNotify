@@ -15,6 +15,7 @@
 		05B074E71DE6F5A6003611FE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E61DE6F5A6003611FE /* Info.plist */; };
 		05B074EA1DE6F61E003611FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E81DE6F61E003611FE /* Main.storyboard */; };
 		05B074EB1DE6F63A003611FE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */; };
+		05B074EF1DE6F880003611FE /* Mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074EE1DE6F880003611FE /* Mountain.jpg */; };
 		05E512461DE6E8E100D3B765 /* CFResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05E512481DE6EC7100D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; };
 		05E512491DE6ED8D00D3B765 /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E512421DE6E8C100D3B765 /* CFNotify.framework */; };
@@ -55,6 +56,7 @@
 		05B074E61DE6F5A6003611FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CFNotifyExample/Info.plist; sourceTree = SOURCE_ROOT; };
 		05B074E91DE6F61E003611FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CFNotifyExample/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		05B074EC1DE6F63A003611FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		05B074EE1DE6F880003611FE /* Mountain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Mountain.jpg; path = CFNotifyExample/Resource/Mountain.jpg; sourceTree = SOURCE_ROOT; };
 		05E512421DE6E8C100D3B765 /* CFNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CFNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E512451DE6E8E100D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CFResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3701DD35A1400D29BD5 /* CFNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 		053212241DDDB3C70008581A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				05B074EE1DE6F880003611FE /* Mountain.jpg */,
 				05B074E01DE6F552003611FE /* Dog.jpg */,
 				05B074E11DE6F552003611FE /* Dog2.jpg */,
 				05B074E21DE6F552003611FE /* Prism.jpg */,
@@ -191,6 +194,7 @@
 				05B074E51DE6F552003611FE /* Prism.jpg in Resources */,
 				05B074E31DE6F552003611FE /* Dog.jpg in Resources */,
 				05B074E41DE6F552003611FE /* Dog2.jpg in Resources */,
+				05B074EF1DE6F880003611FE /* Mountain.jpg in Resources */,
 				05B074E71DE6F5A6003611FE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +328,6 @@
 		B231B3831DD35A1400D29BD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = CFNotifyExample/Info.plist;
@@ -340,7 +343,6 @@
 		B231B3841DD35A1400D29BD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = CFNotifyExample/Info.plist;

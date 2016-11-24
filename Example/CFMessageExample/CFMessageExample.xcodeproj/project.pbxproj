@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		053212261DDDB3D90008581A /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 053212251DDDB3D90008581A /* Dog.jpg */; };
 		0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532122A1DDEDE1D0008581A /* Dog2.jpg */; };
-		053212391DE301D00008581A /* Assets.car in Resources */ = {isa = PBXBuildFile; fileRef = 053212381DE301D00008581A /* Assets.car */; };
 		0532123D1DE437ED0008581A /* Prism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0532123C1DE437ED0008581A /* Prism.jpg */; };
+		05E512351DE6C9BF00D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E512341DE6C9BF00D3B765 /* CFResources.bundle */; };
 		B231B3741DD35A1400D29BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3731DD35A1400D29BD5 /* AppDelegate.swift */; };
 		B231B3761DD35A1400D29BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231B3751DD35A1400D29BD5 /* ViewController.swift */; };
 		B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B231B3771DD35A1400D29BD5 /* Main.storyboard */; };
@@ -37,8 +37,8 @@
 /* Begin PBXFileReference section */
 		053212251DDDB3D90008581A /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = ../Dog.jpg; sourceTree = "<group>"; };
 		0532122A1DDEDE1D0008581A /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2.jpg; sourceTree = "<group>"; };
-		053212381DE301D00008581A /* Assets.car */ = {isa = PBXFileReference; lastKnownFileType = file; name = Assets.car; path = "../../../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFDraggableMessage.framework/Assets.car"; sourceTree = "<group>"; };
 		0532123C1DE437ED0008581A /* Prism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Prism.jpg; sourceTree = "<group>"; };
+		05E512341DE6C9BF00D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CFResources.bundle; path = "../../../../Library/Developer/Xcode/DerivedData/CFDraggableMessage-cjauapuooxyllzgdqpsxiioioqst/Build/Products/Debug-iphoneos/CFResources.bundle"; sourceTree = "<group>"; };
 		B231B3701DD35A1400D29BD5 /* CFMessageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFMessageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3731DD35A1400D29BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B231B3751DD35A1400D29BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				0532123C1DE437ED0008581A /* Prism.jpg */,
-				053212381DE301D00008581A /* Assets.car */,
 				0532122A1DDEDE1D0008581A /* Dog2.jpg */,
 				053212251DDDB3D90008581A /* Dog.jpg */,
 			);
@@ -106,6 +105,7 @@
 		B231B3851DD35A2A00D29BD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05E512341DE6C9BF00D3B765 /* CFResources.bundle */,
 				B231B3921DD6F5FD00D29BD5 /* CFDraggableMessage.framework */,
 			);
 			name = Frameworks;
@@ -177,8 +177,8 @@
 				0532122B1DDEDE1D0008581A /* Dog2.jpg in Resources */,
 				B231B37B1DD35A1400D29BD5 /* Assets.xcassets in Resources */,
 				0532123D1DE437ED0008581A /* Prism.jpg in Resources */,
+				05E512351DE6C9BF00D3B765 /* CFResources.bundle in Resources */,
 				B231B3791DD35A1400D29BD5 /* Main.storyboard in Resources */,
-				053212391DE301D00008581A /* Assets.car in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

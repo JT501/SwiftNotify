@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mountain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oYK-bc-HWx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eagle.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oYK-bc-HWx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2016 Johnny@Co-fire. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
@@ -31,22 +32,31 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CFNotifyExample" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="20" y="202" width="335" height="43"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CFNotify Demo" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
+                                <rect key="frame" x="20" y="246.5" width="335" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoFire.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nch-lw-8Od">
+                                <rect key="frame" x="75" y="155.5" width="225" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nch-lw-8Od" secondAttribute="height" multiplier="453:163" id="dbT-Nh-o7W"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oYK-bc-HWx" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="2Qw-bK-R42"/>
                             <constraint firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="Nch-lw-8Od" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AVA-eC-FDZ"/>
                             <constraint firstItem="oYK-bc-HWx" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="HFp-IH-A85"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="Nch-lw-8Od" secondAttribute="bottom" constant="10" id="HoL-tD-DH7"/>
+                            <constraint firstItem="Nch-lw-8Od" firstAttribute="width" secondItem="oYK-bc-HWx" secondAttribute="width" multiplier="0.6" id="Jvc-Xp-mOd"/>
                             <constraint firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="1" id="moa-c2-u7t"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="2:5" constant="1" id="moa-c2-u7t"/>
                             <constraint firstAttribute="trailing" secondItem="oYK-bc-HWx" secondAttribute="trailing" id="uRr-2i-5rA"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="x7j-FC-K8j"/>
                             <constraint firstAttribute="bottom" secondItem="oYK-bc-HWx" secondAttribute="bottom" id="yvI-6j-6Gi"/>
@@ -59,6 +69,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mountain.jpg" width="744" height="1392"/>
+        <image name="CoFire.png" width="453" height="163"/>
+        <image name="Eagle.jpg" width="1080" height="1920"/>
     </resources>
 </document>

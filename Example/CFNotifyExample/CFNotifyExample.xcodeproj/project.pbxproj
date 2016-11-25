@@ -16,6 +16,15 @@
 		05B074EA1DE6F61E003611FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E81DE6F61E003611FE /* Main.storyboard */; };
 		05B074EB1DE6F63A003611FE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */; };
 		05B074EF1DE6F880003611FE /* Mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074EE1DE6F880003611FE /* Mountain.jpg */; };
+		05B074F11DE7E2C2003611FE /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074F01DE7E2C2003611FE /* MainVC.swift */; };
+		05B074F31DE7E3C0003611FE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074F21DE7E3C0003611FE /* MainTableViewCell.swift */; };
+		05B074F51DE7E84E003611FE /* Night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074F41DE7E84E003611FE /* Night.jpg */; };
+		05B074F71DE7EF6D003611FE /* Eagle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074F61DE7EF6D003611FE /* Eagle.jpg */; };
+		05B074F91DE80FC0003611FE /* Gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074F81DE80FC0003611FE /* Gradient.jpg */; };
+		05B074FB1DE83851003611FE /* ClassicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074FA1DE83851003611FE /* ClassicVC.swift */; };
+		05B074FD1DE83D7A003611FE /* Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074FC1DE83D7A003611FE /* Moon.jpg */; };
+		05B074FF1DE840B4003611FE /* ToastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074FE1DE840B4003611FE /* ToastVC.swift */; };
+		05B075011DE8479D003611FE /* CoFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B075001DE8479D003611FE /* CoFire.png */; };
 		05E512461DE6E8E100D3B765 /* CFResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05E512481DE6EC7100D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E512451DE6E8E100D3B765 /* CFResources.bundle */; };
 		05E512491DE6ED8D00D3B765 /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E512421DE6E8C100D3B765 /* CFNotify.framework */; };
@@ -57,6 +66,15 @@
 		05B074E91DE6F61E003611FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CFNotifyExample/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		05B074EC1DE6F63A003611FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		05B074EE1DE6F880003611FE /* Mountain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Mountain.jpg; path = CFNotifyExample/Resource/Mountain.jpg; sourceTree = SOURCE_ROOT; };
+		05B074F01DE7E2C2003611FE /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = CFNotifyExample/MainVC.swift; sourceTree = SOURCE_ROOT; };
+		05B074F21DE7E3C0003611FE /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewCell.swift; path = CFNotifyExample/MainTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		05B074F41DE7E84E003611FE /* Night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Night.jpg; path = CFNotifyExample/Resource/Night.jpg; sourceTree = SOURCE_ROOT; };
+		05B074F61DE7EF6D003611FE /* Eagle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Eagle.jpg; path = CFNotifyExample/Resource/Eagle.jpg; sourceTree = SOURCE_ROOT; };
+		05B074F81DE80FC0003611FE /* Gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Gradient.jpg; path = CFNotifyExample/Resource/Gradient.jpg; sourceTree = SOURCE_ROOT; };
+		05B074FA1DE83851003611FE /* ClassicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassicVC.swift; path = CFNotifyExample/ClassicVC.swift; sourceTree = SOURCE_ROOT; };
+		05B074FC1DE83D7A003611FE /* Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Moon.jpg; path = CFNotifyExample/Resource/Moon.jpg; sourceTree = SOURCE_ROOT; };
+		05B074FE1DE840B4003611FE /* ToastVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastVC.swift; path = CFNotifyExample/ToastVC.swift; sourceTree = SOURCE_ROOT; };
+		05B075001DE8479D003611FE /* CoFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CoFire.png; path = CFNotifyExample/Resource/CoFire.png; sourceTree = SOURCE_ROOT; };
 		05E512421DE6E8C100D3B765 /* CFNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CFNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E512451DE6E8E100D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CFResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B231B3701DD35A1400D29BD5 /* CFNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +95,11 @@
 		053212241DDDB3C70008581A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				05B075001DE8479D003611FE /* CoFire.png */,
+				05B074FC1DE83D7A003611FE /* Moon.jpg */,
+				05B074F81DE80FC0003611FE /* Gradient.jpg */,
+				05B074F61DE7EF6D003611FE /* Eagle.jpg */,
+				05B074F41DE7E84E003611FE /* Night.jpg */,
 				05B074EE1DE6F880003611FE /* Mountain.jpg */,
 				05B074E01DE6F552003611FE /* Dog.jpg */,
 				05B074E11DE6F552003611FE /* Dog2.jpg */,
@@ -106,10 +129,14 @@
 			isa = PBXGroup;
 			children = (
 				053212241DDDB3C70008581A /* Resource */,
+				05B074F01DE7E2C2003611FE /* MainVC.swift */,
+				05B074F21DE7E3C0003611FE /* MainTableViewCell.swift */,
 				05B074DE1DE6F4FE003611FE /* ViewController.swift */,
+				05B074FA1DE83851003611FE /* ClassicVC.swift */,
+				05B074FE1DE840B4003611FE /* ToastVC.swift */,
 				05B074DC1DE6F4F8003611FE /* AppDelegate.swift */,
-				05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */,
 				05B074E81DE6F61E003611FE /* Main.storyboard */,
+				05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */,
 				05B074E61DE6F5A6003611FE /* Info.plist */,
 			);
 			name = CFNotifyExample;
@@ -191,10 +218,15 @@
 				05B074EA1DE6F61E003611FE /* Main.storyboard in Resources */,
 				05E512481DE6EC7100D3B765 /* CFResources.bundle in Resources */,
 				05B074EB1DE6F63A003611FE /* Launch Screen.storyboard in Resources */,
+				05B075011DE8479D003611FE /* CoFire.png in Resources */,
 				05B074E51DE6F552003611FE /* Prism.jpg in Resources */,
+				05B074F71DE7EF6D003611FE /* Eagle.jpg in Resources */,
 				05B074E31DE6F552003611FE /* Dog.jpg in Resources */,
 				05B074E41DE6F552003611FE /* Dog2.jpg in Resources */,
+				05B074F91DE80FC0003611FE /* Gradient.jpg in Resources */,
+				05B074FD1DE83D7A003611FE /* Moon.jpg in Resources */,
 				05B074EF1DE6F880003611FE /* Mountain.jpg in Resources */,
+				05B074F51DE7E84E003611FE /* Night.jpg in Resources */,
 				05B074E71DE6F5A6003611FE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +238,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B074FF1DE840B4003611FE /* ToastVC.swift in Sources */,
+				05B074FB1DE83851003611FE /* ClassicVC.swift in Sources */,
 				05B074DF1DE6F4FE003611FE /* ViewController.swift in Sources */,
+				05B074F11DE7E2C2003611FE /* MainVC.swift in Sources */,
+				05B074F31DE7E3C0003611FE /* MainTableViewCell.swift in Sources */,
 				05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

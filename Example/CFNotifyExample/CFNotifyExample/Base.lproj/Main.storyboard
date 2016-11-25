@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Demo-->
+        <!--Cyber View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CyberViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -62,21 +62,8 @@
                                     <action selector="dismissMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBT-ug-9sD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-TF-3DQ">
-                                <rect key="frame" x="118" y="515" width="138" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="138" id="NsG-9w-P7h"/>
-                                </constraints>
-                                <state key="normal" title="Show Classic View">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showClassicView" destination="BYZ-38-t0r" eventType="touchUpInside" id="jzF-CU-WR5"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w36-di-nf0">
-                                <rect key="frame" x="123.5" y="477" width="127" height="30"/>
+                                <rect key="frame" x="123.5" y="515" width="127" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="127" id="aST-FJ-l2C"/>
@@ -89,7 +76,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-Bc-eyH">
-                                <rect key="frame" x="122" y="439" width="130" height="30"/>
+                                <rect key="frame" x="122" y="477" width="130" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.6510783450704225" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="ZZ7-tg-toE"/>
@@ -104,29 +91,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lFm-TF-3DQ" firstAttribute="top" secondItem="w36-di-nf0" secondAttribute="bottom" constant="8" id="4Hm-jk-bAp"/>
                             <constraint firstAttribute="trailing" secondItem="Qg3-3z-P8F" secondAttribute="trailing" id="5Oa-K9-Me1"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jV-B5-vYA"/>
+                            <constraint firstItem="Hys-cE-vJG" firstAttribute="top" secondItem="w36-di-nf0" secondAttribute="bottom" constant="8" id="6dX-nI-wHF"/>
                             <constraint firstItem="5Iz-VT-LMK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BFK-ph-lft"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5Iz-VT-LMK" secondAttribute="bottom" constant="8" id="F2v-Um-Lvo"/>
                             <constraint firstAttribute="bottom" secondItem="Qg3-3z-P8F" secondAttribute="bottom" id="IU4-Dw-VYc"/>
-                            <constraint firstItem="lFm-TF-3DQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NLS-Pm-Ddy"/>
                             <constraint firstItem="Hys-cE-vJG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rgf-JZ-nBe"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="top" secondItem="Hys-cE-vJG" secondAttribute="bottom" constant="8" id="SHA-Qt-8BX"/>
                             <constraint firstItem="Qg3-3z-P8F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bN9-yP-njb"/>
                             <constraint firstItem="HIl-Bc-eyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mck-ig-uut"/>
                             <constraint firstItem="5Iz-VT-LMK" firstAttribute="top" secondItem="Qoe-cq-Vrt" secondAttribute="bottom" constant="8" id="ogG-ar-Y9T"/>
                             <constraint firstItem="w36-di-nf0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ohp-fA-veO"/>
-                            <constraint firstItem="Hys-cE-vJG" firstAttribute="top" secondItem="lFm-TF-3DQ" secondAttribute="bottom" constant="8" id="vat-dg-ZqP"/>
                             <constraint firstItem="Qg3-3z-P8F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xTb-vj-4lc"/>
                             <constraint firstItem="w36-di-nf0" firstAttribute="top" secondItem="HIl-Bc-eyH" secondAttribute="bottom" constant="8" id="xfH-NS-q14"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Demo" id="h38-Wv-Lif"/>
+                    <navigationItem key="navigationItem" title="Cyber View" id="h38-Wv-Lif"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960.79999999999995" y="34.632683658170919"/>
+            <point key="canvasLocation" x="174" y="785"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GaQ-Yy-FeE">
@@ -144,7 +129,228 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lnn-6q-bAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663.2" y="34.632683658170919"/>
+            <point key="canvasLocation" x="905" y="785"/>
+        </scene>
+        <!--Toast View-->
+        <scene sceneID="UQN-aE-6pZ">
+            <objects>
+                <viewController id="okM-wt-rTR" customClass="ToastVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cgv-ob-Lgb"/>
+                        <viewControllerLayoutGuide type="bottom" id="J1d-nJ-MT0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PuN-B0-QP3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Moon.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ha7-P1-jmE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XGE-t3-rh9">
+                                <rect key="frame" x="119" y="282.5" width="137" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I26-8I-ANE">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="34"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="Show Toast">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showToastView" destination="okM-wt-rTR" eventType="touchUpInside" id="eP7-0l-rbF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC8-jt-ZmI">
+                                        <rect key="frame" x="0.0" y="34" width="137" height="34"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="Dismiss Notice">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissMessage" destination="okM-wt-rTR" eventType="touchUpInside" id="h8S-ND-Cns"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z5-iZ-jVY">
+                                        <rect key="frame" x="0.0" y="68" width="137" height="34"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="Dismiss All">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissAll" destination="okM-wt-rTR" eventType="touchUpInside" id="M19-Sa-p55"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J1d-nJ-MT0" firstAttribute="top" secondItem="ha7-P1-jmE" secondAttribute="bottom" id="NeG-uY-9No"/>
+                            <constraint firstItem="XGE-t3-rh9" firstAttribute="centerY" secondItem="PuN-B0-QP3" secondAttribute="centerY" id="QR3-bU-BzT"/>
+                            <constraint firstItem="ha7-P1-jmE" firstAttribute="top" secondItem="PuN-B0-QP3" secondAttribute="top" id="SAN-C3-iKg"/>
+                            <constraint firstItem="XGE-t3-rh9" firstAttribute="centerX" secondItem="PuN-B0-QP3" secondAttribute="centerX" id="cXd-5F-4DO"/>
+                            <constraint firstItem="ha7-P1-jmE" firstAttribute="leading" secondItem="PuN-B0-QP3" secondAttribute="leading" id="mC4-vI-kmd"/>
+                            <constraint firstAttribute="trailing" secondItem="ha7-P1-jmE" secondAttribute="trailing" id="oVe-xz-14e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Toast View" id="kao-uY-1aG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2TY-aj-ljE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.59999999999999" y="-691.304347826087"/>
+        </scene>
+        <!--Demo-->
+        <scene sceneID="r4u-vu-aLZ">
+            <objects>
+                <viewController id="wp1-MF-PkN" customClass="MainVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mdq-zD-QLx"/>
+                        <viewControllerLayoutGuide type="bottom" id="P1v-Ia-zcj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JJg-ZA-WGS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Night.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="f2b-yy-FCG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="134" sectionHeaderHeight="65" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-gC-v5j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="65" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="134" id="J7s-E7-b5P" customClass="MainTableViewCell" customModule="CFNotifyExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="375" height="134"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J7s-E7-b5P" id="mDx-iH-J0f">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-W0-EnI" userLabel="Container View">
+                                                    <rect key="frame" x="15" y="15" width="345" height="119"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="#CyberView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W1-SJ-apE">
+                                                            <rect key="frame" x="71.5" y="40.5" width="202" height="38"/>
+                                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                            <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="9W1-SJ-apE" firstAttribute="centerY" secondItem="w8h-W0-EnI" secondAttribute="centerY" id="0Oz-Hg-isn"/>
+                                                        <constraint firstItem="9W1-SJ-apE" firstAttribute="centerX" secondItem="w8h-W0-EnI" secondAttribute="centerX" id="NaB-Y5-qtW"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="w8h-W0-EnI" secondAttribute="bottom" id="2Qu-yt-0q6"/>
+                                                <constraint firstAttribute="trailing" secondItem="w8h-W0-EnI" secondAttribute="trailing" constant="15" id="BsW-zb-11I"/>
+                                                <constraint firstItem="w8h-W0-EnI" firstAttribute="top" secondItem="mDx-iH-J0f" secondAttribute="top" constant="15" id="flH-Rw-iZN"/>
+                                                <constraint firstItem="w8h-W0-EnI" firstAttribute="leading" secondItem="mDx-iH-J0f" secondAttribute="leading" constant="15" id="u0N-YB-WRf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="containerView" destination="w8h-W0-EnI" id="DHz-LO-B8l"/>
+                                            <outlet property="titleLabel" destination="9W1-SJ-apE" id="DvL-4F-ycG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wp1-MF-PkN" id="36r-MD-oZH"/>
+                                    <outlet property="delegate" destination="wp1-MF-PkN" id="mQi-PV-qbw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="P1v-Ia-zcj" firstAttribute="top" secondItem="rCM-gC-v5j" secondAttribute="bottom" id="Ln3-T2-f6u"/>
+                            <constraint firstItem="rCM-gC-v5j" firstAttribute="top" secondItem="JJg-ZA-WGS" secondAttribute="top" id="XXN-Sh-LFe"/>
+                            <constraint firstAttribute="trailing" secondItem="f2b-yy-FCG" secondAttribute="trailing" id="h1Q-EO-8be"/>
+                            <constraint firstItem="f2b-yy-FCG" firstAttribute="leading" secondItem="JJg-ZA-WGS" secondAttribute="leading" id="h9B-pF-iLK"/>
+                            <constraint firstAttribute="bottom" secondItem="f2b-yy-FCG" secondAttribute="bottom" id="hwp-yP-epg"/>
+                            <constraint firstAttribute="trailing" secondItem="rCM-gC-v5j" secondAttribute="trailing" id="idi-JM-rx5"/>
+                            <constraint firstItem="f2b-yy-FCG" firstAttribute="top" secondItem="JJg-ZA-WGS" secondAttribute="top" id="ulK-0u-cb1"/>
+                            <constraint firstItem="rCM-gC-v5j" firstAttribute="leading" secondItem="JJg-ZA-WGS" secondAttribute="leading" id="vxX-kd-olZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Demo" id="TKB-Eg-gTY"/>
+                    <connections>
+                        <outlet property="tableView" destination="rCM-gC-v5j" id="BC8-or-IQz"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowCyberViewSegue" id="sQS-C6-v2b"/>
+                        <segue destination="zNN-xZ-Txb" kind="show" identifier="ShowClassicSegue" id="ZQH-ez-yjH"/>
+                        <segue destination="okM-wt-rTR" kind="show" identifier="ShowToastSegue" id="5Wn-Jg-LOm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BvT-SC-7gY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.59999999999999" y="34.632683658170919"/>
+        </scene>
+        <!--Classic View-->
+        <scene sceneID="lEP-ud-wk3">
+            <objects>
+                <viewController id="zNN-xZ-Txb" customClass="ClassicVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TcP-Yz-nRa"/>
+                        <viewControllerLayoutGuide type="bottom" id="gp0-YG-7Pj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6rm-75-bjg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eagle.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="L2A-4M-Iou">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7M-lr-5SA">
+                                <rect key="frame" x="126" y="541" width="122" height="34"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                <state key="normal" title="Show Classic">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showClassicView" destination="zNN-xZ-Txb" eventType="touchUpInside" id="hnU-pE-Qn3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edR-1R-Ebr">
+                                <rect key="frame" x="118.5" y="583" width="137" height="34"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                <state key="normal" title="Dismiss Notice">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissMessage" destination="zNN-xZ-Txb" eventType="touchUpInside" id="Ggz-Oj-l5E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ai-Vm-3U6">
+                                <rect key="frame" x="134.5" y="625" width="105" height="34"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                <state key="normal" title="Dismiss All">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAll" destination="zNN-xZ-Txb" eventType="touchUpInside" id="dwx-Ci-Dta"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Ai-Vm-3U6" firstAttribute="top" secondItem="edR-1R-Ebr" secondAttribute="bottom" constant="8" id="1db-7k-LJC"/>
+                            <constraint firstItem="edR-1R-Ebr" firstAttribute="top" secondItem="p7M-lr-5SA" secondAttribute="bottom" constant="8" id="8t1-hI-FMP"/>
+                            <constraint firstItem="2Ai-Vm-3U6" firstAttribute="centerX" secondItem="6rm-75-bjg" secondAttribute="centerX" id="IZv-Ya-z2n"/>
+                            <constraint firstAttribute="trailing" secondItem="L2A-4M-Iou" secondAttribute="trailing" id="PoF-xA-dSA"/>
+                            <constraint firstItem="L2A-4M-Iou" firstAttribute="leading" secondItem="6rm-75-bjg" secondAttribute="leading" id="Y4D-V8-2YV"/>
+                            <constraint firstItem="L2A-4M-Iou" firstAttribute="top" secondItem="6rm-75-bjg" secondAttribute="top" id="YY9-YC-eao"/>
+                            <constraint firstItem="gp0-YG-7Pj" firstAttribute="top" secondItem="L2A-4M-Iou" secondAttribute="bottom" id="k2n-pt-aUq"/>
+                            <constraint firstItem="edR-1R-Ebr" firstAttribute="centerX" secondItem="6rm-75-bjg" secondAttribute="centerX" id="rLs-gF-mhX"/>
+                            <constraint firstItem="p7M-lr-5SA" firstAttribute="centerX" secondItem="6rm-75-bjg" secondAttribute="centerX" id="vIj-Ik-DxS"/>
+                            <constraint firstItem="gp0-YG-7Pj" firstAttribute="top" secondItem="2Ai-Vm-3U6" secondAttribute="bottom" constant="8" id="vdT-FG-8sQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Classic View" id="V9G-iq-SgD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUB-oQ-cbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905" y="35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XsZ-Vi-Tb0">
@@ -154,10 +360,18 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0uP-iP-MtU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="g7f-5E-E1r"/>
+                        <segue destination="wp1-MF-PkN" kind="relationship" relationship="rootViewController" id="5KO-m6-Xy0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oh5-zB-5wX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,6 +380,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Eagle.jpg" width="1080" height="1920"/>
+        <image name="Moon.jpg" width="750" height="1334"/>
+        <image name="Night.jpg" width="750" height="1334"/>
         <image name="Prism.jpg" width="1028" height="1920"/>
     </resources>
 </document>

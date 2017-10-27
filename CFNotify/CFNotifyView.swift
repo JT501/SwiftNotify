@@ -142,6 +142,10 @@ extension CFNotifyView {
     }
     
     static func setClassicThemeFor(view: ClassicView, theme: Theme) {
+        let frameworkBundle = Bundle(for: CFNotifyView.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("CFResources.bundle")
+        let resourceBundle = Bundle(url: bundleURL!)
+        
         switch theme {
         case .Success(let style):
             switch style {
@@ -149,14 +153,14 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 65.0/256.0, green: 131.0/256.0, blue: 215.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_success")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_success", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 31.0/256.0, green: 58.0/256.0, blue: 147.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_success_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_success_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             }
@@ -166,14 +170,14 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 231.0/256.0, green: 76.0/256.0, blue: 60.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_fail")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_fail", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 185.0/256.0, green: 29.0/256.0, blue: 71.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_fail_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_fail_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             }
@@ -183,14 +187,14 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 191.0/256.0, green: 191.0/256.0, blue: 191.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_info")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_info", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 29.0/256.0, green: 29.0/256.0, blue: 29.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_info_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_info_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             }
@@ -200,14 +204,14 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 245.0/256.0, green: 171.0/256.0, blue: 53.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_warning")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_warning", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             case .Dark:
                 view.backgroundColor = UIColor(red: 218.0/256.0, green: 83.0/256.0, blue: 44.0/256.0, alpha: 1.0)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_warning_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_warning_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             }
@@ -215,6 +219,10 @@ extension CFNotifyView {
     }
     
     static func setCyberThemeFor(view: CyberView, theme: Theme) {
+        let frameworkBundle = Bundle(for: CFNotifyView.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("CFResources.bundle")
+        let resourceBundle = Bundle(url: bundleURL!)
+        
         switch theme {
         case .Success(let style):
             switch style {
@@ -222,13 +230,13 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 65.0/256.0, green: 131.0/256.0, blue: 215.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_success")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_success", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
                 view.backgroundColor = UIColor(red: 31.0/256.0, green: 58.0/256.0, blue: 147.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_success_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_success_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             }
         case .Fail(let style):
@@ -237,13 +245,13 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 231.0/256.0, green: 76.0/256.0, blue: 60.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_fail")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_fail", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
                 view.backgroundColor = UIColor(red: 185.0/256.0, green: 29.0/256.0, blue: 71.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_fail_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_fail_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             }
         case .Info(let style):
@@ -252,13 +260,13 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 191.0/256.0, green: 191.0/256.0, blue: 191.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_info")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_info", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
                 view.backgroundColor = UIColor(red: 29.0/256.0, green: 29.0/256.0, blue: 29.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_info_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_info_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             }
         case .Warning(let style):
@@ -267,13 +275,13 @@ extension CFNotifyView {
                 view.backgroundColor = UIColor(red: 245.0/256.0, green: 171.0/256.0, blue: 53.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_warning")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_warning", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
             case .Dark:
                 view.backgroundColor = UIColor(red: 218.0/256.0, green: 83.0/256.0, blue: 44.0/256.0, alpha: 0.5)
                 view.titleTextColor = UIColor.white
                 view.bodyTextColor = UIColor.white
-                let image = UIImage(named: "CFResources.bundle/icon_warning_dark")?.withRenderingMode(.alwaysTemplate)
+                let image = UIImage(named: "icon_warning_dark", in: resourceBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
                 view.imageView.image = image
                 view.imageView.tintColor = UIColor.white
             }

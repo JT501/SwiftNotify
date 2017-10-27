@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/hallelujahbaby/CFNotify.git", :tag => "0.9.0" }
   s.source_files  = "CFNotify", "CFNotify/**/*.{swift,h}"
-  s.resources = "CFResources/**/*.png"
-  s.frameworks   = 'UIKit'
+  s.resource_bundles = {"CFResources" =>["CFResources/**/*.png"]}
+  s.frameworks   = "UIKit"
   s.requires_arc = true
 end

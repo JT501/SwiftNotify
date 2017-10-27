@@ -32,6 +32,6 @@ Installation
 
 License
 -------------------
-***CFNotify*** is released under an [MIT License][mitLink]. See [LICENSE](./LICENSE.md) for details.
+***CFNotify*** is released under an [MIT License][mitLink]. See [LICENSE](LICENSE.md) for details.
 
 [mitLink]:http://opensource.org/licenses/MIT

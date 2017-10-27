@@ -5,6 +5,7 @@ CFNotify
 [![GitHub forks](https://img.shields.io/github/forks/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/network)
 [![GitHub stars](https://img.shields.io/github/stars/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/stargazers)
 [![GitHub license](https://img.shields.io/github/license/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/blob/master/LICENSE)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 
 ## Requirements
 * Swift 4.0+
@@ -32,6 +33,6 @@ Installation
 
 License
 -------------------
-***CFNotify*** is released under an [MIT License][mitLink]. See [LICENSE](./LICENSE.md) for details.
+***CFNotify*** is released under an [MIT License][mitLink]. See [LICENSE](LICENSE) for details.
 
 [mitLink]:http://opensource.org/licenses/MIT

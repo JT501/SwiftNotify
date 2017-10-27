@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author             = { "Johnny" => "hallelujahbaby@gmail.com" }
   s.social_media_url   = "http://co-fire.com"
   s.platform     = :ios, "9.0"
-  s.source       = { :git => "https://github.com/hallelujahbaby/CFNotify.git", :tag => "0.9.0" }
+  s.source       = { :git => "https://github.com/hallelujahbaby/CFNotify.git", :tag => s.version.to_s }
   s.source_files  = "CFNotify", "CFNotify/**/*.{swift,h}"
   s.resource_bundles = {"CFResources" =>["CFResources/**/*.png"]}
   s.frameworks   = "UIKit"

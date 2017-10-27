@@ -1,14 +1,18 @@
-Pod::Spec.new do |spec|
-  spec.name = "CFDraggableMessage"
-  spec.version = "0.1.0"
-  spec.summary = "Framework to Create Draggable Messages"
-  spec.homepage = "https://github.com/hallelujahbaby/CFDraggableMessage"
-  spec.license = { type: 'MIT', file: 'LICENSE' }
-  spec.authors = { "Johnny Choi" => 'hallelujahbaby@gmail.com' }
-  spec.social_media_url = "http://co-fire.com"
+Pod::Spec.new do |s|
+  s.name         = "CFNotify"
+  s.version      = "0.0.1"
+  s.summary      = "A customizable framework to create draggable views"
+  s.homepage     = "http://EXAMPLE/CFNotify"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
-  spec.platform = :ios, "9.1"
-  spec.requires_arc = true
-  spec.source = { git: "https://github.com/hallelujahbaby/CFDraggableMessage.git", tag: "v#{spec.version}", submodules: true }
-  spec.source_files = "CFDraggableMessage/**/*.{h,swift}"
+  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+
+  s.author             = { "Johnny" => "hallelujahbaby@gmail.com" }
+  s.social_media_url   = "http://co-fire.com"
+  s.platform     = :ios, "9.0"
+  s.source       = { :git => "https://github.com/hallelujahbaby/CFNotify.git", :tag => "0.9.0" }
+  s.source_files  = "CFNotify", "Classes/**/*.{swift,h}"
+  s.resources = "CFResources/**/*.png"
+  s.frameworks   = 'UIKit'
+  s.requires_arc = true
 end

@@ -1,6 +1,6 @@
 //
-//  CFDraggableMessageTests.swift
-//  CFDraggableMessageTests
+//  CFNotifyTests.swift
+//  CFNotifyTests
 //
 //  Created by Johnny Choi on 9/11/2016.
 //  Copyright © 2016 Johnny Choi@Co-Fire. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import CFNotify
 
-class CFDraggableMessageTests: XCTestCase {
+class CFNotifyTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

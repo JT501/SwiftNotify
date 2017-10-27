@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Chalkduster.ttf">
+            <string>Chalkduster</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Cyber View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="CyberViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="NAF-MA-PLt"/>
+                        <viewControllerLayoutGuide type="bottom" id="HS2-5p-Tcf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -27,7 +33,7 @@
                                 <rect key="frame" x="126" y="629" width="122" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="122" id="V5i-pf-NjK"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="V5i-pf-NjK"/>
                                 </constraints>
                                 <state key="normal" title="Show Next Page">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,7 +46,7 @@
                                 <rect key="frame" x="145" y="591" width="85" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="PQE-DH-LAo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="PQE-DH-LAo"/>
                                 </constraints>
                                 <state key="normal" title="Dismiss All">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +59,7 @@
                                 <rect key="frame" x="123" y="553" width="129" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="129" id="nnL-W4-ryt"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="nnL-W4-ryt"/>
                                 </constraints>
                                 <state key="normal" title="Dismiss Message">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,30 +68,17 @@
                                     <action selector="dismissMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBT-ug-9sD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w36-di-nf0">
-                                <rect key="frame" x="123.5" y="515" width="127" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="127" id="aST-FJ-l2C"/>
-                                </constraints>
-                                <state key="normal" title="Show Toast View">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showSimpleView" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ec1-wA-S9T"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-Bc-eyH">
-                                <rect key="frame" x="122" y="477" width="130" height="30"/>
+                                <rect key="frame" x="122" y="515" width="130" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.6510783450704225" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="ZZ7-tg-toE"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="ZZ7-tg-toE"/>
                                 </constraints>
                                 <state key="normal" title="Show Cyber View">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showCyberView" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1x-v8-zpP"/>
+                                    <action selector="showCyberView" destination="BYZ-38-t0r" eventType="touchUpInside" id="2UW-Ed-Ute"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,18 +86,16 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qg3-3z-P8F" secondAttribute="trailing" id="5Oa-K9-Me1"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jV-B5-vYA"/>
-                            <constraint firstItem="Hys-cE-vJG" firstAttribute="top" secondItem="w36-di-nf0" secondAttribute="bottom" constant="8" id="6dX-nI-wHF"/>
                             <constraint firstItem="5Iz-VT-LMK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BFK-ph-lft"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5Iz-VT-LMK" secondAttribute="bottom" constant="8" id="F2v-Um-Lvo"/>
+                            <constraint firstItem="HS2-5p-Tcf" firstAttribute="top" secondItem="5Iz-VT-LMK" secondAttribute="bottom" constant="8" id="F2v-Um-Lvo"/>
                             <constraint firstAttribute="bottom" secondItem="Qg3-3z-P8F" secondAttribute="bottom" id="IU4-Dw-VYc"/>
                             <constraint firstItem="Hys-cE-vJG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rgf-JZ-nBe"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="top" secondItem="Hys-cE-vJG" secondAttribute="bottom" constant="8" id="SHA-Qt-8BX"/>
                             <constraint firstItem="Qg3-3z-P8F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bN9-yP-njb"/>
                             <constraint firstItem="HIl-Bc-eyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mck-ig-uut"/>
                             <constraint firstItem="5Iz-VT-LMK" firstAttribute="top" secondItem="Qoe-cq-Vrt" secondAttribute="bottom" constant="8" id="ogG-ar-Y9T"/>
-                            <constraint firstItem="w36-di-nf0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ohp-fA-veO"/>
+                            <constraint firstItem="Hys-cE-vJG" firstAttribute="top" secondItem="HIl-Bc-eyH" secondAttribute="bottom" constant="8" id="rYQ-8a-262"/>
                             <constraint firstItem="Qg3-3z-P8F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xTb-vj-4lc"/>
-                            <constraint firstItem="w36-di-nf0" firstAttribute="top" secondItem="HIl-Bc-eyH" secondAttribute="bottom" constant="8" id="xfH-NS-q14"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cyber View" id="h38-Wv-Lif"/>
@@ -118,8 +109,8 @@
             <objects>
                 <viewController id="nTT-Mo-uif" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LKe-fc-nsx"/>
-                        <viewControllerLayoutGuide type="bottom" id="VCp-4b-Kyz"/>
+                        <viewControllerLayoutGuide type="top" id="uIB-c9-0XZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="7rG-gX-XRq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BwK-ol-Vsf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -136,8 +127,8 @@
             <objects>
                 <viewController id="okM-wt-rTR" customClass="ToastVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cgv-ob-Lgb"/>
-                        <viewControllerLayoutGuide type="bottom" id="J1d-nJ-MT0"/>
+                        <viewControllerLayoutGuide type="top" id="gdO-IP-LtR"/>
+                        <viewControllerLayoutGuide type="bottom" id="qeJ-ii-fA5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PuN-B0-QP3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -184,7 +175,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="J1d-nJ-MT0" firstAttribute="top" secondItem="ha7-P1-jmE" secondAttribute="bottom" id="NeG-uY-9No"/>
+                            <constraint firstItem="qeJ-ii-fA5" firstAttribute="top" secondItem="ha7-P1-jmE" secondAttribute="bottom" id="NeG-uY-9No"/>
                             <constraint firstItem="XGE-t3-rh9" firstAttribute="centerY" secondItem="PuN-B0-QP3" secondAttribute="centerY" id="QR3-bU-BzT"/>
                             <constraint firstItem="ha7-P1-jmE" firstAttribute="top" secondItem="PuN-B0-QP3" secondAttribute="top" id="SAN-C3-iKg"/>
                             <constraint firstItem="XGE-t3-rh9" firstAttribute="centerX" secondItem="PuN-B0-QP3" secondAttribute="centerX" id="cXd-5F-4DO"/>
@@ -203,8 +194,8 @@
             <objects>
                 <viewController id="wp1-MF-PkN" customClass="MainVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mdq-zD-QLx"/>
-                        <viewControllerLayoutGuide type="bottom" id="P1v-Ia-zcj"/>
+                        <viewControllerLayoutGuide type="top" id="mdH-qr-Eqd"/>
+                        <viewControllerLayoutGuide type="bottom" id="wJF-99-0nh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JJg-ZA-WGS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -213,13 +204,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Night.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="f2b-yy-FCG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="134" sectionHeaderHeight="65" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-gC-v5j">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="134" sectionHeaderHeight="-1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-gC-v5j">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="65" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="134" id="J7s-E7-b5P" customClass="MainTableViewCell" customModule="CFNotifyExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="375" height="134"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J7s-E7-b5P" id="mDx-iH-J0f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
@@ -264,8 +254,8 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="P1v-Ia-zcj" firstAttribute="top" secondItem="rCM-gC-v5j" secondAttribute="bottom" id="Ln3-T2-f6u"/>
-                            <constraint firstItem="rCM-gC-v5j" firstAttribute="top" secondItem="JJg-ZA-WGS" secondAttribute="top" id="XXN-Sh-LFe"/>
+                            <constraint firstItem="rCM-gC-v5j" firstAttribute="top" secondItem="JJg-ZA-WGS" secondAttribute="top" id="5SL-eg-UlU"/>
+                            <constraint firstItem="wJF-99-0nh" firstAttribute="top" secondItem="rCM-gC-v5j" secondAttribute="bottom" id="Ln3-T2-f6u"/>
                             <constraint firstAttribute="trailing" secondItem="f2b-yy-FCG" secondAttribute="trailing" id="h1Q-EO-8be"/>
                             <constraint firstItem="f2b-yy-FCG" firstAttribute="leading" secondItem="JJg-ZA-WGS" secondAttribute="leading" id="h9B-pF-iLK"/>
                             <constraint firstAttribute="bottom" secondItem="f2b-yy-FCG" secondAttribute="bottom" id="hwp-yP-epg"/>
@@ -291,8 +281,8 @@
             <objects>
                 <viewController id="zNN-xZ-Txb" customClass="ClassicVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TcP-Yz-nRa"/>
-                        <viewControllerLayoutGuide type="bottom" id="gp0-YG-7Pj"/>
+                        <viewControllerLayoutGuide type="top" id="6zs-Ts-LcS"/>
+                        <viewControllerLayoutGuide type="bottom" id="v18-Sa-4rU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6rm-75-bjg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -340,10 +330,10 @@
                             <constraint firstAttribute="trailing" secondItem="L2A-4M-Iou" secondAttribute="trailing" id="PoF-xA-dSA"/>
                             <constraint firstItem="L2A-4M-Iou" firstAttribute="leading" secondItem="6rm-75-bjg" secondAttribute="leading" id="Y4D-V8-2YV"/>
                             <constraint firstItem="L2A-4M-Iou" firstAttribute="top" secondItem="6rm-75-bjg" secondAttribute="top" id="YY9-YC-eao"/>
-                            <constraint firstItem="gp0-YG-7Pj" firstAttribute="top" secondItem="L2A-4M-Iou" secondAttribute="bottom" id="k2n-pt-aUq"/>
+                            <constraint firstItem="v18-Sa-4rU" firstAttribute="top" secondItem="L2A-4M-Iou" secondAttribute="bottom" id="k2n-pt-aUq"/>
                             <constraint firstItem="edR-1R-Ebr" firstAttribute="centerX" secondItem="6rm-75-bjg" secondAttribute="centerX" id="rLs-gF-mhX"/>
                             <constraint firstItem="p7M-lr-5SA" firstAttribute="centerX" secondItem="6rm-75-bjg" secondAttribute="centerX" id="vIj-Ik-DxS"/>
-                            <constraint firstItem="gp0-YG-7Pj" firstAttribute="top" secondItem="2Ai-Vm-3U6" secondAttribute="bottom" constant="8" id="vdT-FG-8sQ"/>
+                            <constraint firstItem="v18-Sa-4rU" firstAttribute="top" secondItem="2Ai-Vm-3U6" secondAttribute="bottom" constant="8" id="vdT-FG-8sQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Classic View" id="V9G-iq-SgD"/>
@@ -358,7 +348,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a9z-uV-vXM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0uP-iP-MtU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

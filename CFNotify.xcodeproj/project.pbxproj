@@ -13,13 +13,13 @@
 		05B074CB1DE6F340003611FE /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C81DE6F340003611FE /* ClassicView.swift */; };
 		05B074CC1DE6F340003611FE /* CyberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C91DE6F340003611FE /* CyberView.swift */; };
 		05B074CD1DE6F340003611FE /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074CA1DE6F340003611FE /* ToastView.swift */; };
-		05B074D31DE6F358003611FE /* CFNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074CE1DE6F358003611FE /* CFNoticeView.swift */; };
+		05B074D31DE6F358003611FE /* CFNotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074CE1DE6F358003611FE /* CFNotifyView.swift */; };
 		05B074D41DE6F358003611FE /* CFNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B074CF1DE6F358003611FE /* CFNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B074D51DE6F358003611FE /* CFNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* CFNotify.swift */; };
 		05B074D61DE6F358003611FE /* CFNotifyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D11DE6F358003611FE /* CFNotifyProtocols.swift */; };
 		05B074D71DE6F358003611FE /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D21DE6F358003611FE /* Notifier.swift */; };
 		05C827271DD31B7A003E0C5E /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* CFNotify.framework */; };
-		05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */; };
+		05C8272C1DD31B7A003E0C5E /* CFNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* CFNotifyTests.swift */; };
 		05C827391DD31FCE003E0C5E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C827381DD31FCE003E0C5E /* Nimble.framework */; };
 		05C8273B1DD31FD5003E0C5E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8273A1DD31FD5003E0C5E /* Quick.framework */; };
 		05E511E61DE6BB3D00D3B765 /* CFResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* CFResources.bundle */; };
@@ -85,16 +85,16 @@
 		05B074C81DE6F340003611FE /* ClassicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassicView.swift; path = CFNotify/CFNoticeView/ClassicView.swift; sourceTree = SOURCE_ROOT; };
 		05B074C91DE6F340003611FE /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CyberView.swift; path = CFNotify/CFNoticeView/CyberView.swift; sourceTree = SOURCE_ROOT; };
 		05B074CA1DE6F340003611FE /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = CFNotify/CFNoticeView/ToastView.swift; sourceTree = SOURCE_ROOT; };
-		05B074CE1DE6F358003611FE /* CFNoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFNoticeView.swift; path = CFNotify/CFNoticeView.swift; sourceTree = SOURCE_ROOT; };
+		05B074CE1DE6F358003611FE /* CFNotifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFNotifyView.swift; path = CFNotify/CFNotifyView.swift; sourceTree = SOURCE_ROOT; };
 		05B074CF1DE6F358003611FE /* CFNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFNotify.h; path = CFNotify/CFNotify.h; sourceTree = SOURCE_ROOT; };
 		05B074D01DE6F358003611FE /* CFNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFNotify.swift; path = CFNotify/CFNotify.swift; sourceTree = SOURCE_ROOT; };
 		05B074D11DE6F358003611FE /* CFNotifyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFNotifyProtocols.swift; path = CFNotify/CFNotifyProtocols.swift; sourceTree = SOURCE_ROOT; };
 		05B074D21DE6F358003611FE /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifier.swift; path = CFNotify/Notifier.swift; sourceTree = SOURCE_ROOT; };
 		05C8271D1DD31B7A003E0C5E /* CFNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CFNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		05C827211DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = CFNotify/Info.plist; sourceTree = "<group>"; };
+		05C827211DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C827261DD31B7A003E0C5E /* CFNotifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFNotifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CFDraggableMessageTests.swift; path = CFNotifyTests/CFDraggableMessageTests.swift; sourceTree = "<group>"; };
-		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = CFNotifyTests/Info.plist; sourceTree = "<group>"; };
+		05C8272B1DD31B7A003E0C5E /* CFNotifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFNotifyTests.swift; sourceTree = "<group>"; };
+		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C827381DD31FCE003E0C5E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		05C8273A1DD31FD5003E0C5E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		05E511D91DE6A69900D3B765 /* CFResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				05C8271F1DD31B7A003E0C5E /* CFNotify */,
-				05C8272A1DD31B7A003E0C5E /* CFDraggableMessageTests */,
+				05C8272A1DD31B7A003E0C5E /* CFNotifyTests */,
 				05E511DA1DE6A69900D3B765 /* CFResources */,
 				05C8271E1DD31B7A003E0C5E /* Products */,
 				05C827371DD31FCE003E0C5E /* Frameworks */,
@@ -208,23 +208,22 @@
 				0532121F1DD95F0D0008581A /* Extension */,
 				053212271DDDB7FB0008581A /* CFNoticeView */,
 				05B074D11DE6F358003611FE /* CFNotifyProtocols.swift */,
-				05B074CE1DE6F358003611FE /* CFNoticeView.swift */,
+				05B074CE1DE6F358003611FE /* CFNotifyView.swift */,
 				05B074D01DE6F358003611FE /* CFNotify.swift */,
 				05B074D21DE6F358003611FE /* Notifier.swift */,
 				05B074CF1DE6F358003611FE /* CFNotify.h */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 			);
-			name = CFNotify;
-			path = CFDraggableMessage;
+			path = CFNotify;
 			sourceTree = "<group>";
 		};
-		05C8272A1DD31B7A003E0C5E /* CFDraggableMessageTests */ = {
+		05C8272A1DD31B7A003E0C5E /* CFNotifyTests */ = {
 			isa = PBXGroup;
 			children = (
-				05C8272B1DD31B7A003E0C5E /* CFDraggableMessageTests.swift */,
+				05C8272B1DD31B7A003E0C5E /* CFNotifyTests.swift */,
 				05C8272D1DD31B7A003E0C5E /* Info.plist */,
 			);
-			path = CFDraggableMessageTests;
+			path = CFNotifyTests;
 			sourceTree = "<group>";
 		};
 		05C827371DD31FCE003E0C5E /* Frameworks */ = {
@@ -416,13 +415,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Johnny Choi@Co-Fire";
 				TargetAttributes = {
 					05C8271C1DD31B7A003E0C5E = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 6J24DF2E7Y;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					05C827251DD31B7A003E0C5E = {
@@ -519,7 +518,7 @@
 				05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */,
 				05B074CD1DE6F340003611FE /* ToastView.swift in Sources */,
 				05B074C51DE6F316003611FE /* BaseLabel.swift in Sources */,
-				05B074D31DE6F358003611FE /* CFNoticeView.swift in Sources */,
+				05B074D31DE6F358003611FE /* CFNotifyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05C8272C1DD31B7A003E0C5E /* CFDraggableMessageTests.swift in Sources */,
+				05C8272C1DD31B7A003E0C5E /* CFNotifyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +562,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -571,7 +572,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -617,7 +622,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -625,7 +632,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -647,7 +658,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -673,7 +684,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -695,7 +707,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFNotify";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -705,9 +718,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
-				INFOPLIST_FILE = CFDraggableMessageTests/Info.plist;
+				INFOPLIST_FILE = CFNotify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFDraggableMessageTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFNotifyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -718,9 +731,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
-				INFOPLIST_FILE = CFDraggableMessageTests/Info.plist;
+				INFOPLIST_FILE = CFNotify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFDraggableMessageTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "hk.co-fire.CFNotifyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

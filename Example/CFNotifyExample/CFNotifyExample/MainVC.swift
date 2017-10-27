@@ -19,7 +19,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
         // Do any additional setup after loading the view.
         tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsetsMake(65, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         tableView.tableFooterView = UIView()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

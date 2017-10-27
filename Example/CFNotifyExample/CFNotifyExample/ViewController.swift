@@ -55,28 +55,28 @@ class ViewController: UIViewController, CFNotifyDelegate {
     }
     
     @IBAction func showCyberView() {
-        let cyberView = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberView = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                 theme: .Info(.Light))
-        let cyberViewD = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberViewD = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                 theme: .Info(.Dark))
-        let cyberView2 = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberView2 = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                 theme: .Success(.Light))
-        let cyberView2D = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberView2D = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                  body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                  theme: .Success(.Dark))
-        let cyberView3 = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberView3 = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                 theme: .Fail(.Light))
-        let cyberView3D = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberView3D = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                  body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                  theme: .Fail(.Dark))
-        let cyberView4 = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberView4 = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                 theme: .Warning(.Light))
-        let cyberView4D = CFNoticeView.cyberWith(title: "Pembroke Welsh Corgi",
+        let cyberView4D = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                  body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
                                                  theme: .Warning(.Dark))
         

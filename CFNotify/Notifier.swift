@@ -1,6 +1,6 @@
 //
 //  Messager.swift
-//  CFDraggableMessage
+//  CFNotify
 //
 //  Created by Johnny on 12/11/2016.
 //  Copyright © 2016 Johnny Choi@Co-Fire. All rights reserved.
@@ -104,7 +104,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         self.containerView.addSubview(self.view)
         self.containerView.bringSubview(toFront: self.view)
         self.containerView.addGestureRecognizer(self.panRecognizer)
-        if self.tapAction != nil {
+        if self.tapAction == nil {
             self.containerView.addGestureRecognizer(self.tapRecognizer)
         }
         
@@ -204,7 +204,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         self.animator.removeBehavior(snapBehaviour)
     }
     
-    func pan(gesture: UIPanGestureRecognizer) {
+    @objc func pan(gesture: UIPanGestureRecognizer) {
         let gestureView = gesture.view!
         let dragPoint: CGPoint = gesture.location(in: gestureView)
         let viewCenter = gestureView.center  //Center of message view in its superview
@@ -303,7 +303,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
-    func tap(gesture: UITapGestureRecognizer) {
+    @objc func tap(gesture: UITapGestureRecognizer) {
         if let delegate = self.delegate {
             delegate.notifierIsTapped()
         }

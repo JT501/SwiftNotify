@@ -23,7 +23,7 @@ class ClassicVC: UIViewController {
     }
     
     @IBAction func showClassicView() {
-        let customClassicView = CFNoticeView.classicWith(title: "Pembroke Welsh Corgi",
+        let customClassicView = CFNotifyView.classicWith(title: "Pembroke Welsh Corgi",
                                                          titleFont: .italicSystemFont(ofSize: 16),
                                                          titleColor: UIColor.black,
                                                          body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
@@ -36,17 +36,17 @@ class ClassicVC: UIViewController {
         customClassicView.imageView.layer.borderColor = UIColor.black.cgColor
         customClassicView.imageView.layer.borderWidth = 1.0
         
-        let classicView = CFNoticeView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Light))
-        let classicViewD = CFNoticeView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Dark))
+        let classicView = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Light))
+        let classicViewD = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Dark))
         
-        let classicView2 = CFNoticeView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Light))
-        let classicView2D = CFNoticeView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Dark))
+        let classicView2 = CFNotifyView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Light))
+        let classicView2D = CFNotifyView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Dark))
         
-        let classicView3 = CFNoticeView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Light))
-        let classicView3D = CFNoticeView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Dark))
+        let classicView3 = CFNotifyView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Light))
+        let classicView3D = CFNotifyView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Dark))
         
-        let classicView4 = CFNoticeView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Light))
-        let classicView4D = CFNoticeView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Dark))
+        let classicView4 = CFNotifyView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Light))
+        let classicView4D = CFNotifyView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Dark))
         
         var classicViewConfig = CFNotify.Config()
         classicViewConfig.initPosition = .top(.random)
@@ -55,7 +55,9 @@ class ClassicVC: UIViewController {
         
         CFNotify.show(config: classicViewConfig, view: customClassicView)
         
-        CFNotify.show(config: classicViewConfig, view: classicView)
+        CFNotify.show(config: classicViewConfig, view: classicView) {
+            self.dismissMessage()
+        }
         CFNotify.show(config: classicViewConfig, view: classicView2)
         CFNotify.show(config: classicViewConfig, view: classicView3)
         CFNotify.show(config: classicViewConfig, view: classicView4)

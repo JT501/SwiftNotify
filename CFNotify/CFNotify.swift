@@ -1,5 +1,5 @@
 //
-//  CFDraggableMessage.swift
+//  CFNotify.swift
 //  CFNotify
 //
 //  Created by Johnny Choi on 9/11/2016.
@@ -76,8 +76,10 @@ open class CFNotify: NotifierDelegate {
     open func show(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
         syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
-            let message = Notifier(config: config, view: view, tapHandler: tapHandler, delegate: strongSelf)
-            strongSelf.enqueue(message: message)
+            DispatchQueue.main.async {
+                let message = Notifier(config: config, view: view, tapHandler: tapHandler, delegate: strongSelf)
+                strongSelf.enqueue(message: message)
+            }
         }
     }
     
@@ -123,7 +125,7 @@ open class CFNotify: NotifierDelegate {
     
     open var intervalBetweenMessages: TimeInterval = 0.5
     
-    let syncQueue = DispatchQueue(label: "CFMessage.Queue", attributes: [])
+    let syncQueue = DispatchQueue(label: "CFNotify.Queue", attributes: [])
     var messageQueue: [Notifier] = []
     var currentMsg: Notifier? = nil {
         didSet {

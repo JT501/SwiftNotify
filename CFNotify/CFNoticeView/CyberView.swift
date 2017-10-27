@@ -128,7 +128,7 @@ open class CyberView: UIView {
     /**
      Set title text font and font size & the height of message view will be calculated
      */
-    open var bodyTextFont: UIFont = .systemFont(ofSize: 12, weight: UIFontWeightRegular) {
+    open var bodyTextFont: UIFont = .systemFont(ofSize: 12, weight: UIFont.Weight.regular) {
         didSet {
             bodyLabel.font = bodyTextFont
             resizeToFit()
@@ -261,7 +261,7 @@ open class CyberView: UIView {
         vibrancyEffectView.contentView.addSubview(imageView)
         vibrancyEffectView.contentView.addSubview(titleLabel)
         vibrancyEffectView.contentView.addSubview(bodyLabel)
-        blurEffectView.addSubview(vibrancyEffectView)
+        blurEffectView.contentView.addSubview(vibrancyEffectView)
         
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true

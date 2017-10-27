@@ -128,7 +128,7 @@ open class ClassicView: UIView {
     /**
      Set title text font and font size & the height of message view will be calculated
      */
-    open var bodyTextFont: UIFont = .systemFont(ofSize: 12, weight: UIFontWeightRegular) {
+    open var bodyTextFont: UIFont = .systemFont(ofSize: 12, weight: UIFont.Weight.regular) {
         didSet {
             bodyLabel.font = bodyTextFont
             resizeToFit()

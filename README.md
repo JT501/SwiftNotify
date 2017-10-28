@@ -9,8 +9,8 @@ CFNotify
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 
 ![Demo1](image/Demo1.gif)
-![Demo2](image/Demo1.gif)
-![Demo3](image/Demo1.gif)
+![Demo2](image/Demo2.gif)
+![Demo3](image/Demo3.gif)
 
 ## Requirements
 * Swift 4.0+

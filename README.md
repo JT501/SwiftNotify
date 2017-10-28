@@ -1,12 +1,16 @@
 CFNotify
 ===============
-[![Travis branch](https://img.shields.io/travis/hallelujahbaby/CFNotify/master.svg?style=flat-square)]()
+[![Travis branch](https://img.shields.io/travis/hallelujahbaby/CFNotify/master.svg?style=flat-square)](https://travis-ci.org/hallelujahbaby/CFNotify)
 [![GitHub issues](https://img.shields.io/github/issues/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/issues)
 [![Swift](https://img.shields.io/badge/Swift-4.0+-orange.svg?style=flat-square)](https://developer.apple.com/swift/)
 [![GitHub forks](https://img.shields.io/github/forks/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/network)
 [![GitHub stars](https://img.shields.io/github/stars/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/stargazers)
 [![GitHub license](https://img.shields.io/github/license/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/blob/master/LICENSE)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
+
+![Demo1](image/Demo1.gif)
+![Demo2](image/Demo1.gif)
+![Demo3](image/Demo1.gif)
 
 ## Requirements
 * Swift 4.0+

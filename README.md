@@ -49,6 +49,8 @@ Installation
 
 Getting Started
 -----------------
+There is an **example project** inside the [source code](https://github.com/hallelujahbaby/CFNotify/archive/master.zip). You are suggested to have a look first and get familiar with this framework.
+
 ### The Basics
 This is the basic function with all **default** settings, design your own `UIView` or use [`CFNotifyView`](#cfnotifyview) to create one easily.
 ````swift
@@ -63,9 +65,12 @@ if you want **custom** `tap` action, use the following function. (If you use tap
 CFNotify.present(config: Config, view: UIView, tapHandler: (()->Void)?)
 ````
 
-You can hide the view programmatically.
+`CFNotify` will put all the views to be shown in queue (**First In First Out**).
+You can hide the view programmatically using the following functions.
 ````swift
-CFNotify.hide()
+CFNotify.hide() // hide the current view
+
+CFNotify.hideAll() // hide all the views in queue (Clear the queue)
 ````
 
 ### CFNotifyView
@@ -119,7 +124,7 @@ Each theme has **2** ***styles***: `Light` and `Dark`
   ````
 
 ### Config
-You can config `CFNotify` using `Config` class. `Config` class included lots of properties:
+You can config `CFNotify` using `Config` class. `Config` class included lots of properties, the following three are the most common:
 * `initPosition` : where the view is born
 * `appearPosition` : where the view appear position
 * `hideTime` : the view will automatically hide after `hideTime` (default is 3 sec)
@@ -132,6 +137,23 @@ classicViewConfig.appearPosition = .top //the view will appear at the top of scr
 classicViewConfig.hideTime = .never //the view will never automatically hide
 ````
 
+### Delegate
+`CFNotify` provides **Delegate** methods for some of common events.
+You need to conform to the `CFNotifyDelegate`.
+````swift
+func cfNotifyDidAppear() {}
+
+func cfNotifyStartDragging(atPoint: CGPoint) {}
+
+func cfNotifyIsDragging(atPoint: CGPoint) {}
+
+func cfNotifyEndDragging(atPoint: CGPoint) {}
+
+func cfNotifyDidDisappear() {}
+
+func cfNotifyIsTapped() {}
+````
+
 
 To-Do List
 ------------------
@@ -139,6 +161,14 @@ To-Do List
 - [ ] Improve the example app
 - [ ] Add alert view with buttons
 - [ ] Full documentation
+
+Bugs and issues
+-----------------
+If you find any bugs or encounter some issues regard to this framework, please feel free to open a new issue in [Issues](https://github.com/hallelujahbaby/CFNotify/issues) page.
+
+Contribute
+------------------
+You are welcome to contribute into this project, feel free to [Pull Request](https://github.com/hallelujahbaby/CFNotify/pulls).
 
 License
 ------------------

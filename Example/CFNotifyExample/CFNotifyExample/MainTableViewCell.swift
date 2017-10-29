@@ -20,7 +20,6 @@ class MainTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         containerView.layer.cornerRadius = 5.0
-//        containerView.clipsToBounds = true
         containerView.layer.borderWidth = 2
         containerView.layer.borderColor = UIColor(white: 0.9, alpha: 0.7).cgColor
         containerView.layer.shadowColor = UIColor.white.cgColor
@@ -28,11 +27,4 @@ class MainTableViewCell: UITableViewCell {
         containerView.layer.shadowOpacity = 0.7
         containerView.layer.shadowRadius = 2
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

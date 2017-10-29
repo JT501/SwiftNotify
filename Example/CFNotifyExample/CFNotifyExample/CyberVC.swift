@@ -50,29 +50,29 @@ class CyberVC: UIViewController, CFNotifyDelegate {
     }
     
     @IBAction func showCyberView() {
-        let cyberView = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberView = CFNotifyView.cyberWith(title: "Info",
+                                                body: "Try dragging this alert around !",
                                                 theme: .Info(.Light))
-        let cyberViewD = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberViewD = CFNotifyView.cyberWith(title: "Info",
+                                                body: "You can tap this alert to hide it.",
                                                 theme: .Info(.Dark))
-        let cyberView2 = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberView2 = CFNotifyView.cyberWith(title: "Success",
+                                                body: "You made alert more playable !",
                                                 theme: .Success(.Light))
-        let cyberView2D = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberView2D = CFNotifyView.cyberWith(title: "Success",
+                                                 body: "You can try to tap 'hide' button to hide this alert.",
                                                  theme: .Success(.Dark))
-        let cyberView3 = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberView3 = CFNotifyView.cyberWith(title: "Fail",
+                                                body: "You can try to tap 'hide all' button to hide all alerts in queue.",
                                                 theme: .Fail(.Light))
-        let cyberView3D = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberView3D = CFNotifyView.cyberWith(title: "Fail",
+                                                 body: "404 Girlfriend not found",
                                                  theme: .Fail(.Dark))
-        let cyberView4 = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberView4 = CFNotifyView.cyberWith(title: "Warning",
+                                                body: "You are currently in Friendzone",
                                                 theme: .Warning(.Light))
-        let cyberView4D = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
-                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+        let cyberView4D = CFNotifyView.cyberWith(title: "Warning",
+                                                 body: "This should be the last one in first queue",
                                                  theme: .Warning(.Dark))
         
         var config = CFNotify.Config()

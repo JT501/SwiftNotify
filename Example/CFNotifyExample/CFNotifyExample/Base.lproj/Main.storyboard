@@ -124,7 +124,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissMessage" destination="okM-wt-rTR" eventType="touchUpInside" id="h8S-ND-Cns"/>
                                             <action selector="hideMessage" destination="okM-wt-rTR" eventType="touchUpInside" id="sp8-Qk-zj7"/>
                                         </connections>
                                     </button>
@@ -135,7 +134,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissAll" destination="okM-wt-rTR" eventType="touchUpInside" id="M19-Sa-p55"/>
                                             <action selector="hideAll" destination="okM-wt-rTR" eventType="touchUpInside" id="aRt-vA-NUb"/>
                                         </connections>
                                     </button>

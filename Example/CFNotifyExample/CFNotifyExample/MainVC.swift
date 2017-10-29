@@ -24,16 +24,10 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.hidesBarsOnSwipe = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - UITableViewDataSource

@@ -24,17 +24,29 @@ class ToastVC: UIViewController {
 
     @IBAction func showToastView() {
         
-        let toastView = CFNotifyView.toastWith(text: "Pembroke Welsh Corgi", theme: .Info(.Light))
-        let toastViewD = CFNotifyView.toastWith(text: "Pembroke Welsh Corgi", theme: .Info(.Dark))
+        let toastView = CFNotifyView.toastWith(text: "This is a Toast",
+                                               theme: .Info(.Light))
         
-        let toastView2 = CFNotifyView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Success(.Light))
-        let toastView2D = CFNotifyView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Success(.Dark))
+        let toastViewD = CFNotifyView.toastWith(text: "Tap here to hide the toast",
+                                                theme: .Info(.Dark))
         
-        let toastView3 = CFNotifyView.toastWith(text: "Pembroke Welsh Corgi", theme: .Fail(.Light))
-        let toastView3D = CFNotifyView.toastWith(text: "Pembroke Welsh Corgi", theme: .Fail(.Dark))
+        let toastView2 = CFNotifyView.toastWith(text: "You can try to tap 'hide' button to hide this toast.",
+                                                theme: .Success(.Light))
         
-        let toastView4 = CFNotifyView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Warning(.Light))
-        let toastView4D = CFNotifyView.toastWith(text: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.", theme: .Warning(.Dark))
+        let toastView2D = CFNotifyView.toastWith(text: "You can try to tap 'hide all' button to hide all toast in queue.",
+                                                 theme: .Success(.Dark))
+        
+        let toastView3 = CFNotifyView.toastWith(text: "Urh! 404 Girlfriend not found.",
+                                                theme: .Fail(.Light))
+        
+        let toastView3D = CFNotifyView.toastWith(text: "Too many toasts here",
+                                                 theme: .Fail(.Dark))
+        
+        let toastView4 = CFNotifyView.toastWith(text: "You are currently in Friendzone",
+                                                theme: .Warning(.Light))
+        
+        let toastView4D = CFNotifyView.toastWith(text: "This should be the last toast in first queue",
+                                                 theme: .Warning(.Dark))
         
         var toastViewConfig = CFNotify.Config()
         toastViewConfig.initPosition = .bottom(.random)

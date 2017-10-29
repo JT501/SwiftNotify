@@ -23,41 +23,43 @@ class ClassicVC: UIViewController {
     }
     
     @IBAction func showClassicView() {
-        let classicView = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to hide it.", theme: .Info(.Light))
-        let classicViewD = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to hide it.", theme: .Info(.Dark))
+        let classicView = CFNotifyView.classicWith(title: "Information",
+                                                   body: "This is Classic View alert.",
+                                                   theme: .Info(.Light))
+        let classicViewD = CFNotifyView.classicWith(title: "Information",
+                                                    body: "You can tap the message to hide it.",
+                                                    theme: .Info(.Dark))
         
-        let classicView2 = CFNotifyView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Light))
-        let classicView2D = CFNotifyView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Dark))
+        let classicView2 = CFNotifyView.classicWith(title: "Success",
+                                                    body: "Great. The message is shown successfully.",
+                                                    theme: .Success(.Light))
         
-        let classicView3 = CFNotifyView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Light))
-        let classicView3D = CFNotifyView.classicWith(title: "Error", body: "Urh! 404 Girlfriend not found.", theme: .Fail(.Dark))
+        let classicView2D = CFNotifyView.classicWith(title: "Success",
+                                                     body: "You can try to tap 'hide' button to hide this alert.",
+                                                     theme: .Success(.Dark))
         
-        let classicView4 = CFNotifyView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Light))
-        let classicView4D = CFNotifyView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Dark))
+        let classicView3 = CFNotifyView.classicWith(title: "Error",
+                                                    body: "Urh! 404 Girlfriend not found.",
+                                                    theme: .Fail(.Light))
         
-//        let customClassicView = CFNotifyView.classicWith(title: "Pembroke Welsh Corgi",
-//                                                         titleFont: .italicSystemFont(ofSize: 16),
-//                                                         titleColor: UIColor.black,
-//                                                         body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
-//                                                         bodyFont: .systemFont(ofSize: 15),
-//                                                         bodyColor: .brown,
-//                                                         image: #imageLiteral(resourceName: "Dog2.jpg"),
-//                                                         backgroundColor: .white)
-//        customClassicView.layer.borderColor = UIColor.black.cgColor
-//        customClassicView.layer.borderWidth = 1.0
-//        customClassicView.imageView.layer.borderColor = UIColor.black.cgColor
-//        customClassicView.imageView.layer.borderWidth = 1.0
+        let classicView3D = CFNotifyView.classicWith(title: "Error",
+                                                     body: "You can try to tap 'hide all' button to hide all alerts in queue.",
+                                                     theme: .Fail(.Dark))
+        
+        let classicView4 = CFNotifyView.classicWith(title: "Warning",
+                                                    body: "You are currently in Friendzone",
+                                                    theme: .Warning(.Light))
+        
+        let classicView4D = CFNotifyView.classicWith(title: "Warning",
+                                                     body: "This should be the last one in first queue",
+                                                     theme: .Warning(.Dark))
         
         var classicViewConfig = CFNotify.Config()
         classicViewConfig.initPosition = .top(.random)
         classicViewConfig.appearPosition = .top
         classicViewConfig.hideTime = .never
         
-//        CFNotify.present(config: classicViewConfig, view: customClassicView)
-        
-        CFNotify.present(config: classicViewConfig, view: classicView) {
-            self.hideMessage()
-        }
+        CFNotify.present(config: classicViewConfig, view: classicView)
         CFNotify.present(config: classicViewConfig, view: classicView2)
         CFNotify.present(config: classicViewConfig, view: classicView3)
         CFNotify.present(config: classicViewConfig, view: classicView4)

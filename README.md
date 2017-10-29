@@ -77,7 +77,7 @@ Each style has **4** ***themes***: `Info`, `Success`, `Fail`, `Warning`
 
 Each theme has **2** ***styles***: `Light` and `Dark`
 * #### Cyber
-  ![CyberView](image/CyberView.jpg)
+  ![CyberView](image/CyberView.png)
   ````swift
   let cyberView = CFNotifyView.cyberWith(title: "Title",
                                           body: "Body",
@@ -92,7 +92,7 @@ Each theme has **2** ***styles***: `Light` and `Dark`
                                                blurStyle: UIBlurEffectStyle)
   ````
 * #### Classic
-  ![ClassicView](image/ClassicView.jpg)
+  ![ClassicView](image/ClassicView.png)
   ````swift
   let classicView = CFNotifyView.classicWith(title: "Title",
                                               body: "Body",
@@ -106,7 +106,7 @@ Each theme has **2** ***styles***: `Light` and `Dark`
                                              backgroundColor: UIColor)
   ````
 * #### Toast
-  ![ToastView](image/ToastView.jpg)
+  ![ToastView](image/ToastView.png)
   ````swift
   let toastView = CFNotifyView.toastWith(text: "Text",
                                         theme: .Fail(.Dark))

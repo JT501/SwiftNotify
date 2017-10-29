@@ -34,7 +34,7 @@ open class CFNotify: NotifierDelegate {
         case custom(CGPoint)
     }
     
-    public enum DismissTime {
+    public enum HideTime {
         case `default`
         case never
         case custom(seconds: TimeInterval)
@@ -44,10 +44,10 @@ open class CFNotify: NotifierDelegate {
         public init() {}
         public var initPosition = InitPosition.top(.center)
         public var appearPosition = AppearPosition.center
-        public var dismissTime = DismissTime.default
+        public var hideTime = HideTime.default
         /**
         The max. drag distance that the view will return to snap point.
-        If exceed the thresholdDistance, the view will be dismissed.
+        If exceed the thresholdDistance, the view will hide.
         Default: 50
         */
         public var thresholdDistance : CGFloat = 50
@@ -73,7 +73,7 @@ open class CFNotify: NotifierDelegate {
     /**
     Show message with config and add tap handler to it
     */
-    open func show(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
+    open func present(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
         syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
             DispatchQueue.main.async {
@@ -83,40 +83,40 @@ open class CFNotify: NotifierDelegate {
         }
     }
     
-    open func show(config: Config, view: UIView) {
-        show(config: config, view: view, tapHandler: nil)
+    open func present(config: Config, view: UIView) {
+        present(config: config, view: view, tapHandler: nil)
     }
     
-    open func show(view: UIView) {
-        show(config: defaultConfig, view: view)
+    open func present(view: UIView) {
+        present(config: defaultConfig, view: view)
     }
     
     public typealias ViewProvider = () -> UIView
     
-    open func show(config: Config, viewProvider: @escaping ViewProvider) {
+    open func present(config: Config, viewProvider: @escaping ViewProvider) {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             let view = viewProvider()
-            strongSelf.show(config: config, view: view)
+            strongSelf.present(config: config, view: view)
         }
     }
     
-    public func show(viewProvider: @escaping ViewProvider) {
-        show(config: defaultConfig, viewProvider: viewProvider)
+    public func present(viewProvider: @escaping ViewProvider) {
+        present(config: defaultConfig, viewProvider: viewProvider)
     }
     
-    open func dismiss() {
+    open func hide() {
         syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.dismissCurrent()
+            strongSelf.hideCurrent()
         }
     }
     
-    open func dismissAll() {
+    open func hideAll() {
         syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.messageQueue.removeAll()
-            strongSelf.dismissCurrent()
+            strongSelf.hideCurrent()
         }
     }
     
@@ -152,46 +152,46 @@ open class CFNotify: NotifierDelegate {
         self.currentMsg = current
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-            current.show(completion: { (completed) in
+            current.present(completion: { (completed) in
                 guard completed else { return }
                 if completed {
-                    strongSelf.queueAutoDismiss()
+                    strongSelf.queueAutoHide()
                 }
             })
         }
     }
     
-    fileprivate var msgToAutoDismiss: Notifier?
+    fileprivate var msgToAutoHide: Notifier?
     
-    fileprivate func queueAutoDismiss() {
+    fileprivate func queueAutoHide() {
         guard let currentMsg = self.currentMsg else { return }
-        self.msgToAutoDismiss = currentMsg
-        if let dissmissTime = currentMsg.dismissTime {
+        self.msgToAutoHide = currentMsg
+        if let dissmissTime = currentMsg.hideTime {
             let delayTime = DispatchTime.now() + dissmissTime
             syncQueue.asyncAfter(deadline: delayTime, execute: { [weak self] in
                 guard let strongSelf = self else { return }
-                if strongSelf.msgToAutoDismiss !== currentMsg {
+                if strongSelf.msgToAutoHide !== currentMsg {
                     return
                 }
-                strongSelf.dismiss(messager: currentMsg)
+                strongSelf.hide(messager: currentMsg)
             })
         }
     }
     
-    func dismiss(messager: Notifier) {
+    func hide(messager: Notifier) {
         self.syncQueue.async { [weak self] in
             guard let strongSelf = self else { return }
             if let currentMsg = strongSelf.currentMsg, messager === currentMsg {
-                strongSelf.dismissCurrent()
+                strongSelf.hideCurrent()
             }
         }
     }
     
-    func dismissCurrent() {
+    func hideCurrent() {
         guard let currentMsg = self.currentMsg else { return }
-        guard !currentMsg.isDismissing else { return }
+        guard !currentMsg.isHidding else { return }
         DispatchQueue.main.async {
-            currentMsg.dismiss()
+            currentMsg.hide()
         }
     }
     
@@ -206,7 +206,7 @@ open class CFNotify: NotifierDelegate {
         if let delegate = delegate {
             delegate.cfNotifyStartDragging(atPoint: atPoint)
         }
-        self.msgToAutoDismiss = nil
+        self.msgToAutoHide = nil
     }
     
     func notifierIsDragging(atPoint: CGPoint) {
@@ -219,7 +219,7 @@ open class CFNotify: NotifierDelegate {
         if let delegate = delegate {
             delegate.cfNotifyEndDragging(atPoint: atPoint)
         }
-        self.queueAutoDismiss()
+        self.queueAutoHide()
     }
     
     func notifierDidDisappear(notifier: Notifier) {
@@ -236,8 +236,8 @@ open class CFNotify: NotifierDelegate {
         if let delegate = delegate {
             delegate.cfNotifyIsTapped()
         }
-        self.msgToAutoDismiss = nil
-        self.dismissCurrent()
+        self.msgToAutoHide = nil
+        self.hideCurrent()
     }
 }
 
@@ -257,31 +257,31 @@ extension CFNotify {
         }
     }
     
-    public static func show(view: UIView) {
-        globalInstance.show(view: view)
+    public static func present(view: UIView) {
+        globalInstance.present(view: view)
     }
     
-    public static func show(config: Config, view: UIView) {
-        globalInstance.show(config: config, view: view)
+    public static func present(config: Config, view: UIView) {
+        globalInstance.present(config: config, view: view)
     }
     
-    public static func show(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
-        globalInstance.show(config: config, view: view, tapHandler: tapHandler)
+    public static func present(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
+        globalInstance.present(config: config, view: view, tapHandler: tapHandler)
     }
     
-    public static func show(viewProvider: @escaping ViewProvider) {
-        globalInstance.show(viewProvider: viewProvider)
+    public static func present(viewProvider: @escaping ViewProvider) {
+        globalInstance.present(viewProvider: viewProvider)
     }
     
-    public static func show(config: Config, viewProvider: @escaping ViewProvider) {
-        globalInstance.show(config: config, viewProvider: viewProvider)
+    public static func present(config: Config, viewProvider: @escaping ViewProvider) {
+        globalInstance.present(config: config, viewProvider: viewProvider)
     }
     
-    public static func dismiss() {
-        globalInstance.dismiss()
+    public static func hide() {
+        globalInstance.hide()
     }
     
-    public static func dismissAll() {
-        globalInstance.dismissAll()
+    public static func hideAll() {
+        globalInstance.hideAll()
     }
 }

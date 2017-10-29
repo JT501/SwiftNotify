@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DC1DE6F4F8003611FE /* AppDelegate.swift */; };
-		05B074DF1DE6F4FE003611FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DE1DE6F4FE003611FE /* ViewController.swift */; };
+		05B074DF1DE6F4FE003611FE /* CyberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DE1DE6F4FE003611FE /* CyberVC.swift */; };
 		05B074E31DE6F552003611FE /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E01DE6F552003611FE /* Dog.jpg */; };
 		05B074E41DE6F552003611FE /* Dog2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E11DE6F552003611FE /* Dog2.jpg */; };
 		05B074E51DE6F552003611FE /* Prism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E21DE6F552003611FE /* Prism.jpg */; };
@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		05B074DC1DE6F4F8003611FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = CFNotifyExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		05B074DE1DE6F4FE003611FE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = CFNotifyExample/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		05B074DE1DE6F4FE003611FE /* CyberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CyberVC.swift; path = CFNotifyExample/CyberVC.swift; sourceTree = SOURCE_ROOT; };
 		05B074E01DE6F552003611FE /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = CFNotifyExample/Resource/Dog.jpg; sourceTree = SOURCE_ROOT; };
 		05B074E11DE6F552003611FE /* Dog2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog2.jpg; path = CFNotifyExample/Resource/Dog2.jpg; sourceTree = SOURCE_ROOT; };
 		05B074E21DE6F552003611FE /* Prism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Prism.jpg; path = CFNotifyExample/Resource/Prism.jpg; sourceTree = SOURCE_ROOT; };
@@ -130,7 +130,7 @@
 				053212241DDDB3C70008581A /* Resource */,
 				05B074F01DE7E2C2003611FE /* MainVC.swift */,
 				05B074F21DE7E3C0003611FE /* MainTableViewCell.swift */,
-				05B074DE1DE6F4FE003611FE /* ViewController.swift */,
+				05B074DE1DE6F4FE003611FE /* CyberVC.swift */,
 				05B074FA1DE83851003611FE /* ClassicVC.swift */,
 				05B074FE1DE840B4003611FE /* ToastVC.swift */,
 				05B074DC1DE6F4F8003611FE /* AppDelegate.swift */,
@@ -237,7 +237,7 @@
 			files = (
 				05B074FF1DE840B4003611FE /* ToastVC.swift in Sources */,
 				05B074FB1DE83851003611FE /* ClassicVC.swift in Sources */,
-				05B074DF1DE6F4FE003611FE /* ViewController.swift in Sources */,
+				05B074DF1DE6F4FE003611FE /* CyberVC.swift in Sources */,
 				05B074F11DE7E2C2003611FE /* MainVC.swift in Sources */,
 				05B074F31DE7E3C0003611FE /* MainTableViewCell.swift in Sources */,
 				05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */,

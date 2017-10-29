@@ -40,26 +40,26 @@ class ToastVC: UIViewController {
         toastViewConfig.initPosition = .bottom(.random)
         toastViewConfig.appearPosition = .bottom
         toastViewConfig.thresholdDistance = 30
-        toastViewConfig.dismissTime = .never
+        toastViewConfig.hideTime = .never
         toastViewConfig.angularResistance = 1
         
-        CFNotify.show(config: toastViewConfig, view: toastView)
-        CFNotify.show(config: toastViewConfig, view: toastView2)
-        CFNotify.show(config: toastViewConfig, view: toastView3)
-        CFNotify.show(config: toastViewConfig, view: toastView4)
+        CFNotify.present(config: toastViewConfig, view: toastView)
+        CFNotify.present(config: toastViewConfig, view: toastView2)
+        CFNotify.present(config: toastViewConfig, view: toastView3)
+        CFNotify.present(config: toastViewConfig, view: toastView4)
         
-        CFNotify.show(config: toastViewConfig, view: toastViewD)
-        CFNotify.show(config: toastViewConfig, view: toastView2D)
-        CFNotify.show(config: toastViewConfig, view: toastView3D)
-        CFNotify.show(config: toastViewConfig, view: toastView4D)
+        CFNotify.present(config: toastViewConfig, view: toastViewD)
+        CFNotify.present(config: toastViewConfig, view: toastView2D)
+        CFNotify.present(config: toastViewConfig, view: toastView3D)
+        CFNotify.present(config: toastViewConfig, view: toastView4D)
     }
     
-    @IBAction func dismissMessage() {
-        CFNotify.dismiss()
+    @IBAction func hideMessage() {
+        CFNotify.hide()
     }
     
-    @IBAction func dismissAll() {
-        CFNotify.dismissAll()
+    @IBAction func hideAll() {
+        CFNotify.hideAll()
     }
 
 }

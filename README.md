@@ -8,7 +8,7 @@ CFNotify
 [![GitHub license](https://img.shields.io/github/license/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/blob/master/LICENSE)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 
-**CFNotify** is written in Swift. Using [`UIKit Dynamics`][UIKit Dynamics] as animator. It can make **ANY** `UIView` object _**draggable**_ and _**throwable**_. This library mainly use for _in-app notification_ and _alerts_. Let's notices and alert your users in more playable and fun way !
+**CFNotify** is written in Swift. Using [`UIKit Dynamics`][UIKit Dynamics] as animator. It can make **ANY** `UIView` object _**draggable**_ and _**throwable**_. This library mainly use for _in-app notification_ and _alerts_. Let's notice and alert your users in more playable and fun way !
 
 ![Demo1](image/Demo1.gif)
 ![Demo2](image/Demo2.gif)
@@ -31,7 +31,7 @@ Requirements
 Installation
 ------------------
 * #### [Carthage](https://github.com/Carthage/Carthage) (_Recommended_)
-  Add the following lines into  [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile)  
+  Add the following lines into  [Cartfile][Cartfile]  
 
   ````bash
   #CFNotify
@@ -41,21 +41,108 @@ Installation
   Run `carthage update` and then add **CFNotify.framework** and **CFResources.bundle** into your project
 
 * #### [Cocoapods](https://cocoapods.org/)
-  Add the following lines into Podfile
+  Add the following lines into [Podfile][Podfile]
 
   ````ruby
   pod "CFNotify"
   ````
 
+Getting Started
+-----------------
+### The Basics
+This is the basic function with all **default** settings, design your own `UIView` or use [`CFNotifyView`](#cfnotifyview) to create one easily.
+````swift
+CFNotify.present(view: UIView)
+````
+If you need more **custom** settings, create your own [`Config`](#config) and use the following function.
+````swift
+CFNotify.present(config: Config, view: UIView)
+````
+if you want **custom** `tap` action, use the following function. (If you use tapHandler, it will override the default tap to hide action)
+````swift
+CFNotify.present(config: Config, view: UIView, tapHandler: (()->Void)?)
+````
+
+You can hide the view programmatically.
+````swift
+CFNotify.hide()
+````
+
+### CFNotifyView
+You can create an alert view quickly and easily by using `CFNotifyView` class.  
+
+`CFNotifyView` included **3** ***views*** currently: [`Cyber`](#cyber), [`Classic`](#classic), [`Toast`](#Toast).
+
+Each style has **4** ***themes***: `Info`, `Success`, `Fail`, `Warning`
+
+Each theme has **2** ***styles***: `Light` and `Dark`
+* #### Cyber
+  ````swift
+  let cyberView = CFNotifyView.cyberWith(title: "Title",
+                                          body: "Body",
+                                         theme: .Info(.Light))
+
+  //More customizations
+  let customCyberView = CFNotifyView.cyberWith(titleFont: UIFont,
+                                              titleColor: UIColor,
+                                                bodyFont: UIFont,
+                                               bodyColor: UIColor,
+                                         backgroundColor: UIColor,
+                                               blurStyle: UIBlurEffectStyle)
+  ````
+* #### Classic
+  ````swift
+  let classicView = CFNotifyView.classicWith(title: "Title",
+                                              body: "Body",
+                                             theme: .Success(.Light))
+
+  //More customizations
+  let customClassicView = CFNotifyView.classicWith(titleFont: UIFont,
+                                                  titleColor: UIColor,
+                                                    bodyFont: UIFont,
+                                                   bodyColor: UIColor,
+                                             backgroundColor: UIColor)
+  ````
+* #### Toast
+  ````swift
+  let toastView = CFNotifyView.toastWith(text: "Text",
+                                        theme: .Fail(.Dark))
+
+  //More customizations
+  let customToastView = CFNotifyView.toastWith(text: String,
+                                           textFont: UIFont,
+                                          textColor: UIColor,
+                                    backgroundColor: UIColor)                                    
+  ````
+
+### Config
+You can config `CFNotify` using `Config` class. `Config` class included lots of properties:
+* `initPosition` : where the view is born
+* `appearPosition` : where the view appear position
+* `hideTime` : the view will automatically hide after `hideTime` (default is 3 sec)
+
+Example:
+````swift
+var classicViewConfig = CFNotify.Config()
+classicViewConfig.initPosition = .top(.random) //the view is born at the top randomly out of the boundary of screen
+classicViewConfig.appearPosition = .top //the view will appear at the top of screen
+classicViewConfig.hideTime = .never //the view will never automatically hide
+````
+
+
 To-Do List
 ------------------
+- [ ] Add [**SPM**][SPM] support
 - [ ] Improve the example app
 - [ ] Add alert view with buttons
 - [ ] Full documentation
 
 License
 ------------------
-***CFNotify*** is released under an [MIT License][mitLink]. See [LICENSE](LICENSE) for details.
+***CFNotify*** is released under an [MIT License][MIT]. See [LICENSE](LICENSE) for details.
 
 [UIKit Dynamics]:https://developer.apple.com/documentation/uikit/animation_and_haptics/uikit_dynamics
-[mitLink]:http://opensource.org/licenses/MIT
+[Cartfile]:https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile
+[Podfile]:https://guides.cocoapods.org/syntax/podfile.html
+[SPM]:https://github.com/apple/swift-package-manager
+[MIT]:http://opensource.org/licenses/MIT

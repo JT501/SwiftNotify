@@ -17,7 +17,7 @@
         <!--Cyber View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="CyberViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CyberViewController" id="BYZ-38-t0r" customClass="CyberVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NAF-MA-PLt"/>
                         <viewControllerLayoutGuide type="bottom" id="HS2-5p-Tcf"/>
@@ -29,47 +29,34 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prism.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Qg3-3z-P8F">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Iz-VT-LMK">
-                                <rect key="frame" x="126" y="629" width="122" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="V5i-pf-NjK"/>
-                                </constraints>
-                                <state key="normal" title="Show Next Page">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="nTT-Mo-uif" kind="show" id="iu6-Ff-cPf"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-cq-Vrt">
-                                <rect key="frame" x="145" y="591" width="85" height="30"/>
+                                <rect key="frame" x="145" y="592" width="85" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="PQE-DH-LAo"/>
                                 </constraints>
-                                <state key="normal" title="Dismiss All">
+                                <state key="normal" title="Hide All">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissAll" destination="BYZ-38-t0r" eventType="touchUpInside" id="gNF-w7-Wns"/>
+                                    <action selector="hideAll" destination="BYZ-38-t0r" eventType="touchUpInside" id="2VW-lN-RRq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-cE-vJG">
-                                <rect key="frame" x="123" y="553" width="129" height="30"/>
+                                <rect key="frame" x="123" y="554" width="129" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="nnL-W4-ryt"/>
                                 </constraints>
-                                <state key="normal" title="Dismiss Message">
+                                <state key="normal" title="Hide Message">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBT-ug-9sD"/>
+                                    <action selector="hideMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="xM6-E4-PEc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-Bc-eyH">
-                                <rect key="frame" x="122" y="515" width="130" height="30"/>
+                                <rect key="frame" x="122" y="516" width="130" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.6510783450704225" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="ZZ7-tg-toE"/>
@@ -78,7 +65,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showCyberView" destination="BYZ-38-t0r" eventType="touchUpInside" id="2UW-Ed-Ute"/>
+                                    <action selector="showCyberView" destination="BYZ-38-t0r" eventType="touchUpInside" id="hDj-70-Lkn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,14 +73,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qg3-3z-P8F" secondAttribute="trailing" id="5Oa-K9-Me1"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jV-B5-vYA"/>
-                            <constraint firstItem="5Iz-VT-LMK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BFK-ph-lft"/>
-                            <constraint firstItem="HS2-5p-Tcf" firstAttribute="top" secondItem="5Iz-VT-LMK" secondAttribute="bottom" constant="8" id="F2v-Um-Lvo"/>
                             <constraint firstAttribute="bottom" secondItem="Qg3-3z-P8F" secondAttribute="bottom" id="IU4-Dw-VYc"/>
                             <constraint firstItem="Hys-cE-vJG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rgf-JZ-nBe"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="top" secondItem="Hys-cE-vJG" secondAttribute="bottom" constant="8" id="SHA-Qt-8BX"/>
                             <constraint firstItem="Qg3-3z-P8F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bN9-yP-njb"/>
+                            <constraint firstItem="HS2-5p-Tcf" firstAttribute="top" secondItem="Qoe-cq-Vrt" secondAttribute="bottom" constant="45" id="jU1-XK-kvi"/>
                             <constraint firstItem="HIl-Bc-eyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mck-ig-uut"/>
-                            <constraint firstItem="5Iz-VT-LMK" firstAttribute="top" secondItem="Qoe-cq-Vrt" secondAttribute="bottom" constant="8" id="ogG-ar-Y9T"/>
                             <constraint firstItem="Hys-cE-vJG" firstAttribute="top" secondItem="HIl-Bc-eyH" secondAttribute="bottom" constant="8" id="rYQ-8a-262"/>
                             <constraint firstItem="Qg3-3z-P8F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xTb-vj-4lc"/>
                         </constraints>
@@ -103,24 +88,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="174" y="785"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="GaQ-Yy-FeE">
-            <objects>
-                <viewController id="nTT-Mo-uif" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uIB-c9-0XZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="7rG-gX-XRq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BwK-ol-Vsf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lnn-6q-bAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="905" y="785"/>
         </scene>
         <!--Toast View-->
         <scene sceneID="UQN-aE-6pZ">
@@ -138,36 +105,38 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XGE-t3-rh9">
-                                <rect key="frame" x="119" y="282.5" width="137" height="102"/>
+                                <rect key="frame" x="124.5" y="282.5" width="126" height="102"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I26-8I-ANE">
-                                        <rect key="frame" x="0.0" y="0.0" width="137" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <state key="normal" title="Show Toast">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="showToastView" destination="okM-wt-rTR" eventType="touchUpInside" id="eP7-0l-rbF"/>
+                                            <action selector="showToastView" destination="okM-wt-rTR" eventType="touchUpInside" id="uKF-lf-EVz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC8-jt-ZmI">
-                                        <rect key="frame" x="0.0" y="34" width="137" height="34"/>
+                                        <rect key="frame" x="0.0" y="34" width="126" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                        <state key="normal" title="Dismiss Notice">
+                                        <state key="normal" title="Hide Message">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="dismissMessage" destination="okM-wt-rTR" eventType="touchUpInside" id="h8S-ND-Cns"/>
+                                            <action selector="hideMessage" destination="okM-wt-rTR" eventType="touchUpInside" id="sp8-Qk-zj7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z5-iZ-jVY">
-                                        <rect key="frame" x="0.0" y="68" width="137" height="34"/>
+                                        <rect key="frame" x="0.0" y="68" width="126" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                        <state key="normal" title="Dismiss All">
+                                        <state key="normal" title="Hide All">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="dismissAll" destination="okM-wt-rTR" eventType="touchUpInside" id="M19-Sa-p55"/>
+                                            <action selector="hideAll" destination="okM-wt-rTR" eventType="touchUpInside" id="aRt-vA-NUb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -302,23 +271,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edR-1R-Ebr">
-                                <rect key="frame" x="118.5" y="583" width="137" height="34"/>
+                                <rect key="frame" x="124" y="583" width="126" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                <state key="normal" title="Dismiss Notice">
+                                <state key="normal" title="Hide Message">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissMessage" destination="zNN-xZ-Txb" eventType="touchUpInside" id="Ggz-Oj-l5E"/>
+                                    <action selector="hideMessage" destination="zNN-xZ-Txb" eventType="touchUpInside" id="RzS-yh-9Mz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ai-Vm-3U6">
-                                <rect key="frame" x="134.5" y="625" width="105" height="34"/>
+                                <rect key="frame" x="148" y="625" width="78" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                <state key="normal" title="Dismiss All">
+                                <state key="normal" title="Hide All">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissAll" destination="zNN-xZ-Txb" eventType="touchUpInside" id="dwx-Ci-Dta"/>
+                                    <action selector="hideAll" destination="zNN-xZ-Txb" eventType="touchUpInside" id="ahR-hE-sQa"/>
                                 </connections>
                             </button>
                         </subviews>

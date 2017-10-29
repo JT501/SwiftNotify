@@ -9,7 +9,7 @@
 import UIKit
 import CFNotify
 
-class ViewController: UIViewController, CFNotifyDelegate {
+class CyberVC: UIViewController, CFNotifyDelegate {
     
     var titleView = ClassicView(title: "", body: "", image: nil)
     
@@ -49,11 +49,6 @@ class ViewController: UIViewController, CFNotifyDelegate {
         print("Message is tapped")
     }
     
-    func cfNotifyDidDismiss() {
-        print("Message is Dismissed")
-//        print("Messgae is showing? \(messager.isShowing())")
-    }
-    
     @IBAction func showCyberView() {
         let cyberView = CFNotifyView.cyberWith(title: "Pembroke Welsh Corgi",
                                                 body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
@@ -81,24 +76,24 @@ class ViewController: UIViewController, CFNotifyDelegate {
                                                  theme: .Warning(.Dark))
         
         var config = CFNotify.Config()
-        config.dismissTime = .never
+        config.hideTime = .never
         
-        CFNotify.show(config: config, view: cyberView)
-        CFNotify.show(config: config, view: cyberViewD)
-        CFNotify.show(config: config, view: cyberView2)
-        CFNotify.show(config: config, view: cyberView2D)
-        CFNotify.show(config: config, view: cyberView3)
-        CFNotify.show(config: config, view: cyberView3D)
-        CFNotify.show(config: config, view: cyberView4)
-        CFNotify.show(config: config, view: cyberView4D)
+        CFNotify.present(config: config, view: cyberView)
+        CFNotify.present(config: config, view: cyberViewD)
+        CFNotify.present(config: config, view: cyberView2)
+        CFNotify.present(config: config, view: cyberView2D)
+        CFNotify.present(config: config, view: cyberView3)
+        CFNotify.present(config: config, view: cyberView3D)
+        CFNotify.present(config: config, view: cyberView4)
+        CFNotify.present(config: config, view: cyberView4D)
     }
     
-    @IBAction func dismissMessage() {
-        CFNotify.dismiss()
+    @IBAction func hideMessage() {
+        CFNotify.hide()
     }
     
-    @IBAction func dismissAll() {
-        CFNotify.dismissAll()
+    @IBAction func hideAll() {
+        CFNotify.hideAll()
     }
 }
 

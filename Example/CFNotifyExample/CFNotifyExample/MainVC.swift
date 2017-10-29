@@ -12,14 +12,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let menuArray = ["#CyberView","#ClassicView","#ToastView","#CustomView"]
+    let menuArray = ["#CyberView","#ClassicView","#ToastView"/*,"#CustomView"*/]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         tableView.tableFooterView = UIView()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -61,17 +61,4 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.performSegue(withIdentifier: "ShowToastSegue", sender: nil)
         }
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

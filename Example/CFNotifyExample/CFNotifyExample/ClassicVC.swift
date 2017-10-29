@@ -23,21 +23,8 @@ class ClassicVC: UIViewController {
     }
     
     @IBAction func showClassicView() {
-        let customClassicView = CFNotifyView.classicWith(title: "Pembroke Welsh Corgi",
-                                                         titleFont: .italicSystemFont(ofSize: 16),
-                                                         titleColor: UIColor.black,
-                                                         body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
-                                                         bodyFont: .systemFont(ofSize: 15),
-                                                         bodyColor: .brown,
-                                                         image: #imageLiteral(resourceName: "Dog2.jpg"),
-                                                         backgroundColor: .white)
-        customClassicView.layer.borderColor = UIColor.black.cgColor
-        customClassicView.layer.borderWidth = 1.0
-        customClassicView.imageView.layer.borderColor = UIColor.black.cgColor
-        customClassicView.imageView.layer.borderWidth = 1.0
-        
-        let classicView = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Light))
-        let classicViewD = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to dismiss it.", theme: .Info(.Dark))
+        let classicView = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to hide it.", theme: .Info(.Light))
+        let classicViewD = CFNotifyView.classicWith(title: "Infomation", body: "You can tap the message to hide it.", theme: .Info(.Dark))
         
         let classicView2 = CFNotifyView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Light))
         let classicView2D = CFNotifyView.classicWith(title: "Success", body: "Great. The message is shown successfully.", theme: .Success(.Dark))
@@ -48,32 +35,45 @@ class ClassicVC: UIViewController {
         let classicView4 = CFNotifyView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Light))
         let classicView4D = CFNotifyView.classicWith(title: "Warning", body: "Once you go black, you never come back", theme: .Warning(.Dark))
         
+//        let customClassicView = CFNotifyView.classicWith(title: "Pembroke Welsh Corgi",
+//                                                         titleFont: .italicSystemFont(ofSize: 16),
+//                                                         titleColor: UIColor.black,
+//                                                         body: "The Pembroke Welsh Corgi is a cattle herding dog breed which originated in Pembrokeshire, Wales. It is one of two breeds known as a Welsh Corgi.",
+//                                                         bodyFont: .systemFont(ofSize: 15),
+//                                                         bodyColor: .brown,
+//                                                         image: #imageLiteral(resourceName: "Dog2.jpg"),
+//                                                         backgroundColor: .white)
+//        customClassicView.layer.borderColor = UIColor.black.cgColor
+//        customClassicView.layer.borderWidth = 1.0
+//        customClassicView.imageView.layer.borderColor = UIColor.black.cgColor
+//        customClassicView.imageView.layer.borderWidth = 1.0
+        
         var classicViewConfig = CFNotify.Config()
         classicViewConfig.initPosition = .top(.random)
         classicViewConfig.appearPosition = .top
-        classicViewConfig.dismissTime = .never
+        classicViewConfig.hideTime = .never
         
-        CFNotify.show(config: classicViewConfig, view: customClassicView)
+//        CFNotify.present(config: classicViewConfig, view: customClassicView)
         
-        CFNotify.show(config: classicViewConfig, view: classicView) {
-            self.dismissMessage()
+        CFNotify.present(config: classicViewConfig, view: classicView) {
+            self.hideMessage()
         }
-        CFNotify.show(config: classicViewConfig, view: classicView2)
-        CFNotify.show(config: classicViewConfig, view: classicView3)
-        CFNotify.show(config: classicViewConfig, view: classicView4)
+        CFNotify.present(config: classicViewConfig, view: classicView2)
+        CFNotify.present(config: classicViewConfig, view: classicView3)
+        CFNotify.present(config: classicViewConfig, view: classicView4)
         
-        CFNotify.show(config: classicViewConfig, view: classicViewD)
-        CFNotify.show(config: classicViewConfig, view: classicView2D)
-        CFNotify.show(config: classicViewConfig, view: classicView3D)
-        CFNotify.show(config: classicViewConfig, view: classicView4D)
+        CFNotify.present(config: classicViewConfig, view: classicViewD)
+        CFNotify.present(config: classicViewConfig, view: classicView2D)
+        CFNotify.present(config: classicViewConfig, view: classicView3D)
+        CFNotify.present(config: classicViewConfig, view: classicView4D)
     }
     
-    @IBAction func dismissMessage() {
-        CFNotify.dismiss()
+    @IBAction func hideMessage() {
+        CFNotify.hide()
     }
     
-    @IBAction func dismissAll() {
-        CFNotify.dismissAll()
+    @IBAction func hideAll() {
+        CFNotify.hideAll()
     }
 
 }

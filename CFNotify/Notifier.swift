@@ -21,7 +21,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
     var attachmentBehaviour : UIAttachmentBehavior!
     var gravityBehaviour : UIGravityBehavior!
     var collisionBehaviour : UICollisionBehavior!
-    var isDismissing: Bool
+    var isHidding: Bool
     weak var delegate: NotifierDelegate?
     var fieldMargin: CGFloat  //Margin to remove message from view
     var angularVelocity: CGFloat = 0
@@ -35,7 +35,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         self.tapRecognizer = UITapGestureRecognizer()
         self.animator = UIDynamicAnimator()
         self.snapPoint = CGPoint.zero
-        self.isDismissing = false
+        self.isHidding = false
         self.delegate = delegate
         self.fieldMargin = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height
         self.tapAction = tapHandler
@@ -46,9 +46,9 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         self.tapRecognizer.addTarget(self, action: #selector(Notifier.tap(gesture:)))
     }
     
-    var dismissTime: TimeInterval? {
+    var hideTime: TimeInterval? {
         let duration: TimeInterval?
-        switch self.config.dismissTime {
+        switch self.config.hideTime {
         case .default:
             duration = 3.0
         case .never:
@@ -59,7 +59,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         return duration
     }
     
-    func show(completion: @escaping (_ completed: Bool) -> Void){
+    func present(completion: @escaping (_ completed: Bool) -> Void){
         guard let appDelegate = UIApplication.shared.delegate else { return }
         guard let keyWindow = appDelegate.window! else { return }
         
@@ -129,7 +129,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
-    func dismiss() {
+    func hide() {
         self.animator.removeAllBehaviors()
 
         if let gestureViewGestureRecognizers = self.containerView.gestureRecognizers {
@@ -174,7 +174,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
                 completion(true)
             }
             else {
-                self.isDismissing = true
+                self.isHidding = true
                 completion(false)
             }
         }

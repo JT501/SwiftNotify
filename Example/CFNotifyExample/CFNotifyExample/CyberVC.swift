@@ -52,28 +52,28 @@ class CyberVC: UIViewController, CFNotifyDelegate {
     @IBAction func showCyberView() {
         let cyberView = CFNotifyView.cyberWith(title: "Info",
                                                 body: "Try dragging this alert around !",
-                                                theme: .Info(.Light))
+                                                theme: .info(.light))
         let cyberViewD = CFNotifyView.cyberWith(title: "Info",
                                                 body: "You can tap this alert to hide it.",
-                                                theme: .Info(.Dark))
+                                                theme: .info(.dark))
         let cyberView2 = CFNotifyView.cyberWith(title: "Success",
                                                 body: "You made alert more playable !",
-                                                theme: .Success(.Light))
+                                                theme: .success(.light))
         let cyberView2D = CFNotifyView.cyberWith(title: "Success",
                                                  body: "You can try to tap 'hide' button to hide this alert.",
-                                                 theme: .Success(.Dark))
+                                                 theme: .success(.dark))
         let cyberView3 = CFNotifyView.cyberWith(title: "Fail",
                                                 body: "You can try to tap 'hide all' button to hide all alerts in queue.",
-                                                theme: .Fail(.Light))
+                                                theme: .fail(.light))
         let cyberView3D = CFNotifyView.cyberWith(title: "Fail",
                                                  body: "404 Girlfriend not found",
-                                                 theme: .Fail(.Dark))
+                                                 theme: .fail(.dark))
         let cyberView4 = CFNotifyView.cyberWith(title: "Warning",
                                                 body: "You are currently in Friendzone",
-                                                theme: .Warning(.Light))
+                                                theme: .warning(.light))
         let cyberView4D = CFNotifyView.cyberWith(title: "Warning",
                                                  body: "This should be the last one in first queue",
-                                                 theme: .Warning(.Dark))
+                                                 theme: .warning(.dark))
         
         var config = CFNotify.Config()
         config.hideTime = .never

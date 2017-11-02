@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -142,7 +142,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qeJ-ii-fA5" firstAttribute="top" secondItem="ha7-P1-jmE" secondAttribute="bottom" id="NeG-uY-9No"/>
+                            <constraint firstAttribute="bottom" secondItem="ha7-P1-jmE" secondAttribute="bottom" id="2QO-Sx-kYX"/>
                             <constraint firstItem="XGE-t3-rh9" firstAttribute="centerY" secondItem="PuN-B0-QP3" secondAttribute="centerY" id="QR3-bU-BzT"/>
                             <constraint firstItem="ha7-P1-jmE" firstAttribute="top" secondItem="PuN-B0-QP3" secondAttribute="top" id="SAN-C3-iKg"/>
                             <constraint firstItem="XGE-t3-rh9" firstAttribute="centerX" secondItem="PuN-B0-QP3" secondAttribute="centerX" id="cXd-5F-4DO"/>
@@ -297,10 +297,10 @@
                             <constraint firstAttribute="trailing" secondItem="L2A-4M-Iou" secondAttribute="trailing" id="PoF-xA-dSA"/>
                             <constraint firstItem="L2A-4M-Iou" firstAttribute="leading" secondItem="6rm-75-bjg" secondAttribute="leading" id="Y4D-V8-2YV"/>
                             <constraint firstItem="L2A-4M-Iou" firstAttribute="top" secondItem="6rm-75-bjg" secondAttribute="top" id="YY9-YC-eao"/>
-                            <constraint firstItem="v18-Sa-4rU" firstAttribute="top" secondItem="L2A-4M-Iou" secondAttribute="bottom" id="k2n-pt-aUq"/>
                             <constraint firstItem="edR-1R-Ebr" firstAttribute="centerX" secondItem="6rm-75-bjg" secondAttribute="centerX" id="rLs-gF-mhX"/>
                             <constraint firstItem="p7M-lr-5SA" firstAttribute="centerX" secondItem="6rm-75-bjg" secondAttribute="centerX" id="vIj-Ik-DxS"/>
                             <constraint firstItem="v18-Sa-4rU" firstAttribute="top" secondItem="2Ai-Vm-3U6" secondAttribute="bottom" constant="8" id="vdT-FG-8sQ"/>
+                            <constraint firstAttribute="bottom" secondItem="L2A-4M-Iou" secondAttribute="bottom" id="x45-QE-Hqf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Classic View" id="V9G-iq-SgD"/>

@@ -25,28 +25,28 @@ class ToastVC: UIViewController {
     @IBAction func showToastView() {
         
         let toastView = CFNotifyView.toastWith(text: "This is a Toast",
-                                               theme: .Info(.Light))
+                                               theme: .info(.light))
         
         let toastViewD = CFNotifyView.toastWith(text: "Tap here to hide the toast",
-                                                theme: .Info(.Dark))
+                                                theme: .info(.dark))
         
         let toastView2 = CFNotifyView.toastWith(text: "You can try to tap 'hide' button to hide this toast.",
-                                                theme: .Success(.Light))
+                                                theme: .success(.light))
         
         let toastView2D = CFNotifyView.toastWith(text: "You can try to tap 'hide all' button to hide all toast in queue.",
-                                                 theme: .Success(.Dark))
+                                                 theme: .success(.dark))
         
         let toastView3 = CFNotifyView.toastWith(text: "Urh! 404 Girlfriend not found.",
-                                                theme: .Fail(.Light))
+                                                theme: .fail(.light))
         
         let toastView3D = CFNotifyView.toastWith(text: "Too many toasts here",
-                                                 theme: .Fail(.Dark))
+                                                 theme: .fail(.dark))
         
         let toastView4 = CFNotifyView.toastWith(text: "You are currently in Friendzone",
-                                                theme: .Warning(.Light))
+                                                theme: .warning(.light))
         
         let toastView4D = CFNotifyView.toastWith(text: "This should be the last toast in first queue",
-                                                 theme: .Warning(.Dark))
+                                                 theme: .warning(.dark))
         
         var toastViewConfig = CFNotify.Config()
         toastViewConfig.initPosition = .bottom(.random)

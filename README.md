@@ -29,6 +29,10 @@ Requirements
 * Xcode 9
 * iOS 9.0+
 
+Change Log
+------------------
+Please read [CHANGELOG.md](CHANGELOG.md).
+
 Installation
 ------------------
 * #### [Carthage](https://github.com/Carthage/Carthage) (_Recommended_)

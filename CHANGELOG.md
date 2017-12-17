@@ -1,5 +1,9 @@
 CHANGELOG
 ------------
+### 1.0.2
+------------
+* Fixed issue [#13](https://github.com/hallelujahbaby/CFNotify/issues/3)
+
 ### 1.0.1
 ------------
 #### Fixes

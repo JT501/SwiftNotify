@@ -190,7 +190,7 @@ open class ClassicView: UIView {
     /**
     Set image view's content mode
     */
-    open var imageViewContentMode: UIViewContentMode = .scaleAspectFill {
+    open var imageViewContentMode: UIView.ContentMode = .scaleAspectFill {
         didSet {
             imageView.contentMode = imageViewContentMode
         }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CFNotify"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A customizable framework to create draggable views"
   s.homepage     = "https://github.com/hallelujahbaby/CFNotify"
   s.license      = { :type => "MIT", :file => "LICENSE" }

@@ -84,7 +84,7 @@ extension CFNotifyView {
         return view
     }
     
-    public static func cyberWith(title: String? = nil, titleFont: UIFont, titleColor: UIColor, body: String? = nil, bodyFont: UIFont, bodyColor: UIColor, image: UIImage? = nil, backgroundColor: UIColor, blurStyle: UIBlurEffectStyle) -> CyberView {
+    public static func cyberWith(title: String? = nil, titleFont: UIFont, titleColor: UIColor, body: String? = nil, bodyFont: UIFont, bodyColor: UIColor, image: UIImage? = nil, backgroundColor: UIColor, blurStyle: UIBlurEffect.Style) -> CyberView {
         
         let view = CyberView(title: title, body: body, image: image, blurStyle: blurStyle)
         view.titleTextFont = titleFont

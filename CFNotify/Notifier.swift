@@ -102,7 +102,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
         self.containerView.bounds = self.view.bounds
         self.containerView.backgroundColor = UIColor.clear
         self.containerView.addSubview(self.view)
-        self.containerView.bringSubview(toFront: self.view)
+        self.containerView.bringSubviewToFront(self.view)
         self.containerView.addGestureRecognizer(self.panRecognizer)
         if self.tapAction == nil {
             self.containerView.addGestureRecognizer(self.tapRecognizer)
@@ -272,7 +272,7 @@ class Notifier: NSObject, UIGestureRecognizerDelegate {
                 }
                 
                 //Add Push Behaviour
-                let pushBehavior = UIPushBehavior(items: [gestureView], mode: UIPushBehaviorMode.instantaneous)
+                let pushBehavior = UIPushBehavior(items: [gestureView], mode: UIPushBehavior.Mode.instantaneous)
                 pushBehavior.pushDirection = vector
                 
                 let pushMagnitude : CGFloat = pushBehavior.magnitude * self.config.pushForceFactor

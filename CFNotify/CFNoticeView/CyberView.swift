@@ -190,7 +190,7 @@ open class CyberView: UIView {
     /**
      Set image view's content mode
      */
-    open var imageViewContentMode: UIViewContentMode = .scaleAspectFill {
+    open var imageViewContentMode: UIView.ContentMode = .scaleAspectFill {
         didSet {
             imageView.contentMode = imageViewContentMode
         }
@@ -212,7 +212,7 @@ open class CyberView: UIView {
     var vibrancyEffectView: UIVisualEffectView
     
     // MARK: - Initialization
-    public init(title: String? = nil, body: String? = nil, image: UIImage? = nil, blurStyle: UIBlurEffectStyle) {
+    public init(title: String? = nil, body: String? = nil, image: UIImage? = nil, blurStyle: UIBlurEffect.Style) {
         blurEffect = UIBlurEffect(style: blurStyle)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)

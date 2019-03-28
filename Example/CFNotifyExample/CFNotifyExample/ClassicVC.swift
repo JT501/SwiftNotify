@@ -58,6 +58,8 @@ class ClassicVC: UIViewController {
         classicViewConfig.initPosition = .top(.random)
         classicViewConfig.appearPosition = .top
         classicViewConfig.hideTime = .never
+        classicViewConfig.snapDamping = 1.0
+        
         
         CFNotify.present(config: classicViewConfig, view: classicView)
         CFNotify.present(config: classicViewConfig, view: classicView2)

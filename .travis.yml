@@ -1,4 +1,4 @@
-language: objective-c
-osx_image: xcode9
+language: swift
+osx_image: xcode10.1
 
 script: xcodebuild clean && xcodebuild build -project CFNotify.xcodeproj -scheme CFNotify

@@ -89,9 +89,10 @@ Each theme has **2** ***styles***: `Light` and `Dark`
 * #### Cyber
   ![CyberView](image/CyberView.png)
   ````swift
+  // Use Pre-set theme
   let cyberView = CFNotifyView.cyberWith(title: "Title",
                                           body: "Body",
-                                         theme: .Info(.Light))
+                                         theme: .info(.light))
 
   //More customizations
   let customCyberView = CFNotifyView.cyberWith(titleFont: UIFont,
@@ -104,9 +105,10 @@ Each theme has **2** ***styles***: `Light` and `Dark`
 * #### Classic
   ![ClassicView](image/ClassicView.png)
   ````swift
+  // Use Pre-set theme
   let classicView = CFNotifyView.classicWith(title: "Title",
                                               body: "Body",
-                                             theme: .Success(.Light))
+                                             theme: .success(.light))
 
   //More customizations
   let customClassicView = CFNotifyView.classicWith(titleFont: UIFont,
@@ -118,8 +120,9 @@ Each theme has **2** ***styles***: `Light` and `Dark`
 * #### Toast
   ![ToastView](image/ToastView.png)
   ````swift
+  // Use Pre-set theme
   let toastView = CFNotifyView.toastWith(text: "Text",
-                                        theme: .Fail(.Dark))
+                                        theme: .fail(.dark))
 
   //More customizations
   let customToastView = CFNotifyView.toastWith(text: String,

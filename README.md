@@ -1,11 +1,11 @@
 CFNotify
 ===============
-[![Travis branch](https://img.shields.io/travis/hallelujahbaby/CFNotify/master.svg?style=flat-square)](https://travis-ci.org/hallelujahbaby/CFNotify)
-[![GitHub issues](https://img.shields.io/github/issues/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/issues)
+[![Travis branch](https://img.shields.io/travis/JT501/CFNotify/master.svg?style=flat-square)](https://travis-ci.org/JT501/CFNotify)
+[![GitHub issues](https://img.shields.io/github/issues/JT501/CFNotify.svg?style=flat-square)](https://github.com/JT501/CFNotify/issues)
 [![Swift](https://img.shields.io/badge/Swift-5.0+-orange.svg?style=flat-square)](https://developer.apple.com/swift/)
-[![GitHub forks](https://img.shields.io/github/forks/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/network)
-[![GitHub stars](https://img.shields.io/github/stars/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/stargazers)
-[![GitHub license](https://img.shields.io/github/license/hallelujahbaby/CFNotify.svg?style=flat-square)](https://github.com/hallelujahbaby/CFNotify/blob/master/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/JT501/CFNotify.svg?style=flat-square)](https://github.com/JT501/CFNotify/network)
+[![GitHub stars](https://img.shields.io/github/stars/JT501/CFNotify.svg?style=flat-square)](https://github.com/JT501/CFNotify/stargazers)
+[![GitHub license](https://img.shields.io/github/license/JT501/CFNotify.svg?style=flat-square)](https://github.com/JT501/CFNotify/blob/master/LICENSE)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![CocoaPods](https://img.shields.io/cocoapods/v/CFNotify.svg?style=flat-square)](https://cocoapods.org/pods/CFNotify)
 
@@ -40,7 +40,7 @@ Installation
 
   ````bash
   #CFNotify
-  github "hallelujahbaby/CFNotify"
+  github "JT501/CFNotify"
   ````
 
   Run `carthage update` and then add **CFNotify.framework** and **CFResources.bundle** into your project
@@ -54,7 +54,7 @@ Installation
 
 Getting Started
 -----------------
-There is an **example project** inside the [source code](https://github.com/hallelujahbaby/CFNotify/archive/master.zip). You are suggested to have a look first and get familiar with this framework.
+There is an **example project** inside the [source code](https://github.com/JT501/CFNotify/archive/master.zip). You are suggested to have a look first and get familiar with this framework.
 
 ### The Basics
 This is the basic function with all **default** settings, design your own `UIView` or use [`CFNotifyView`](#cfnotifyview) to create one easily.
@@ -172,11 +172,11 @@ To-Do List
 
 Bugs and issues
 -----------------
-If you find any bugs or encounter some issues regard to this framework, please feel free to open a new issue in [Issues](https://github.com/hallelujahbaby/CFNotify/issues) page.
+If you find any bugs or encounter some issues regard to this framework, please feel free to open a new issue in [Issues](https://github.com/JT501/CFNotify/issues) page.
 
 Contribute
 ------------------
-You are welcome to contribute into this project, feel free to [Pull Request](https://github.com/hallelujahbaby/CFNotify/pulls).
+You are welcome to contribute into this project, feel free to [Pull Request](https://github.com/JT501/CFNotify/pulls).
 
 License
 ------------------

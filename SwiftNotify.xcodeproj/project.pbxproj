@@ -97,8 +97,6 @@
 		05C827211DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotifyTests.swift; sourceTree = "<group>"; };
 		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		05C827381DD31FCE003E0C5E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
-		05C8273A1DD31FD5003E0C5E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E511DB1DE6A69900D3B765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05F750F127CA83EC0099A9C9 /* SwiftNotifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,8 +247,6 @@
 		05C827371DD31FCE003E0C5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				05C8273A1DD31FD5003E0C5E /* Quick.framework */,
-				05C827381DD31FCE003E0C5E /* Nimble.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

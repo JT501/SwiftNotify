@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:SwiftNotify.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Example/SwiftNotifyExample/SwiftNotifyExample.xcodeproj">
+   </FileRef>
+</Workspace>

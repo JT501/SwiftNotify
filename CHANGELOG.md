@@ -2,12 +2,12 @@ CHANGELOG
 ------------
 ### 1.0.2
 ------------
-* Fixed issue [#3](https://github.com/hallelujahbaby/CFNotify/issues/3)
+* Fixed issue [#3](https://github.com/JT501/SwiftNotify/issues/3)
 
 ### 1.0.1
 ------------
 #### Fixes
- * Change `Theme` and `Style` enum to lower case. [minuscorp](https://github.com/minuscorp) ([#2](https://github.com/hallelujahbaby/CFNotify/issues/2))
+ * Change `Theme` and `Style` enum to lower case. [minuscorp](https://github.com/minuscorp) ([#2](https://github.com/JT501/SwiftNotify/issues/2))
  * Some minor fixes in Example project
 
 

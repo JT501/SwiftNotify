@@ -1,4 +1,4 @@
 language: swift
 osx_image: xcode10.2
 
-script: xcodebuild clean && xcodebuild build -project CFNotify.xcodeproj -scheme CFNotify
+script: xcodebuild clean && xcodebuild build -project SwiftNotify.xcodeproj -scheme SwiftNotify

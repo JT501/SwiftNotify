@@ -230,9 +230,9 @@
 				0515001D27CA7D7900A15BA5 /* Sources */,
 				0515001927CA7D6A00A15BA5 /* Tests */,
 				05E511DA1DE6A69900D3B765 /* NotifyResources */,
+				210966018DE8094708BE19D1 /* .gitignore */,
 				05C8271E1DD31B7A003E0C5E /* Products */,
 				05C827371DD31FCE003E0C5E /* Frameworks */,
-				210966018DE8094708BE19D1 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};

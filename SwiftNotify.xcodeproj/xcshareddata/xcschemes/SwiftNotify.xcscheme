@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1320"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -41,7 +41,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05C827251DD31B7A003E0C5E"
+               BlueprintIdentifier = "05F750F027CA83EC0099A9C9"
                BuildableName = "SwiftNotifyTests.xctest"
                BlueprintName = "SwiftNotifyTests"
                ReferencedContainer = "container:SwiftNotify.xcodeproj">

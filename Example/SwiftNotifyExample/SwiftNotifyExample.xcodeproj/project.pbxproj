@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05A4828827CA9114006805E5 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A4828627CA9114006805E5 /* SwiftNotify.framework */; };
-		05A4828927CA9114006805E5 /* SwiftNotify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05A4828627CA9114006805E5 /* SwiftNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		05A4828A27CA9114006805E5 /* SwiftNotifyResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05A4828727CA9114006805E5 /* SwiftNotifyResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05A4829427CAA144006805E5 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A4829227CAA144006805E5 /* SwiftNotify.framework */; };
+		05A4829527CAA144006805E5 /* SwiftNotify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05A4829227CAA144006805E5 /* SwiftNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05A4829627CAA144006805E5 /* SwiftNotifyResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05A4829327CAA144006805E5 /* SwiftNotifyResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DC1DE6F4F8003611FE /* AppDelegate.swift */; };
 		05B074DF1DE6F4FE003611FE /* CyberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DE1DE6F4FE003611FE /* CyberVC.swift */; };
 		05B074E31DE6F552003611FE /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E01DE6F552003611FE /* Dog.jpg */; };
@@ -36,7 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				05A4828927CA9114006805E5 /* SwiftNotify.framework in Embed Frameworks */,
+				05A4829527CAA144006805E5 /* SwiftNotify.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,7 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				05A4828A27CA9114006805E5 /* SwiftNotifyResources.bundle in Embed PlugIns */,
+				05A4829627CAA144006805E5 /* SwiftNotifyResources.bundle in Embed PlugIns */,
 			);
 			name = "Embed PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,8 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05A4828627CA9114006805E5 /* SwiftNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		05A4828727CA9114006805E5 /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		05A4829227CAA144006805E5 /* SwiftNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05A4829327CAA144006805E5 /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B074DC1DE6F4F8003611FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SwiftNotifyExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		05B074DE1DE6F4FE003611FE /* CyberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CyberVC.swift; path = SwiftNotifyExample/CyberVC.swift; sourceTree = SOURCE_ROOT; };
 		05B074E01DE6F552003611FE /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = SwiftNotifyExample/Resource/Dog.jpg; sourceTree = SOURCE_ROOT; };
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A4828827CA9114006805E5 /* SwiftNotify.framework in Frameworks */,
+				05A4829427CAA144006805E5 /* SwiftNotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +143,8 @@
 		B231B3851DD35A2A00D29BD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				05A4828627CA9114006805E5 /* SwiftNotify.framework */,
-				05A4828727CA9114006805E5 /* SwiftNotifyResources.bundle */,
+				05A4829227CAA144006805E5 /* SwiftNotify.framework */,
+				05A4829327CAA144006805E5 /* SwiftNotifyResources.bundle */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Johnny@Co-fire";
 				TargetAttributes = {
 					B231B36F1DD35A1400D29BD5 = {
@@ -290,6 +290,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -315,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -350,6 +351,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -369,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -384,7 +386,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftNotifyExample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotifyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -399,7 +401,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftNotifyExample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotifyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

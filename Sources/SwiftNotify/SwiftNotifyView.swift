@@ -102,7 +102,8 @@ extension SwiftNotifyView {
 
     static var resourceBundle: Bundle? {
         #if SWIFT_PACKAGE
-        return Bundle.module
+        let bundle = Bundle.module
+        return bundle
         #else
         let frameworkBundle = Bundle(for: SwiftNotifyView.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("SwiftNotifyResources.bundle")

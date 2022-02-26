@@ -23,8 +23,8 @@ let package = Package(
                     name: "SwiftNotify",
                     dependencies: [],
                     path: "Sources/SwiftNotify",
-                    resources: [.process(NotifyResources)],
-                    exclude: ["Info.plist"]
+                    exclude: ["Info.plist", "NotifyResources/Info.plist"],
+                    resources: [.process("NotifyResources/images.xcassets")]
             ),
             .testTarget(
                     name: "SwiftNotifyTests",

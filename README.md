@@ -9,7 +9,9 @@ SwiftNotify
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![CocoaPods](https://img.shields.io/cocoapods/v/SwiftNotify.svg?style=flat-square)](https://cocoapods.org/pods/SwiftNotify)
 
-**SwiftNotify** is written in Swift. Using [`UIKit Dynamics`][UIKit Dynamics] as animator. It can make **ANY** `UIView` object _**draggable**_ and _**throwable**_. This library mainly use for _in-app notification_ and _alerts_. Let's notice and alert your users in more playable and fun way !
+**SwiftNotify** is written in Swift. Using [`UIKit Dynamics`][UIKit Dynamics] as animator. It can make **ANY** `UIView`
+object _**draggable**_ and _**throwable**_. This library mainly use for _in-app notification_ and _alerts_. Let's notice
+and alert your users in more playable and fun way !
 
 ![Demo1](image/Demo1.gif)
 ![Demo2](image/Demo2.gif)
@@ -17,6 +19,7 @@ SwiftNotify
 
 Features
 -----------------
+
 - [x] Work with **ANY** `UIView` object !
 - [x] Using UIKit Dynamics. Light and Smooth !
 - [x] Highly Customizable
@@ -25,6 +28,7 @@ Features
 
 Requirements
 -----------------
+
 * Swift 4.0+
 * Xcode 9
 * iOS 9.0+
@@ -35,8 +39,16 @@ Please read [CHANGELOG.md](CHANGELOG.md).
 
 Installation
 ------------------
-* #### [Carthage](https://github.com/Carthage/Carthage) (_Recommended_)
-  Add the following lines into  [Cartfile][Cartfile]  
+
+* #### [Swift Package Manager][SPM] (_Recommended_)
+  ```swift
+  dependencies: [
+    .package(url: "https://github.com/JT501/SwiftNotify.git", .upToNextMajor(from: "2.0.0"))
+  ]
+  ```
+
+* #### [Carthage](https://github.com/Carthage/Carthage)
+  Add the following lines into  [Cartfile][Cartfile]
 
   ````bash
   #SwiftNotify
@@ -54,24 +66,34 @@ Installation
 
 Getting Started
 -----------------
-There is an **example project** inside the [source code](https://github.com/JT501/SwiftNotify/archive/master.zip). You are suggested to have a look first and get familiar with this framework.
+There is an **example project** inside the [source code](https://github.com/JT501/SwiftNotify/archive/master.zip). You
+are suggested to have a look first and get familiar with this framework.
 
 ### The Basics
-This is the basic function with all **default** settings, design your own `UIView` or use [`SwiftNotifyView`](#SwiftNotifyview) to create one easily.
+
+This is the basic function with all **default** settings, design your own `UIView` or
+use [`SwiftNotifyView`](#SwiftNotifyview) to create one easily.
+
 ````swift
 SwiftNotify.present(view: UIView)
 ````
+
 If you need more **custom** settings, create your own [`Config`](#config) and use the following function.
+
 ````swift
 SwiftNotify.present(config: Config, view: UIView)
 ````
-if you want **custom** `tap` action, use the following function. (If you use tapHandler, it will override the default tap to hide action)
+
+if you want **custom** `tap` action, use the following function. (If you use tapHandler, it will override the default
+tap to hide action)
+
 ````swift
-SwiftNotify.present(config: Config, view: UIView, tapHandler: (()->Void)?)
+SwiftNotify.present(config: Config, view: UIView, tapHandler: (() -> Void)?)
 ````
 
-`SwiftNotify` will put all the views to be shown in queue (**First In First Out**).
-You can hide the view programmatically using the following functions.
+`SwiftNotify` will put all the views to be shown in queue (**First In First Out**). You can hide the view
+programmatically using the following functions.
+
 ````swift
 SwiftNotify.hide() // hide the current view
 
@@ -79,13 +101,15 @@ SwiftNotify.hideAll() // hide all the views in queue (Clear the queue)
 ````
 
 ### SwiftNotifyView
-You can create an alert view quickly and easily by using `SwiftNotifyView` class.  
+
+You can create an alert view quickly and easily by using `SwiftNotifyView` class.
 
 `SwiftNotifyView` included **3** ***views*** currently: [`Cyber`](#cyber), [`Classic`](#classic), [`Toast`](#Toast).
 
 Each style has **4** ***themes***: `Info`, `Success`, `Fail`, `Warning`
 
 Each theme has **2** ***styles***: `Light` and `Dark`
+
 * #### Cyber
   ![CyberView](image/CyberView.png)
   ````swift
@@ -132,12 +156,16 @@ Each theme has **2** ***styles***: `Light` and `Dark`
   ````
 
 ### Config
-You can config `SwiftNotify` using `Config` class. `Config` class included lots of properties, the following three are the most common:
+
+You can config `SwiftNotify` using `Config` class. `Config` class included lots of properties, the following three are
+the most common:
+
 * `initPosition` : where the view is born
 * `appearPosition` : where the view appear position
 * `hideTime` : the view will automatically hide after `hideTime` (default is 3 sec)
 
 Example:
+
 ````swift
 var classicViewConfig = SwiftNotify.Config()
 classicViewConfig.initPosition = .top(.random) //the view is born at the top randomly out of the boundary of screen
@@ -146,44 +174,57 @@ classicViewConfig.hideTime = .never //the view will never automatically hide
 ````
 
 ### Delegate
-`SwiftNotify` provides **Delegate** methods for some of common events.
-You need to conform to the `SwiftNotifyDelegate`.
+
+`SwiftNotify` provides **Delegate** methods for some of common events. You need to conform to the `SwiftNotifyDelegate`.
+
 ````swift
-func SwiftNotifyDidAppear() {}
+func SwiftNotifyDidAppear() {
+}
 
-func SwiftNotifyStartDragging(atPoint: CGPoint) {}
+func SwiftNotifyStartDragging(atPoint: CGPoint) {
+}
 
-func SwiftNotifyIsDragging(atPoint: CGPoint) {}
+func SwiftNotifyIsDragging(atPoint: CGPoint) {
+}
 
-func SwiftNotifyEndDragging(atPoint: CGPoint) {}
+func SwiftNotifyEndDragging(atPoint: CGPoint) {
+}
 
-func SwiftNotifyDidDisappear() {}
+func SwiftNotifyDidDisappear() {
+}
 
-func SwiftNotifyIsTapped() {}
+func SwiftNotifyIsTapped() {
+}
 ````
-
 
 To-Do List
 ------------------
-- [ ] Add [**SPM**][SPM] support
+
+- [x] Add [**SPM**][SPM] support
 - [ ] Improve the example app
 - [ ] Add alert view with buttons
 - [ ] Full documentation
 
 Bugs and issues
 -----------------
-If you find any bugs or encounter some issues regard to this framework, please feel free to open a new issue in [Issues](https://github.com/JT501/SwiftNotify/issues) page.
+If you find any bugs or encounter some issues regard to this framework, please feel free to open a new issue
+in [Issues](https://github.com/JT501/SwiftNotify/issues) page.
 
 Contribute
 ------------------
-You are welcome to contribute into this project, feel free to [Pull Request](https://github.com/JT501/SwiftNotify/pulls).
+You are welcome to contribute into this project, feel free to [Pull Request](https://github.com/JT501/SwiftNotify/pulls)
+.
 
 License
 ------------------
 ***SwiftNotify*** is released under an [MIT License][MIT]. See [LICENSE](LICENSE) for details.
 
 [UIKit Dynamics]:https://developer.apple.com/documentation/uikit/animation_and_haptics/uikit_dynamics
+
 [Cartfile]:https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile
+
 [Podfile]:https://guides.cocoapods.org/syntax/podfile.html
+
 [SPM]:https://github.com/apple/swift-package-manager
+
 [MIT]:http://opensource.org/licenses/MIT

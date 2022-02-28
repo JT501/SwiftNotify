@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05840B2327CD2087009FD18A /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05840B2227CD2087009FD18A /* SwiftNotify.framework */; };
+		05840B2427CD2087009FD18A /* SwiftNotify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05840B2227CD2087009FD18A /* SwiftNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05840B2727CD208A009FD18A /* SwiftNotifyResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05840B2627CD208A009FD18A /* SwiftNotifyResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DC1DE6F4F8003611FE /* AppDelegate.swift */; };
 		05B074DF1DE6F4FE003611FE /* CyberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DE1DE6F4FE003611FE /* CyberVC.swift */; };
 		05B074E31DE6F552003611FE /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E01DE6F552003611FE /* Dog.jpg */; };
@@ -26,7 +29,34 @@
 		05B075011DE8479D003611FE /* CoFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B075001DE8479D003611FE /* CoFire.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		05840B2527CD2087009FD18A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05840B2427CD2087009FD18A /* SwiftNotify.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05840B2827CD208A009FD18A /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				05840B2727CD208A009FD18A /* SwiftNotifyResources.bundle in Embed PlugIns */,
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		05840B2227CD2087009FD18A /* SwiftNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05840B2627CD208A009FD18A /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B074DC1DE6F4F8003611FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SwiftNotifyExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		05B074DE1DE6F4FE003611FE /* CyberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CyberVC.swift; path = SwiftNotifyExample/CyberVC.swift; sourceTree = SOURCE_ROOT; };
 		05B074E01DE6F552003611FE /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = SwiftNotifyExample/Resource/Dog.jpg; sourceTree = SOURCE_ROOT; };
@@ -53,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05840B2327CD2087009FD18A /* SwiftNotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,17 +106,9 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		056E709127CAB61900C745DA /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		B231B3671DD35A1400D29BD5 = {
 			isa = PBXGroup;
 			children = (
-				056E709127CAB61900C745DA /* Packages */,
 				B231B3721DD35A1400D29BD5 /* SwiftNotifyExample */,
 				B231B3711DD35A1400D29BD5 /* Products */,
 				B231B3851DD35A2A00D29BD5 /* Frameworks */,
@@ -120,6 +143,8 @@
 		B231B3851DD35A2A00D29BD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05840B2627CD208A009FD18A /* SwiftNotifyResources.bundle */,
+				05840B2227CD2087009FD18A /* SwiftNotify.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,6 +159,8 @@
 				B231B36C1DD35A1400D29BD5 /* Sources */,
 				B231B36D1DD35A1400D29BD5 /* Frameworks */,
 				B231B36E1DD35A1400D29BD5 /* Resources */,
+				05840B2527CD2087009FD18A /* Embed Frameworks */,
+				05840B2827CD208A009FD18A /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
@@ -173,6 +200,8 @@
 				Base,
 			);
 			mainGroup = B231B3671DD35A1400D29BD5;
+			packageReferences = (
+			);
 			productRefGroup = B231B3711DD35A1400D29BD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

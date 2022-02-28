@@ -76,7 +76,7 @@ class CyberVC: UIViewController, SwiftNotifyDelegate {
                                                  theme: .warning(.dark))
         
         var config = SwiftNotify.Config()
-        config.hideTime = .never
+        config.hideTime = .default
         
         SwiftNotify.present(config: config, view: cyberView)
         SwiftNotify.present(config: config, view: cyberViewD)

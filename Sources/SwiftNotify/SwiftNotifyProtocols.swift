@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol SwiftNotifyDelegate: class {
+public protocol SwiftNotifyDelegate: AnyObject {
     func swiftNotifyDidAppear()
     func swiftNotifyStartDragging(atPoint: CGPoint)
     func swiftNotifyIsDragging(atPoint: CGPoint)
@@ -29,11 +29,11 @@ public extension SwiftNotifyDelegate {
 }
 
 // Internal Use
-protocol NotifierDelegate: class {
+protocol NotifierDelegate: AnyObject {
     func notifierDidAppear()
     func notifierStartDragging(atPoint: CGPoint)
     func notifierIsDragging(atPoint: CGPoint)
     func notifierEndDragging(atPoint: CGPoint)
-    func notifierDidDisappear(notifier: Notifier)
+    func notifierDidDisappear(notifier: Notice)
     func notifierIsTapped()
 }

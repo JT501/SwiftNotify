@@ -18,10 +18,12 @@
 		05B074D41DE6F358003611FE /* SwiftNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B074CF1DE6F358003611FE /* SwiftNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* SwiftNotify.swift */; };
 		05B074D61DE6F358003611FE /* SwiftNotifyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D11DE6F358003611FE /* SwiftNotifyProtocols.swift */; };
-		05B074D71DE6F358003611FE /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D21DE6F358003611FE /* Notifier.swift */; };
+		05B074D71DE6F358003611FE /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D21DE6F358003611FE /* Notice.swift */; };
 		05F750F527CA83EC0099A9C9 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */; };
 		05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */; };
 		05F750FC27CA861E0099A9C9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C8272D1DD31B7A003E0C5E /* Info.plist */; };
+		210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096331922D41D34FB1854D /* NoticeNotification.swift */; };
+		210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210968E09F8C34791D946706 /* NoticeManager.swift */; };
 		B27359631FE61C89003333BC /* SwiftNotifyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +71,7 @@
 		05B074CF1DE6F358003611FE /* SwiftNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftNotify.h; path = Sources/SwiftNotify/SwiftNotify.h; sourceTree = SOURCE_ROOT; };
 		05B074D01DE6F358003611FE /* SwiftNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotify.swift; path = Sources/SwiftNotify/SwiftNotify.swift; sourceTree = SOURCE_ROOT; };
 		05B074D11DE6F358003611FE /* SwiftNotifyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotifyProtocols.swift; path = Sources/SwiftNotify/SwiftNotifyProtocols.swift; sourceTree = SOURCE_ROOT; };
-		05B074D21DE6F358003611FE /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifier.swift; path = Sources/SwiftNotify/Notifier.swift; sourceTree = SOURCE_ROOT; };
+		05B074D21DE6F358003611FE /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notice.swift; path = Sources/SwiftNotify/Notice.swift; sourceTree = SOURCE_ROOT; };
 		05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C827211DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotifyTests.swift; sourceTree = "<group>"; };
@@ -77,7 +79,9 @@
 		05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F750F127CA83EC0099A9C9 /* SwiftNotifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21096182457F39E02B5F037E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		21096331922D41D34FB1854D /* NoticeNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeNotification.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		210968E09F8C34791D946706 /* NoticeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,10 +144,12 @@
 				05B074D11DE6F358003611FE /* SwiftNotifyProtocols.swift */,
 				05B074CE1DE6F358003611FE /* SwiftNotifyView.swift */,
 				05B074D01DE6F358003611FE /* SwiftNotify.swift */,
-				05B074D21DE6F358003611FE /* Notifier.swift */,
+				05B074D21DE6F358003611FE /* Notice.swift */,
 				05B074CF1DE6F358003611FE /* SwiftNotify.h */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
+				210968E09F8C34791D946706 /* NoticeManager.swift */,
+				21096331922D41D34FB1854D /* NoticeNotification.swift */,
 			);
 			path = SwiftNotify;
 			sourceTree = "<group>";
@@ -392,11 +398,13 @@
 				05B074D61DE6F358003611FE /* SwiftNotifyProtocols.swift in Sources */,
 				05B074CB1DE6F340003611FE /* ClassicView.swift in Sources */,
 				05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */,
-				05B074D71DE6F358003611FE /* Notifier.swift in Sources */,
+				05B074D71DE6F358003611FE /* Notice.swift in Sources */,
 				05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */,
 				05B074CD1DE6F340003611FE /* ToastView.swift in Sources */,
 				05B074C51DE6F316003611FE /* BaseLabel.swift in Sources */,
 				05B074D31DE6F358003611FE /* SwiftNotifyView.swift in Sources */,
+				210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */,
+				210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

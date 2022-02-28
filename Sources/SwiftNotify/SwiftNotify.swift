@@ -8,10 +8,13 @@
 
 import UIKit
 
-private let globalInstance = SwiftNotify()
 
 open class SwiftNotify: NotifierDelegate {
-    
+    private init() {}
+
+    static let shared = SwiftNotify()
+    let noticeManager = NoticeManager.shared
+
     public enum InitPosition {
         case top(HorizontalPosition)
         case bottom(HorizontalPosition)
@@ -19,29 +22,30 @@ open class SwiftNotify: NotifierDelegate {
         case right
         case custom(CGPoint)
     }
-    
+
     public enum HorizontalPosition {
         case left
         case right
         case center
         case random
     }
-    
+
     public enum AppearPosition {
         case top
         case center
         case bottom
         case custom(CGPoint)
     }
-    
+
     public enum HideTime {
         case `default`
         case never
         case custom(seconds: TimeInterval)
     }
-    
+
     public struct Config {
         public init() {}
+
         public var initPosition = InitPosition.top(.center)
         public var appearPosition = AppearPosition.center
         public var hideTime = HideTime.default
@@ -50,10 +54,10 @@ open class SwiftNotify: NotifierDelegate {
         If exceed the thresholdDistance, the view will hide.
         Default: 50
         */
-        public var thresholdDistance : CGFloat = 50
-        public var minPushForce : CGFloat = 8
-        public var pushForceFactor : CGFloat = 0.005
-        public var defaultPushForce : CGFloat = 12
+        public var thresholdDistance: CGFloat = 50
+        public var minPushForce: CGFloat = 8
+        public var pushForceFactor: CGFloat = 0.005
+        public var defaultPushForce: CGFloat = 12
         /**
         Rotation speed factor, default: 0.8
         - 0.0 : View will not rotate
@@ -66,222 +70,137 @@ open class SwiftNotify: NotifierDelegate {
         public var angularResistance: CGFloat = 1.2
         public var snapDamping: CGFloat = 0.3
     }
-    
-    public init() {}
-    
+
     // MARK: - Public functions
     /**
     Show message with config and add tap handler to it
     */
-    open func present(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
-        syncQueue.async { [weak self] in
-            guard let strongSelf = self else { return }
-            DispatchQueue.main.async {
-                let message = Notifier(config: config, view: view, tapHandler: tapHandler, delegate: strongSelf)
-                strongSelf.enqueue(message: message)
-            }
-        }
+    func present(config: Config, view: UIView, tapHandler: (() -> Void)? = nil) {
+        let notice = Notice(config: config, view: view, tapHandler: tapHandler, delegate: self)
+        noticeManager.addPendingNotice(notice)
     }
-    
+
     open func present(config: Config, view: UIView) {
         present(config: config, view: view, tapHandler: nil)
     }
-    
+
     open func present(view: UIView) {
         present(config: defaultConfig, view: view)
     }
-    
+
     public typealias ViewProvider = () -> UIView
-    
-    open func present(config: Config, viewProvider: @escaping ViewProvider) {
+
+    func present(config: Config, viewProvider: @escaping ViewProvider) {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             let view = viewProvider()
             strongSelf.present(config: config, view: view)
         }
     }
-    
+
     public func present(viewProvider: @escaping ViewProvider) {
         present(config: defaultConfig, viewProvider: viewProvider)
     }
-    
+
     open func hide() {
-        syncQueue.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.hideCurrent()
-        }
+        noticeManager.dismissCurrentNotices()
     }
-    
+
+    func hide(notice: Notice) {
+        noticeManager.dismissNotice(notice)
+    }
+
     open func hideAll() {
-        syncQueue.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.messageQueue.removeAll()
-            strongSelf.hideCurrent()
-        }
+        noticeManager.removeAllPendingNotices()
+        noticeManager.dismissCurrentNotices()
     }
-    
+
     open weak var delegate: SwiftNotifyDelegate!
     public var defaultConfig = Config()
-    
-    open var intervalBetweenMessages: TimeInterval = 0.5
-    
-    let syncQueue = DispatchQueue(label: "SwiftNotify.Queue", attributes: [])
-    var messageQueue: [Notifier] = []
-    var currentMsg: Notifier? = nil {
-        didSet {
-            if oldValue != nil {
-                let delayTime = DispatchTime.now() + intervalBetweenMessages
-                syncQueue.asyncAfter(deadline: delayTime, execute: { [weak self] in
-                    guard let strongSelf = self else { return }
-                    strongSelf.dequeueNext()
-                })
-            }
-        }
-    }
-    
-    func enqueue(message: Notifier) {
-        messageQueue.append(message)
-        dequeueNext()
-    }
-    
-    func dequeueNext() {
-//        print("Count = \(self.messageQueue.count)")
-        guard self.currentMsg == nil else { return }
-        guard messageQueue.count > 0 else { return }
-        let current = messageQueue.removeFirst()
-        self.currentMsg = current
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            current.present(completion: { (completed) in
-                guard completed else { return }
-                if completed {
-                    strongSelf.queueAutoHide()
-                }
-            })
-        }
-    }
-    
-    fileprivate var msgToAutoHide: Notifier?
-    
-    fileprivate func queueAutoHide() {
-        guard let currentMsg = self.currentMsg else { return }
-        self.msgToAutoHide = currentMsg
-        if let dissmissTime = currentMsg.hideTime {
-            let delayTime = DispatchTime.now() + dissmissTime
-            syncQueue.asyncAfter(deadline: delayTime, execute: { [weak self] in
-                guard let strongSelf = self else { return }
-                if strongSelf.msgToAutoHide !== currentMsg {
-                    return
-                }
-                strongSelf.hide(messager: currentMsg)
-            })
-        }
-    }
-    
-    func hide(messager: Notifier) {
-        self.syncQueue.async { [weak self] in
-            guard let strongSelf = self else { return }
-            if let currentMsg = strongSelf.currentMsg, messager === currentMsg {
-                strongSelf.hideCurrent()
-            }
-        }
-    }
-    
-    func hideCurrent() {
-        guard let currentMsg = self.currentMsg else { return }
-        guard !currentMsg.isHidding else { return }
-        DispatchQueue.main.async {
-            currentMsg.hide()
-        }
-    }
-    
+
     // MARK: - MessengerDelegate
     func notifierDidAppear() {
         if let delegate = delegate {
             delegate.swiftNotifyDidAppear()
         }
     }
-    
+
     func notifierStartDragging(atPoint: CGPoint) {
         if let delegate = delegate {
             delegate.swiftNotifyStartDragging(atPoint: atPoint)
         }
-        self.msgToAutoHide = nil
+//        self.msgToAutoHide = nil
     }
-    
+
     func notifierIsDragging(atPoint: CGPoint) {
         if let delegate = delegate {
             delegate.swiftNotifyIsDragging(atPoint: atPoint)
         }
     }
-    
+
     func notifierEndDragging(atPoint: CGPoint) {
         if let delegate = delegate {
             delegate.swiftNotifyEndDragging(atPoint: atPoint)
         }
-        self.queueAutoHide()
+//        self.queueAutoHide()
     }
-    
-    func notifierDidDisappear(notifier: Notifier) {
+
+    func notifierDidDisappear(notifier: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyDidDisappear()
         }
-        self.syncQueue.async {
-            self.messageQueue = self.messageQueue.filter{ $0 !== notifier }
-            self.currentMsg = nil
-        }
+//        self.syncQueue.async {
+//            self.messageQueue = self.messageQueue.filter { $0 !== notifier }
+//            self.currentMsg = nil
+//        }
     }
-    
+
     func notifierIsTapped() {
         if let delegate = delegate {
             delegate.swiftNotifyIsTapped()
         }
-        self.msgToAutoHide = nil
-        self.hideCurrent()
+//        self.msgToAutoHide = nil
+//        hide()
     }
 }
 
 /* MARK: - Static APIs **/
 extension SwiftNotify {
-    
-    public static var sharedInstance: SwiftNotify {
-        return globalInstance
-    }
-    
+
     public static weak var delegate: SwiftNotifyDelegate? {
         get {
-            return globalInstance.delegate
+            shared.delegate
         }
         set {
-            globalInstance.delegate = newValue
+            shared.delegate = newValue
         }
     }
-    
+
     public static func present(view: UIView) {
-        globalInstance.present(view: view)
+        shared.present(view: view)
     }
-    
+
     public static func present(config: Config, view: UIView) {
-        globalInstance.present(config: config, view: view)
+        shared.present(config: config, view: view)
     }
-    
-    public static func present(config: Config, view: UIView, tapHandler: (()->Void)? = nil) {
-        globalInstance.present(config: config, view: view, tapHandler: tapHandler)
+
+    public static func present(config: Config, view: UIView, tapHandler: (() -> Void)? = nil) {
+        shared.present(config: config, view: view, tapHandler: tapHandler)
     }
-    
+
     public static func present(viewProvider: @escaping ViewProvider) {
-        globalInstance.present(viewProvider: viewProvider)
+        shared.present(viewProvider: viewProvider)
     }
-    
+
     public static func present(config: Config, viewProvider: @escaping ViewProvider) {
-        globalInstance.present(config: config, viewProvider: viewProvider)
+        shared.present(config: config, viewProvider: viewProvider)
     }
-    
+
     public static func hide() {
-        globalInstance.hide()
+        shared.hide()
     }
-    
+
     public static func hideAll() {
-        globalInstance.hideAll()
+        shared.hideAll()
     }
 }

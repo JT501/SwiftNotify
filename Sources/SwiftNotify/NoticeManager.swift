@@ -5,7 +5,7 @@
 
 import Foundation
 
-class NoticeManager {
+public class NoticeManager {
     private init() {
         NotificationCenter.default.addObserver(
                 self,
@@ -152,6 +152,7 @@ class NoticeManager {
             DispatchQueue.main.async {
                 notice.dismiss()
             }
+            self.autoDismissTasks.removeValue(forKey: notice.id)
             self.showNext()
         }
     }
@@ -186,7 +187,10 @@ class NoticeManager {
             guard !self.unsafeCurrentNotices.isEmpty else { return }
             guard self.unsafeCurrentNotices.allSatisfy({ !$0.isHiding }) else { return }
 
-            self.unsafeCurrentNotices.forEach { $0.dismiss() }
+            self.unsafeCurrentNotices.forEach { [weak self] in
+                $0.dismiss()
+                self?.autoDismissTasks.removeValue(forKey: $0.id)
+            }
             self.unsafeCurrentNotices.removeAll()
         }
     }

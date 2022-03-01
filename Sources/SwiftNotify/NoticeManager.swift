@@ -6,47 +6,8 @@
 import Foundation
 
 public class NoticeManager {
-    private init() {
-        NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(receiveNoticeDidDisappear(notification:)),
-                name: NoticeNotification.didDisappear,
-                object: nil
-        )
-        NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(receiveNoticeStartDragging(notification:)),
-                name: NoticeNotification.startPanning,
-                object: nil
-        )
-        NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(receiveNoticeEndPanningNotDismiss(notification:)),
-                name: NoticeNotification.endPanningNotDismiss,
-                object: nil
-        )
-        NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(receiveNoticeStartPressing(notification:)),
-                name: NoticeNotification.startPressing,
-                object: nil
-        )
-        NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(receiveNoticeEndPressing(notification:)),
-                name: NoticeNotification.endPressing,
-                object: nil
-        )
-    }
 
-    static let shared = NoticeManager()
-
-    let queue = DispatchQueue(
-            label: "com.jt501.SwiftNotify.NoticeQueue",
-            attributes: .concurrent
-    )
-
-    var intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500)
+    let queue: DispatchQueue
 
     private var unsafePendingNotices: [Notice] = [] {
         didSet {
@@ -80,6 +41,49 @@ public class NoticeManager {
             noticesCopy = self?.unsafeCurrentNotices ?? []
         }
         return noticesCopy
+    }
+
+    init(queue: DispatchQueue) {
+        self.queue = queue
+
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(receiveNoticeDidDisappear(notification:)),
+                name: NoticeNotification.didDisappear,
+                object: nil
+        )
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(receiveNoticeStartPanning(notification:)),
+                name: NoticeNotification.startPanning,
+                object: nil
+        )
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(receiveNoticeEndPanningNotDismiss(notification:)),
+                name: NoticeNotification.endPanningNotDismiss,
+                object: nil
+        )
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(receiveNoticeStartPressing(notification:)),
+                name: NoticeNotification.startPressing,
+                object: nil
+        )
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(receiveNoticeEndPressing(notification:)),
+                name: NoticeNotification.endPressing,
+                object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NoticeNotification.didDisappear, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticeNotification.startPanning, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticeNotification.endPanningNotDismiss, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticeNotification.startPressing, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticeNotification.endPressing, object: nil)
     }
 
     func addPendingNotice(_ notice: Notice) {
@@ -137,9 +141,12 @@ public class NoticeManager {
         }
     }
 
-    func showNext() {
+    private func showNext() {
         guard !unsafePendingNotices.isEmpty else { return }
-        queue.asyncAfter(deadline: .now() + intervalBetweenNotices) { [weak self] in
+
+        let delay: DispatchTimeInterval = SN.intervalBetweenNotices
+
+        queue.asyncAfter(deadline: .now() + delay) { [weak self] in
             self?.showNotice()
         }
     }
@@ -148,7 +155,6 @@ public class NoticeManager {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
             guard self.unsafeCurrentNotices.contains(notice) else { return }
-            self.unsafeCurrentNotices.removeAll { $0.id == notice.id }
             DispatchQueue.main.async {
                 notice.dismiss()
             }
@@ -191,11 +197,10 @@ public class NoticeManager {
                 $0.dismiss()
                 self?.autoDismissTasks.removeValue(forKey: $0.id)
             }
-            self.unsafeCurrentNotices.removeAll()
         }
     }
 
-    @objc func receiveNoticeDidDisappear(notification: Notification) {
+    @objc private func receiveNoticeDidDisappear(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 
         queue.async(flags: .barrier) { [weak self] in
@@ -206,27 +211,27 @@ public class NoticeManager {
         }
     }
 
-    @objc func receiveNoticeStartDragging(notification: Notification) {
+    @objc private func receiveNoticeStartPanning(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 
         cancelAutoDismiss(noticeId: noticeInfo.id)
     }
 
-    @objc func receiveNoticeEndPanningNotDismiss(notification: Notification) {
+    @objc private func receiveNoticeEndPanningNotDismiss(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 
         autoDismissNotice(id: noticeInfo.id)
     }
 
     // Cancel Auto Dismiss when pressing the notice
-    @objc func receiveNoticeStartPressing(notification: Notification) {
+    @objc private func receiveNoticeStartPressing(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 
         cancelAutoDismiss(noticeId: noticeInfo.id)
     }
 
     // Start Auto Dismiss when end pressing the notice
-    @objc func receiveNoticeEndPressing(notification: Notification) {
+    @objc private func receiveNoticeEndPressing(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 
         autoDismissNotice(id: noticeInfo.id)

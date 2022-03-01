@@ -29,7 +29,7 @@ public extension SwiftNotifyDelegate {
 }
 
 // Internal Use
-protocol NotifierDelegate: AnyObject {
+protocol NotifyDelegate: AnyObject {
     func notifierDidAppear()
     func notifierStartDragging(atPoint: CGPoint)
     func notifierIsDragging(atPoint: CGPoint)

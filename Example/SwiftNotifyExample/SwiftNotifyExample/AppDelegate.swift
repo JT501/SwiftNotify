@@ -3,7 +3,7 @@
 //  CFMessageExample
 //
 //  Created by Johnny on 9/11/2016.
-//  Copyright © 2016 Johnny@Co-fire. All rights reserved.
+//  Copyright © 2022 Johnny@Co-fire. All rights reserved.
 //
 
 import UIKit

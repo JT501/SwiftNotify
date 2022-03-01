@@ -1,6 +1,6 @@
 //
-// Created by Johnny Choi on 28/2/2022.
-// Copyright (c) 2022 Johnny Choi@Co-Fire. All rights reserved.
+// Created by Johnny Tsoi on 28/2/2022.
+// Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ class NoticeManager {
         NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(receiveNoticeStartDragging(notification:)),
-                name: NoticeNotification.startDragging,
+                name: NoticeNotification.startPanning,
                 object: nil
         )
         NotificationCenter.default.addObserver(

@@ -2,8 +2,8 @@
 //  MainVC.swift
 //  SwiftNotifyExample
 //
-//  Created by Johnny Choi on 25/11/2016.
-//  Copyright © 2016 Johnny@Co-fire. All rights reserved.
+//  Created by Johnny Tsoi on 25/11/2016.
+//  Copyright © 2022 Johnny@Co-fire. All rights reserved.
 //
 
 import UIKit

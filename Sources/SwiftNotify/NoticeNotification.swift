@@ -1,14 +1,14 @@
 //
-// Created by Johnny Choi on 1/3/2022.
-// Copyright (c) 2022 Johnny Choi@Co-Fire. All rights reserved.
+// Created by Johnny Tsoi on 1/3/2022.
+// Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
 import Foundation
 
 enum NoticeNotification {
     static let didDisappear = Notification.Name("com.jt501.SwiftNotify.NoticeDidDisappear")
-    static let startDragging = Notification.Name("com.jt501.SwiftNotify.NoticeStartDragging")
-    static let endDraggingNotDismiss = Notification.Name("com.jt501.SwiftNotify.NoticeEndDraggingNotDismiss")
+    static let startPanning = Notification.Name("com.jt501.SwiftNotify.NoticeStartPanning")
+    static let endPanningNotDismiss = Notification.Name("com.jt501.SwiftNotify.NoticeEndPanningNotDismiss")
 }
 
 struct NoticeInfo {

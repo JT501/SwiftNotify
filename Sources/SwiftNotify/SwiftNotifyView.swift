@@ -2,8 +2,8 @@
 //  SwiftDefaultView.swift
 //  SwiftNotify
 //
-//  Created by Johnny Choi on 18/11/2016.
-//  Copyright © 2016 Johnny Choi@Co-Fire. All rights reserved.
+//  Created by Johnny Tsoi on 18/11/2016.
+//  Copyright © 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
 import UIKit

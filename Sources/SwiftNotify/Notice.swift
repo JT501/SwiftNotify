@@ -3,7 +3,7 @@
 //  SwiftNotify
 //
 //  Created by Johnny on 12/11/2016.
-//  Copyright © 2016 Johnny Choi@Co-Fire. All rights reserved.
+//  Copyright © 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
 import UIKit
@@ -232,7 +232,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         switch gesture.state {
                 //Start Dragging
         case .began:
-            postStartDraggingNotification()
+            postStartPanningNotification()
 
             if let delegate = delegate {
                 delegate.notifierStartDragging(atPoint: dragPoint)
@@ -350,8 +350,8 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         "Notice(id: \(id))"
     }
 
-    private func postStartDraggingNotification() {
-        postNotification(NoticeNotification.startDragging)
+    private func postStartPanningNotification() {
+        postNotification(NoticeNotification.startPanning)
     }
 
     private func postEndDraggingNotDismissNotification() {

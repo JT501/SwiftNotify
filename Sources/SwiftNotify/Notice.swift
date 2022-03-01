@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Notice: NSObject, UIGestureRecognizerDelegate {
+class Notice: NSObject {
 
     var id: String = UUID().uuidString
     let config: SwiftNotify.Config
@@ -16,6 +16,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
     let containerView: UIView
     let panRecognizer: UIPanGestureRecognizer
     let tapRecognizer: UITapGestureRecognizer
+    let longPressRecognizer: UILongPressGestureRecognizer
     var animator: UIDynamicAnimator
     var snapPoint: CGPoint
     var snapBehaviour: UISnapBehavior!
@@ -29,7 +30,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
     let tapAction: (() -> Void)?
 
     lazy private var userInfo = [
-        NoticeInfo.userInfoKey: NoticeInfo(id: self.id)
+        NoticeInfo.userInfoKey: NoticeInfo(id: id)
     ]
 
     init(config: SwiftNotify.Config, view: UIView, tapHandler: (() -> Void)?, delegate: NotifierDelegate) {
@@ -38,6 +39,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         containerView = UIView()
         panRecognizer = UIPanGestureRecognizer()
         tapRecognizer = UITapGestureRecognizer()
+        longPressRecognizer = UILongPressGestureRecognizer()
         animator = UIDynamicAnimator()
         snapPoint = CGPoint.zero
         isHiding = false
@@ -48,7 +50,11 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         super.init()
         panRecognizer.addTarget(self, action: #selector(Notice.pan(gesture:)))
         panRecognizer.maximumNumberOfTouches = 1
-        tapRecognizer.addTarget(self, action: #selector(Notice.tap(gesture:)))
+        tapRecognizer.addTarget(self, action: #selector(onTap(gesture:)))
+        longPressRecognizer.addTarget(self, action: #selector(onLongPress(gesture:)))
+        longPressRecognizer.minimumPressDuration = 0.25
+        longPressRecognizer.allowableMovement = 0
+        longPressRecognizer.delegate = self
     }
 
     var hideTime: TimeInterval? {
@@ -116,6 +122,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         if tapAction == nil {
             containerView.addGestureRecognizer(tapRecognizer)
         }
+        containerView.addGestureRecognizer(longPressRecognizer)
 
         keyWindow.addSubview(containerView)
 
@@ -138,7 +145,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         }
     }
 
-    func hide() {
+    func dismiss() {
         animator.removeAllBehaviors()
 
         if let gestureViewGestureRecognizers = containerView.gestureRecognizers {
@@ -232,6 +239,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         switch gesture.state {
                 //Start Dragging
         case .began:
+            print("Start Panning")
             postStartPanningNotification()
 
             if let delegate = delegate {
@@ -269,6 +277,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
             }
                 //End Dragging
         case .ended:
+            print("End Panning")
             if let delegate = delegate {
                 delegate.notifierEndDragging(atPoint: dragPoint)
             }
@@ -277,7 +286,7 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
 
             if movedDistance < config.thresholdDistance {
                 addSnap(view: gestureView, toPoint: snapPoint)
-                postEndDraggingNotDismissNotification()
+                postEndPanningNotDismissNotification()
             } else {
                 animator.removeAllBehaviors()
                 if let gestureViewGestureRecognizers = gestureView.gestureRecognizers {
@@ -322,12 +331,28 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         }
     }
 
-    @objc func tap(gesture: UITapGestureRecognizer) {
+    @objc func onTap(gesture: UITapGestureRecognizer) {
         if let delegate = delegate {
             delegate.notifierIsTapped()
         }
         if let tapAction = tapAction {
             tapAction()
+        }
+    }
+
+    @objc func onLongPress(gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            print("Start Pressing")
+            postStartPressingNotification()
+        case .changed:
+            gesture.state = .ended
+            print("Pressing Move")
+        case .ended:
+            print("End Pressing")
+            postEndPressingNotification()
+        default:
+            break
         }
     }
 
@@ -354,8 +379,16 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
         postNotification(NoticeNotification.startPanning)
     }
 
-    private func postEndDraggingNotDismissNotification() {
-        postNotification(NoticeNotification.endDraggingNotDismiss)
+    private func postEndPanningNotDismissNotification() {
+        postNotification(NoticeNotification.endPanningNotDismiss)
+    }
+
+    private func postStartPressingNotification() {
+        postNotification(NoticeNotification.startPressing)
+    }
+
+    private func postEndPressingNotification() {
+        postNotification(NoticeNotification.endPressing)
     }
 
     private func postDidDisappearNotification() {
@@ -368,5 +401,14 @@ class Notice: NSObject, UIGestureRecognizerDelegate {
                 object: nil,
                 userInfo: userInfo
         )
+    }
+}
+
+extension Notice: UIGestureRecognizerDelegate {
+    public func gestureRecognizer(
+            _ gestureRecognizer: UIGestureRecognizer,
+            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+    ) -> Bool {
+        return gestureRecognizer == longPressRecognizer && otherGestureRecognizer == panRecognizer
     }
 }

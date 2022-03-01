@@ -21,8 +21,20 @@ class NoticeManager {
         )
         NotificationCenter.default.addObserver(
                 self,
-                selector: #selector(receiveNoticeEndDraggingNotDismiss(notification:)),
-                name: NoticeNotification.endDraggingNotDismiss,
+                selector: #selector(receiveNoticeEndPanningNotDismiss(notification:)),
+                name: NoticeNotification.endPanningNotDismiss,
+                object: nil
+        )
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(receiveNoticeStartPressing(notification:)),
+                name: NoticeNotification.startPressing,
+                object: nil
+        )
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(receiveNoticeEndPressing(notification:)),
+                name: NoticeNotification.endPressing,
                 object: nil
         )
     }
@@ -138,7 +150,7 @@ class NoticeManager {
             guard self.unsafeCurrentNotices.contains(notice) else { return }
             self.unsafeCurrentNotices.removeAll { $0.id == notice.id }
             DispatchQueue.main.async {
-                notice.hide()
+                notice.dismiss()
             }
             self.showNext()
         }
@@ -153,7 +165,7 @@ class NoticeManager {
 
                 self.autoDismissTasks.removeValue(forKey: notice.id)
 
-                DispatchQueue.main.async { notice.hide() }
+                DispatchQueue.main.async { notice.dismiss() }
             }
             autoDismissTasks[notice.id] = task
 
@@ -174,7 +186,7 @@ class NoticeManager {
             guard !self.unsafeCurrentNotices.isEmpty else { return }
             guard self.unsafeCurrentNotices.allSatisfy({ !$0.isHiding }) else { return }
 
-            self.unsafeCurrentNotices.forEach { $0.hide() }
+            self.unsafeCurrentNotices.forEach { $0.dismiss() }
             self.unsafeCurrentNotices.removeAll()
         }
     }
@@ -196,7 +208,21 @@ class NoticeManager {
         cancelAutoDismiss(noticeId: noticeInfo.id)
     }
 
-    @objc func receiveNoticeEndDraggingNotDismiss(notification: Notification) {
+    @objc func receiveNoticeEndPanningNotDismiss(notification: Notification) {
+        guard let noticeInfo = NoticeInfo(notification: notification) else { return }
+
+        autoDismissNotice(id: noticeInfo.id)
+    }
+
+    // Cancel Auto Dismiss when pressing the notice
+    @objc func receiveNoticeStartPressing(notification: Notification) {
+        guard let noticeInfo = NoticeInfo(notification: notification) else { return }
+
+        cancelAutoDismiss(noticeId: noticeInfo.id)
+    }
+
+    // Start Auto Dismiss when end pressing the notice
+    @objc func receiveNoticeEndPressing(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 
         autoDismissNotice(id: noticeInfo.id)

@@ -9,6 +9,8 @@ enum NoticeNotification {
     static let didDisappear = Notification.Name("com.jt501.SwiftNotify.NoticeDidDisappear")
     static let startPanning = Notification.Name("com.jt501.SwiftNotify.NoticeStartPanning")
     static let endPanningNotDismiss = Notification.Name("com.jt501.SwiftNotify.NoticeEndPanningNotDismiss")
+    static let startPressing = Notification.Name("com.jt501.SwiftNotify.NoticeStartPressing")
+    static let endPressing = Notification.Name("com.jt501.SwiftNotify.NoticeEndPressing")
 }
 
 struct NoticeInfo {

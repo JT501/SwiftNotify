@@ -8,10 +8,10 @@
 
 import UIKit
 
-class Notice: NSObject {
+open class Notice: NSObject {
 
     var id: String = UUID().uuidString
-    let config: SwiftNotify.Config
+    let config: SwiftNotifyConfig
     let view: UIView
     let containerView: UIView
     let panRecognizer: UIPanGestureRecognizer
@@ -24,7 +24,7 @@ class Notice: NSObject {
     var gravityBehaviour: UIGravityBehavior!
     var collisionBehaviour: UICollisionBehavior!
     var isHiding: Bool
-    weak var delegate: NotifierDelegate?
+    weak var delegate: NotifyDelegate?
     var fieldMargin: CGFloat  //Margin to remove message from view
     var angularVelocity: CGFloat = 0
     let tapAction: (() -> Void)?
@@ -33,7 +33,7 @@ class Notice: NSObject {
         NoticeInfo.userInfoKey: NoticeInfo(id: id)
     ]
 
-    init(config: SwiftNotify.Config, view: UIView, tapHandler: (() -> Void)?, delegate: NotifierDelegate) {
+    init(config: SwiftNotifyConfig, view: UIView, tapHandler: (() -> Void)?, delegate: NotifyDelegate) {
         self.config = config
         self.view = view
         containerView = UIView()
@@ -371,7 +371,7 @@ class Notice: NSObject {
         CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
 
-    override var description: String {
+    open override var description: String {
         "Notice(id: \(id))"
     }
 

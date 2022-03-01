@@ -1,6 +1,6 @@
 //
 //  SwiftNotify.swift
-//  SiwftNotify
+//  SwiftNotify
 //
 //  Created by Johnny Tsoi on 9/11/2016.
 //  Copyright © 2022 Johnny@Co-fire. All rights reserved.
@@ -8,115 +8,93 @@
 
 import UIKit
 
+/// Reference to `SwiftNotify.default` for quick bootstrapping.
+public let SN = SwiftNotify.default
 
-open class SwiftNotify: NotifierDelegate {
-    private init() {}
+/// Current SwiftNotify Version
+public let version = "2.0.0"
 
-    static let shared = SwiftNotify()
-    let noticeManager = NoticeManager.shared
+open class SwiftNotify: NotifyDelegate {
+    /// Shared singleton instance used by all `SF` APIs. Cannot be modified
+    public static let `default` = SwiftNotify()
 
-    public enum InitPosition {
-        case top(HorizontalPosition)
-        case bottom(HorizontalPosition)
-        case left
-        case right
-        case custom(CGPoint)
-    }
+    /// `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
+    public let noticeQueue: DispatchQueue
 
-    public enum HorizontalPosition {
-        case left
-        case right
-        case center
-        case random
-    }
+    /// `NoticeManager` instance used to manage notice queue
+    public let noticeManager: NoticeManager
 
-    public enum AppearPosition {
-        case top
-        case center
-        case bottom
-        case custom(CGPoint)
-    }
+    /// SwiftNotify configuration instance
+    public var config = SwiftNotifyConfig()
 
-    public enum HideTime {
-        case `default`
-        case never
-        case custom(seconds: TimeInterval)
-    }
+    /// `SwiftNotifyDelegate` that handles notices interactions.
+    public var delegate: SwiftNotifyDelegate?
 
-    public struct Config {
-        public init() {}
+    /// `DispatchTimeInterval` which is the interval between sequence of notices.
+    public var intervalBetweenNotices: DispatchTimeInterval
 
-        public var initPosition = InitPosition.top(.center)
-        public var appearPosition = AppearPosition.center
-        public var hideTime = HideTime.default
-        /**
-        The max. drag distance that the view will return to snap point.
-        If exceed the thresholdDistance, the view will hide.
-        Default: 50
-        */
-        public var thresholdDistance: CGFloat = 50
-        public var minPushForce: CGFloat = 8
-        public var pushForceFactor: CGFloat = 0.005
-        public var defaultPushForce: CGFloat = 12
-        /**
-        Rotation speed factor, default: 0.8
-        - 0.0 : View will not rotate
-        - The higher factor, the faster rotation
-        */
-        public var angularVelocityFactor: CGFloat = 0.8
-        /**
-        Rotation resistance, default: 1.2
-        */
-        public var angularResistance: CGFloat = 1.2
-        public var snapDamping: CGFloat = 0.3
+    /// Create a `SwiftNotify` instance.
+    ///
+    /// - Parameters:
+    ///   - noticeQueue:            `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
+    ///                             `DispatchQueue(label: "com.jt501.SwiftNotify.NoticeQueue", attributes: .concurrent)`
+    ///                             by default.
+    ///   - delegate:               `SwiftNotifyDelegate` that handles notices interactions. `nil` by default
+    ///   - intervalBetweenNotices: `DispatchTimeInterval` which is the interval between sequence of notices.
+    ///                             `DispatchTimeInterval.milliseconds(500)` by default.
+    public init(
+            noticeQueue: DispatchQueue = DispatchQueue(label: "com.jt501.SwiftNotify.NoticeQueue", attributes: .concurrent),
+            delegate: SwiftNotifyDelegate? = nil,
+            intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500)
+    ) {
+        self.noticeQueue = noticeQueue
+        self.delegate = delegate
+        self.intervalBetweenNotices = intervalBetweenNotices
+
+        noticeManager = NoticeManager(queue: noticeQueue)
     }
 
     // MARK: - Public functions
     /**
     Show message with config and add tap handler to it
     */
-    func present(config: Config, view: UIView, tapHandler: (() -> Void)? = nil) {
+    public func show(config: SwiftNotifyConfig, view: UIView, tapHandler: (() -> Void)? = nil) {
         let notice = Notice(config: config, view: view, tapHandler: tapHandler, delegate: self)
         noticeManager.addPendingNotice(notice)
     }
 
-    open func present(config: Config, view: UIView) {
-        present(config: config, view: view, tapHandler: nil)
+    public func show(config: SwiftNotifyConfig, view: UIView) {
+        show(config: config, view: view, tapHandler: nil)
     }
 
-    open func present(view: UIView) {
-        present(config: defaultConfig, view: view)
+    public func show(view: UIView) {
+        show(config: config, view: view)
     }
 
     public typealias ViewProvider = () -> UIView
 
-    func present(config: Config, viewProvider: @escaping ViewProvider) {
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            let view = viewProvider()
-            strongSelf.present(config: config, view: view)
-        }
+    public func show(config: SwiftNotifyConfig, viewProvider: @escaping ViewProvider) {
+        let view = viewProvider()
+        show(config: config, view: view)
     }
 
-    public func present(viewProvider: @escaping ViewProvider) {
-        present(config: defaultConfig, viewProvider: viewProvider)
+    public func show(viewProvider: @escaping ViewProvider) {
+        show(config: config, viewProvider: viewProvider)
     }
 
-    open func hide() {
+    public func dismiss() {
         noticeManager.dismissCurrentNotices()
     }
 
-    func hide(notice: Notice) {
+    public func dismiss(notice: Notice) {
         noticeManager.dismissNotice(notice)
     }
 
-    open func hideAll() {
+    public func dismissAll() {
         noticeManager.removeAllPendingNotices()
         noticeManager.dismissCurrentNotices()
     }
 
-    open weak var delegate: SwiftNotifyDelegate!
-    public var defaultConfig = Config()
 
     // MARK: - MessengerDelegate
     func notifierDidAppear() {
@@ -149,58 +127,11 @@ open class SwiftNotify: NotifierDelegate {
         if let delegate = delegate {
             delegate.swiftNotifyDidDisappear()
         }
-//        self.syncQueue.async {
-//            self.messageQueue = self.messageQueue.filter { $0 !== notifier }
-//            self.currentMsg = nil
-//        }
     }
 
     func notifierIsTapped() {
         if let delegate = delegate {
             delegate.swiftNotifyIsTapped()
         }
-//        self.msgToAutoHide = nil
-//        hide()
-    }
-}
-
-/* MARK: - Static APIs **/
-extension SwiftNotify {
-
-    public static weak var delegate: SwiftNotifyDelegate? {
-        get {
-            shared.delegate
-        }
-        set {
-            shared.delegate = newValue
-        }
-    }
-
-    public static func present(view: UIView) {
-        shared.present(view: view)
-    }
-
-    public static func present(config: Config, view: UIView) {
-        shared.present(config: config, view: view)
-    }
-
-    public static func present(config: Config, view: UIView, tapHandler: (() -> Void)? = nil) {
-        shared.present(config: config, view: view, tapHandler: tapHandler)
-    }
-
-    public static func present(viewProvider: @escaping ViewProvider) {
-        shared.present(viewProvider: viewProvider)
-    }
-
-    public static func present(config: Config, viewProvider: @escaping ViewProvider) {
-        shared.present(config: config, viewProvider: viewProvider)
-    }
-
-    public static func hide() {
-        shared.hide()
-    }
-
-    public static func hideAll() {
-        shared.hideAll()
     }
 }

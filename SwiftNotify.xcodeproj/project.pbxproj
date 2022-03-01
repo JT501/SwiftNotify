@@ -24,6 +24,7 @@
 		05F750FC27CA861E0099A9C9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C8272D1DD31B7A003E0C5E /* Info.plist */; };
 		210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096331922D41D34FB1854D /* NoticeNotification.swift */; };
 		210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210968E09F8C34791D946706 /* NoticeManager.swift */; };
+		21096F81E6DB0C557F6F83E5 /* SwiftNotifyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */; };
 		B27359631FE61C89003333BC /* SwiftNotifyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		21096331922D41D34FB1854D /* NoticeNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeNotification.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		210968E09F8C34791D946706 /* NoticeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeManager.swift; sourceTree = "<group>"; };
+		21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotifyConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
 				210968E09F8C34791D946706 /* NoticeManager.swift */,
 				21096331922D41D34FB1854D /* NoticeNotification.swift */,
+				21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */,
 			);
 			path = SwiftNotify;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				05B074D31DE6F358003611FE /* SwiftNotifyView.swift in Sources */,
 				210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */,
 				210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */,
+				21096F81E6DB0C557F6F83E5 /* SwiftNotifyConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

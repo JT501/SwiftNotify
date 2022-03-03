@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_warning_dark.png",
+      "filename" : "icon_fail_solid.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_warning_dark@2x.png",
+      "filename" : "icon_fail_solid@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_warning_dark@3x.png",
+      "filename" : "icon_fail_solid@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

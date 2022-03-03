@@ -44,26 +44,26 @@ enum DefaultIcons {
             .withRenderingMode(.alwaysTemplate)
 
     // Dark
-    static let SuccessDark = UIImage(
-            named: "icon_success_dark",
+    static let SuccessSolid = UIImage(
+            named: "icon_success_solid",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let FailDark = UIImage(
-            named: "icon_fail_dark",
+    static let FailSolid = UIImage(
+            named: "icon_fail_solid",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let InfoDark = UIImage(
-            named: "icon_info_dark",
+    static let InfoSolid = UIImage(
+            named: "icon_info_solid",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let WarningDark = UIImage(
-            named: "icon_warning_dark",
+    static let WarningSolid = UIImage(
+            named: "icon_warning_solid",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)

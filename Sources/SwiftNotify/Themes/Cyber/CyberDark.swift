@@ -20,22 +20,22 @@ class CyberDark: CyberThemeBase {
 
 private struct Success: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.SuccessDark
-    let iconImage: UIImage? = DefaultIcons.SuccessDark
+    let iconImage: UIImage? = DefaultIcons.SuccessSolid
 }
 
 private struct Fail: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.FailDark
-    let iconImage: UIImage? = DefaultIcons.FailDark
+    let iconImage: UIImage? = DefaultIcons.FailSolid
 }
 
 private struct Info: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.InfoDark
-    let iconImage: UIImage? = DefaultIcons.InfoDark
+    let iconImage: UIImage? = DefaultIcons.InfoSolid
 }
 
 private struct Warning: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.WarningDark
-    let iconImage: UIImage? = DefaultIcons.WarningDark
+    let iconImage: UIImage? = DefaultIcons.WarningSolid
 }
 
 

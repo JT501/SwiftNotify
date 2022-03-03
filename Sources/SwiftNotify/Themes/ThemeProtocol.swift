@@ -30,7 +30,7 @@ public protocol ThemeProtocol {
     var iconImageTintColor: UIColor? { get }
 
     var cornerRadius: CGFloat { get }
-    var paddingOffset: CGFloat { get }
+    var padding: CGFloat { get }
 
     var typeDictionary: [E: NoticeLevelProtocol] { get }
 }
@@ -52,5 +52,5 @@ extension ThemeProtocol {
     public var iconImageTintColor: UIColor? { nil }
 
     public var cornerRadius: CGFloat { 10 }
-    public var paddingOffset: CGFloat { 10 }
+    public var padding: CGFloat { 10 }
 }

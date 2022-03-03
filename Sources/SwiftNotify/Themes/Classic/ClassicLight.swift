@@ -17,7 +17,7 @@ class ClassicLight: ThemeProtocol {
     let iconImageTintColor: UIColor? = .white
 
     let cornerRadius: CGFloat = 10
-    let paddingOffset: CGFloat = 10
+    let padding: CGFloat = 10
 
     let typeDictionary: [E: NoticeLevelProtocol] = [
         .success: Success(),

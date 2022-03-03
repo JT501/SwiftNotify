@@ -22,7 +22,7 @@ open class NoticeView: UIView {
     private let interPadding: CGFloat = 10
 
     /// Instance of title label
-    open var titleLabel: BaseLabel?
+    open var titleLabel: UILabel?
 
     /// Notice Title text
     open var titleText: String?
@@ -40,7 +40,7 @@ open class NoticeView: UIView {
     open var titleBackgroundColor: UIColor
 
     /// Instance of body label
-    open var bodyLabel: BaseLabel?
+    open var bodyLabel: UILabel?
 
     /// Notice Body text
     open var bodyText: String?
@@ -58,7 +58,7 @@ open class NoticeView: UIView {
     open var bodyBackgroundColor: UIColor
 
     /// Instance of icon image view
-    open var iconView: BaseImageView?
+    open var iconView: UIImageView?
 
     /// Icon Image
     open var iconImage: UIImage?
@@ -178,7 +178,7 @@ open class NoticeView: UIView {
     internal func setupView() {
         if let iconImage = iconImage {
             // Setup Icon View
-            iconView = BaseImageView(image: iconImage)
+            iconView = UIImageView(image: iconImage)
             iconView?.sizeThatFits(CGSize(width: iconViewWidth, height: iconViewHeight))
             iconView?.contentMode = iconViewContentMode
             iconView?.layer.cornerRadius = iconViewCornerRadius
@@ -187,7 +187,7 @@ open class NoticeView: UIView {
         }
         if let titleText = titleText {
             // Setup Title Label
-            titleLabel = titleLabel ?? BaseLabel(frame: .zero)
+            titleLabel = titleLabel ?? UILabel(frame: .zero)
             titleLabel?.numberOfLines = 0
             titleLabel?.lineBreakMode = .byWordWrapping
             titleLabel?.text = titleText
@@ -198,7 +198,7 @@ open class NoticeView: UIView {
         }
         if let bodyText = bodyText {
             // Setup Body Label
-            bodyLabel = bodyLabel ?? BaseLabel(frame: .zero)
+            bodyLabel = bodyLabel ?? UILabel(frame: .zero)
             bodyLabel?.numberOfLines = 0
             bodyLabel?.lineBreakMode = .byWordWrapping
             bodyLabel?.text = bodyText

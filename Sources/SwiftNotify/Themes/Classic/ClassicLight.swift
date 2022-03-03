@@ -29,38 +29,22 @@ class ClassicLight: ThemeProtocol {
 
 private struct Success: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.Success
-    let iconImage: UIImage? = UIImage(
-            named: "icon_success",
-            in: ResourceBundle,
-            compatibleWith: nil)?
-            .withRenderingMode(.alwaysTemplate)
+    let iconImage: UIImage? = DefaultIcons.Success
 }
 
 private struct Fail: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.Fail
-    let iconImage: UIImage? = UIImage(
-            named: "icon_fail",
-            in: ResourceBundle,
-            compatibleWith: nil)?
-            .withRenderingMode(.alwaysTemplate)
+    let iconImage: UIImage? = DefaultIcons.Fail
 }
 
 private struct Info: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.Info
-    let iconImage: UIImage? = UIImage(
-            named: "icon_info",
-            in: ResourceBundle,
-            compatibleWith: nil)?
-            .withRenderingMode(.alwaysTemplate)
+    let iconImage: UIImage? = DefaultIcons.Info
 }
 
 private struct Warning: NoticeTypeProtocol {
     let backgroundColor: UIColor = DefaultColors.Warning
-    let iconImage: UIImage? = UIImage(
-            named: "icon_info",
-            in: ResourceBundle,
-            compatibleWith: nil)?
-            .withRenderingMode(.alwaysTemplate)
+    let iconImage: UIImage? = DefaultIcons.Warning
 }
 
 

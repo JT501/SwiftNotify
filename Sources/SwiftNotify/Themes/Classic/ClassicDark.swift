@@ -7,7 +7,7 @@ import Foundation
 
 /// SwiftNotify **Classic Dark** theme
 class ClassicDark: ThemeProtocol {
-    typealias E = DefaultNoticeType
+    typealias E = DefaultNoticeLevels
     typealias V = ClassicView
 
     let titleTextColor: UIColor = .white
@@ -19,7 +19,7 @@ class ClassicDark: ThemeProtocol {
     let cornerRadius: CGFloat = 10
     let paddingOffset: CGFloat = 10
 
-    let typeDictionary: [E: NoticeTypeProtocol] = [
+    let typeDictionary: [E: NoticeLevelProtocol] = [
         .success: Success(),
         .fail: Fail(),
         .info: Info(),
@@ -27,22 +27,22 @@ class ClassicDark: ThemeProtocol {
     ]
 }
 
-private struct Success: NoticeTypeProtocol {
+private struct Success: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.SuccessDark
     let iconImage: UIImage? = DefaultIcons.SuccessSolid
 }
 
-private struct Fail: NoticeTypeProtocol {
+private struct Fail: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.FailDark
     let iconImage: UIImage? = DefaultIcons.FailSolid
 }
 
-private struct Info: NoticeTypeProtocol {
+private struct Info: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.InfoDark
     let iconImage: UIImage? = DefaultIcons.InfoSolid
 }
 
-private struct Warning: NoticeTypeProtocol {
+private struct Warning: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.WarningDark
     let iconImage: UIImage? = DefaultIcons.WarningSolid
 }

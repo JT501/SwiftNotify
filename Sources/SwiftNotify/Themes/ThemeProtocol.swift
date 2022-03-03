@@ -32,7 +32,7 @@ public protocol ThemeProtocol {
     var cornerRadius: CGFloat { get }
     var paddingOffset: CGFloat { get }
 
-    var typeDictionary: [E: NoticeTypeProtocol] { get }
+    var typeDictionary: [E: NoticeLevelProtocol] { get }
 }
 
 /// Optional protocol variables with default values

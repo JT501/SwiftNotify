@@ -7,7 +7,7 @@ import Foundation
 
 /// SwiftNotify **Cyber Light** theme
 class CyberLight: CyberThemeBase {
-    override var typeDictionary: [E: NoticeTypeProtocol] {
+    override var typeDictionary: [E: NoticeLevelProtocol] {
         [
             .success: Success(),
             .fail: Fail(),
@@ -18,22 +18,22 @@ class CyberLight: CyberThemeBase {
     let iconImageTintColor: UIColor? = .white
 }
 
-private struct Success: NoticeTypeProtocol {
+private struct Success: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.Success
     let iconImage: UIImage? = DefaultIcons.Success
 }
 
-private struct Fail: NoticeTypeProtocol {
+private struct Fail: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.Fail
     let iconImage: UIImage? = DefaultIcons.Fail
 }
 
-private struct Info: NoticeTypeProtocol {
+private struct Info: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.Info
     let iconImage: UIImage? = DefaultIcons.Info
 }
 
-private struct Warning: NoticeTypeProtocol {
+private struct Warning: NoticeLevelProtocol {
     let backgroundColor: UIColor = DefaultColors.Warning
     let iconImage: UIImage? = DefaultIcons.Warning
 }

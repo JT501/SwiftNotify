@@ -9,13 +9,13 @@ import Foundation
 ///
 /// Add an extra property `blurEffectStyle` to theme
 public class CyberThemeBase: ThemeProtocol {
-    public typealias E = DefaultNoticeType
+    public typealias E = DefaultNoticeLevels
     public typealias V = CyberView
 
     public var titleTextColor: UIColor { .white }
     public var bodyTextColor: UIColor { .white }
 
-    public var typeDictionary: [DefaultNoticeType: NoticeTypeProtocol] { [:] }
+    public var typeDictionary: [DefaultNoticeLevels: NoticeLevelProtocol] { [:] }
 
     /// Blur Style
     public var blurEffectStyle: UIBlurEffect.Style { .light }

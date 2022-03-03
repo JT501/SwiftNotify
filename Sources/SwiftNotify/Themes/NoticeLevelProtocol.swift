@@ -5,7 +5,7 @@
 
 import Foundation
 
-public protocol NoticeTypeProtocol {
+public protocol NoticeLevelProtocol {
     var backgroundColor: UIColor { get }
     var titleTextColor: UIColor? { get }
     var titleBackgroundColor: UIColor? { get }
@@ -16,17 +16,11 @@ public protocol NoticeTypeProtocol {
 }
 
 /// Optional protocol variables with default values
-extension NoticeTypeProtocol {
-    public var titleTextColor: UIColor? { nil }
-    public var titleBackgroundColor: UIColor? { nil }
-    public var bodyTextColor: UIColor? { nil }
-    public var bodyBackgroundColor: UIColor? { nil }
-    public var iconImageTintColor: UIColor? { nil }
-}
-
-public enum DefaultNoticeType: String {
-    case success
-    case fail
-    case info
-    case warning
+extension NoticeLevelProtocol {
+    var titleTextColor: UIColor? { nil }
+    var titleBackgroundColor: UIColor? { nil }
+    var bodyTextColor: UIColor? { nil }
+    var bodyBackgroundColor: UIColor? { nil }
+    var iconImage: UIImage? { nil }
+    var iconImageTintColor: UIColor? { nil }
 }

@@ -8,7 +8,7 @@ import Foundation
 /// SwiftNotify **Cyber** theme base class
 ///
 /// Add an extra property `blurEffectStyle` to theme
-public class CyberThemeBase: ThemeProtocol {
+open class CyberThemeBase: ThemeProtocol {
     public typealias E = DefaultNoticeLevels
     public typealias V = CyberView
 

@@ -6,8 +6,8 @@
 import Foundation
 
 /// SwiftNotify **Cyber Dark** theme
-class CyberDark: CyberThemeBase {
-    override var typeDictionary: [E: NoticeLevelProtocol] {
+open class CyberDark: CyberThemeBase {
+    override public var typeDictionary: [E: NoticeLevelProtocol] {
         [
             .success: Success(),
             .fail: Fail(),
@@ -15,7 +15,7 @@ class CyberDark: CyberThemeBase {
             .warning: Warning()
         ]
     }
-    let iconImageTintColor: UIColor? = .white
+    public let iconImageTintColor: UIColor? = .white
 }
 
 private struct Success: NoticeLevelProtocol {

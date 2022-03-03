@@ -6,20 +6,20 @@
 import Foundation
 
 /// SwiftNotify **Classic Light** theme
-class ClassicLight: ThemeProtocol {
-    typealias E = DefaultNoticeLevels
-    typealias V = ClassicView
+open class ClassicLight: ThemeProtocol {
+    public typealias E = DefaultNoticeLevels
+    public typealias V = ClassicView
 
-    let titleTextColor: UIColor = .white
+    public let titleTextColor: UIColor = .white
 
-    let bodyTextColor: UIColor = .white
+    public let bodyTextColor: UIColor = .white
 
-    let iconImageTintColor: UIColor? = .white
+    public let iconImageTintColor: UIColor? = .white
 
-    let cornerRadius: CGFloat = 10
-    let padding: CGFloat = 10
+    public let cornerRadius: CGFloat = 10
+    public let padding: CGFloat = 10
 
-    let typeDictionary: [E: NoticeLevelProtocol] = [
+    public let typeDictionary: [E: NoticeLevelProtocol] = [
         .success: Success(),
         .fail: Fail(),
         .info: Info(),

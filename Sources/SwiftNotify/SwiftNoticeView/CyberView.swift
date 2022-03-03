@@ -10,11 +10,11 @@ import UIKit
 
 open class CyberView: NoticeView {
     /// Blur Effect
-    var blurEffect: UIBlurEffect
+    private let blurEffect: UIBlurEffect
 
-    private var blurEffectView: UIVisualEffectView
-    private var vibrancyEffect: UIVibrancyEffect
-    private var vibrancyEffectView: UIVisualEffectView
+    private let blurEffectView: UIVisualEffectView
+    private let vibrancyEffect: UIVibrancyEffect
+    private let vibrancyEffectView: UIVisualEffectView
 
     // MARK: - Initialization
     public init(title: String? = nil, body: String? = nil, image: UIImage? = nil, blurStyle: UIBlurEffect.Style) {

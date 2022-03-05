@@ -36,14 +36,14 @@ open class SwiftNotify: NotifyDelegate {
     /// Default theme appearance configuration
     public var defaultThemeConfig: ThemeConfig?
 
-    /// Default position outside visible view where the Notice born and move to `ToPosition`
+    /// Default position outside visible view where the Notice born and move to ``ToPosition``
     public var defaultFromPosition: FromPosition
 
     /// Default position where the Notice stays before dismiss
     public var defaultToPosition: ToPosition
 
     /// Default time interval the notice will be auto dismiss after it was born
-    public var defaultAutoDismiss: AutoDismiss
+    public var defaultAutoDismiss: NoticeDuration
 
     /// SwiftNotify configuration instance
     public var config = SwiftNotifyConfig()
@@ -79,7 +79,7 @@ open class SwiftNotify: NotifyDelegate {
             defaultThemeConfig: ThemeConfig? = nil,
             defaultFromPosition: FromPosition = .top(.random),
             defaultToPosition: ToPosition = .top,
-            defaultAutoDismiss: AutoDismiss = .short,
+            defaultAutoDismiss: NoticeDuration = .short,
             intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),
             delegate: SwiftNotifyDelegate? = nil
     ) {
@@ -284,13 +284,13 @@ open class SwiftNotify: NotifyDelegate {
         case custom(CGPoint)
     }
 
-    public enum AutoDismiss {
+    public enum NoticeDuration {
         /// 2 seconds
         case short
         /// 4 seconds
         case long
         /// Disable auto dismiss
-        case never
+        case forever
         case custom(seconds: TimeInterval)
     }
 

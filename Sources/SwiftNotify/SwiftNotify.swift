@@ -241,8 +241,8 @@ open class SwiftNotify: NotifyDelegate {
         noticeManager.dismissCurrentNotices()
     }
 
-    public func dismiss(notice: Notice) {
-        noticeManager.dismissNotice(notice)
+    public func dismiss(byId id: String) {
+        noticeManager.dismissNotice(byId: id)
     }
 
     public func dismissAll() {

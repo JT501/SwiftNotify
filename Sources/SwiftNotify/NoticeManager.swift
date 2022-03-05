@@ -151,15 +151,15 @@ public class NoticeManager {
         }
     }
 
-    func dismissNotice(_ notice: Notice) {
+    func dismissNotice(byId id: String) {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
-            guard self.unsafeCurrentNotices.contains(notice) else { return }
+            guard let notice = self.unsafeCurrentNotices.first(where: { $0.id == id }) else { return }
             DispatchQueue.main.async {
+                guard !notice.isHiding else { return }
                 notice.dismiss()
             }
             self.autoDismissTasks.removeValue(forKey: notice.id)
-            self.showNext()
         }
     }
 

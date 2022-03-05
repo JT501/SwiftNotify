@@ -10,90 +10,99 @@ import UIKit
 import SwiftNotify
 
 class CyberVC: UIViewController, SwiftNotifyDelegate {
-    
-    var titleView = ClassicView(title: "", body: "", image: nil)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SwiftNotify.delegate = self
+        SN.delegate = self
+        SN.defaultTheme = .cyber
+        SN.defaultFromPosition = .top(.random)
+        SN.defaultToPosition = .center
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - SwiftNotifyDelegate
     func swiftNotifyDidAppear() {
         print("Messgae is shown")
     }
-    
+
     func swiftNotifyStartDragging(atPoint: CGPoint) {
         print("Start dragging")
     }
-    
+
     public func swiftNotifyIsDragging(atPoint: CGPoint) {
         print("Is dragging at \(atPoint)")
     }
-    
+
     func swiftNotifyEndDragging(atPoint: CGPoint) {
         print("End dragging")
     }
-    
+
     func swiftNotifyDidDisappear() {
         print("Message removed from view")
     }
-    
+
     public func swiftNotifyIsTapped() {
         print("Message is tapped")
     }
-    
+
     @IBAction func showCyberView() {
-        let cyberView = SwiftNotifyView.cyberWith(title: "Info",
-                                                body: "Try dragging this alert around !",
-                                                theme: .info(.light))
-        let cyberViewD = SwiftNotifyView.cyberWith(title: "Info",
-                                                body: "You can tap this alert to hide it.",
-                                                theme: .info(.dark))
-        let cyberView2 = SwiftNotifyView.cyberWith(title: "Success",
-                                                body: "You made alert more playable !",
-                                                theme: .success(.light))
-        let cyberView2D = SwiftNotifyView.cyberWith(title: "Success",
-                                                 body: "You can try to tap 'hide' button to hide this alert.",
-                                                 theme: .success(.dark))
-        let cyberView3 = SwiftNotifyView.cyberWith(title: "Fail",
-                                                body: "You can try to tap 'hide all' button to hide all alerts in queue.",
-                                                theme: .fail(.light))
-        let cyberView3D = SwiftNotifyView.cyberWith(title: "Fail",
-                                                 body: "404 Girlfriend not found",
-                                                 theme: .fail(.dark))
-        let cyberView4 = SwiftNotifyView.cyberWith(title: "Warning",
-                                                body: "You are currently in Friendzone",
-                                                theme: .warning(.light))
-        let cyberView4D = SwiftNotifyView.cyberWith(title: "Warning",
-                                                 body: "This should be the last one in first queue",
-                                                 theme: .warning(.dark))
-        
-        var config = SwiftNotify.Config()
-        config.hideTime = .default
-        
-        SwiftNotify.present(config: config, view: cyberView)
-        SwiftNotify.present(config: config, view: cyberViewD)
-        SwiftNotify.present(config: config, view: cyberView2)
-        SwiftNotify.present(config: config, view: cyberView2D)
-        SwiftNotify.present(config: config, view: cyberView3)
-        SwiftNotify.present(config: config, view: cyberView3D)
-        SwiftNotify.present(config: config, view: cyberView4)
-        SwiftNotify.present(config: config, view: cyberView4D)
+        SN.show(title: "Info", message: "Try dragging this alert around !", level: .info)
+
+        SN.show(
+                title: "Info",
+                message: "You can tap this alert to hide it.",
+                theme: .cyberDark,
+                level: .info
+        ) { SN.dismiss(byId: $0) }
+
+        SN.show(title: "Info", message: "Try dragging this alert around !", level: .info)
+
+        SN.show(
+                title: "Info",
+                message: "You can tap this alert to hide it.",
+                theme: .cyberDark,
+                level: .info
+        ) { SN.dismiss(byId: $0) }
+
+        SN.show(title: "Success", message: "You made alert more playable !", level: .success)
+
+
+        SN.show(
+                title: "Success",
+                message: "You can try to tap 'hide' button to hide this alert.",
+                theme: .cyberDark,
+                level: .success
+        ) { SN.dismiss(byId: $0) }
+
+        SN.show(
+                title: "Fail",
+                message: "You can try to tap 'hide all' button to hide all alerts in queue.",
+                level: .fail
+        )
+
+        SN.show(title: "Fail", message: "404 Girlfriend not found", theme: .cyberDark, level: .fail)
+
+        SN.show(title: "Warning", message: "You are currently in Friendzone", level: .warning)
+
+        SN.show(
+                title: "Warning",
+                message: "This should be the last one in first queue",
+                theme: .cyberDark,
+                level: .warning
+        )
     }
-    
+
     @IBAction func hideMessage() {
-        SwiftNotify.hide()
+        SN.dismiss()
     }
-    
+
     @IBAction func hideAll() {
-        SwiftNotify.hideAll()
+        SN.dismissAll()
     }
 }
 

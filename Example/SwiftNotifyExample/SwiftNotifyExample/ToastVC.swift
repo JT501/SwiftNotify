@@ -15,6 +15,9 @@ class ToastVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        SN.defaultTheme = .toast
+        SN.defaultFromPosition = .bottom(.random)
+        SN.defaultToPosition = .bottom
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,55 +26,38 @@ class ToastVC: UIViewController {
     }
 
     @IBAction func showToastView() {
-        
-        let toastView = SwiftNotifyView.toastWith(text: "This is a Toast",
-                                               theme: .info(.light))
-        
-        let toastViewD = SwiftNotifyView.toastWith(text: "Tap here to hide the toast",
-                                                theme: .info(.dark))
-        
-        let toastView2 = SwiftNotifyView.toastWith(text: "You can try to tap 'hide' button to hide this toast.",
-                                                theme: .success(.light))
-        
-        let toastView2D = SwiftNotifyView.toastWith(text: "You can try to tap 'hide all' button to hide all toast in queue.",
-                                                 theme: .success(.dark))
-        
-        let toastView3 = SwiftNotifyView.toastWith(text: "Urh! 404 Girlfriend not found.",
-                                                theme: .fail(.light))
-        
-        let toastView3D = SwiftNotifyView.toastWith(text: "Too many toasts here",
-                                                 theme: .fail(.dark))
-        
-        let toastView4 = SwiftNotifyView.toastWith(text: "You are currently in Friendzone",
-                                                theme: .warning(.light))
-        
-        let toastView4D = SwiftNotifyView.toastWith(text: "This should be the last toast in first queue",
-                                                 theme: .warning(.dark))
-        
-        var toastViewConfig = SwiftNotify.Config()
-        toastViewConfig.initPosition = .bottom(.random)
-        toastViewConfig.appearPosition = .bottom
-        toastViewConfig.thresholdDistance = 30
-        toastViewConfig.hideTime = .never
-        toastViewConfig.angularResistance = 1
-        
-        SwiftNotify.present(config: toastViewConfig, view: toastView)
-        SwiftNotify.present(config: toastViewConfig, view: toastView2)
-        SwiftNotify.present(config: toastViewConfig, view: toastView3)
-        SwiftNotify.present(config: toastViewConfig, view: toastView4)
-        
-        SwiftNotify.present(config: toastViewConfig, view: toastViewD)
-        SwiftNotify.present(config: toastViewConfig, view: toastView2D)
-        SwiftNotify.present(config: toastViewConfig, view: toastView3D)
-        SwiftNotify.present(config: toastViewConfig, view: toastView4D)
+
+        SN.show(message: "This is a Toast", level: .info)
+
+        SN.show(message: "Tap here to hide the toast",
+                theme: .toastDark,
+                level: .info,
+                duration: .forever
+        ) { SN.dismiss(byId: $0) }
+
+        SN.show(message: "You can try to tap 'hide' button to hide this toast.", level: .success)
+
+        SN.show(
+                message: "You can try to tap 'hide all' button to hide all toast in queue.",
+                theme: .toastDark,
+                level: .success
+        )
+
+        SN.show(message: "Urh! 404 Girlfriend not found.", level: .fail)
+
+        SN.show(message: "Too many toasts here", theme: .toastDark, level: .fail)
+
+        SN.show(message: "You are currently in Friendzone", level: .warning)
+
+        SN.show(message: "This should be the last toast in first queue", theme: .toastDark, level: .warning)
     }
-    
+
     @IBAction func hideMessage() {
-        SwiftNotify.hide()
+        SN.dismiss()
     }
-    
+
     @IBAction func hideAll() {
-        SwiftNotify.hideAll()
+        SN.dismissAll()
     }
 
 }

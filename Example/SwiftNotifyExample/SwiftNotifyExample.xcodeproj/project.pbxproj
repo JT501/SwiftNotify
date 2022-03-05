@@ -27,6 +27,7 @@
 		05B074FD1DE83D7A003611FE /* Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074FC1DE83D7A003611FE /* Moon.jpg */; };
 		05B074FF1DE840B4003611FE /* ToastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074FE1DE840B4003611FE /* ToastVC.swift */; };
 		05B075011DE8479D003611FE /* CoFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B075001DE8479D003611FE /* CoFire.png */; };
+		21096A81BF4758C09237A55F /* CustomThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +76,7 @@
 		05B074FC1DE83D7A003611FE /* Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Moon.jpg; path = SwiftNotifyExample/Resource/Moon.jpg; sourceTree = SOURCE_ROOT; };
 		05B074FE1DE840B4003611FE /* ToastVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastVC.swift; path = SwiftNotifyExample/ToastVC.swift; sourceTree = SOURCE_ROOT; };
 		05B075001DE8479D003611FE /* CoFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CoFire.png; path = SwiftNotifyExample/Resource/CoFire.png; sourceTree = SOURCE_ROOT; };
+		2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThemeConfig.swift; sourceTree = "<group>"; };
 		B231B3701DD35A1400D29BD5 /* SwiftNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 				05B074E81DE6F61E003611FE /* Main.storyboard */,
 				05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */,
 				05B074E61DE6F5A6003611FE /* Info.plist */,
+				2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */,
 			);
 			path = SwiftNotifyExample;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				05B074F11DE7E2C2003611FE /* MainVC.swift in Sources */,
 				05B074F31DE7E3C0003611FE /* MainTableViewCell.swift in Sources */,
 				05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */,
+				21096A81BF4758C09237A55F /* CustomThemeConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

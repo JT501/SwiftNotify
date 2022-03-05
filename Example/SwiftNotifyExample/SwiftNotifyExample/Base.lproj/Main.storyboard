@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Chalkduster.ttf">
-            <string>Chalkduster</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Cyber View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="CyberViewController" id="BYZ-38-t0r" customClass="CyberVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CyberViewController" id="BYZ-38-t0r" customClass="CyberVC" customModule="SwiftNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NAF-MA-PLt"/>
                         <viewControllerLayoutGuide type="bottom" id="HS2-5p-Tcf"/>
@@ -29,34 +22,34 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prism.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Qg3-3z-P8F">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-cq-Vrt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-cq-Vrt">
                                 <rect key="frame" x="145" y="592" width="85" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="PQE-DH-LAo"/>
                                 </constraints>
-                                <state key="normal" title="Hide All">
+                                <state key="normal" title="Dismiss All">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="hideAll" destination="BYZ-38-t0r" eventType="touchUpInside" id="2VW-lN-RRq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-cE-vJG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-cE-vJG">
                                 <rect key="frame" x="123" y="554" width="129" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="nnL-W4-ryt"/>
                                 </constraints>
-                                <state key="normal" title="Hide Message">
+                                <state key="normal" title="Dismiss Message">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="hideMessage" destination="BYZ-38-t0r" eventType="touchUpInside" id="xM6-E4-PEc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-Bc-eyH">
-                                <rect key="frame" x="122" y="516" width="130" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-Bc-eyH">
+                                <rect key="frame" x="122.5" y="516" width="130" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.6510783450704225" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="ZZ7-tg-toE"/>
@@ -92,7 +85,7 @@
         <!--Toast View-->
         <scene sceneID="UQN-aE-6pZ">
             <objects>
-                <viewController id="okM-wt-rTR" customClass="ToastVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="okM-wt-rTR" customClass="ToastVC" customModule="SwiftNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gdO-IP-LtR"/>
                         <viewControllerLayoutGuide type="bottom" id="qeJ-ii-fA5"/>
@@ -105,10 +98,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XGE-t3-rh9">
-                                <rect key="frame" x="124.5" y="282.5" width="126" height="102"/>
+                                <rect key="frame" x="111" y="282.5" width="153" height="102"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I26-8I-ANE">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I26-8I-ANE">
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <state key="normal" title="Show Toast">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -117,20 +110,20 @@
                                             <action selector="showToastView" destination="okM-wt-rTR" eventType="touchUpInside" id="uKF-lf-EVz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC8-jt-ZmI">
-                                        <rect key="frame" x="0.0" y="34" width="126" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC8-jt-ZmI">
+                                        <rect key="frame" x="0.0" y="34" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                        <state key="normal" title="Hide Message">
+                                        <state key="normal" title="Dismiss Message">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="hideMessage" destination="okM-wt-rTR" eventType="touchUpInside" id="sp8-Qk-zj7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z5-iZ-jVY">
-                                        <rect key="frame" x="0.0" y="68" width="126" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z5-iZ-jVY">
+                                        <rect key="frame" x="0.0" y="68" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                        <state key="normal" title="Hide All">
+                                        <state key="normal" title="Dismiss All">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -159,7 +152,7 @@
         <!--Demo-->
         <scene sceneID="r4u-vu-aLZ">
             <objects>
-                <viewController id="wp1-MF-PkN" customClass="MainVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wp1-MF-PkN" customClass="MainVC" customModule="SwiftNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mdH-qr-Eqd"/>
                         <viewControllerLayoutGuide type="bottom" id="wJF-99-0nh"/>
@@ -175,8 +168,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="134" id="J7s-E7-b5P" customClass="MainTableViewCell" customModule="CFNotifyExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="134"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="134" id="J7s-E7-b5P" customClass="MainTableViewCell" customModule="SwiftNotifyExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J7s-E7-b5P" id="mDx-iH-J0f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
@@ -246,7 +239,7 @@
         <!--Classic View-->
         <scene sceneID="lEP-ud-wk3">
             <objects>
-                <viewController id="zNN-xZ-Txb" customClass="ClassicVC" customModule="CFNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zNN-xZ-Txb" customClass="ClassicVC" customModule="SwiftNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6zs-Ts-LcS"/>
                         <viewControllerLayoutGuide type="bottom" id="v18-Sa-4rU"/>
@@ -258,8 +251,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eagle.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="L2A-4M-Iou">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7M-lr-5SA">
-                                <rect key="frame" x="126" y="541" width="122" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7M-lr-5SA">
+                                <rect key="frame" x="126.5" y="541" width="122" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <state key="normal" title="Show Classic">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -268,20 +261,20 @@
                                     <action selector="showClassicView" destination="zNN-xZ-Txb" eventType="touchUpInside" id="hnU-pE-Qn3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edR-1R-Ebr">
-                                <rect key="frame" x="124" y="583" width="126" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edR-1R-Ebr">
+                                <rect key="frame" x="111" y="583" width="153" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                <state key="normal" title="Hide Message">
+                                <state key="normal" title="Dismiss Message">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="hideMessage" destination="zNN-xZ-Txb" eventType="touchUpInside" id="RzS-yh-9Mz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ai-Vm-3U6">
-                                <rect key="frame" x="148" y="625" width="78" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ai-Vm-3U6">
+                                <rect key="frame" x="135" y="625" width="105" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                <state key="normal" title="Hide All">
+                                <state key="normal" title="Dismiss All">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -315,7 +308,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a9z-uV-vXM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0uP-iP-MtU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -337,7 +330,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Eagle.jpg" width="1080" height="1920"/>
+        <image name="Eagle.jpg" width="518.4000244140625" height="921.5999755859375"/>
         <image name="Moon.jpg" width="750" height="1334"/>
         <image name="Night.jpg" width="750" height="1334"/>
         <image name="Prism.jpg" width="1028" height="1920"/>

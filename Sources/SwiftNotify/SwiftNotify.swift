@@ -42,8 +42,8 @@ open class SwiftNotify: NotifyDelegate {
     /// Default position where the Notice stays before dismiss
     public var defaultToPosition: ToPosition
 
-    /// Default time interval the notice will be auto dismiss after it was born
-    public var defaultAutoDismiss: NoticeDuration
+    /// Default duration of the notice stays on screen
+    public var defaultNoticeDuration: NoticeDuration
 
     /// SwiftNotify configuration instance
     public var config = SwiftNotifyConfig()
@@ -65,8 +65,7 @@ open class SwiftNotify: NotifyDelegate {
     ///   - defaultFromPosition:    Default position outside visible view where the Notice born and move to `ToPosition`.
     ///                             `FromPosition.top(.HorizontalPosition.random)` by default.
     ///   - defaultToPosition:      Default position where the Notice stays before dismiss. `ToPosition.center` by default.
-    ///   - defaultAutoDismiss:     Default time interval the notice will be auto dismiss after it was born.
-    ///                             `AutoDismiss.short` by default.
+    ///   - defaultNoticeDuration:     Default duration of the notice stays on screen. ``NoticeDuration.short`` by default.
     ///   - intervalBetweenNotices: `DispatchTimeInterval` which is the interval between sequence of notices.
     ///                             `DispatchTimeInterval.milliseconds(500)` by default.
     ///   - delegate:               `SwiftNotifyDelegate` that handles notices interactions. `nil` by default.
@@ -79,7 +78,7 @@ open class SwiftNotify: NotifyDelegate {
             defaultThemeConfig: ThemeConfig? = nil,
             defaultFromPosition: FromPosition = .top(.random),
             defaultToPosition: ToPosition = .top,
-            defaultAutoDismiss: NoticeDuration = .short,
+            defaultNoticeDuration: NoticeDuration = .short,
             intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),
             delegate: SwiftNotifyDelegate? = nil
     ) {
@@ -88,7 +87,7 @@ open class SwiftNotify: NotifyDelegate {
         self.defaultThemeConfig = defaultThemeConfig
         self.defaultFromPosition = defaultFromPosition
         self.defaultToPosition = defaultToPosition
-        self.defaultAutoDismiss = defaultAutoDismiss
+        self.defaultNoticeDuration = defaultNoticeDuration
         self.delegate = delegate
         self.intervalBetweenNotices = intervalBetweenNotices
 
@@ -129,21 +128,31 @@ open class SwiftNotify: NotifyDelegate {
     ///   - theme:          theme of notice
     ///   - themeConfig:
     ///   - level:          level of notice
+    ///   - duration:
+    ///   - fromPosition:
+    ///   - toPosition:
+    ///   - tapHandler:
     ///   - width:          width of notice. `UIScreen.main.bounds.size.width * 0.8` by default.
     ///   - height:
-    ///   - tapHandler:
     public func show(
             title: String?,
             message: String?,
             theme: NoticeThemes? = nil,
             themeConfig: ThemeConfig? = nil,
             level: NoticeLevels,
+            duration: NoticeDuration? = nil,
+            fromPosition: FromPosition? = nil,
+            toPosition: ToPosition? = nil,
+            tapHandler: (() -> ())? = nil,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
-            height: CGFloat = 0,
-            tapHandler: (() -> ())? = nil
+            height: CGFloat = 0
     ) {
-        // Use Default Theme if Theme if nil
+        // Use default theme if theme if nil
         let theme = theme ?? defaultTheme
+        let duration = duration ?? defaultNoticeDuration
+        let fromPosition = fromPosition ?? defaultFromPosition
+        let toPosition = toPosition ?? defaultToPosition
+
         var noticeView: NoticeView
 
         switch theme {

@@ -19,7 +19,7 @@ public struct ClassicLightConfig: ThemeConfig {
     public var iconViewHeight: CGFloat = 50
     public var iconViewContentMode: UIView.ContentMode = .scaleAspectFit
     public var iconViewCornerRadius: CGFloat = 25
-    public var iconImageTintColor: UIColor? = nil
+    public var iconImageTintColor: UIColor? = .white
     public var cornerRadius: CGFloat = 10
     public var padding: CGFloat = 10
     public var levelConfigs: [LevelsEnum: LevelConfig] = [

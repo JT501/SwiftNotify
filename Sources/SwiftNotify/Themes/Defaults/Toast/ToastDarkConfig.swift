@@ -7,7 +7,7 @@ import Foundation
 
 public struct ToastDarkConfig: ThemeConfig {
     public var bodyTextColor: UIColor = .white
-    public var bodyTextFont: UIFont = .systemFont(ofSize: 13, weight: UIFont.Weight.regular)
+    public var bodyTextFont: UIFont = .boldSystemFont(ofSize: 17)
     public var bodyBackgroundColor: UIColor = .clear
     public var bodyTextAlignment: NSTextAlignment = .left
     public var iconViewWidth: CGFloat = 50

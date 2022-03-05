@@ -261,13 +261,6 @@
 			path = Classic;
 			sourceTree = "<group>";
 		};
-		2109620A907635E149BF3A90 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
 		210964C953BD927BD1621CE6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +286,6 @@
 		21096C6846A7E6C01254CFBA /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				2109620A907635E149BF3A90 /* Enums */,
 				05840B2927D10722009FD18A /* Defaults */,
 				210964C953BD927BD1621CE6 /* Protocols */,
 				21096F897CA3D69B3AB69DC0 /* SwiftNoticeView */,

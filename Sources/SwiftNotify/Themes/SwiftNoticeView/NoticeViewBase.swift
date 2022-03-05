@@ -5,7 +5,7 @@
 
 import UIKit
 
-open class NoticeView: UIView {
+open class NoticeViewBase: UIView, NoticeView {
     /// Width of notice
     open var width: CGFloat
 
@@ -78,14 +78,44 @@ open class NoticeView: UIView {
     /// Icon Image view's tint color
     open var iconViewTintColor: UIColor?
 
+    public required convenience init(
+            titleText: String?,
+            bodyText: String?,
+            themeConfig: ThemeConfig,
+            level: NoticeLevels
+    ) {
+        let levelConfig = themeConfig.levelConfigs[.success]!
+        self.init(
+                titleText: titleText,
+                titleTextColor: levelConfig.titleTextColor ?? themeConfig.titleTextColor,
+                titleTextFont: themeConfig.titleTextFont,
+                titleTextAlignment: themeConfig.titleTextAlignment,
+                titleBackgroundColor: levelConfig.titleBackgroundColor ?? themeConfig.titleBackgroundColor,
+                bodyText: bodyText,
+                bodyTextColor: levelConfig.bodyTextColor ?? themeConfig.bodyTextColor,
+                bodyTextFont: themeConfig.bodyTextFont,
+                bodyTextAlignment: themeConfig.bodyTextAlignment,
+                bodyBackgroundColor: levelConfig.bodyBackgroundColor ?? themeConfig.bodyBackgroundColor,
+                iconImage: levelConfig.iconImage,
+                iconViewWidth: themeConfig.iconViewWidth,
+                iconViewHeight: themeConfig.iconViewHeight,
+                iconViewContentMode: themeConfig.iconViewContentMode,
+                iconViewCornerRadius: themeConfig.iconViewCornerRadius,
+                iconViewTintColor: levelConfig.iconImageTintColor ?? themeConfig.iconImageTintColor,
+                width: UIScreen.main.bounds.size.width * 0.8,
+                height: 0,
+                backgroundColor: levelConfig.backgroundColor,
+                cornerRadius: themeConfig.cornerRadius,
+                padding: themeConfig.padding
+        )
+    }
+
     public init(
-            titleLabel: UILabel? = nil,
             titleText: String? = nil,
             titleTextColor: UIColor = .white,
             titleTextFont: UIFont = .boldSystemFont(ofSize: 16),
             titleTextAlignment: NSTextAlignment = .left,
             titleBackgroundColor: UIColor = .clear,
-            bodyLabel: UILabel? = nil,
             bodyText: String? = nil,
             bodyTextColor: UIColor = .white,
             bodyTextFont: UIFont = .systemFont(ofSize: 13, weight: UIFont.Weight.regular),
@@ -99,7 +129,7 @@ open class NoticeView: UIView {
             iconViewTintColor: UIColor? = nil,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0,
-            backgroundColor: UIColor = .black,
+            backgroundColor: UIColor? = .black,
             cornerRadius: CGFloat = 10,
             padding: CGFloat = 10
     ) {
@@ -126,47 +156,6 @@ open class NoticeView: UIView {
         super.init(frame: CGRect(x: 0, y: 0, width: width, height: height))
 
         self.backgroundColor = backgroundColor
-
-        setupView()
-    }
-
-    public required init<T: ThemeProtocol>(
-            titleText: String?,
-            bodyText: String?,
-            theme: T,
-            level: T.E,
-            width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
-            height: CGFloat = 0
-    ) {
-        let typeValues = theme.typeDictionary[level]
-
-        guard let typeValues = typeValues else {
-            fatalError("\(level) is not set in the theme - \(theme)")
-        }
-
-        self.width = width
-        self.height = height
-        cornerRadius = theme.cornerRadius
-        padding = theme.padding
-        self.titleText = titleText
-        titleTextColor = typeValues.titleTextColor ?? theme.titleTextColor
-        titleTextFont = theme.titleTextFont
-        titleTextAlignment = theme.titleTextAlignment
-        titleBackgroundColor = typeValues.titleBackgroundColor ?? theme.titleBackgroundColor
-        self.bodyText = bodyText
-        bodyTextColor = typeValues.bodyTextColor ?? theme.bodyTextColor
-        bodyTextFont = theme.bodyTextFont
-        bodyTextAlignment = theme.bodyTextAlignment
-        bodyBackgroundColor = typeValues.bodyBackgroundColor ?? theme.bodyBackgroundColor
-        iconImage = typeValues.iconImage
-        iconViewWidth = theme.iconViewWidth
-        iconViewHeight = theme.iconViewHeight
-        iconViewContentMode = theme.iconViewContentMode
-        iconViewCornerRadius = theme.iconViewCornerRadius
-        iconViewTintColor = typeValues.iconImageTintColor ?? theme.iconImageTintColor
-        super.init(frame: CGRect(x: 0, y: 0, width: width, height: height))
-
-        backgroundColor = typeValues.backgroundColor
 
         setupView()
     }

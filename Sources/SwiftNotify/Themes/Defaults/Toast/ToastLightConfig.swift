@@ -5,13 +5,6 @@
 
 import Foundation
 
-//
-// Created by Johnny Choi on 5/3/2022.
-// Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
-//
-
-import Foundation
-
 public struct ToastLightConfig: ThemeConfig {
     public var bodyTextColor: UIColor = .white
     public var bodyTextFont: UIFont = .systemFont(ofSize: 13, weight: UIFont.Weight.regular)
@@ -31,19 +24,29 @@ public struct ToastLightConfig: ThemeConfig {
         .warning: Warning()
     ]
 
-    struct Success: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Success
+    public init() {}
+
+    public struct Success: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Success
+
+        public init() {}
     }
 
-    struct Fail: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Fail
+    public struct Fail: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Fail
+
+        public init() {}
     }
 
-    struct Info: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Info
+    public struct Info: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Info
+
+        public init() {}
     }
 
-    struct Warning: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Warning
+    public struct Warning: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Warning
+
+        public init() {}
     }
 }

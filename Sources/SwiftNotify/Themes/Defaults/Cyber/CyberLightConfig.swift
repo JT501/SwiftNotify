@@ -5,13 +5,6 @@
 
 import Foundation
 
-//
-// Created by Johnny Choi on 5/3/2022.
-// Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
-//
-
-import Foundation
-
 
 public struct CyberLightConfig: ThemeConfig {
 
@@ -38,23 +31,33 @@ public struct CyberLightConfig: ThemeConfig {
         .warning: Warning()
     ]
 
-    struct Success: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Success
-        let iconImage: UIImage? = DefaultIcons.Success
+    public init() {}
+
+    public struct Success: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Success
+        public var iconImage: UIImage? = DefaultIcons.Success
+
+        public init() {}
     }
 
-    struct Fail: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Fail
-        let iconImage: UIImage? = DefaultIcons.Fail
+    public struct Fail: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Fail
+        public var iconImage: UIImage? = DefaultIcons.Fail
+
+        public init() {}
     }
 
-    struct Info: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Info
-        let iconImage: UIImage? = DefaultIcons.Info
+    public struct Info: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Info
+        public var iconImage: UIImage? = DefaultIcons.Info
+
+        public init() {}
     }
 
-    struct Warning: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.Warning
-        let iconImage: UIImage? = DefaultIcons.Warning
+    public struct Warning: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.Warning
+        public var iconImage: UIImage? = DefaultIcons.Warning
+
+        public init() {}
     }
 }

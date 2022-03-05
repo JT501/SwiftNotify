@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum DefaultIcons {
+public enum DefaultIcons {
     // Resource Bundle
     static private var resourceBundle: Bundle? {
         #if SWIFT_PACKAGE
@@ -19,50 +19,50 @@ enum DefaultIcons {
     }
 
     // Light
-    static let Success = UIImage(
+    public static let Success = UIImage(
             named: "icon_success",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let Fail = UIImage(
+    public static let Fail = UIImage(
             named: "icon_fail",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let Info = UIImage(
+    public static let Info = UIImage(
             named: "icon_info",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let Warning = UIImage(
+    public static let Warning = UIImage(
             named: "icon_warning",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    // Dark
-    static let SuccessSolid = UIImage(
+    // Solid
+    public static let SuccessSolid = UIImage(
             named: "icon_success_solid",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let FailSolid = UIImage(
+    public static let FailSolid = UIImage(
             named: "icon_fail_solid",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let InfoSolid = UIImage(
+    public static let InfoSolid = UIImage(
             named: "icon_info_solid",
             in: resourceBundle,
             compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
 
-    static let WarningSolid = UIImage(
+    public static let WarningSolid = UIImage(
             named: "icon_warning_solid",
             in: resourceBundle,
             compatibleWith: nil)?

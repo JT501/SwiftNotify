@@ -5,15 +5,7 @@
 
 import Foundation
 
-//
-// Created by Johnny Choi on 5/3/2022.
-// Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
-//
-
-import Foundation
-
-
-public struct CyberDarkConfig: ThemeConfig {
+public struct ClassicDarkConfig: ThemeConfig {
 
     public var titleTextColor: UIColor = .white
     public var titleTextFont: UIFont = .boldSystemFont(ofSize: 16)
@@ -27,10 +19,9 @@ public struct CyberDarkConfig: ThemeConfig {
     public var iconViewHeight: CGFloat = 50
     public var iconViewContentMode: UIView.ContentMode = .scaleAspectFit
     public var iconViewCornerRadius: CGFloat = 25
-    public var iconImageTintColor: UIColor? = nil
+    public var iconImageTintColor: UIColor? = .white
     public var cornerRadius: CGFloat = 10
     public var padding: CGFloat = 10
-    public var blurEffectStyle: UIBlurEffect.Style? = .extraLight
     public var levelConfigs: [NoticeLevels: LevelConfig] = [
         .success: Success(),
         .fail: Fail(),
@@ -38,23 +29,33 @@ public struct CyberDarkConfig: ThemeConfig {
         .warning: Warning()
     ]
 
-    struct Success: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.SuccessDark
-        let iconImage: UIImage? = DefaultIcons.SuccessSolid
+    public init() {}
+
+    public struct Success: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.SuccessDark
+        public var iconImage: UIImage? = DefaultIcons.SuccessSolid
+
+        public init() {}
     }
 
-    struct Fail: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.FailDark
-        let iconImage: UIImage? = DefaultIcons.FailSolid
+    public struct Fail: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.FailDark
+        public var iconImage: UIImage? = DefaultIcons.FailSolid
+
+        public init() {}
     }
 
-    struct Info: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.InfoDark
-        let iconImage: UIImage? = DefaultIcons.InfoSolid
+    public struct Info: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.InfoDark
+        public var iconImage: UIImage? = DefaultIcons.InfoSolid
+
+        public init() {}
     }
 
-    struct Warning: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.WarningDark
-        let iconImage: UIImage? = DefaultIcons.WarningSolid
+    public struct Warning: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.WarningDark
+        public var iconImage: UIImage? = DefaultIcons.WarningSolid
+
+        public init() {}
     }
 }

@@ -24,19 +24,29 @@ public struct ToastDarkConfig: ThemeConfig {
         .warning: Warning()
     ]
 
-    struct Success: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.SuccessDark
+    public init() {}
+
+    public struct Success: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.SuccessDark
+
+        public init() {}
     }
 
-    struct Fail: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.FailDark
+    public struct Fail: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.FailDark
+
+        public init() {}
     }
 
-    struct Info: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.InfoDark
+    public struct Info: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.InfoDark
+
+        public init() {}
     }
 
-    struct Warning: LevelConfig {
-        let backgroundColor: UIColor? = DefaultColors.WarningDark
+    public struct Warning: LevelConfig {
+        public var backgroundColor: UIColor? = DefaultColors.WarningDark
+
+        public init() {}
     }
 }

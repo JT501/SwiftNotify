@@ -9,6 +9,7 @@
 import UIKit
 
 open class Notice: NSObject {
+    public typealias TapCallback = (String) -> Void
 
     public var id: String = UUID().uuidString
     public let config: PhysicsConfig
@@ -16,33 +17,36 @@ open class Notice: NSObject {
     public let duration: DurationsEnum
     public let fromPosition: FromPositionsEnum
     public let toPosition: ToPositionsEnum
+    public let tapAction: TapCallback?
+
+    public var isHiding: Bool
+
+    weak var delegate: NotifyDelegate?
 
     private let containerView: UIView
-    let panRecognizer: UIPanGestureRecognizer
-    let tapRecognizer: UITapGestureRecognizer
-    let longPressRecognizer: UILongPressGestureRecognizer
-    var animator: UIDynamicAnimator
-    var snapPoint: CGPoint
-    var snapBehaviour: UISnapBehavior!
-    var attachmentBehaviour: UIAttachmentBehavior!
-    var gravityBehaviour: UIGravityBehavior!
-    var collisionBehaviour: UICollisionBehavior!
-    var isHiding: Bool
-    weak var delegate: NotifyDelegate?
-    var fieldMargin: CGFloat  //Margin to remove message from view
-    var angularVelocity: CGFloat = 0
-    let tapAction: (() -> Void)?
+    private let panRecognizer: UIPanGestureRecognizer
+    private let tapRecognizer: UITapGestureRecognizer
+    private let longPressRecognizer: UILongPressGestureRecognizer
+    private var animator: UIDynamicAnimator
+    private var snapPoint: CGPoint
+    private var snapBehaviour: UISnapBehavior!
+    private var attachmentBehaviour: UIAttachmentBehavior!
+    private var gravityBehaviour: UIGravityBehavior!
+    private var collisionBehaviour: UICollisionBehavior!
 
-    lazy private var userInfo = [
+    private var fieldMargin: CGFloat  //Margin to remove message from view
+    private var angularVelocity: CGFloat = 0
+
+    lazy private var userInfo: [AnyHashable: NoticeInfo] = [
         NoticeInfo.userInfoKey: NoticeInfo(id: id)
     ]
 
     init(
             view: UIView,
-            tapHandler: (() -> ())?,
             duration: DurationsEnum,
             fromPosition: FromPositionsEnum,
             toPosition: ToPositionsEnum,
+            tapHandler: TapCallback?,
             config: PhysicsConfig,
             delegate: NotifyDelegate
     ) {
@@ -135,9 +139,7 @@ open class Notice: NSObject {
         containerView.addSubview(view)
         containerView.bringSubviewToFront(view)
         containerView.addGestureRecognizer(panRecognizer)
-        if tapAction == nil {
-            containerView.addGestureRecognizer(tapRecognizer)
-        }
+        containerView.addGestureRecognizer(tapRecognizer)
         containerView.addGestureRecognizer(longPressRecognizer)
 
         keyWindow.addSubview(containerView)
@@ -358,8 +360,9 @@ open class Notice: NSObject {
         if let delegate = delegate {
             delegate.notifierIsTapped()
         }
+
         if let tapAction = tapAction {
-            tapAction()
+            tapAction(id)
         }
     }
 

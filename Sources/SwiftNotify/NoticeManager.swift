@@ -182,6 +182,7 @@ public class NoticeManager {
         let task = DispatchWorkItem { [weak self] in
             guard let self = self else { return }
             guard self.unsafeCurrentNotices.contains(notice) else { return }
+            guard !notice.isHiding else { return }
 
             self.autoDismissTasks.removeValue(forKey: notice.id)
 

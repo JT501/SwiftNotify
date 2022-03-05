@@ -148,15 +148,15 @@ open class SwiftNotify: NotifyDelegate {
     ///   - width:          width of notice. `UIScreen.main.bounds.size.width * 0.8` by default.
     ///   - height:
     public func show(
-            title: String?,
-            message: String?,
+            title: String? = nil,
+            message: String? = nil,
             theme: ThemesEnum? = nil,
             themeConfig: ThemeConfig? = nil,
             level: LevelsEnum,
             duration: DurationsEnum? = nil,
             fromPosition: FromPositionsEnum? = nil,
             toPosition: ToPositionsEnum? = nil,
-            tapHandler: (() -> ())? = nil,
+            tapHandler: ((String) -> ())? = nil,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0
     ) {
@@ -227,10 +227,10 @@ open class SwiftNotify: NotifyDelegate {
 
         let notice = Notice(
                 view: noticeView,
-                tapHandler: tapHandler,
                 duration: duration,
                 fromPosition: fromPosition,
                 toPosition: toPosition,
+                tapHandler: tapHandler,
                 config: defaultPhysicsConfig,
                 delegate: self
         )

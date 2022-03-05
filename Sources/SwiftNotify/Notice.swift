@@ -10,10 +10,14 @@ import UIKit
 
 open class Notice: NSObject {
 
-    var id: String = UUID().uuidString
-    let config: SwiftNotifyConfig
-    let view: UIView
-    let containerView: UIView
+    public var id: String = UUID().uuidString
+    public let config: PhysicsConfig
+    public let view: UIView
+    public let duration: DurationsEnum
+    public let fromPosition: FromPositionsEnum
+    public let toPosition: ToPositionsEnum
+
+    private let containerView: UIView
     let panRecognizer: UIPanGestureRecognizer
     let tapRecognizer: UITapGestureRecognizer
     let longPressRecognizer: UILongPressGestureRecognizer
@@ -33,9 +37,22 @@ open class Notice: NSObject {
         NoticeInfo.userInfoKey: NoticeInfo(id: id)
     ]
 
-    init(config: SwiftNotifyConfig, view: UIView, tapHandler: (() -> Void)?, delegate: NotifyDelegate) {
+    init(
+            view: UIView,
+            tapHandler: (() -> ())?,
+            duration: DurationsEnum,
+            fromPosition: FromPositionsEnum,
+            toPosition: ToPositionsEnum,
+            config: PhysicsConfig,
+            delegate: NotifyDelegate
+    ) {
         self.config = config
         self.view = view
+        self.duration = duration
+        self.fromPosition = fromPosition
+        self.toPosition = toPosition
+        self.delegate = delegate
+
         containerView = UIView()
         panRecognizer = UIPanGestureRecognizer()
         tapRecognizer = UITapGestureRecognizer()
@@ -43,11 +60,11 @@ open class Notice: NSObject {
         animator = UIDynamicAnimator()
         snapPoint = CGPoint.zero
         isHiding = false
-        self.delegate = delegate
         fieldMargin = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height
         tapAction = tapHandler
 
         super.init()
+
         panRecognizer.addTarget(self, action: #selector(Notice.pan(gesture:)))
         panRecognizer.maximumNumberOfTouches = 1
         tapRecognizer.addTarget(self, action: #selector(onTap(gesture:)))
@@ -55,19 +72,6 @@ open class Notice: NSObject {
         longPressRecognizer.minimumPressDuration = 0.25
         longPressRecognizer.allowableMovement = 0
         longPressRecognizer.delegate = self
-    }
-
-    var dismissTime: TimeInterval? {
-        let duration: TimeInterval?
-        switch config.autoDismiss {
-        case .default:
-            duration = 3.0
-        case .never:
-            duration = nil
-        case .custom(let seconds):
-            duration = seconds
-        }
-        return duration
     }
 
     func present(completion: @escaping (_ completed: Bool) -> Void) {
@@ -81,7 +85,7 @@ open class Notice: NSObject {
         animator = UIDynamicAnimator(referenceView: keyWindow)
 
         let initPoint: CGPoint
-        switch config.initPosition {
+        switch fromPosition {
         case .top(let position):
             switch position {
             case .center:
@@ -91,7 +95,13 @@ open class Notice: NSObject {
             case .right:
                 initPoint = CGPoint(keyWindow.bounds.width, 0 - view.bounds.height)
             case .random:
-                initPoint = CGPoint(randomBetweenNumbers(firstNum: 0 - view.bounds.width, secondNum: keyWindow.bounds.width + view.bounds.width), 0 - view.bounds.height)
+                initPoint = CGPoint(
+                        randomBetweenNumbers(
+                                firstNum: 0 - view.bounds.width,
+                                secondNum: keyWindow.bounds.width + view.bounds.width
+                        ),
+                        0 - view.bounds.height
+                )
             }
         case .bottom(let position):
             switch position {
@@ -102,7 +112,13 @@ open class Notice: NSObject {
             case .right:
                 initPoint = CGPoint(keyWindow.bounds.width, keyWindow.bounds.height)
             case .random:
-                initPoint = CGPoint(randomBetweenNumbers(firstNum: 0 - view.bounds.width, secondNum: keyWindow.bounds.width + view.bounds.width), keyWindow.bounds.height)
+                initPoint = CGPoint(
+                        randomBetweenNumbers(
+                                firstNum: 0 - view.bounds.width,
+                                secondNum: keyWindow.bounds.width + view.bounds.width
+                        ),
+                        keyWindow.bounds.height
+                )
             }
         case .left:
             initPoint = CGPoint(0 - view.bounds.width, keyWindow.bounds.midY)
@@ -130,7 +146,7 @@ open class Notice: NSObject {
             delegate.notifierDidAppear()
         }
 
-        switch config.appearPosition {
+        switch toPosition {
         case .bottom:
             snapPoint = CGPoint(x: keyWindow.bounds.midX, y: keyWindow.bounds.bottom - 50 - containerView.bounds.midY)
         case .center:
@@ -229,7 +245,10 @@ open class Notice: NSObject {
         let viewCenter = gestureView.center  //Center of message view in its superview
         let movedDistance = distance(from: snapPoint, to: viewCenter)
 
-        let offsetFromCenterInView: UIOffset = UIOffset(horizontal: dragPoint.x - gestureView.bounds.midX, vertical: dragPoint.y - gestureView.bounds.midY)
+        let offsetFromCenterInView: UIOffset = UIOffset(
+                horizontal: dragPoint.x - gestureView.bounds.midX,
+                vertical: dragPoint.y - gestureView.bounds.midY
+        )
         let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
         let vector = CGVector(dx: (velocity.x), dy: (velocity.y))
 
@@ -239,7 +258,6 @@ open class Notice: NSObject {
         switch gesture.state {
                 //Start Dragging
         case .began:
-            print("Start Panning")
             postStartPanningNotification()
 
             if let delegate = delegate {
@@ -248,7 +266,11 @@ open class Notice: NSObject {
             animator.removeAllBehaviors()
 
             let anchorPoint: CGPoint = gesture.location(in: gestureView.superview)
-            attachmentBehaviour = UIAttachmentBehavior(item: gestureView, offsetFromCenter: offsetFromCenterInView, attachedToAnchor: anchorPoint)
+            attachmentBehaviour = UIAttachmentBehavior(
+                    item: gestureView,
+                    offsetFromCenter: offsetFromCenterInView,
+                    attachedToAnchor: anchorPoint
+            )
 
             lastTime = CFAbsoluteTime()
             lastAngle = CGFloat(angleOfView(view: gestureView))
@@ -275,9 +297,8 @@ open class Notice: NSObject {
             if let delegate = delegate {
                 delegate.notifierIsDragging(atPoint: touchPoint)
             }
-                //End Dragging
+                // End Dragging
         case .ended:
-            print("End Panning")
             if let delegate = delegate {
                 delegate.notifierEndDragging(atPoint: dragPoint)
             }
@@ -302,8 +323,10 @@ open class Notice: NSObject {
                 let pushMagnitude: CGFloat = pushBehavior.magnitude * config.pushForceFactor
                 let massFactor: CGFloat = (gestureView.bounds.height * gestureView.bounds.width) / (100 * 100)
 
-                pushBehavior.magnitude = (pushMagnitude > config.minPushForce) ? pushMagnitude * massFactor : config.defaultPushForce * massFactor
-//                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
+                pushBehavior.magnitude = (
+                        pushMagnitude > config.minPushForce
+                ) ? pushMagnitude * massFactor : config.defaultPushForce * massFactor
+                //                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
                 animator.addBehavior(pushBehavior)
 
                 //Add Item Behaviour
@@ -343,13 +366,10 @@ open class Notice: NSObject {
     @objc func onLongPress(gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
-            print("Start Pressing")
             postStartPressingNotification()
         case .changed:
             gesture.state = .ended
-            print("Pressing Move")
         case .ended:
-            print("End Pressing")
             postEndPressingNotification()
         default:
             break
@@ -409,6 +429,6 @@ extension Notice: UIGestureRecognizerDelegate {
             _ gestureRecognizer: UIGestureRecognizer,
             shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
     ) -> Bool {
-        return gestureRecognizer == longPressRecognizer && otherGestureRecognizer == panRecognizer
+        gestureRecognizer == longPressRecognizer && otherGestureRecognizer == panRecognizer
     }
 }

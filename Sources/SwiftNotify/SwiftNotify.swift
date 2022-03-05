@@ -22,7 +22,16 @@ open class SwiftNotify: NotifyDelegate {
     public static let Icons = DefaultIcons.self
 
     /// SwiftNotify themes enum
-    public static let Themes = NoticeThemes.self
+    public static let Themes = ThemesEnum.self
+
+    /// SwiftNotify notice durations enum
+    public static let Duration = DurationsEnum.self
+
+    /// SwiftNotify from positions enum
+    public static let FromPositions = FromPositionsEnum.self
+
+    /// SwiftNotify to positions enum
+    public static let ToPositions = ToPositionsEnum.self
 
     /// `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
     public let noticeQueue: DispatchQueue
@@ -31,22 +40,22 @@ open class SwiftNotify: NotifyDelegate {
     public let noticeManager: NoticeManager
 
     /// Default theme for notice
-    public var defaultTheme: NoticeThemes
+    public var defaultTheme: ThemesEnum
 
     /// Default theme appearance configuration
     public var defaultThemeConfig: ThemeConfig?
 
     /// Default position outside visible view where the Notice born and move to ``ToPosition``
-    public var defaultFromPosition: FromPosition
+    public var defaultFromPosition: FromPositionsEnum
 
     /// Default position where the Notice stays before dismiss
-    public var defaultToPosition: ToPosition
+    public var defaultToPosition: ToPositionsEnum
 
     /// Default duration of the notice stays on screen
-    public var defaultNoticeDuration: NoticeDuration
+    public var defaultNoticeDuration: DurationsEnum
 
-    /// SwiftNotify configuration instance
-    public var config = SwiftNotifyConfig()
+    /// Default configuration for animation's physics
+    public var defaultPhysicsConfig: PhysicsConfig
 
     /// `SwiftNotifyDelegate` that handles notices interactions and events.
     public var delegate: SwiftNotifyDelegate?
@@ -65,20 +74,23 @@ open class SwiftNotify: NotifyDelegate {
     ///   - defaultFromPosition:    Default position outside visible view where the Notice born and move to `ToPosition`.
     ///                             `FromPosition.top(.HorizontalPosition.random)` by default.
     ///   - defaultToPosition:      Default position where the Notice stays before dismiss. `ToPosition.center` by default.
-    ///   - defaultNoticeDuration:     Default duration of the notice stays on screen. ``NoticeDuration.short`` by default.
-    ///   - intervalBetweenNotices: `DispatchTimeInterval` which is the interval between sequence of notices.
+    ///   - defaultNoticeDuration:  Default duration of the notice stays on screen. ``NoticeDuration.short`` by default.
     ///                             `DispatchTimeInterval.milliseconds(500)` by default.
+    ///   - defaultPhysicsConfig:
+    ///   - intervalBetweenNotices: `DispatchTimeInterval` which is the interval between sequence of notices.
     ///   - delegate:               `SwiftNotifyDelegate` that handles notices interactions. `nil` by default.
+    ///
     public init(
             noticeQueue: DispatchQueue = DispatchQueue(
                     label: "com.jt501.SwiftNotify.NoticeQueue",
                     attributes: .concurrent
             ),
-            defaultTheme: NoticeThemes = .Cyber,
+            defaultTheme: ThemesEnum = .Cyber,
             defaultThemeConfig: ThemeConfig? = nil,
-            defaultFromPosition: FromPosition = .top(.random),
-            defaultToPosition: ToPosition = .top,
-            defaultNoticeDuration: NoticeDuration = .short,
+            defaultFromPosition: FromPositionsEnum = .top(.random),
+            defaultToPosition: ToPositionsEnum = .top,
+            defaultNoticeDuration: DurationsEnum = .short,
+            defaultPhysicsConfig: PhysicsConfig = DefaultPhysicsConfig(),
             intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),
             delegate: SwiftNotifyDelegate? = nil
     ) {
@@ -88,6 +100,7 @@ open class SwiftNotify: NotifyDelegate {
         self.defaultFromPosition = defaultFromPosition
         self.defaultToPosition = defaultToPosition
         self.defaultNoticeDuration = defaultNoticeDuration
+        self.defaultPhysicsConfig = defaultPhysicsConfig
         self.delegate = delegate
         self.intervalBetweenNotices = intervalBetweenNotices
 
@@ -110,7 +123,7 @@ open class SwiftNotify: NotifyDelegate {
             title: String?,
             message: String?,
             themeConfig: ThemeConfig,
-            level: NoticeLevels,
+            level: LevelsEnum,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0
     ) -> V {
@@ -137,12 +150,12 @@ open class SwiftNotify: NotifyDelegate {
     public func show(
             title: String?,
             message: String?,
-            theme: NoticeThemes? = nil,
+            theme: ThemesEnum? = nil,
             themeConfig: ThemeConfig? = nil,
-            level: NoticeLevels,
-            duration: NoticeDuration? = nil,
-            fromPosition: FromPosition? = nil,
-            toPosition: ToPosition? = nil,
+            level: LevelsEnum,
+            duration: DurationsEnum? = nil,
+            fromPosition: FromPositionsEnum? = nil,
+            toPosition: ToPositionsEnum? = nil,
             tapHandler: (() -> ())? = nil,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0
@@ -212,7 +225,15 @@ open class SwiftNotify: NotifyDelegate {
             ) as ToastView
         }
 
-        let notice = Notice(config: config, view: noticeView, tapHandler: tapHandler, delegate: self)
+        let notice = Notice(
+                view: noticeView,
+                tapHandler: tapHandler,
+                duration: duration,
+                fromPosition: fromPosition,
+                toPosition: toPosition,
+                config: defaultPhysicsConfig,
+                delegate: self
+        )
         noticeManager.addPendingNotice(notice)
     }
 
@@ -227,38 +248,6 @@ open class SwiftNotify: NotifyDelegate {
     public func dismissAll() {
         noticeManager.removeAllPendingNotices()
         noticeManager.dismissCurrentNotices()
-    }
-
-    public enum FromPosition {
-        case top(HorizontalPosition)
-        case bottom(HorizontalPosition)
-        case left
-        case right
-        case custom(CGPoint)
-
-        public enum HorizontalPosition {
-            case left
-            case right
-            case center
-            case random
-        }
-    }
-
-    public enum ToPosition {
-        case top
-        case center
-        case bottom
-        case custom(CGPoint)
-    }
-
-    public enum NoticeDuration {
-        /// 2 seconds
-        case short
-        /// 4 seconds
-        case long
-        /// Disable auto dismiss
-        case forever
-        case custom(seconds: TimeInterval)
     }
 
     // MARK: - MessengerDelegate

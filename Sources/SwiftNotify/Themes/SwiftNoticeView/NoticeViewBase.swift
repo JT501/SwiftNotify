@@ -82,7 +82,7 @@ open class NoticeViewBase: UIView, NoticeView {
             titleText: String?,
             bodyText: String?,
             themeConfig: ThemeConfig,
-            level: NoticeLevels
+            level: LevelsEnum
     ) {
         let levelConfig = themeConfig.levelConfigs[.success]!
         self.init(

@@ -6,7 +6,7 @@
 import Foundation
 
 /// SwiftNotify default notice levels
-public enum NoticeLevels: String {
+public enum LevelsEnum: String {
     case success
     case fail
     case info

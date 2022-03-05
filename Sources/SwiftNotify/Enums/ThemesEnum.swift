@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum NoticeThemes {
+public enum ThemesEnum {
     case Classic
     case ClassicDark
     case Cyber

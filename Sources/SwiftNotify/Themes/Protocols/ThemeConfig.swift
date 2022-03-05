@@ -28,7 +28,7 @@ public protocol ThemeConfig {
 
     var blurEffectStyle: UIBlurEffect.Style? { get }
 
-    var levelConfigs: [NoticeLevels: LevelConfig] { get }
+    var levelConfigs: [LevelsEnum: LevelConfig] { get }
 }
 
 extension ThemeConfig {

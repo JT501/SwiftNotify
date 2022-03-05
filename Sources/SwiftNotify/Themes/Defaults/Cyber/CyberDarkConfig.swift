@@ -31,7 +31,7 @@ public struct CyberDarkConfig: ThemeConfig {
     public var cornerRadius: CGFloat = 10
     public var padding: CGFloat = 10
     public var blurEffectStyle: UIBlurEffect.Style? = .extraLight
-    public var levelConfigs: [NoticeLevels: LevelConfig] = [
+    public var levelConfigs: [LevelsEnum: LevelConfig] = [
         .success: Success(),
         .fail: Fail(),
         .info: Info(),

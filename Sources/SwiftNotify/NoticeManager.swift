@@ -165,19 +165,31 @@ public class NoticeManager {
 
     func autoDismissNotice(id: String) {
         guard let notice = currentNotices.first(where: { $0.id == id }) else { return }
-        if let dismissTime = notice.dismissTime {
-            let task = DispatchWorkItem { [weak self] in
-                guard let self = self else { return }
-                guard self.unsafeCurrentNotices.contains(notice) else { return }
 
-                self.autoDismissTasks.removeValue(forKey: notice.id)
+        let duration: DispatchTimeInterval
 
-                DispatchQueue.main.async { notice.dismiss() }
-            }
-            autoDismissTasks[notice.id] = task
-
-            queue.asyncAfter(deadline: .now() + dismissTime, execute: task)
+        switch notice.duration {
+        case .forever:
+            return
+        case .short:
+            duration = DispatchTimeInterval.seconds(2)
+        case .long:
+            duration = DispatchTimeInterval.seconds(4)
+        case .custom(let time):
+            duration = time
         }
+
+        let task = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            guard self.unsafeCurrentNotices.contains(notice) else { return }
+
+            self.autoDismissTasks.removeValue(forKey: notice.id)
+
+            DispatchQueue.main.async { notice.dismiss() }
+        }
+        autoDismissTasks[notice.id] = task
+
+        queue.asyncAfter(deadline: .now() + duration, execute: task)
     }
 
     func cancelAutoDismiss(noticeId: String) {

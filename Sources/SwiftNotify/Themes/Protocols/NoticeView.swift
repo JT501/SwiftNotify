@@ -10,7 +10,7 @@ public protocol NoticeView: UIView {
             titleText: String?,
             bodyText: String?,
             themeConfig: ThemeConfig,
-            level: NoticeLevels
+            level: LevelsEnum
     )
 }
 

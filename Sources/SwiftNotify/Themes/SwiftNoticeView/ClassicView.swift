@@ -25,7 +25,7 @@ open class ClassicView: NoticeViewBase {
             titleText: String?,
             bodyText: String?,
             themeConfig: ThemeConfig,
-            level: NoticeLevels
+            level: LevelsEnum
     ) {
         let levelConfig = themeConfig.levelConfigs[.success]!
         super.init(

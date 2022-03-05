@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		056E709A27CAC35100C745DA /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056E709927CAC35100C745DA /* images.xcassets */; };
 		05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C61DE6F325003611FE /* CGRectEx.swift */; };
-		05B074D31DE6F358003611FE /* SwiftNotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074CE1DE6F358003611FE /* SwiftNotifyView.swift */; };
 		05B074D41DE6F358003611FE /* SwiftNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B074CF1DE6F358003611FE /* SwiftNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* SwiftNotify.swift */; };
 		05B074D61DE6F358003611FE /* SwiftNotifyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D11DE6F358003611FE /* SwiftNotifyProtocols.swift */; };
@@ -75,7 +74,6 @@
 		05A4828C27CA9449006805E5 /* SwiftNotify.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftNotify.podspec; sourceTree = "<group>"; };
 		05A4828D27CA9449006805E5 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		05B074C61DE6F325003611FE /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectEx.swift; path = Sources/SwiftNotify/Extension/CGRectEx.swift; sourceTree = SOURCE_ROOT; };
-		05B074CE1DE6F358003611FE /* SwiftNotifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotifyView.swift; path = Sources/SwiftNotify/SwiftNotifyView.swift; sourceTree = SOURCE_ROOT; };
 		05B074CF1DE6F358003611FE /* SwiftNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftNotify.h; path = Sources/SwiftNotify/SwiftNotify.h; sourceTree = SOURCE_ROOT; };
 		05B074D01DE6F358003611FE /* SwiftNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotify.swift; path = Sources/SwiftNotify/SwiftNotify.swift; sourceTree = SOURCE_ROOT; };
 		05B074D11DE6F358003611FE /* SwiftNotifyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotifyProtocols.swift; path = Sources/SwiftNotify/SwiftNotifyProtocols.swift; sourceTree = SOURCE_ROOT; };
@@ -170,7 +168,6 @@
 				21096331922D41D34FB1854D /* NoticeNotification.swift */,
 				21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */,
 				05B074D11DE6F358003611FE /* SwiftNotifyProtocols.swift */,
-				05B074CE1DE6F358003611FE /* SwiftNotifyView.swift */,
 				05B074D01DE6F358003611FE /* SwiftNotify.swift */,
 				05B074D21DE6F358003611FE /* Notice.swift */,
 				05B074CF1DE6F358003611FE /* SwiftNotify.h */,
@@ -484,7 +481,6 @@
 				05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */,
 				05B074D71DE6F358003611FE /* Notice.swift in Sources */,
 				05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */,
-				05B074D31DE6F358003611FE /* SwiftNotifyView.swift in Sources */,
 				210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */,
 				210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */,
 				21096F81E6DB0C557F6F83E5 /* SwiftNotifyConfig.swift in Sources */,

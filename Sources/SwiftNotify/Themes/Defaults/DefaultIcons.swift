@@ -12,7 +12,7 @@ public enum DefaultIcons {
         let bundle = Bundle.module
         return bundle
         #else
-        let frameworkBundle = Bundle(for: SwiftNotifyView.self)
+        let frameworkBundle = Bundle(for: SwiftNotify.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("SwiftNotifyResources.bundle")
         return Bundle(url: bundleURL!)
         #endif

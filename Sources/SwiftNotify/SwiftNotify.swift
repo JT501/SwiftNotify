@@ -216,48 +216,6 @@ open class SwiftNotify: NotifyDelegate {
         noticeManager.addPendingNotice(notice)
     }
 
-    public func show(
-            title: String?,
-            message: String,
-            type: SwiftNotifyView.`NoticeType`,
-            tapHandler: (() -> Void)? = nil
-    ) {
-        let noticeView: UIView
-        switch config.theme {
-        case .cyber:
-            noticeView = SwiftNotifyView.cyberWith(title: title ?? "", body: message, type: type)
-        case .classic:
-            noticeView = SwiftNotifyView.classicWith(title: title ?? "", body: message, type: type)
-        case .toast:
-            noticeView = SwiftNotifyView.toastWith(text: message, type: type)
-        }
-        show(config: config, view: noticeView, tapHandler: tapHandler)
-    }
-
-    public func show(config: SwiftNotifyConfig, view: UIView, tapHandler: (() -> Void)? = nil) {
-        let notice = Notice(config: config, view: view, tapHandler: tapHandler, delegate: self)
-        noticeManager.addPendingNotice(notice)
-    }
-
-    public func show(config: SwiftNotifyConfig, view: UIView) {
-        show(config: config, view: view, tapHandler: nil)
-    }
-
-    public func show(view: UIView) {
-        show(config: config, view: view)
-    }
-
-    public typealias ViewProvider = () -> UIView
-
-    public func show(config: SwiftNotifyConfig, viewProvider: @escaping ViewProvider) {
-        let view = viewProvider()
-        show(config: config, view: view)
-    }
-
-    public func show(viewProvider: @escaping ViewProvider) {
-        show(config: config, viewProvider: viewProvider)
-    }
-
     public func dismiss() {
         noticeManager.dismissCurrentNotices()
     }

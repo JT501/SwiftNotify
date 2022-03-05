@@ -165,7 +165,7 @@ public class NoticeManager {
 
     func autoDismissNotice(id: String) {
         guard let notice = currentNotices.first(where: { $0.id == id }) else { return }
-        if let dismissTime = notice.hideTime {
+        if let dismissTime = notice.dismissTime {
             let task = DispatchWorkItem { [weak self] in
                 guard let self = self else { return }
                 guard self.unsafeCurrentNotices.contains(notice) else { return }

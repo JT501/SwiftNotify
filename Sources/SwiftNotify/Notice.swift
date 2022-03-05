@@ -57,9 +57,9 @@ open class Notice: NSObject {
         longPressRecognizer.delegate = self
     }
 
-    var hideTime: TimeInterval? {
+    var dismissTime: TimeInterval? {
         let duration: TimeInterval?
-        switch config.hideTime {
+        switch config.autoDismiss {
         case .default:
             duration = 3.0
         case .never:
@@ -371,7 +371,7 @@ open class Notice: NSObject {
         CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
 
-    open override var description: String {
+    public override var description: String {
         "Notice(id: \(id))"
     }
 

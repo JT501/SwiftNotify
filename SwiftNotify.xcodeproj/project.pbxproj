@@ -8,12 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		056E709A27CAC35100C745DA /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056E709927CAC35100C745DA /* images.xcassets */; };
-		05B074C41DE6F316003611FE /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C21DE6F316003611FE /* BaseImageView.swift */; };
-		05B074C51DE6F316003611FE /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C31DE6F316003611FE /* BaseLabel.swift */; };
 		05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C61DE6F325003611FE /* CGRectEx.swift */; };
-		05B074CB1DE6F340003611FE /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C81DE6F340003611FE /* ClassicView.swift */; };
-		05B074CC1DE6F340003611FE /* CyberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C91DE6F340003611FE /* CyberView.swift */; };
-		05B074CD1DE6F340003611FE /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074CA1DE6F340003611FE /* ToastView.swift */; };
 		05B074D31DE6F358003611FE /* SwiftNotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074CE1DE6F358003611FE /* SwiftNotifyView.swift */; };
 		05B074D41DE6F358003611FE /* SwiftNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B074CF1DE6F358003611FE /* SwiftNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* SwiftNotify.swift */; };
@@ -22,9 +17,26 @@
 		05F750F527CA83EC0099A9C9 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */; };
 		05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */; };
 		05F750FC27CA861E0099A9C9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C8272D1DD31B7A003E0C5E /* Info.plist */; };
+		210960A1578A3EE63F71B027 /* ToastLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C215B6F2293012E6085 /* ToastLightConfig.swift */; };
 		210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096331922D41D34FB1854D /* NoticeNotification.swift */; };
+		210962A8984C4DCA8DC80B8D /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B1436056D7636453BA5 /* ClassicView.swift */; };
+		210962C6B0455A4B020EA06A /* ToastDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210962D274D6B9D681AF4700 /* ToastDarkConfig.swift */; };
+		210962E5491752BF4FF38335 /* NoticeThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109681C60DF4888088D725F /* NoticeThemes.swift */; };
+		2109651BE0E7DA58BBA4735A /* CyberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210963925DE8694B088FA382 /* CyberView.swift */; };
 		210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210968E09F8C34791D946706 /* NoticeManager.swift */; };
+		210965D0448C709184910CB4 /* CyberLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */; };
+		21096641DB3CCE393308F9CA /* ClassicDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CB6CBE60B7EC46CA718 /* ClassicDarkConfig.swift */; };
+		210966D37A915A44A18CB692 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B9EE11D98DEB5AE7693 /* ToastView.swift */; };
+		2109688A9A95B5AB23000E26 /* NoticeLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210969E10F4AF7221F9F30D7 /* NoticeLevels.swift */; };
+		21096898C0B7339039DA1CD2 /* DefaultIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */; };
+		210969B0192DF8D06BE73855 /* ClassicLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C9A5E0EFCDC3EE90618 /* ClassicLightConfig.swift */; };
+		21096AA450E4BC7A4EAD887C /* ThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096003BB2672E5504DFD69 /* ThemeConfig.swift */; };
+		21096C676797FCC3A4D68DAA /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C6224A82A2744032B56 /* LevelConfig.swift */; };
+		21096C72458D67A9048DE709 /* DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CB51760D8F0E132BE6C /* DefaultColors.swift */; };
+		21096C734DC8F5B35A2C84AC /* NoticeViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */; };
+		21096C9F17C8058EBC2ABD70 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */; };
 		21096F81E6DB0C557F6F83E5 /* SwiftNotifyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */; };
+		21096F912853CC61F49D3482 /* CyberDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */; };
 		B27359631FE61C89003333BC /* SwiftNotifyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */; };
 /* End PBXBuildFile section */
 
@@ -62,12 +74,7 @@
 		05A4828B27CA9449006805E5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		05A4828C27CA9449006805E5 /* SwiftNotify.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftNotify.podspec; sourceTree = "<group>"; };
 		05A4828D27CA9449006805E5 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		05B074C21DE6F316003611FE /* BaseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseImageView.swift; path = Sources/SwiftNotify/Base/BaseImageView.swift; sourceTree = SOURCE_ROOT; };
-		05B074C31DE6F316003611FE /* BaseLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLabel.swift; path = Sources/SwiftNotify/Base/BaseLabel.swift; sourceTree = SOURCE_ROOT; };
 		05B074C61DE6F325003611FE /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectEx.swift; path = Sources/SwiftNotify/Extension/CGRectEx.swift; sourceTree = SOURCE_ROOT; };
-		05B074C81DE6F340003611FE /* ClassicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassicView.swift; path = Sources/SwiftNotify/SwiftNoticeView/ClassicView.swift; sourceTree = SOURCE_ROOT; };
-		05B074C91DE6F340003611FE /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CyberView.swift; path = Sources/SwiftNotify/SwiftNoticeView/CyberView.swift; sourceTree = SOURCE_ROOT; };
-		05B074CA1DE6F340003611FE /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = Sources/SwiftNotify/SwiftNoticeView/ToastView.swift; sourceTree = SOURCE_ROOT; };
 		05B074CE1DE6F358003611FE /* SwiftNotifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotifyView.swift; path = Sources/SwiftNotify/SwiftNotifyView.swift; sourceTree = SOURCE_ROOT; };
 		05B074CF1DE6F358003611FE /* SwiftNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftNotify.h; path = Sources/SwiftNotify/SwiftNotify.h; sourceTree = SOURCE_ROOT; };
 		05B074D01DE6F358003611FE /* SwiftNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotify.swift; path = Sources/SwiftNotify/SwiftNotify.swift; sourceTree = SOURCE_ROOT; };
@@ -79,11 +86,28 @@
 		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F750F127CA83EC0099A9C9 /* SwiftNotifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21096003BB2672E5504DFD69 /* ThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeConfig.swift; sourceTree = "<group>"; };
 		21096182457F39E02B5F037E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		210962D274D6B9D681AF4700 /* ToastDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastDarkConfig.swift; sourceTree = "<group>"; };
 		21096331922D41D34FB1854D /* NoticeNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeNotification.swift; sourceTree = "<group>"; };
+		210963925DE8694B088FA382 /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberView.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		2109681C60DF4888088D725F /* NoticeThemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeThemes.swift; sourceTree = "<group>"; };
+		21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberDarkConfig.swift; sourceTree = "<group>"; };
+		21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewBase.swift; sourceTree = "<group>"; };
 		210968E09F8C34791D946706 /* NoticeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeManager.swift; sourceTree = "<group>"; };
+		210969E10F4AF7221F9F30D7 /* NoticeLevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeLevels.swift; sourceTree = "<group>"; };
+		21096B1436056D7636453BA5 /* ClassicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicView.swift; sourceTree = "<group>"; };
+		21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIcons.swift; sourceTree = "<group>"; };
+		21096B9EE11D98DEB5AE7693 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		21096C215B6F2293012E6085 /* ToastLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastLightConfig.swift; sourceTree = "<group>"; };
+		21096C6224A82A2744032B56 /* LevelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelConfig.swift; sourceTree = "<group>"; };
+		21096C9A5E0EFCDC3EE90618 /* ClassicLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicLightConfig.swift; sourceTree = "<group>"; };
+		21096CB51760D8F0E132BE6C /* DefaultColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColors.swift; sourceTree = "<group>"; };
+		21096CB6CBE60B7EC46CA718 /* ClassicDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicDarkConfig.swift; sourceTree = "<group>"; };
+		21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotifyConfig.swift; sourceTree = "<group>"; };
+		21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberLightConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,9 +164,11 @@
 		0515001E27CA7D7900A15BA5 /* SwiftNotify */ = {
 			isa = PBXGroup;
 			children = (
-				0532122E1DDEEAD10008581A /* Base */,
 				0532121F1DD95F0D0008581A /* Extension */,
-				053212271DDDB7FB0008581A /* SwiftNoticeView */,
+				21096C6846A7E6C01254CFBA /* Themes */,
+				210968E09F8C34791D946706 /* NoticeManager.swift */,
+				21096331922D41D34FB1854D /* NoticeNotification.swift */,
+				21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */,
 				05B074D11DE6F358003611FE /* SwiftNotifyProtocols.swift */,
 				05B074CE1DE6F358003611FE /* SwiftNotifyView.swift */,
 				05B074D01DE6F358003611FE /* SwiftNotify.swift */,
@@ -150,9 +176,6 @@
 				05B074CF1DE6F358003611FE /* SwiftNotify.h */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
-				210968E09F8C34791D946706 /* NoticeManager.swift */,
-				21096331922D41D34FB1854D /* NoticeNotification.swift */,
-				21096F0A506DC100DD1EEF60 /* SwiftNotifyConfig.swift */,
 			);
 			path = SwiftNotify;
 			sourceTree = "<group>";
@@ -165,23 +188,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		053212271DDDB7FB0008581A /* SwiftNoticeView */ = {
+		05840B2927D10722009FD18A /* Defaults */ = {
 			isa = PBXGroup;
 			children = (
-				05B074C81DE6F340003611FE /* ClassicView.swift */,
-				05B074C91DE6F340003611FE /* CyberView.swift */,
-				05B074CA1DE6F340003611FE /* ToastView.swift */,
+				21096CB51760D8F0E132BE6C /* DefaultColors.swift */,
+				21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */,
+				210961A17C385F209D0CE529 /* Classic */,
+				21096D0F855DF664F4F1B3A9 /* Cyber */,
+				21096DBE8EE4545617E5C4A1 /* Toast */,
 			);
-			path = SwiftNoticeView;
-			sourceTree = "<group>";
-		};
-		0532122E1DDEEAD10008581A /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				05B074C21DE6F316003611FE /* BaseImageView.swift */,
-				05B074C31DE6F316003611FE /* BaseLabel.swift */,
-			);
-			path = Base;
+			path = Defaults;
 			sourceTree = "<group>";
 		};
 		05C827131DD31B7A003E0C5E = {
@@ -230,6 +246,74 @@
 				21096182457F39E02B5F037E /* Info.plist */,
 			);
 			path = NotifyResources;
+			sourceTree = "<group>";
+		};
+		210961A17C385F209D0CE529 /* Classic */ = {
+			isa = PBXGroup;
+			children = (
+				21096C9A5E0EFCDC3EE90618 /* ClassicLightConfig.swift */,
+				21096CB6CBE60B7EC46CA718 /* ClassicDarkConfig.swift */,
+			);
+			path = Classic;
+			sourceTree = "<group>";
+		};
+		2109620A907635E149BF3A90 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				2109681C60DF4888088D725F /* NoticeThemes.swift */,
+				210969E10F4AF7221F9F30D7 /* NoticeLevels.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		210964C953BD927BD1621CE6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				21096003BB2672E5504DFD69 /* ThemeConfig.swift */,
+				21096C6224A82A2744032B56 /* LevelConfig.swift */,
+				21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		21096C6846A7E6C01254CFBA /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				2109620A907635E149BF3A90 /* Enums */,
+				05840B2927D10722009FD18A /* Defaults */,
+				210964C953BD927BD1621CE6 /* Protocols */,
+				21096F897CA3D69B3AB69DC0 /* SwiftNoticeView */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		21096D0F855DF664F4F1B3A9 /* Cyber */ = {
+			isa = PBXGroup;
+			children = (
+				21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */,
+				21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */,
+			);
+			path = Cyber;
+			sourceTree = "<group>";
+		};
+		21096DBE8EE4545617E5C4A1 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				21096C215B6F2293012E6085 /* ToastLightConfig.swift */,
+				210962D274D6B9D681AF4700 /* ToastDarkConfig.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		21096F897CA3D69B3AB69DC0 /* SwiftNoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				21096B1436056D7636453BA5 /* ClassicView.swift */,
+				210963925DE8694B088FA382 /* CyberView.swift */,
+				21096B9EE11D98DEB5AE7693 /* ToastView.swift */,
+				21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */,
+			);
+			path = SwiftNoticeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,19 +480,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05B074CC1DE6F340003611FE /* CyberView.swift in Sources */,
-				05B074C41DE6F316003611FE /* BaseImageView.swift in Sources */,
 				05B074D61DE6F358003611FE /* SwiftNotifyProtocols.swift in Sources */,
-				05B074CB1DE6F340003611FE /* ClassicView.swift in Sources */,
 				05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */,
 				05B074D71DE6F358003611FE /* Notice.swift in Sources */,
 				05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */,
-				05B074CD1DE6F340003611FE /* ToastView.swift in Sources */,
-				05B074C51DE6F316003611FE /* BaseLabel.swift in Sources */,
 				05B074D31DE6F358003611FE /* SwiftNotifyView.swift in Sources */,
 				210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */,
 				210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */,
 				21096F81E6DB0C557F6F83E5 /* SwiftNotifyConfig.swift in Sources */,
+				21096C72458D67A9048DE709 /* DefaultColors.swift in Sources */,
+				21096898C0B7339039DA1CD2 /* DefaultIcons.swift in Sources */,
+				21096AA450E4BC7A4EAD887C /* ThemeConfig.swift in Sources */,
+				21096C676797FCC3A4D68DAA /* LevelConfig.swift in Sources */,
+				210962C6B0455A4B020EA06A /* ToastDarkConfig.swift in Sources */,
+				210960A1578A3EE63F71B027 /* ToastLightConfig.swift in Sources */,
+				21096F912853CC61F49D3482 /* CyberDarkConfig.swift in Sources */,
+				210965D0448C709184910CB4 /* CyberLightConfig.swift in Sources */,
+				210969B0192DF8D06BE73855 /* ClassicLightConfig.swift in Sources */,
+				21096641DB3CCE393308F9CA /* ClassicDarkConfig.swift in Sources */,
+				210962A8984C4DCA8DC80B8D /* ClassicView.swift in Sources */,
+				2109651BE0E7DA58BBA4735A /* CyberView.swift in Sources */,
+				210966D37A915A44A18CB692 /* ToastView.swift in Sources */,
+				21096C734DC8F5B35A2C84AC /* NoticeViewBase.swift in Sources */,
+				21096C9F17C8058EBC2ABD70 /* NoticeView.swift in Sources */,
+				210962E5491752BF4FF38335 /* NoticeThemes.swift in Sources */,
+				2109688A9A95B5AB23000E26 /* NoticeLevels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

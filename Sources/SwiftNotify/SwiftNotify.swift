@@ -76,7 +76,7 @@ open class SwiftNotify: NotifyDelegate {
     ///   - defaultToPosition:      Default position where the Notice stays before dismiss. `ToPosition.center` by default.
     ///   - defaultNoticeDuration:  Default duration of the notice stays on screen. ``NoticeDuration.short`` by default.
     ///                             `DispatchTimeInterval.milliseconds(500)` by default.
-    ///   - defaultPhysicsConfig:
+    ///   - defaultPhysicsConfig:   Default configuration for animation's physics. `DefaultPhysicsConfig()` by default.
     ///   - intervalBetweenNotices: `DispatchTimeInterval` which is the interval between sequence of notices.
     ///   - delegate:               `SwiftNotifyDelegate` that handles notices interactions. `nil` by default.
     ///
@@ -85,7 +85,7 @@ open class SwiftNotify: NotifyDelegate {
                     label: "com.jt501.SwiftNotify.NoticeQueue",
                     attributes: .concurrent
             ),
-            defaultTheme: ThemesEnum = .Cyber,
+            defaultTheme: ThemesEnum = .cyber,
             defaultThemeConfig: ThemeConfig? = nil,
             defaultFromPosition: FromPositionsEnum = .top(.random),
             defaultToPosition: ToPositionsEnum = .top,
@@ -169,7 +169,7 @@ open class SwiftNotify: NotifyDelegate {
         var noticeView: NoticeView
 
         switch theme {
-        case .Classic:
+        case .classic:
             noticeView = createNoticeView(
                     title: title,
                     message: message,
@@ -178,7 +178,7 @@ open class SwiftNotify: NotifyDelegate {
                     width: width,
                     height: height
             ) as ClassicView
-        case .ClassicDark:
+        case .classicDark:
             noticeView = createNoticeView(
                     title: title,
                     message: message,
@@ -187,7 +187,7 @@ open class SwiftNotify: NotifyDelegate {
                     width: width,
                     height: height
             ) as ClassicView
-        case .Cyber:
+        case .cyber:
             noticeView = createNoticeView(
                     title: title,
                     message: message,
@@ -196,7 +196,7 @@ open class SwiftNotify: NotifyDelegate {
                     width: width,
                     height: height
             ) as CyberView
-        case .CyberDark:
+        case .cyberDark:
             noticeView = createNoticeView(
                     title: title,
                     message: message,
@@ -205,7 +205,7 @@ open class SwiftNotify: NotifyDelegate {
                     width: width,
                     height: height
             ) as CyberView
-        case .Toast:
+        case .toast:
             noticeView = createNoticeView(
                     title: title,
                     message: message,
@@ -214,7 +214,7 @@ open class SwiftNotify: NotifyDelegate {
                     width: width,
                     height: height
             ) as ToastView
-        case .ToastDark:
+        case .toastDark:
             noticeView = createNoticeView(
                     title: title,
                     message: message,

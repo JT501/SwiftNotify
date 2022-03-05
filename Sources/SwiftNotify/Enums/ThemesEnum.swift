@@ -6,10 +6,10 @@
 import Foundation
 
 public enum ThemesEnum {
-    case Classic
-    case ClassicDark
-    case Cyber
-    case CyberDark
-    case Toast
-    case ToastDark
+    case classic
+    case classicDark
+    case cyber
+    case cyberDark
+    case toast
+    case toastDark
 }

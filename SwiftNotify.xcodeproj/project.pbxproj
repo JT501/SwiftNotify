@@ -16,6 +16,7 @@
 		05F750F527CA83EC0099A9C9 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */; };
 		05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */; };
 		05F750FC27CA861E0099A9C9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C8272D1DD31B7A003E0C5E /* Info.plist */; };
+		21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210962F56689191028A92FAD /* CyberThemeConfig.swift */; };
 		210960A1578A3EE63F71B027 /* ToastLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C215B6F2293012E6085 /* ToastLightConfig.swift */; };
 		210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096331922D41D34FB1854D /* NoticeNotification.swift */; };
 		210962A8984C4DCA8DC80B8D /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B1436056D7636453BA5 /* ClassicView.swift */; };
@@ -91,6 +92,7 @@
 		2109609804B9C0E71BCB960E /* LevelsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsEnum.swift; sourceTree = "<group>"; };
 		21096182457F39E02B5F037E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		210962D274D6B9D681AF4700 /* ToastDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastDarkConfig.swift; sourceTree = "<group>"; };
+		210962F56689191028A92FAD /* CyberThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberThemeConfig.swift; sourceTree = "<group>"; };
 		21096331922D41D34FB1854D /* NoticeNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeNotification.swift; sourceTree = "<group>"; };
 		210963925DE8694B088FA382 /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberView.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
@@ -288,7 +290,7 @@
 			children = (
 				05840B2927D10722009FD18A /* Defaults */,
 				210964C953BD927BD1621CE6 /* Protocols */,
-				21096F897CA3D69B3AB69DC0 /* SwiftNoticeView */,
+				21096F897CA3D69B3AB69DC0 /* NoticeView */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -298,6 +300,7 @@
 			children = (
 				21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */,
 				21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */,
+				210962F56689191028A92FAD /* CyberThemeConfig.swift */,
 			);
 			path = Cyber;
 			sourceTree = "<group>";
@@ -311,7 +314,7 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
-		21096F897CA3D69B3AB69DC0 /* SwiftNoticeView */ = {
+		21096F897CA3D69B3AB69DC0 /* NoticeView */ = {
 			isa = PBXGroup;
 			children = (
 				21096B1436056D7636453BA5 /* ClassicView.swift */,
@@ -319,7 +322,7 @@
 				21096B9EE11D98DEB5AE7693 /* ToastView.swift */,
 				21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */,
 			);
-			path = SwiftNoticeView;
+			path = NoticeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +516,7 @@
 				21096D6BF6B537E4148CC8E2 /* ToPositionsEnum.swift in Sources */,
 				210969751DDEA0FF75ABF036 /* ThemesEnum.swift in Sources */,
 				21096450F7BAAC542C9E9869 /* LevelsEnum.swift in Sources */,
+				21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,7 +692,7 @@
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/SwiftNotify/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -714,7 +718,7 @@
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/SwiftNotify/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -735,7 +739,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/SwiftNotify/NotifyResources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_NO_PIE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotifyResources;
@@ -758,7 +762,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/SwiftNotify/NotifyResources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_NO_PIE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotifyResources;

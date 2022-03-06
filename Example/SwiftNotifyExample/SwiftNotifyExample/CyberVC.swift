@@ -51,26 +51,7 @@ class CyberVC: UIViewController, SwiftNotifyDelegate {
     }
 
     @IBAction func showCyberView() {
-        SN.show(title: "Info", message: "Try dragging this alert around !", level: .info)
-
-        SN.show(
-                title: "Info",
-                message: "You can tap this alert to hide it.",
-                theme: .cyberDark,
-                level: .info
-        ) { SN.dismiss(byId: $0) }
-
-        SN.show(title: "Info", message: "Try dragging this alert around !", level: .info)
-
-        SN.show(
-                title: "Info",
-                message: "You can tap this alert to hide it.",
-                theme: .cyberDark,
-                level: .info
-        ) { SN.dismiss(byId: $0) }
-
         SN.show(title: "Success", message: "You made alert more playable !", level: .success)
-
 
         SN.show(
                 title: "Success",
@@ -78,6 +59,18 @@ class CyberVC: UIViewController, SwiftNotifyDelegate {
                 theme: .cyberDark,
                 level: .success
         ) { SN.dismiss(byId: $0) }
+
+        SN.show(title: "Info", message: "Try dragging this alert around !", level: .info)
+
+        SN.show(
+                title: "Info",
+                message: "You can tap this alert to hide it.",
+                theme: .cyberDark,
+                level: .info,
+                duration: .forever
+        ) { SN.dismiss(byId: $0) }
+
+        SN.show(title: "Info", message: "Try dragging this alert around !", level: .info)
 
         SN.show(
                 title: "Fail",

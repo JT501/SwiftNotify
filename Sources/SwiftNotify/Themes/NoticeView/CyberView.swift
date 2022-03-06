@@ -16,25 +16,14 @@ open class CyberView: NoticeViewBase {
     private let vibrancyEffect: UIVibrancyEffect
     private let vibrancyEffectView: UIVisualEffectView
 
-    // MARK: - Initialization
-    public init(title: String? = nil, body: String? = nil, image: UIImage? = nil, blurStyle: UIBlurEffect.Style) {
-        blurEffect = UIBlurEffect(style: blurStyle)
-        blurEffectView = UIVisualEffectView(effect: blurEffect)
-        vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-        vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
-
-        let image = image?.withRenderingMode(.alwaysTemplate)
-
-        super.init(titleText: title, bodyText: body, iconImage: image)
-    }
-
     public required convenience init(
             titleText: String?,
             bodyText: String?,
             themeConfig: ThemeConfig,
             level: LevelsEnum
     ) {
-        let levelConfig = themeConfig.levelConfigs[.success]!
+        guard let themeConfig = themeConfig as? CyberThemeConfig else { fatalError("themeConfig is not CyberThemeConfig") }
+        guard let levelConfig = themeConfig.levelConfigs[level] else { fatalError("Level not found in theme config") }
         self.init(
                 titleText: titleText,
                 titleTextColor: levelConfig.titleTextColor ?? themeConfig.titleTextColor,
@@ -57,7 +46,8 @@ open class CyberView: NoticeViewBase {
                 backgroundColor: levelConfig.backgroundColor,
                 cornerRadius: themeConfig.cornerRadius,
                 padding: themeConfig.padding,
-                blurEffectStyle: themeConfig.blurEffectStyle!
+                blurEffectStyle: themeConfig.blurEffectStyle,
+                vibrancyEffectStyle: themeConfig.vibrancyEffectStyle
         )
     }
 
@@ -83,11 +73,12 @@ open class CyberView: NoticeViewBase {
             backgroundColor: UIColor?,
             cornerRadius: CGFloat,
             padding: CGFloat,
-            blurEffectStyle: UIBlurEffect.Style
+            blurEffectStyle: UIBlurEffect.Style,
+            vibrancyEffectStyle: UIVibrancyEffectStyle
     ) {
         blurEffect = UIBlurEffect(style: blurEffectStyle)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
-        vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect, style: vibrancyEffectStyle)
         vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
 
         super.init(

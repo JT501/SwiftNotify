@@ -26,8 +26,6 @@ public protocol ThemeConfig {
     var cornerRadius: CGFloat { get }
     var padding: CGFloat { get }
 
-    var blurEffectStyle: UIBlurEffect.Style? { get }
-
     var levelConfigs: [LevelsEnum: LevelConfig] { get }
 }
 

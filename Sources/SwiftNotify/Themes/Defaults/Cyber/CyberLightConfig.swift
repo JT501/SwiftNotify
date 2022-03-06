@@ -5,8 +5,7 @@
 
 import Foundation
 
-
-public struct CyberLightConfig: ThemeConfig {
+public struct CyberLightConfig: CyberThemeConfig {
 
     public var titleTextColor: UIColor = .white
     public var titleTextFont: UIFont = .boldSystemFont(ofSize: 16)
@@ -23,7 +22,8 @@ public struct CyberLightConfig: ThemeConfig {
     public var iconImageTintColor: UIColor? = nil
     public var cornerRadius: CGFloat = 10
     public var padding: CGFloat = 10
-    public var blurEffectStyle: UIBlurEffect.Style? = .extraLight
+    public var blurEffectStyle: UIBlurEffect.Style = .systemThinMaterialLight
+    public var vibrancyEffectStyle: UIVibrancyEffectStyle = .label
     public var levelConfigs: [LevelsEnum: LevelConfig] = [
         .success: Success(),
         .fail: Fail(),
@@ -34,29 +34,33 @@ public struct CyberLightConfig: ThemeConfig {
     public init() {}
 
     public struct Success: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.Success
+        public var backgroundColor: UIColor? = .clear
         public var iconImage: UIImage? = DefaultIcons.Success
+        public var iconImageTintColor: UIColor? = DefaultColors.Success
 
         public init() {}
     }
 
     public struct Fail: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.Fail
+        public var backgroundColor: UIColor? = .clear
         public var iconImage: UIImage? = DefaultIcons.Fail
+        public var iconImageTintColor: UIColor? = DefaultColors.Fail
 
         public init() {}
     }
 
     public struct Info: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.Info
+        public var backgroundColor: UIColor? = .clear
         public var iconImage: UIImage? = DefaultIcons.Info
+        public var iconImageTintColor: UIColor? = DefaultColors.InfoDark
 
         public init() {}
     }
 
     public struct Warning: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.Warning
+        public var backgroundColor: UIColor? = .clear
         public var iconImage: UIImage? = DefaultIcons.Warning
+        public var iconImageTintColor: UIColor? = DefaultColors.WarningDark
 
         public init() {}
     }

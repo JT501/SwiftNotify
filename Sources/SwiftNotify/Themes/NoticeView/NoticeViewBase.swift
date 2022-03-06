@@ -84,7 +84,7 @@ open class NoticeViewBase: UIView, NoticeView {
             themeConfig: ThemeConfig,
             level: LevelsEnum
     ) {
-        let levelConfig = themeConfig.levelConfigs[.success]!
+        guard let levelConfig = themeConfig.levelConfigs[level] else { fatalError("Level not found in theme config") }
         self.init(
                 titleText: titleText,
                 titleTextColor: levelConfig.titleTextColor ?? themeConfig.titleTextColor,

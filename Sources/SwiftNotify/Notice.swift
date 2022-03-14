@@ -370,8 +370,6 @@ open class Notice: NSObject {
         switch gesture.state {
         case .began:
             postStartPressingNotification()
-        case .changed:
-            gesture.state = .ended
         case .ended:
             postEndPressingNotification()
         default:

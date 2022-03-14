@@ -165,6 +165,8 @@ public class NoticeManager {
 
     func autoDismissNotice(id: String) {
         guard let notice = currentNotices.first(where: { $0.id == id }) else { return }
+        // If task for notice already exists, return
+        guard autoDismissTasks[notice.id] == nil else { return }
 
         let duration: DispatchTimeInterval
 
@@ -188,6 +190,7 @@ public class NoticeManager {
 
             DispatchQueue.main.async { notice.dismiss() }
         }
+
         autoDismissTasks[notice.id] = task
 
         queue.asyncAfter(deadline: .now() + duration, execute: task)
@@ -195,6 +198,7 @@ public class NoticeManager {
 
     func cancelAutoDismiss(noticeId: String) {
         if let task = autoDismissTasks[noticeId] {
+            print("hi")
             task.cancel()
             autoDismissTasks.removeValue(forKey: noticeId)
         }

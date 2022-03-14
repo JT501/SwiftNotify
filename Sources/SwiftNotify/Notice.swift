@@ -21,7 +21,7 @@ open class Notice: NSObject {
 
     public var isHiding: Bool
 
-    weak var delegate: NotifyDelegate?
+    weak var delegate: NoticeDelegate?
 
     private let containerView: UIView
     private let panRecognizer: UIPanGestureRecognizer
@@ -48,7 +48,7 @@ open class Notice: NSObject {
             toPosition: ToPositionsEnum,
             tapHandler: TapCallback?,
             config: PhysicsConfig,
-            delegate: NotifyDelegate
+            delegate: NoticeDelegate
     ) {
         self.config = config
         self.view = view
@@ -145,7 +145,7 @@ open class Notice: NSObject {
         keyWindow.addSubview(containerView)
 
         if let delegate = delegate {
-            delegate.notifierDidAppear()
+            delegate.noticeDidAppear(notice: self)
         }
 
         switch toPosition {
@@ -180,7 +180,7 @@ open class Notice: NSObject {
                 if completed {
                     self.postDidDisappearNotification()
                     if let delegate = self.delegate {
-                        delegate.notifierDidDisappear(notifier: self)
+                        delegate.noticeDidDisappear(notifier: self)
                     }
                 }
             })
@@ -263,7 +263,7 @@ open class Notice: NSObject {
             postStartPanningNotification()
 
             if let delegate = delegate {
-                delegate.notifierStartDragging(atPoint: dragPoint)
+                delegate.noticeStartDragging(atPoint: dragPoint, notice: self)
             }
             animator.removeAllBehaviors()
 
@@ -297,12 +297,12 @@ open class Notice: NSObject {
             let touchPoint: CGPoint = gesture.location(in: gestureView.superview)
             attachmentBehaviour.anchorPoint = touchPoint
             if let delegate = delegate {
-                delegate.notifierIsDragging(atPoint: touchPoint)
+                delegate.noticeIsDragging(atPoint: touchPoint, notice: self)
             }
                 // End Dragging
         case .ended:
             if let delegate = delegate {
-                delegate.notifierEndDragging(atPoint: dragPoint)
+                delegate.noticeEndDragging(atPoint: dragPoint, notice: self)
             }
 
             animator.removeAllBehaviors()
@@ -344,7 +344,7 @@ open class Notice: NSObject {
                         if completed {
                             self.postDidDisappearNotification()
                             if let delegate = self.delegate {
-                                delegate.notifierDidDisappear(notifier: self)
+                                delegate.noticeDidDisappear(notifier: self)
                             }
                         }
                     })
@@ -358,7 +358,7 @@ open class Notice: NSObject {
 
     @objc func onTap(gesture: UITapGestureRecognizer) {
         if let delegate = delegate {
-            delegate.notifierIsTapped()
+            delegate.noticeIsTapped(notice: self)
         }
 
         if let tapAction = tapAction {

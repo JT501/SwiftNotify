@@ -14,7 +14,7 @@ public let SN = SwiftNotify.default
 /// Current SwiftNotify Version
 public let version = "2.0.0"
 
-open class SwiftNotify: NotifyDelegate {
+open class SwiftNotify: NoticeDelegate {
     /// Shared singleton instance used by all `SN` APIs. Cannot be modified.
     public static let `default` = SwiftNotify()
 
@@ -251,39 +251,39 @@ open class SwiftNotify: NotifyDelegate {
     }
 
     // MARK: - MessengerDelegate
-    func notifierDidAppear() {
+    func noticeDidAppear(notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyDidAppear()
+            delegate.swiftNotifyDidAppear(notice: notice)
         }
     }
 
-    func notifierStartDragging(atPoint: CGPoint) {
+    func noticeStartDragging(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyStartDragging(atPoint: atPoint)
+            delegate.swiftNotifyStartDragging(atPoint: atPoint, notice: notice)
         }
     }
 
-    func notifierIsDragging(atPoint: CGPoint) {
+    func noticeIsDragging(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyIsDragging(atPoint: atPoint)
+            delegate.swiftNotifyIsDragging(atPoint: atPoint, notice: notice)
         }
     }
 
-    func notifierEndDragging(atPoint: CGPoint) {
+    func noticeEndDragging(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyEndDragging(atPoint: atPoint)
+            delegate.swiftNotifyEndDragging(atPoint: atPoint, notice: notice)
         }
     }
 
-    func notifierDidDisappear(notifier: Notice) {
+    func noticeDidDisappear(notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyDidDisappear()
+            delegate.swiftNotifyDidDisappear(notice: notice)
         }
     }
 
-    func notifierIsTapped() {
+    func noticeIsTapped(notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyIsTapped()
+            delegate.swiftNotifyIsTapped(notice: notice)
         }
     }
 }

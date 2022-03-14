@@ -10,30 +10,30 @@ import Foundation
 import UIKit
 
 public protocol SwiftNotifyDelegate: AnyObject {
-    func swiftNotifyDidAppear()
-    func swiftNotifyStartDragging(atPoint: CGPoint)
-    func swiftNotifyIsDragging(atPoint: CGPoint)
-    func swiftNotifyEndDragging(atPoint: CGPoint)
-    func swiftNotifyDidDisappear()
-    func swiftNotifyIsTapped()
+    func swiftNotifyDidAppear(notice: Notice)
+    func swiftNotifyStartDragging(atPoint: CGPoint, notice: Notice)
+    func swiftNotifyIsDragging(atPoint: CGPoint, notice: Notice)
+    func swiftNotifyEndDragging(atPoint: CGPoint, notice: Notice)
+    func swiftNotifyDidDisappear(notice: Notice)
+    func swiftNotifyIsTapped(notice: Notice)
 }
 
 // Make the protocol methods to be optional
 public extension SwiftNotifyDelegate {
-    func swiftNotifyDidAppear() {}
-    func swiftNotifyStartDragging(atPoint: CGPoint) {}
-    func swiftNotifyIsDragging(atPoint: CGPoint) {}
-    func swiftNotifyEndDragging(atPoint: CGPoint) {}
-    func swiftNotifyDidDisappear() {}
-    func swiftNotifyIsTapped() {}
+    func swiftNotifyDidAppear(notice: Notice) {}
+    func swiftNotifyStartDragging(atPoint: CGPoint, notice: Notice) {}
+    func swiftNotifyIsDragging(atPoint: CGPoint, notice: Notice) {}
+    func swiftNotifyEndDragging(atPoint: CGPoint, notice: Notice) {}
+    func swiftNotifyDidDisappear(notice: Notice) {}
+    func swiftNotifyIsTapped(notice: Notice) {}
 }
 
 // Internal Use
-protocol NotifyDelegate: AnyObject {
-    func notifierDidAppear()
-    func notifierStartDragging(atPoint: CGPoint)
-    func notifierIsDragging(atPoint: CGPoint)
-    func notifierEndDragging(atPoint: CGPoint)
-    func notifierDidDisappear(notifier: Notice)
-    func notifierIsTapped()
+protocol NoticeDelegate: AnyObject {
+    func noticeDidAppear(notice: Notice)
+    func noticeStartDragging(atPoint: CGPoint, notice: Notice)
+    func noticeIsDragging(atPoint: CGPoint, notice: Notice)
+    func noticeEndDragging(atPoint: CGPoint, notice: Notice)
+    func noticeDidDisappear(notice: Notice)
+    func noticeIsTapped(notice: Notice)
 }

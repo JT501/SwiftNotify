@@ -180,7 +180,7 @@ open class Notice: NSObject {
                 if completed {
                     self.postDidDisappearNotification()
                     if let delegate = self.delegate {
-                        delegate.noticeDidDisappear(notifier: self)
+                        delegate.noticeDidDisappear(notice: self)
                     }
                 }
             })
@@ -344,7 +344,7 @@ open class Notice: NSObject {
                         if completed {
                             self.postDidDisappearNotification()
                             if let delegate = self.delegate {
-                                delegate.noticeDidDisappear(notifier: self)
+                                delegate.noticeDidDisappear(notice: self)
                             }
                         }
                     })

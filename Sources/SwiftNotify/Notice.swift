@@ -8,10 +8,19 @@
 
 import UIKit
 
-open class Notice: NSObject {
+public protocol NoticeProtocol {
+    var id: String { get }
+    var isHiding: Bool { get set }
+    var duration: DurationsEnum { get }
+
+    func present(completion: @escaping (_ completed: Bool) -> Void)
+    func dismiss()
+}
+
+open class Notice: NSObject, NoticeProtocol {
     public typealias TapCallback = (String) -> Void
 
-    public var id: String = UUID().uuidString
+    public let id: String
     public let config: PhysicsConfig
     public let view: UIView
     public let duration: DurationsEnum
@@ -42,6 +51,7 @@ open class Notice: NSObject {
     ]
 
     init(
+            id: String = UUID().uuidString,
             view: UIView,
             duration: DurationsEnum,
             fromPosition: FromPositionsEnum,
@@ -50,6 +60,7 @@ open class Notice: NSObject {
             config: PhysicsConfig,
             delegate: NoticeDelegate
     ) {
+        self.id = id
         self.config = config
         self.view = view
         self.duration = duration
@@ -78,7 +89,7 @@ open class Notice: NSObject {
         longPressRecognizer.delegate = self
     }
 
-    func present(completion: @escaping (_ completed: Bool) -> Void) {
+    public func present(completion: @escaping (_ completed: Bool) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate else {
             return
         }
@@ -163,7 +174,7 @@ open class Notice: NSObject {
         }
     }
 
-    func dismiss() {
+    public func dismiss() {
         animator.removeAllBehaviors()
 
         if let gestureViewGestureRecognizers = containerView.gestureRecognizers {

@@ -9,13 +9,13 @@ public class NoticeManager {
 
     let queue: DispatchQueue
 
-    private var unsafePendingNotices: [Notice] = [] {
+    private var unsafePendingNotices: [NoticeProtocol] = [] {
         didSet {
             print("Pending Notices: \(unsafePendingNotices)")
         }
     }
 
-    private var unsafeCurrentNotices: [Notice] = [] {
+    private var unsafeCurrentNotices: [NoticeProtocol] = [] {
         didSet {
             print("Current Notices: \(unsafeCurrentNotices)")
         }
@@ -27,16 +27,16 @@ public class NoticeManager {
         }
     }
 
-    var pendingNotices: [Notice] {
-        var noticesCopy: [Notice] = []
+    var pendingNotices: [NoticeProtocol] {
+        var noticesCopy: [NoticeProtocol] = []
         queue.sync { [weak self] in
             noticesCopy = self?.unsafePendingNotices ?? []
         }
         return noticesCopy
     }
 
-    var currentNotices: [Notice] {
-        var noticesCopy: [Notice] = []
+    var currentNotices: [NoticeProtocol] {
+        var noticesCopy: [NoticeProtocol] = []
         queue.sync { [weak self] in
             noticesCopy = self?.unsafeCurrentNotices ?? []
         }
@@ -86,7 +86,7 @@ public class NoticeManager {
         NotificationCenter.default.removeObserver(self, name: NoticeNotification.endPressing, object: nil)
     }
 
-    func addPendingNotice(_ notice: Notice) {
+    func addPendingNotice(_ notice: NoticeProtocol) {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
             self.unsafePendingNotices.append(notice)
@@ -97,7 +97,7 @@ public class NoticeManager {
         }
     }
 
-    func removePendingNotice(_ notice: Notice) {
+    func removePendingNotice(_ notice: NoticeProtocol) {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
             self.unsafePendingNotices.removeAll {
@@ -113,7 +113,7 @@ public class NoticeManager {
         }
     }
 
-    func showNotice() {
+    func showNotice(completion: (() -> Void)? = nil) {
         guard !pendingNotices.isEmpty else { return }
         let currentNotice = pendingNotices.first!
         let dispatchGroup = DispatchGroup()
@@ -125,14 +125,16 @@ public class NoticeManager {
                 return
             }
             self.unsafePendingNotices.removeAll { $0.id == currentNotice.id }
-            if !self.unsafeCurrentNotices.contains(currentNotice) {
+            if !self.unsafeCurrentNotices.contains(where: { $0.id == currentNotice.id }) {
                 self.unsafeCurrentNotices.append(currentNotice)
             }
             dispatchGroup.leave()
         }
 
         dispatchGroup.notify(queue: .main) { [weak self] in
+            completion?()
             guard let self = self else { return }
+
             currentNotice.present { [weak self] completed in
                 if completed {
                     self?.autoDismissNotice(id: currentNotice.id)
@@ -183,7 +185,7 @@ public class NoticeManager {
 
         let task = DispatchWorkItem { [weak self] in
             guard let self = self else { return }
-            guard self.unsafeCurrentNotices.contains(notice) else { return }
+            guard self.unsafeCurrentNotices.contains(where: { $0.id == id }) else { return }
             guard !notice.isHiding else { return }
 
             self.autoDismissTasks.removeValue(forKey: notice.id)

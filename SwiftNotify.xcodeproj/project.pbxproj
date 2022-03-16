@@ -15,7 +15,6 @@
 		05B074D71DE6F358003611FE /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D21DE6F358003611FE /* Notice.swift */; };
 		05F750F527CA83EC0099A9C9 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */; };
 		05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */; };
-		05F750FC27CA861E0099A9C9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C8272D1DD31B7A003E0C5E /* Info.plist */; };
 		21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210962F56689191028A92FAD /* CyberThemeConfig.swift */; };
 		210960A1578A3EE63F71B027 /* ToastLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C215B6F2293012E6085 /* ToastLightConfig.swift */; };
 		210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096331922D41D34FB1854D /* NoticeNotification.swift */; };
@@ -28,6 +27,7 @@
 		210965D0448C709184910CB4 /* CyberLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */; };
 		21096641DB3CCE393308F9CA /* ClassicDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CB6CBE60B7EC46CA718 /* ClassicDarkConfig.swift */; };
 		210966D37A915A44A18CB692 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B9EE11D98DEB5AE7693 /* ToastView.swift */; };
+		21096774F87B64586301E898 /* MockNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096EAD90060F51F49DADF7 /* MockNotice.swift */; };
 		21096898C0B7339039DA1CD2 /* DefaultIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */; };
 		210968FA69FB585CD571DB41 /* DurationsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966FF8E0CA5F582FE70B1 /* DurationsEnum.swift */; };
 		210969751DDEA0FF75ABF036 /* ThemesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210967C10C8659F2C6F11984 /* ThemesEnum.swift */; };
@@ -38,6 +38,7 @@
 		21096C734DC8F5B35A2C84AC /* NoticeViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */; };
 		21096C9F17C8058EBC2ABD70 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */; };
 		21096D6BF6B537E4148CC8E2 /* ToPositionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966991022B78DC4EBF7C5 /* ToPositionsEnum.swift */; };
+		21096DF1D3FE67F7FCD471FD /* NoticeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */; };
 		21096F0CEB585EEF603D9009 /* FromPositionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096F8CD708FEE28BD9CEBD /* FromPositionsEnum.swift */; };
 		21096F912853CC61F49D3482 /* CyberDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */; };
 		B27359631FE61C89003333BC /* SwiftNotifyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */; };
@@ -97,6 +98,7 @@
 		210963925DE8694B088FA382 /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberView.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		210966991022B78DC4EBF7C5 /* ToPositionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToPositionsEnum.swift; sourceTree = "<group>"; };
+		210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeManagerTests.swift; sourceTree = "<group>"; };
 		210966FF8E0CA5F582FE70B1 /* DurationsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationsEnum.swift; sourceTree = "<group>"; };
 		210967C10C8659F2C6F11984 /* ThemesEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesEnum.swift; sourceTree = "<group>"; };
 		21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberDarkConfig.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		21096CB6CBE60B7EC46CA718 /* ClassicDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicDarkConfig.swift; sourceTree = "<group>"; };
 		21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		21096D2BAC679BAC1AE0C5C0 /* PhysicsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsConfig.swift; sourceTree = "<group>"; };
+		21096EAD90060F51F49DADF7 /* MockNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNotice.swift; sourceTree = "<group>"; };
 		21096F8CD708FEE28BD9CEBD /* FromPositionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromPositionsEnum.swift; sourceTree = "<group>"; };
 		21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberLightConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +158,8 @@
 			children = (
 				05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */,
 				05C8272D1DD31B7A003E0C5E /* Info.plist */,
+				210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */,
+				2109695A2F85A3E98DE4E7E1 /* Mocks */,
 			);
 			path = SwiftNotifyTests;
 			sourceTree = "<group>";
@@ -271,6 +276,14 @@
 				21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2109695A2F85A3E98DE4E7E1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				21096EAD90060F51F49DADF7 /* MockNotice.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		21096A91E16EF8D579E001D1 /* Enums */ = {
@@ -462,7 +475,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05F750FC27CA861E0099A9C9 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +544,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */,
+				21096DF1D3FE67F7FCD471FD /* NoticeManagerTests.swift in Sources */,
+				21096774F87B64586301E898 /* MockNotice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -665,7 +679,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
@@ -788,7 +802,7 @@
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -797,6 +811,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
@@ -813,7 +828,7 @@
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotifyTests;
@@ -821,6 +836,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Release;
 		};

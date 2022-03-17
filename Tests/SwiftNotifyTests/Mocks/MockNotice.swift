@@ -9,7 +9,9 @@ class MockNotice: NoticeProtocol {
 
     // Method Counter
     var presentCounter: Int = 0
+    var presentCompletion: (() -> Void)?
     var dismissCounter: Int = 0
+    var dismissCompletion: (() -> Void)?
 
     var id: String
     var isHiding: Bool
@@ -17,10 +19,14 @@ class MockNotice: NoticeProtocol {
 
     func present(completion: @escaping (Bool) -> Void) {
         presentCounter += 1
+        completion(true)
+        presentCompletion?()
     }
 
-    func dismiss() {
+    func dismiss(completion: CompletionCallBack? = nil) {
         dismissCounter += 1
+        completion?(true)
+        dismissCompletion?()
     }
 
     init(

@@ -8,13 +8,21 @@
 
 import UIKit
 
+public typealias CompletionCallBack = (_ completed: Bool) -> Void
+
 public protocol NoticeProtocol {
     var id: String { get }
-    var isHiding: Bool { get set }
+    var isHiding: Bool { get }
     var duration: DurationsEnum { get }
 
-    func present(completion: @escaping (_ completed: Bool) -> Void)
-    func dismiss()
+    func present(completion: @escaping CompletionCallBack)
+    func dismiss(completion: CompletionCallBack?)
+}
+
+extension NoticeProtocol {
+    public func dismiss(completion: CompletionCallBack? = nil) {
+        dismiss(completion: completion)
+    }
 }
 
 open class Notice: NSObject, NoticeProtocol {
@@ -28,7 +36,7 @@ open class Notice: NSObject, NoticeProtocol {
     public let toPosition: ToPositionsEnum
     public let tapAction: TapCallback?
 
-    public var isHiding: Bool
+    public private(set) var isHiding: Bool
 
     weak var delegate: NoticeDelegate?
 
@@ -174,7 +182,7 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    public func dismiss() {
+    public func dismiss(completion: CompletionCallBack? = nil) {
         animator.removeAllBehaviors()
 
         if let gestureViewGestureRecognizers = containerView.gestureRecognizers {
@@ -193,6 +201,7 @@ open class Notice: NSObject, NoticeProtocol {
                     if let delegate = self.delegate {
                         delegate.noticeDidDisappear(notice: self)
                     }
+                    completion?(true)
                 }
             })
         }

@@ -9,19 +9,19 @@ public class NoticeManager {
 
     let queue: DispatchQueue
 
-    private var unsafePendingNotices: [NoticeProtocol] = [] {
+    internal var unsafePendingNotices: [NoticeProtocol] = [] {
         didSet {
             print("Pending Notices: \(unsafePendingNotices)")
         }
     }
 
-    private var unsafeCurrentNotices: [NoticeProtocol] = [] {
+    internal var unsafeCurrentNotices: [NoticeProtocol] = [] {
         didSet {
             print("Current Notices: \(unsafeCurrentNotices)")
         }
     }
 
-    private var autoDismissTasks: [String: DispatchWorkItem] = [:] {
+    internal var autoDismissTasks: [String: DispatchWorkItem] = [:] {
         didSet {
             print("Auto Dismiss Tasks: \(autoDismissTasks)")
         }
@@ -143,7 +143,7 @@ public class NoticeManager {
         }
     }
 
-    private func showNext() {
+    internal func showNext() {
         guard !unsafePendingNotices.isEmpty else { return }
 
         let delay: DispatchTimeInterval = SN.intervalBetweenNotices
@@ -200,7 +200,6 @@ public class NoticeManager {
 
     func cancelAutoDismiss(noticeId: String) {
         if let task = autoDismissTasks[noticeId] {
-            print("hi")
             task.cancel()
             autoDismissTasks.removeValue(forKey: noticeId)
         }
@@ -210,11 +209,12 @@ public class NoticeManager {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard !self.unsafeCurrentNotices.isEmpty else { return }
-            guard self.unsafeCurrentNotices.allSatisfy({ !$0.isHiding }) else { return }
 
             self.unsafeCurrentNotices.forEach { [weak self] in
-                $0.dismiss()
-                self?.autoDismissTasks.removeValue(forKey: $0.id)
+                if (!$0.isHiding) {
+                    $0.dismiss()
+                    self?.autoDismissTasks.removeValue(forKey: $0.id)
+                }
             }
         }
     }

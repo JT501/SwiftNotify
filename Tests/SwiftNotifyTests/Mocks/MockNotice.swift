@@ -6,7 +6,6 @@
 @testable import SwiftNotify
 
 class MockNotice: NoticeProtocol {
-
     // Method Counter
     var presentCounter: Int = 0
     var presentCompletion: (() -> Void)?
@@ -17,7 +16,7 @@ class MockNotice: NoticeProtocol {
     var isHiding: Bool
     var duration: DurationsEnum
 
-    func present(completion: @escaping (Bool) -> Void) {
+    func present(in window: UIWindow?, completion: @escaping (Bool) -> Void) {
         presentCounter += 1
         completion(true)
         presentCompletion?()

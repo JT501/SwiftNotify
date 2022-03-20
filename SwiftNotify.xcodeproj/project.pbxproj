@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		056E709A27CAC35100C745DA /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056E709927CAC35100C745DA /* images.xcassets */; };
-		05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074C61DE6F325003611FE /* CGRectEx.swift */; };
 		05B074D41DE6F358003611FE /* SwiftNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B074CF1DE6F358003611FE /* SwiftNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* SwiftNotify.swift */; };
 		05B074D61DE6F358003611FE /* SwiftNotifyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */; };
@@ -27,6 +26,7 @@
 		210965D0448C709184910CB4 /* CyberLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */; };
 		21096641DB3CCE393308F9CA /* ClassicDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CB6CBE60B7EC46CA718 /* ClassicDarkConfig.swift */; };
 		210966D37A915A44A18CB692 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B9EE11D98DEB5AE7693 /* ToastView.swift */; };
+		210966D54557656FD4F57E06 /* NoticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C1B8C0C778BB56F1742 /* NoticeTests.swift */; };
 		21096774F87B64586301E898 /* MockNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096EAD90060F51F49DADF7 /* MockNotice.swift */; };
 		21096898C0B7339039DA1CD2 /* DefaultIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */; };
 		210968FA69FB585CD571DB41 /* DurationsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966FF8E0CA5F582FE70B1 /* DurationsEnum.swift */; };
@@ -78,7 +78,6 @@
 		05A4828B27CA9449006805E5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		05A4828C27CA9449006805E5 /* SwiftNotify.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftNotify.podspec; sourceTree = "<group>"; };
 		05A4828D27CA9449006805E5 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		05B074C61DE6F325003611FE /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectEx.swift; path = Sources/SwiftNotify/Extension/CGRectEx.swift; sourceTree = SOURCE_ROOT; };
 		05B074CF1DE6F358003611FE /* SwiftNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftNotify.h; path = Sources/SwiftNotify/SwiftNotify.h; sourceTree = SOURCE_ROOT; };
 		05B074D01DE6F358003611FE /* SwiftNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotify.swift; path = Sources/SwiftNotify/SwiftNotify.swift; sourceTree = SOURCE_ROOT; };
 		05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotifyDelegate.swift; path = Sources/SwiftNotify/SwiftNotifyDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -107,6 +106,7 @@
 		21096B1436056D7636453BA5 /* ClassicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicView.swift; sourceTree = "<group>"; };
 		21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIcons.swift; sourceTree = "<group>"; };
 		21096B9EE11D98DEB5AE7693 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		21096C1B8C0C778BB56F1742 /* NoticeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTests.swift; sourceTree = "<group>"; };
 		21096C215B6F2293012E6085 /* ToastLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastLightConfig.swift; sourceTree = "<group>"; };
 		21096C6224A82A2744032B56 /* LevelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelConfig.swift; sourceTree = "<group>"; };
 		21096C9A5E0EFCDC3EE90618 /* ClassicLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicLightConfig.swift; sourceTree = "<group>"; };
@@ -160,6 +160,7 @@
 				05C8272D1DD31B7A003E0C5E /* Info.plist */,
 				210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */,
 				2109695A2F85A3E98DE4E7E1 /* Mocks */,
+				21096C1B8C0C778BB56F1742 /* NoticeTests.swift */,
 			);
 			path = SwiftNotifyTests;
 			sourceTree = "<group>";
@@ -175,7 +176,6 @@
 		0515001E27CA7D7900A15BA5 /* SwiftNotify */ = {
 			isa = PBXGroup;
 			children = (
-				0532121F1DD95F0D0008581A /* Extension */,
 				21096A91E16EF8D579E001D1 /* Enums */,
 				21096C6846A7E6C01254CFBA /* Themes */,
 				210968E09F8C34791D946706 /* NoticeManager.swift */,
@@ -189,14 +189,6 @@
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
 			);
 			path = SwiftNotify;
-			sourceTree = "<group>";
-		};
-		0532121F1DD95F0D0008581A /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				05B074C61DE6F325003611FE /* CGRectEx.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		05840B2927D10722009FD18A /* Defaults */ = {
@@ -504,7 +496,6 @@
 				05B074D61DE6F358003611FE /* SwiftNotifyDelegate.swift in Sources */,
 				05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */,
 				05B074D71DE6F358003611FE /* Notice.swift in Sources */,
-				05B074C71DE6F325003611FE /* CGRectEx.swift in Sources */,
 				210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */,
 				210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */,
 				21096C72458D67A9048DE709 /* DefaultColors.swift in Sources */,
@@ -546,6 +537,7 @@
 				05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */,
 				21096DF1D3FE67F7FCD471FD /* NoticeManagerTests.swift in Sources */,
 				21096774F87B64586301E898 /* MockNotice.swift in Sources */,
+				210966D54557656FD4F57E06 /* NoticeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

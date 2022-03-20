@@ -75,10 +75,10 @@ open class ToastView: NoticeViewBase {
         let viewWidth = labelSize.width + padding * 2
         let viewHeight = labelSize.height + padding * 2
 
-        bounds.width = viewWidth
-        bounds.height = viewHeight
+        bounds.size.width = viewWidth
+        bounds.size.height = viewHeight
 
         bodyLabel?.bounds.size = labelSize
-        bodyLabel?.center = bounds.center
+        bodyLabel?.center = center
     }
 }

@@ -220,7 +220,7 @@ open class NoticeViewBase: UIView, NoticeView {
         guard let text = text else { return .zero }
 
         let width = width ?? CGFloat.greatestFiniteMagnitude
-        let label: UILabel = UILabel(frame: CGRect(0, 0, width, CGFloat.greatestFiniteMagnitude))
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
@@ -249,9 +249,9 @@ open class NoticeViewBase: UIView, NoticeView {
 
         let totalHeight = titleLabelHeight + bodyLabelHeight + padding * 2 + interPadding
         if totalHeight < (iconViewHeight + padding * 2) {
-            bounds.height = iconViewWidth + padding * 2
+            bounds.size.height = iconViewWidth + padding * 2
         } else {
-            bounds.height = totalHeight
+            bounds.size.height = totalHeight
         }
 
         let labelX: CGFloat
@@ -264,10 +264,10 @@ open class NoticeViewBase: UIView, NoticeView {
 
         if isTitleLabelHidden {
             bodyLabel?.frame.size = CGSize(width: bodyLabelWidth, height: bodyLabelHeight)
-            bodyLabel?.center = CGPoint(labelX + (bodyLabel?.bounds.midX ?? .zero), bounds.midY)
+            bodyLabel?.center = CGPoint(x: labelX + (bodyLabel?.bounds.midX ?? .zero), y: bounds.midY)
         } else if isBodyLabelHidden {
             titleLabel?.frame.size = CGSize(width: titleLabelWidth, height: titleLabelHeight)
-            titleLabel?.center = CGPoint(labelX + (titleLabel?.bounds.midX ?? .zero), bounds.midY)
+            titleLabel?.center = CGPoint(x: labelX + (titleLabel?.bounds.midX ?? .zero), y: bounds.midY)
         } else {
             titleLabel?.frame = CGRect(
                     x: labelX,

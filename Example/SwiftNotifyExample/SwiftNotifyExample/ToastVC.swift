@@ -17,7 +17,7 @@ class ToastVC: UIViewController {
         // Do any additional setup after loading the view.
         SN.defaultTheme = .toast
         SN.defaultFromPosition = .bottom(.random)
-        SN.defaultToPosition = .bottom
+        SN.defaultToPosition = .bottom()
     }
 
     override func didReceiveMemoryWarning() {

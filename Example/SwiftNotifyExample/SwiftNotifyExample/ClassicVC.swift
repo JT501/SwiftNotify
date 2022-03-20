@@ -17,7 +17,7 @@ class ClassicVC: UIViewController {
         // Do any additional setup after loading the view.
         SN.defaultTheme = .classic
         SN.defaultFromPosition = .top(.random)
-        SN.defaultToPosition = .top
+        SN.defaultToPosition = .top()
     }
 
     override func didReceiveMemoryWarning() {

@@ -92,7 +92,7 @@ open class Notice: NSObject, NoticeProtocol {
 
         super.init()
 
-        panRecognizer.addTarget(self, action: #selector(Notice.pan(gesture:)))
+        panRecognizer.addTarget(self, action: #selector(onPan(gesture:)))
         panRecognizer.maximumNumberOfTouches = 1
         tapRecognizer.addTarget(self, action: #selector(onTap(gesture:)))
         longPressRecognizer.addTarget(self, action: #selector(onLongPress(gesture:)))
@@ -180,9 +180,11 @@ open class Notice: NSObject, NoticeProtocol {
     }
 
     public func present(
-            in window: UIWindow? = UIApplication.shared.delegate?.window ?? nil,
+            in window: UIWindow? = nil,
             completion: @escaping (_ completed: Bool) -> Void
     ) {
+        let window = window ?? UIApplication.shared.delegate?.window!
+
         guard let window = window else { return }
 
         animator = UIDynamicAnimator(referenceView: window)
@@ -268,11 +270,7 @@ open class Notice: NSObject, NoticeProtocol {
         animator.addBehavior(gravityBehaviour)
     }
 
-    func removeSnap(view: UIView) {
-        animator.removeBehavior(snapBehaviour)
-    }
-
-    @objc func pan(gesture: UIPanGestureRecognizer) {
+    @objc func onPan(gesture: UIPanGestureRecognizer) {
         let gestureView = gesture.view!
         let dragPoint: CGPoint = gesture.location(in: gestureView)
         let viewCenter = gestureView.center  //Center of message view in its superview
@@ -309,14 +307,14 @@ open class Notice: NSObject, NoticeProtocol {
             lastAngle = CGFloat(angleOfView(view: gestureView))
 
             attachmentBehaviour.action = { [weak self] in
-                guard let strongSelf = self else {
+                guard let self = self else {
                     return
                 }
                 //Calculate Angular Velocity
                 let time = CFAbsoluteTimeGetCurrent()
-                let angle = CGFloat(strongSelf.angleOfView(view: gestureView))
+                let angle = CGFloat(self.angleOfView(view: gestureView))
                 if time > lastTime {
-                    strongSelf.angularVelocity = (angle - lastAngle) / CGFloat((time - lastTime))
+                    self.angularVelocity = (angle - lastAngle) / CGFloat((time - lastTime))
                     lastTime = time
                     lastAngle = angle
                 }

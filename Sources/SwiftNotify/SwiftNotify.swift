@@ -88,7 +88,7 @@ open class SwiftNotify: NoticeDelegate {
             defaultTheme: ThemesEnum = .cyber,
             defaultThemeConfig: ThemeConfig? = nil,
             defaultFromPosition: FromPositionsEnum = .top(.random),
-            defaultToPosition: ToPositionsEnum = .top,
+            defaultToPosition: ToPositionsEnum = .top(),
             defaultNoticeDuration: DurationsEnum = .short,
             defaultPhysicsConfig: PhysicsConfig = DefaultPhysicsConfig(),
             intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),

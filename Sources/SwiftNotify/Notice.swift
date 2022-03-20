@@ -15,13 +15,17 @@ public protocol NoticeProtocol {
     var isHiding: Bool { get }
     var duration: DurationsEnum { get }
 
-    func present(completion: @escaping CompletionCallBack)
+    func present(in window: UIWindow?, completion: @escaping CompletionCallBack)
     func dismiss(completion: CompletionCallBack?)
 }
 
 extension NoticeProtocol {
     public func dismiss(completion: CompletionCallBack? = nil) {
         dismiss(completion: completion)
+    }
+
+    public func present(in window: UIWindow? = nil, completion: @escaping CompletionCallBack) {
+        present(in: window, completion: completion)
     }
 }
 
@@ -40,15 +44,15 @@ open class Notice: NSObject, NoticeProtocol {
 
     weak var delegate: NoticeDelegate?
 
-    private let containerView: UIView
-    private let panRecognizer: UIPanGestureRecognizer
-    private let tapRecognizer: UITapGestureRecognizer
-    private let longPressRecognizer: UILongPressGestureRecognizer
-    private var animator: UIDynamicAnimator
+    internal let containerView: UIView
+    internal let panRecognizer: UIPanGestureRecognizer
+    internal let tapRecognizer: UITapGestureRecognizer
+    internal let longPressRecognizer: UILongPressGestureRecognizer
+    internal var animator: UIDynamicAnimator
     private var snapPoint: CGPoint
-    private var snapBehaviour: UISnapBehavior!
+    internal var snapBehaviour: UISnapBehavior!
     private var attachmentBehaviour: UIAttachmentBehavior!
-    private var gravityBehaviour: UIGravityBehavior!
+    internal var gravityBehaviour: UIGravityBehavior!
     private var collisionBehaviour: UICollisionBehavior!
 
     private var fieldMargin: CGFloat  //Margin to remove message from view
@@ -66,7 +70,7 @@ open class Notice: NSObject, NoticeProtocol {
             toPosition: ToPositionsEnum,
             tapHandler: TapCallback?,
             config: PhysicsConfig,
-            delegate: NoticeDelegate
+            delegate: NoticeDelegate? = nil
     ) {
         self.id = id
         self.config = config
@@ -97,59 +101,93 @@ open class Notice: NSObject, NoticeProtocol {
         longPressRecognizer.delegate = self
     }
 
-    public func present(completion: @escaping (_ completed: Bool) -> Void) {
-        guard let appDelegate = UIApplication.shared.delegate else {
-            return
-        }
-        guard let keyWindow = appDelegate.window! else {
-            return
-        }
-
-        animator = UIDynamicAnimator(referenceView: keyWindow)
-
-        let initPoint: CGPoint
+    internal func getInitPoint(in window: UIWindow, fromPosition: FromPositionsEnum) -> CGPoint {
         switch fromPosition {
         case .top(let position):
             switch position {
             case .center:
-                initPoint = CGPoint(keyWindow.bounds.midX, 0 - view.bounds.height)
+                return CGPoint(x: window.bounds.midX, y: -view.bounds.height)
             case .left:
-                initPoint = CGPoint(0 - view.bounds.width, 0 - view.bounds.height)
+                return CGPoint(x: -view.bounds.width, y: -view.bounds.height)
             case .right:
-                initPoint = CGPoint(keyWindow.bounds.width, 0 - view.bounds.height)
+                return CGPoint(x: window.bounds.width, y: -view.bounds.height)
             case .random:
-                initPoint = CGPoint(
-                        randomBetweenNumbers(
-                                firstNum: 0 - view.bounds.width,
-                                secondNum: keyWindow.bounds.width + view.bounds.width
+                return CGPoint(
+                        x: randomBetweenNumbers(
+                                firstNum: -view.bounds.width,
+                                secondNum: window.bounds.width + view.bounds.width
                         ),
-                        0 - view.bounds.height
+                        y: -view.bounds.height
                 )
             }
         case .bottom(let position):
             switch position {
             case .center:
-                initPoint = CGPoint(keyWindow.bounds.midX, keyWindow.bounds.height)
+                return CGPoint(x: window.bounds.midX, y: window.bounds.height)
             case .left:
-                initPoint = CGPoint(0 - view.bounds.width, keyWindow.bounds.height)
+                return CGPoint(x: -view.bounds.width, y: window.bounds.height)
             case .right:
-                initPoint = CGPoint(keyWindow.bounds.width, keyWindow.bounds.height)
+                return CGPoint(x: window.bounds.width, y: window.bounds.height)
             case .random:
-                initPoint = CGPoint(
-                        randomBetweenNumbers(
-                                firstNum: 0 - view.bounds.width,
-                                secondNum: keyWindow.bounds.width + view.bounds.width
+                return CGPoint(
+                        x: randomBetweenNumbers(
+                                firstNum: -view.bounds.width,
+                                secondNum: window.bounds.width + view.bounds.width
                         ),
-                        keyWindow.bounds.height
+                        y: window.bounds.height
                 )
             }
         case .left:
-            initPoint = CGPoint(0 - view.bounds.width, keyWindow.bounds.midY)
+            return CGPoint(x: -view.bounds.width, y: window.bounds.midY)
         case .right:
-            initPoint = CGPoint(keyWindow.bounds.width, keyWindow.bounds.midY)
+            return CGPoint(x: window.bounds.width, y: window.bounds.midY)
         case .custom(let point):
-            initPoint = point
+            return point
         }
+    }
+
+    internal func getSnapPoint(in window: UIWindow, toPosition: ToPositionsEnum) -> CGPoint {
+        switch toPosition {
+        case .bottom(let offset):
+            return CGPoint(x: window.bounds.midX, y: window.bounds.maxY - offset - containerView.bounds.midY)
+        case .center:
+            return window.center
+        case .top(let offset):
+            return CGPoint(x: window.bounds.midX, y: offset + containerView.bounds.minY)
+        case .custom(let point):
+            return point
+        }
+    }
+
+    internal func addSnapBehaviour(
+            for view: UIView,
+            toPoint: CGPoint,
+            completion: ((_ completed: Bool) -> Void)? = nil
+    ) {
+        var counter = 0
+        snapBehaviour = UISnapBehavior(item: view, snapTo: toPoint)
+        snapBehaviour.damping = config.snapDamping
+        snapBehaviour.action = {
+            // Check if the view reach the snap point
+            if self.distance(from: view.center, to: toPoint) < 1 && counter == 0 {
+                counter += 1
+                completion?(true)
+            } else {
+                completion?(false)
+            }
+        }
+        animator.addBehavior(snapBehaviour)
+    }
+
+    public func present(
+            in window: UIWindow? = UIApplication.shared.delegate?.window ?? nil,
+            completion: @escaping (_ completed: Bool) -> Void
+    ) {
+        guard let window = window else { return }
+
+        animator = UIDynamicAnimator(referenceView: window)
+
+        let initPoint = getInitPoint(in: window, fromPosition: fromPosition)
 
         view.frame.origin = CGPoint.zero
         containerView.frame.origin = initPoint
@@ -161,28 +199,49 @@ open class Notice: NSObject, NoticeProtocol {
         containerView.addGestureRecognizer(tapRecognizer)
         containerView.addGestureRecognizer(longPressRecognizer)
 
-        keyWindow.addSubview(containerView)
+        window.addSubview(containerView)
 
         if let delegate = delegate {
             delegate.noticeDidAppear(notice: self)
         }
 
-        switch toPosition {
-        case .bottom:
-            snapPoint = CGPoint(x: keyWindow.bounds.midX, y: keyWindow.bounds.bottom - 50 - containerView.bounds.midY)
-        case .center:
-            snapPoint = keyWindow.bounds.center
-        case .top:
-            snapPoint = CGPoint(x: keyWindow.bounds.midX, y: 70 + containerView.bounds.height / 2)
-        case .custom(let point):
-            snapPoint = point
-        }
-        addSnap(view: containerView, toPoint: snapPoint) { (completed) in
+        snapPoint = getSnapPoint(in: window, toPosition: toPosition)
+
+        addSnapBehaviour(for: containerView, toPoint: snapPoint) { (completed) in
             completion(completed)
         }
     }
 
+    internal func removeFromSuperView(completion: @escaping CompletionCallBack) {
+        if containerView.superview != nil {
+            //TOP
+            if containerView.frame.minY >= (containerView.superview!.bounds.maxY + fieldMargin) {
+                containerView.removeFromSuperview()
+                completion(true)
+            }
+            //BOTTOM
+            else if (containerView.frame.maxY) <= (containerView.superview!.bounds.minY - fieldMargin) {
+                containerView.removeFromSuperview()
+                completion(true)
+            }
+            //RIGHT
+            else if (containerView.frame.maxX) <= (containerView.superview!.bounds.minX - fieldMargin) {
+                containerView.removeFromSuperview()
+                completion(true)
+            }
+            //LEFT
+            else if containerView.frame.minX >= (containerView.superview!.bounds.maxY + fieldMargin) {
+                containerView.removeFromSuperview()
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+
     public func dismiss(completion: CompletionCallBack? = nil) {
+        isHiding = true
+
         animator.removeAllBehaviors()
 
         if let gestureViewGestureRecognizers = containerView.gestureRecognizers {
@@ -201,60 +260,12 @@ open class Notice: NSObject, NoticeProtocol {
                     if let delegate = self.delegate {
                         delegate.noticeDidDisappear(notice: self)
                     }
-                    completion?(true)
                 }
+                completion?(completed)
             })
         }
 
         animator.addBehavior(gravityBehaviour)
-    }
-
-    func removeFromSuperView(completion: @escaping (_ completed: Bool) -> Void) {
-        if containerView.superview != nil {
-            //TOP
-            if containerView.frame.top >= (containerView.superview!.bounds.bottom + fieldMargin) {
-                containerView.removeFromSuperview()
-                completion(true)
-            }
-            //BOTTOM
-            else if (containerView.frame.bottom) <= (containerView.superview!.bounds.top - fieldMargin) {
-                containerView.removeFromSuperview()
-                completion(true)
-            }
-            //RIGHT
-            else if (containerView.frame.right) <= (containerView.superview!.bounds.left - fieldMargin) {
-                containerView.removeFromSuperview()
-                completion(true)
-            }
-            //LEFT
-            else if containerView.frame.left >= (containerView.superview!.bounds.right + fieldMargin) {
-                containerView.removeFromSuperview()
-                completion(true)
-            } else {
-                isHiding = true
-                completion(false)
-            }
-        }
-    }
-
-    func addSnap(view: UIView, toPoint: CGPoint, completion: ((_ completed: Bool) -> Void)? = nil) {
-        var counter = 0
-        snapBehaviour = UISnapBehavior(item: view, snapTo: toPoint)
-        snapBehaviour.damping = config.snapDamping
-        snapBehaviour.action = {
-            // Check if the view reach the snap point
-            if self.distance(from: view.center, to: toPoint) < 1 && counter == 0 {
-                counter += 1
-                if let completion = completion {
-                    completion(true)
-                }
-            } else {
-                if let completion = completion {
-                    completion(false)
-                }
-            }
-        }
-        animator.addBehavior(snapBehaviour)
     }
 
     func removeSnap(view: UIView) {
@@ -328,7 +339,7 @@ open class Notice: NSObject, NoticeProtocol {
             animator.removeAllBehaviors()
 
             if movedDistance < config.thresholdDistance {
-                addSnap(view: gestureView, toPoint: snapPoint)
+                addSnapBehaviour(for: gestureView, toPoint: snapPoint)
                 postEndPanningNotDismissNotification()
             } else {
                 animator.removeAllBehaviors()
@@ -345,9 +356,8 @@ open class Notice: NSObject, NoticeProtocol {
                 let pushMagnitude: CGFloat = pushBehavior.magnitude * config.pushForceFactor
                 let massFactor: CGFloat = (gestureView.bounds.height * gestureView.bounds.width) / (100 * 100)
 
-                pushBehavior.magnitude = (
-                        pushMagnitude > config.minPushForce
-                ) ? pushMagnitude * massFactor : config.defaultPushForce * massFactor
+                pushBehavior.magnitude = (pushMagnitude > config.minPushForce) ?
+                        pushMagnitude * massFactor : config.defaultPushForce * massFactor
                 //                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
                 animator.addBehavior(pushBehavior)
 

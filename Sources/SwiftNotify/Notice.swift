@@ -38,7 +38,7 @@ open class Notice: NSObject, NoticeProtocol {
     public let duration: DurationsEnum
     public let fromPosition: FromPositionsEnum
     public let toPosition: ToPositionsEnum
-    public let tapAction: TapCallback?
+    public var tapAction: TapCallback?
 
     public private(set) var isHiding: Bool
 

@@ -33,6 +33,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
     }
 
     func noticeIsTapped(notice: Notice) {
+        noticeIsTappedIsCalled = true
     }
 
 
@@ -43,11 +44,19 @@ class NoticeTests: XCTestCase, NoticeDelegate {
     var noticeStartPanningIsCalled: Bool!
     var noticeIsPanningIsCalled: Bool!
     var noticeEndPanningIsCalled: Bool!
+    var noticeIsTappedIsCalled: Bool!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try super.setUpWithError()
+
         noticeDidAppearIsCalled = false
+        noticeDidDisappearIsCalled = false
+        noticeStartPanningIsCalled = false
+        noticeIsPanningIsCalled = false
+        noticeEndPanningIsCalled = false
+        noticeIsTappedIsCalled = false
+
         view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         sut = Notice(
                 view: view,
@@ -365,5 +374,20 @@ class NoticeTests: XCTestCase, NoticeDelegate {
 
         XCTAssertTrue(sut.containerView.gestureRecognizers!.isEmpty)
         XCTAssertEqual(sut.animator.behaviors, [sut.pushBehavior, sut.itemBehaviour])
+    }
+
+    func testOnTap() {
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.tapRecognizer)
+        var tapActionIsCalled = false
+        sut.tapAction = { _ in tapActionIsCalled = true }
+        let tapRecognizer = sut.tapRecognizer as? TestableTapGestureRecognizer
+        XCTAssertNotNil(tapRecognizer)
+
+        // When
+        tapRecognizer?.mockTap(state: .ended)
+
+        XCTAssertTrue(noticeIsTappedIsCalled)
+        XCTAssertTrue(tapActionIsCalled)
     }
 }

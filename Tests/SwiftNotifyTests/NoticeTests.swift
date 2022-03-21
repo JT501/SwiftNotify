@@ -294,7 +294,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         let expectNotification = expectation(forNotification: NoticeNotification.startPanning, object: nil)
         sut.containerView.bounds = view.bounds
         sut.containerView.addGestureRecognizer(sut.panRecognizer)
-        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+        let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
         let location = CGPoint(x: 50, y: 50)
 
         XCTAssertNotNil(panRecognizer)
@@ -316,7 +316,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         sut.containerView.bounds = view.bounds
         sut.containerView.addGestureRecognizer(sut.panRecognizer)
         let location = CGPoint(x: 50, y: 50)
-        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+        let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
 
         // When
         panRecognizer?.mockPan(location: location, state: .began)
@@ -330,7 +330,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         sut.containerView.bounds = view.bounds
         sut.containerView.addGestureRecognizer(sut.panRecognizer)
         let location = CGPoint(x: 50, y: 50)
-        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+        let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
         let expectNotification = expectation(forNotification: NoticeNotification.endPanningNotDismiss, object: nil)
 
         // When
@@ -349,7 +349,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         sut.containerView.addGestureRecognizer(sut.panRecognizer)
         let location = CGPoint(x: 50, y: 50)
         let velocity = CGPoint(x: 0, y: 0)
-        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+        let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
 
         // When
         // Simulate container view move to (50, 50)
@@ -365,7 +365,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         sut.containerView.addGestureRecognizer(sut.panRecognizer)
         let location = CGPoint(x: 50, y: 50)
         let velocity = CGPoint(x: 500, y: 500)
-        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+        let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
 
         // When
         // Simulate container view move to (50, 50)
@@ -381,7 +381,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         sut.containerView.addGestureRecognizer(sut.tapRecognizer)
         var tapActionIsCalled = false
         sut.tapAction = { _ in tapActionIsCalled = true }
-        let tapRecognizer = sut.tapRecognizer as? TestableTapGestureRecognizer
+        let tapRecognizer = sut.tapRecognizer as? TestableTapRecognizer
         XCTAssertNotNil(tapRecognizer)
 
         // When
@@ -389,5 +389,31 @@ class NoticeTests: XCTestCase, NoticeDelegate {
 
         XCTAssertTrue(noticeIsTappedIsCalled)
         XCTAssertTrue(tapActionIsCalled)
+    }
+
+    func testOnLongPreseBegan() {
+        let expectNotification = expectation(forNotification: NoticeNotification.startPressing, object: nil)
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.longPressRecognizer)
+        let longPressRecognizer = sut.longPressRecognizer as? TestableLongPressRecognizer
+        XCTAssertNotNil(longPressRecognizer)
+
+        // When
+        longPressRecognizer?.mockLongPress(state: .began)
+
+        wait(for: [expectNotification], timeout: 0.1)
+    }
+
+    func testOnLongPreseEnded() {
+        let expectNotification = expectation(forNotification: NoticeNotification.endPressing, object: nil)
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.longPressRecognizer)
+        let longPressRecognizer = sut.longPressRecognizer as? TestableLongPressRecognizer
+        XCTAssertNotNil(longPressRecognizer)
+
+        // When
+        longPressRecognizer?.mockLongPress(state: .ended)
+
+        wait(for: [expectNotification], timeout: 0.1)
     }
 }

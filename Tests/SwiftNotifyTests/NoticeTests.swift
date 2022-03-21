@@ -16,13 +16,16 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         noticeDidAppearIsCalled = true
     }
 
-    func noticeStartDragging(atPoint: CGPoint, notice: Notice) {
+    func noticeStartPanning(atPoint: CGPoint, notice: Notice) {
+        noticeStartPanningIsCalled = true
     }
 
-    func noticeIsDragging(atPoint: CGPoint, notice: Notice) {
+    func noticeIsPanning(atPoint: CGPoint, notice: Notice) {
+        noticeIsPanningIsCalled = true
     }
 
-    func noticeEndDragging(atPoint: CGPoint, notice: Notice) {
+    func noticeEndPanning(atPoint: CGPoint, notice: Notice) {
+        noticeEndPanningIsCalled = true
     }
 
     func noticeDidDisappear(notice: Notice) {
@@ -37,6 +40,9 @@ class NoticeTests: XCTestCase, NoticeDelegate {
     var view: UIView!
     var noticeDidAppearIsCalled: Bool!
     var noticeDidDisappearIsCalled: Bool!
+    var noticeStartPanningIsCalled: Bool!
+    var noticeIsPanningIsCalled: Bool!
+    var noticeEndPanningIsCalled: Bool!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -273,5 +279,91 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         wait(for: [expectGravity, expectNotification], timeout: 1.5)
 
         XCTAssertTrue(noticeDidDisappearIsCalled)
+    }
+
+    func testOnPanBegan() {
+        let expectNotification = expectation(forNotification: NoticeNotification.startPanning, object: nil)
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.panRecognizer)
+        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+        let location = CGPoint(x: 50, y: 50)
+
+        XCTAssertNotNil(panRecognizer)
+
+        // When
+        panRecognizer?.mockPan(
+                location: location,
+                state: .began)
+
+        XCTAssertTrue(noticeStartPanningIsCalled)
+        XCTAssertTrue(sut.attachmentBehaviour.items.contains(where: { $0 as! UIView == sut.containerView }))
+        XCTAssertEqual(sut.attachmentBehaviour.anchorPoint, location)
+        XCTAssertEqual(sut.animator.behaviors, [sut.attachmentBehaviour])
+
+        wait(for: [expectNotification], timeout: 0.1)
+    }
+
+    func testOnPanChanged() {
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.panRecognizer)
+        let location = CGPoint(x: 50, y: 50)
+        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+
+        // When
+        panRecognizer?.mockPan(location: location, state: .began)
+        panRecognizer?.mockPan(location: location, state: .changed)
+
+        XCTAssertEqual(sut.attachmentBehaviour.anchorPoint, location)
+        XCTAssertTrue(noticeIsPanningIsCalled)
+    }
+
+    func testOnPanEndedWhenMoveDistanceSmallerThanThresholdDistance() {
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.panRecognizer)
+        let location = CGPoint(x: 50, y: 50)
+        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+        let expectNotification = expectation(forNotification: NoticeNotification.endPanningNotDismiss, object: nil)
+
+        // When
+        // Simulate container view move to (10, 10)
+        sut.containerView.center = CGPoint(x: 10, y: 10)
+        panRecognizer?.mockPan(location: location, state: .ended)
+
+        XCTAssertTrue(noticeEndPanningIsCalled)
+        XCTAssertEqual(sut.animator.behaviors, [sut.snapBehaviour])
+
+        wait(for: [expectNotification], timeout: 0.1)
+    }
+
+    func testOnPanEndedWhenMoveDistanceLargerThanThresholdDistanceWithZeroVelocity() {
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.panRecognizer)
+        let location = CGPoint(x: 50, y: 50)
+        let velocity = CGPoint(x: 0, y: 0)
+        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+
+        // When
+        // Simulate container view move to (50, 50)
+        sut.containerView.center = CGPoint(x: 50, y: 50)
+        panRecognizer?.mockPan(location: location, velocity: velocity, state: .ended)
+
+        XCTAssertTrue(sut.containerView.gestureRecognizers!.isEmpty)
+        XCTAssertEqual(sut.animator.behaviors, [sut.gravityBehaviour])
+    }
+
+    func testOnPanEndedWhenMoveDistanceLargerThanThresholdDistanceWithHighVelocity() {
+        sut.containerView.bounds = view.bounds
+        sut.containerView.addGestureRecognizer(sut.panRecognizer)
+        let location = CGPoint(x: 50, y: 50)
+        let velocity = CGPoint(x: 500, y: 500)
+        let panRecognizer = sut.panRecognizer as? TestablePanGestureRecognizer
+
+        // When
+        // Simulate container view move to (50, 50)
+        sut.containerView.center = CGPoint(x: 50, y: 50)
+        panRecognizer?.mockPan(location: location, velocity: velocity, state: .ended)
+
+        XCTAssertTrue(sut.containerView.gestureRecognizers!.isEmpty)
+        XCTAssertEqual(sut.animator.behaviors, [sut.pushBehavior, sut.itemBehaviour])
     }
 }

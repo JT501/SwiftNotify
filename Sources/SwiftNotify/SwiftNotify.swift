@@ -261,21 +261,21 @@ open class SwiftNotify: NoticeDelegate {
         }
     }
 
-    func noticeStartDragging(atPoint: CGPoint, notice: Notice) {
+    func noticeStartPanning(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyStartDragging(atPoint: atPoint, notice: notice)
+            delegate.swiftNotifyStartPanning(atPoint: atPoint, notice: notice)
         }
     }
 
-    func noticeIsDragging(atPoint: CGPoint, notice: Notice) {
+    func noticeIsPanning(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyIsDragging(atPoint: atPoint, notice: notice)
+            delegate.swiftNotifyIsPanning(atPoint: atPoint, notice: notice)
         }
     }
 
-    func noticeEndDragging(atPoint: CGPoint, notice: Notice) {
+    func noticeEndPanning(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
-            delegate.swiftNotifyEndDragging(atPoint: atPoint, notice: notice)
+            delegate.swiftNotifyEndPanning(atPoint: atPoint, notice: notice)
         }
     }
 

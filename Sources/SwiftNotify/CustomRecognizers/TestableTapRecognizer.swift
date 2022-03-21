@@ -5,20 +5,20 @@
 
 import Foundation
 
-class TestableTapGestureRecognizer: UITapGestureRecognizer {
+class TestableTapRecognizer: UITapGestureRecognizer {
     private var testTarget: AnyObject?
     private var testAction: Selector?
 
     private var mockState: UIGestureRecognizer.State?
 
     override init(target: Any?, action: Selector?) {
-        testTarget = testTarget as? AnyObject
+        testTarget = target as AnyObject
         testAction = action
         super.init(target: target, action: action)
     }
 
     override func addTarget(_ target: Any, action: Selector) {
-        testTarget = target as? AnyObject
+        testTarget = target as AnyObject
         testAction = action
         super.addTarget(target, action: action)
     }
@@ -38,7 +38,7 @@ class TestableTapGestureRecognizer: UITapGestureRecognizer {
     /// Mock Tap Gesture
     ///
     /// - Parameter state: Tap's state
-    func mockTap(state: UITapGestureRecognizer.State) {
+    func mockTap(state: UIGestureRecognizer.State) {
         mockState = state
         testTarget?.perform(testAction, with: self)
     }

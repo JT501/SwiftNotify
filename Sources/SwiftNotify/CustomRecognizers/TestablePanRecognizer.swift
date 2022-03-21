@@ -5,7 +5,7 @@
 
 import UIKit
 
-class TestablePanGestureRecognizer: UIPanGestureRecognizer {
+class TestablePanRecognizer: UIPanGestureRecognizer {
     private var testTarget: AnyObject?
     private var testAction: Selector?
 
@@ -15,13 +15,13 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
     private var velocity: CGPoint?
 
     override init(target: Any?, action: Selector?) {
-        testTarget = target as? AnyObject
+        testTarget = target as AnyObject
         testAction = action
         super.init(target: target, action: action)
     }
 
     override func addTarget(_ target: Any, action: Selector) {
-        testTarget = target as? AnyObject
+        testTarget = target as AnyObject
         testAction = action
         super.addTarget(target, action: action)
     }
@@ -73,7 +73,7 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
             location: CGPoint? = nil,
             translation: CGPoint? = nil,
             velocity: CGPoint? = nil,
-            state: UIPanGestureRecognizer.State
+            state: UIGestureRecognizer.State
     ) {
         self.location = location
         self.translation = translation

@@ -82,9 +82,9 @@ open class Notice: NSObject, NoticeProtocol {
         self.delegate = delegate
 
         containerView = UIView()
-        panRecognizer = TestablePanGestureRecognizer()
-        tapRecognizer = TestableTapGestureRecognizer()
-        longPressRecognizer = UILongPressGestureRecognizer()
+        panRecognizer = TestablePanRecognizer()
+        tapRecognizer = TestableTapRecognizer()
+        longPressRecognizer = TestableLongPressRecognizer()
         animator = UIDynamicAnimator()
         snapPoint = CGPoint.zero
         isHiding = false
@@ -439,7 +439,7 @@ open class Notice: NSObject, NoticeProtocol {
     }
 
     //http://stackoverflow.com/questions/26029393/random-number-between-two-decimals-in-swift
-    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
+    internal func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
 

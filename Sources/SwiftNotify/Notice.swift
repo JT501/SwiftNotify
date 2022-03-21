@@ -83,7 +83,7 @@ open class Notice: NSObject, NoticeProtocol {
 
         containerView = UIView()
         panRecognizer = TestablePanGestureRecognizer()
-        tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer = TestableTapGestureRecognizer()
         longPressRecognizer = UILongPressGestureRecognizer()
         animator = UIDynamicAnimator()
         snapPoint = CGPoint.zero

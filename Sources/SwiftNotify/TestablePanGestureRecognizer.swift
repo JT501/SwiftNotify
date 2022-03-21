@@ -20,19 +20,6 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
         super.init(target: target, action: action)
     }
 
-    func mockPan(
-            location: CGPoint? = nil,
-            translation: CGPoint? = nil,
-            velocity: CGPoint? = nil,
-            state: UIPanGestureRecognizer.State
-    ) {
-        self.location = location
-        self.translation = translation
-        self.velocity = velocity
-        mockState = state
-        testTarget?.perform(testAction, with: self)
-    }
-
     override func addTarget(_ target: Any, action: Selector) {
         testTarget = target as? AnyObject
         testAction = action
@@ -73,5 +60,25 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
         }
 
         return super.location(in: view)
+    }
+
+    /// Mock Pan Gesture
+    ///
+    /// - Parameters:
+    ///   - location:       Pan's location
+    ///   - translation:    Pan's translation
+    ///   - velocity:       Pan's velocity
+    ///   - state:          Pan's state
+    func mockPan(
+            location: CGPoint? = nil,
+            translation: CGPoint? = nil,
+            velocity: CGPoint? = nil,
+            state: UIPanGestureRecognizer.State
+    ) {
+        self.location = location
+        self.translation = translation
+        self.velocity = velocity
+        mockState = state
+        testTarget?.perform(testAction, with: self)
     }
 }

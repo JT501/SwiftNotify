@@ -34,6 +34,7 @@
 		210969751DDEA0FF75ABF036 /* ThemesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210967C10C8659F2C6F11984 /* ThemesEnum.swift */; };
 		210969B0192DF8D06BE73855 /* ClassicLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C9A5E0EFCDC3EE90618 /* ClassicLightConfig.swift */; };
 		21096AA450E4BC7A4EAD887C /* ThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096003BB2672E5504DFD69 /* ThemeConfig.swift */; };
+		21096B845A37C8B23D07ADB2 /* TestableTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109664926AA1825C0A89D39 /* TestableTapGestureRecognizer.swift */; };
 		21096C676797FCC3A4D68DAA /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C6224A82A2744032B56 /* LevelConfig.swift */; };
 		21096C72458D67A9048DE709 /* DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CB51760D8F0E132BE6C /* DefaultColors.swift */; };
 		21096C734DC8F5B35A2C84AC /* NoticeViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */; };
@@ -98,6 +99,7 @@
 		21096331922D41D34FB1854D /* NoticeNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeNotification.swift; sourceTree = "<group>"; };
 		210963925DE8694B088FA382 /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberView.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		2109664926AA1825C0A89D39 /* TestableTapGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableTapGestureRecognizer.swift; sourceTree = "<group>"; };
 		210966991022B78DC4EBF7C5 /* ToPositionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToPositionsEnum.swift; sourceTree = "<group>"; };
 		210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeManagerTests.swift; sourceTree = "<group>"; };
 		210966FF8E0CA5F582FE70B1 /* DurationsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationsEnum.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
 				21096073FC1C15FB06BBAB51 /* TestablePanGestureRecognizer.swift */,
+				2109664926AA1825C0A89D39 /* TestableTapGestureRecognizer.swift */,
 			);
 			path = SwiftNotify;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				21096450F7BAAC542C9E9869 /* LevelsEnum.swift in Sources */,
 				21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */,
 				210966D69CEDB89F2CDFF273 /* TestablePanGestureRecognizer.swift in Sources */,
+				21096B845A37C8B23D07ADB2 /* TestableTapGestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

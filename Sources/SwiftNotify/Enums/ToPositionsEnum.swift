@@ -6,7 +6,7 @@
 import Foundation
 
 public enum ToPositionsEnum {
-    case top(offset: CGFloat = 70.0)
+    case top(offset: CGFloat = 100.0)
     case center
     case bottom(offset: CGFloat = 50.0)
     case custom(CGPoint)

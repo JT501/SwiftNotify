@@ -51,12 +51,13 @@ open class Notice: NSObject, NoticeProtocol {
     internal var animator: UIDynamicAnimator
     private var snapPoint: CGPoint
     internal var snapBehaviour: UISnapBehavior!
-    private var attachmentBehaviour: UIAttachmentBehavior!
+    internal var attachmentBehaviour: UIAttachmentBehavior!
     internal var gravityBehaviour: UIGravityBehavior!
-    private var collisionBehaviour: UICollisionBehavior!
+    internal var pushBehavior: UIPushBehavior!
+    internal var itemBehaviour: UIDynamicItemBehavior!
 
     private var fieldMargin: CGFloat  //Margin to remove message from view
-    private var angularVelocity: CGFloat = 0
+    internal var angularVelocity: CGFloat = 0
 
     lazy private var userInfo: [AnyHashable: NoticeInfo] = [
         NoticeInfo.userInfoKey: NoticeInfo(id: id)
@@ -81,7 +82,7 @@ open class Notice: NSObject, NoticeProtocol {
         self.delegate = delegate
 
         containerView = UIView()
-        panRecognizer = UIPanGestureRecognizer()
+        panRecognizer = TestablePanGestureRecognizer()
         tapRecognizer = UITapGestureRecognizer()
         longPressRecognizer = UILongPressGestureRecognizer()
         animator = UIDynamicAnimator()
@@ -304,7 +305,7 @@ open class Notice: NSObject, NoticeProtocol {
             )
 
             lastTime = CFAbsoluteTime()
-            lastAngle = CGFloat(angleOfView(view: gestureView))
+            lastAngle = CGFloat(angleRotated(of: gestureView))
 
             attachmentBehaviour.action = { [weak self] in
                 guard let self = self else {
@@ -312,7 +313,7 @@ open class Notice: NSObject, NoticeProtocol {
                 }
                 //Calculate Angular Velocity
                 let time = CFAbsoluteTimeGetCurrent()
-                let angle = CGFloat(self.angleOfView(view: gestureView))
+                let angle = CGFloat(self.angleRotated(of: gestureView))
                 if time > lastTime {
                     self.angularVelocity = (angle - lastAngle) / CGFloat((time - lastTime))
                     lastTime = time
@@ -341,6 +342,7 @@ open class Notice: NSObject, NoticeProtocol {
                 postEndPanningNotDismissNotification()
             } else {
                 animator.removeAllBehaviors()
+
                 if let gestureViewGestureRecognizers = gestureView.gestureRecognizers {
                     for gestureRecognizer in gestureViewGestureRecognizers {
                         gestureView.removeGestureRecognizer(gestureRecognizer)
@@ -348,36 +350,55 @@ open class Notice: NSObject, NoticeProtocol {
                 }
 
                 //Add Push Behaviour
-                let pushBehavior = UIPushBehavior(items: [gestureView], mode: UIPushBehavior.Mode.instantaneous)
+                pushBehavior = UIPushBehavior(items: [gestureView], mode: .instantaneous)
                 pushBehavior.pushDirection = vector
 
                 let pushMagnitude: CGFloat = pushBehavior.magnitude * config.pushForceFactor
                 let massFactor: CGFloat = (gestureView.bounds.height * gestureView.bounds.width) / (100 * 100)
 
-                pushBehavior.magnitude = (pushMagnitude > config.minPushForce) ?
-                        pushMagnitude * massFactor : config.defaultPushForce * massFactor
-                //                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
-                animator.addBehavior(pushBehavior)
-
-                //Add Item Behaviour
-                let itemBehaviour = UIDynamicItemBehavior(items: [gestureView])
-                itemBehaviour.addAngularVelocity(angularVelocity * config.angularVelocityFactor, for: gestureView)
-                itemBehaviour.angularResistance = config.angularResistance
-
-                itemBehaviour.action = { [weak self] in
-                    guard let self = self else { return }
-
-                    self.removeFromSuperView(completion: { [weak self] (completed) in
+                if pushMagnitude < 1 {
+                    gravityBehaviour = UIGravityBehavior(items: [containerView])
+                    gravityBehaviour.action = { [weak self] in
                         guard let self = self else { return }
-                        if completed {
-                            self.postDidDisappearNotification()
-                            if let delegate = self.delegate {
-                                delegate.noticeDidDisappear(notice: self)
+                        self.removeFromSuperView(completion: { [weak self] (completed) in
+                            guard let self = self else { return }
+                            if completed {
+                                self.postDidDisappearNotification()
+                                if let delegate = self.delegate {
+                                    delegate.noticeDidDisappear(notice: self)
+                                }
                             }
-                        }
-                    })
+                        })
+                    }
+
+                    animator.addBehavior(gravityBehaviour)
+                } else {
+                    pushBehavior.magnitude = (pushMagnitude > config.minPushForce) ?
+                            pushMagnitude * massFactor : config.defaultPushForce * massFactor
+                    //                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
+
+                    animator.addBehavior(pushBehavior)
+
+                    //Add Item Behaviour
+                    itemBehaviour = UIDynamicItemBehavior(items: [gestureView])
+                    itemBehaviour.addAngularVelocity(angularVelocity * config.angularVelocityFactor, for: gestureView)
+                    itemBehaviour.angularResistance = config.angularResistance
+
+                    itemBehaviour.action = { [weak self] in
+                        guard let self = self else { return }
+
+                        self.removeFromSuperView(completion: { [weak self] (completed) in
+                            guard let self = self else { return }
+                            if completed {
+                                self.postDidDisappearNotification()
+                                if let delegate = self.delegate {
+                                    delegate.noticeDidDisappear(notice: self)
+                                }
+                            }
+                        })
+                    }
+                    animator.addBehavior(itemBehaviour)
                 }
-                animator.addBehavior(itemBehaviour)
             }
         default:
             break
@@ -385,12 +406,14 @@ open class Notice: NSObject, NoticeProtocol {
     }
 
     @objc func onTap(gesture: UITapGestureRecognizer) {
-        if let delegate = delegate {
-            delegate.noticeIsTapped(notice: self)
-        }
+        if (gesture.state == .ended) {
+            if let delegate = delegate {
+                delegate.noticeIsTapped(notice: self)
+            }
 
-        if let tapAction = tapAction {
-            tapAction(id)
+            if let tapAction = tapAction {
+                tapAction(id)
+            }
         }
     }
 
@@ -405,23 +428,19 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    func distance(from: CGPoint, to: CGPoint) -> CGFloat {
+    internal func distance(from: CGPoint, to: CGPoint) -> CGFloat {
         let xDist = (to.x - from.x)
         let yDist = (to.y - from.y)
         return sqrt((xDist * xDist) + (yDist * yDist))
     }
 
-    func angleOfView(view: UIView) -> Float {
+    internal func angleRotated(of view: UIView) -> Float {
         Float(atan2(view.transform.b, view.transform.a))
     }
 
     //http://stackoverflow.com/questions/26029393/random-number-between-two-decimals-in-swift
     func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
-    }
-
-    public override var description: String {
-        "Notice(id: \(id))"
     }
 
     private func postStartPanningNotification() {
@@ -450,6 +469,10 @@ open class Notice: NSObject, NoticeProtocol {
                 object: nil,
                 userInfo: userInfo
         )
+    }
+
+    public override var description: String {
+        "Notice(id: \(id))"
     }
 }
 

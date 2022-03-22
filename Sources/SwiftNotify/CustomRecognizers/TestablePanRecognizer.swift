@@ -79,6 +79,6 @@ class TestablePanRecognizer: UIPanGestureRecognizer {
         self.translation = translation
         self.velocity = velocity
         mockState = state
-        testTarget?.perform(testAction, with: self)
+        _ = testTarget?.perform(testAction, with: self)
     }
 }

@@ -36,7 +36,6 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         noticeIsTappedIsCalled = true
     }
 
-
     var sut: Notice!
     var view: UIView!
     var noticeDidAppearIsCalled: Bool!
@@ -317,6 +316,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         sut.containerView.addGestureRecognizer(sut.panRecognizer)
         let location = CGPoint(x: 50, y: 50)
         let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
+        XCTAssertNotNil(panRecognizer)
 
         // When
         panRecognizer?.mockPan(location: location, state: .began)
@@ -332,6 +332,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         let location = CGPoint(x: 50, y: 50)
         let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
         let expectNotification = expectation(forNotification: NoticeNotification.endPanningNotDismiss, object: nil)
+        XCTAssertNotNil(panRecognizer)
 
         // When
         // Simulate container view move to (10, 10)
@@ -350,6 +351,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         let location = CGPoint(x: 50, y: 50)
         let velocity = CGPoint(x: 0, y: 0)
         let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
+        XCTAssertNotNil(panRecognizer)
 
         // When
         // Simulate container view move to (50, 50)
@@ -366,6 +368,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         let location = CGPoint(x: 50, y: 50)
         let velocity = CGPoint(x: 500, y: 500)
         let panRecognizer = sut.panRecognizer as? TestablePanRecognizer
+        XCTAssertNotNil(panRecognizer)
 
         // When
         // Simulate container view move to (50, 50)

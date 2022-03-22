@@ -3,7 +3,7 @@
 // Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TestableLongPressRecognizer: UILongPressGestureRecognizer {
     private var testTarget: AnyObject?
@@ -40,6 +40,6 @@ class TestableLongPressRecognizer: UILongPressGestureRecognizer {
     /// - Parameter state: Long Press's state
     func mockLongPress(state: UIGestureRecognizer.State) {
         mockState = state
-        testTarget?.perform(testAction, with: self)
+        _ = testTarget?.perform(testAction, with: self)
     }
 }

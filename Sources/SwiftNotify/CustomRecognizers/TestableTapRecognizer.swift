@@ -3,7 +3,7 @@
 // Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TestableTapRecognizer: UITapGestureRecognizer {
     private var testTarget: AnyObject?
@@ -40,6 +40,6 @@ class TestableTapRecognizer: UITapGestureRecognizer {
     /// - Parameter state: Tap's state
     func mockTap(state: UIGestureRecognizer.State) {
         mockState = state
-        testTarget?.perform(testAction, with: self)
+        _ = testTarget?.perform(testAction, with: self)
     }
 }

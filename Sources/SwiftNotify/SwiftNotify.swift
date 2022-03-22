@@ -45,7 +45,7 @@ open class SwiftNotify: NoticeDelegate {
     /// Default theme appearance configuration
     public var defaultThemeConfig: ThemeConfig?
 
-    /// Default position outside visible view where the Notice born and move to ``ToPosition``
+    /// Default position outside visible view where the Notice born and move to ``ToPositionsEnum``
     public var defaultFromPosition: FromPositionsEnum
 
     /// Default position where the Notice stays before dismiss
@@ -74,7 +74,7 @@ open class SwiftNotify: NoticeDelegate {
     ///   - defaultFromPosition:    Default position outside visible view where the Notice born and move to `ToPosition`.
     ///                             `FromPosition.top(.HorizontalPosition.random)` by default.
     ///   - defaultToPosition:      Default position where the Notice stays before dismiss. `ToPosition.center` by default.
-    ///   - defaultNoticeDuration:  Default duration of the notice stays on screen. ``NoticeDuration.short`` by default.
+    ///   - defaultNoticeDuration:  Default duration of the notice stays on screen. `DurationsEnum.short` by default.
     ///                             `DispatchTimeInterval.milliseconds(500)` by default.
     ///   - defaultPhysicsConfig:   Default configuration for animation's physics. `DefaultPhysicsConfig()` by default.
     ///   - intervalBetweenNotices: `DispatchTimeInterval` which is the interval between sequence of notices.

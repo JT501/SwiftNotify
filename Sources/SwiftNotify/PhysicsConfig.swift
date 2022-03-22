@@ -3,7 +3,7 @@
 // Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol PhysicsConfig {
     /// The max. drag distance that the view will return to snap point.

@@ -3,7 +3,7 @@
 // Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol LevelConfig {
     var backgroundColor: UIColor? { get set }

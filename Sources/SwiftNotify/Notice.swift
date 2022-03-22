@@ -428,18 +428,18 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    internal func distance(from: CGPoint, to: CGPoint) -> CGFloat {
+    private func distance(from: CGPoint, to: CGPoint) -> CGFloat {
         let xDist = (to.x - from.x)
         let yDist = (to.y - from.y)
         return sqrt((xDist * xDist) + (yDist * yDist))
     }
 
-    internal func angleRotated(of view: UIView) -> Float {
+    private func angleRotated(of view: UIView) -> Float {
         Float(atan2(view.transform.b, view.transform.a))
     }
 
-    //http://stackoverflow.com/questions/26029393/random-number-between-two-decimals-in-swift
-    internal func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
+    // http://stackoverflow.com/questions/26029393/random-number-between-two-decimals-in-swift
+    private func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
 

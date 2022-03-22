@@ -2,6 +2,7 @@
 // Created by Johnny Choi on 16/3/2022.
 // Copyright (c) 2022 Johnny Tsoi@JT501. All rights reserved.
 //
+import UIKit
 
 @testable import SwiftNotify
 

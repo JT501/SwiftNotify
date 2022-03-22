@@ -12,6 +12,7 @@
 		05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* SwiftNotify.swift */; };
 		05B074D61DE6F358003611FE /* SwiftNotifyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */; };
 		05B074D71DE6F358003611FE /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D21DE6F358003611FE /* Notice.swift */; };
+		05F466CF27EA3D60001A3F46 /* SwiftNotify.docc in Sources */ = {isa = PBXBuildFile; fileRef = 05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */; };
 		05F750F527CA83EC0099A9C9 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */; };
 		05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */; };
 		21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210962F56689191028A92FAD /* CyberThemeConfig.swift */; };
@@ -90,6 +91,7 @@
 		05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotifyTests.swift; sourceTree = "<group>"; };
 		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SwiftNotify.docc; sourceTree = "<group>"; };
 		05F750F127CA83EC0099A9C9 /* SwiftNotifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21096003BB2672E5504DFD69 /* ThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeConfig.swift; sourceTree = "<group>"; };
 		2109609804B9C0E71BCB960E /* LevelsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsEnum.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				05B074CF1DE6F358003611FE /* SwiftNotify.h */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
+				05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */,
 			);
 			path = SwiftNotify;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */,
 				2109616D9775F2269F20426A /* TestableTapRecognizer.swift in Sources */,
 				2109654E629B9632364FD855 /* TestableLongPressRecognizer.swift in Sources */,
+				05F466CF27EA3D60001A3F46 /* SwiftNotify.docc in Sources */,
 				21096FB776C8C7EFC9B83C2E /* TestablePanRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

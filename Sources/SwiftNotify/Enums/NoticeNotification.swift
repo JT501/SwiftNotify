@@ -5,6 +5,8 @@
 
 import Foundation
 
+
+/// SwiftNotify notification enums
 enum NoticeNotification {
     static let didDisappear = Notification.Name("com.jt501.SwiftNotify.NoticeDidDisappear")
     static let startPanning = Notification.Name("com.jt501.SwiftNotify.NoticeStartPanning")

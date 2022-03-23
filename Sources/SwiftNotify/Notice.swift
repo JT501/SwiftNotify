@@ -8,20 +8,38 @@
 
 import UIKit
 
+/// A Notice object which stores the configuration and handles all the interactions and animations.
 open class Notice: NSObject, NoticeProtocol {
+    
+    /// Type alias for on tap closure.
     public typealias TapCallback = (String) -> Void
 
     public let id: String
-    public let config: PhysicsConfig
-    public let view: UIView
-    public let duration: DurationsEnum
-    public let fromPosition: FromPositionsEnum
-    public let toPosition: ToPositionsEnum
-    public var tapAction: TapCallback?
-
     public private(set) var isDismissing: Bool
+    public let duration: DurationsEnum
+    
+    /// Configurations for animations physics.
+    public let config: PhysicsConfig
+    
+    /// The notice view.
+    public let view: UIView
+    
+    /// The position where the notice should be borned.
+    public let fromPosition: FromPositionsEnum
+    
+    /// The position of the window where the notice will be presented.
+    public let toPosition: ToPositionsEnum
+    
+    /// Handler closure when the notice is tapped
+    public var tapHandler: TapCallback?
 
+    /// Delegate for the notice
     weak var delegate: NoticeDelegate?
+    
+    /// String description of the notice
+    public override var description: String {
+        "Notice(id: \(id))"
+    }
 
     internal let containerView: UIView
     internal let panRecognizer: UIPanGestureRecognizer
@@ -41,8 +59,29 @@ open class Notice: NSObject, NoticeProtocol {
     lazy private var userInfo: [AnyHashable: NoticeInfo] = [
         NoticeInfo.userInfoKey: NoticeInfo(id: id)
     ]
-
-    init(
+    
+    internal override convenience init() {
+        self.init(view: UIView(),
+                  duration: .short,
+                  fromPosition: .top(.random),
+                  toPosition: .center,
+                  tapHandler: nil,
+                  config: SN.defaultPhysicsConfig)
+    }
+    
+    /// Create a notice object
+    ///
+    /// - Parameters:
+    ///   - id: Notice id. A random `UUID` string by default.
+    ///   - view: Notice view.
+    ///   - duration: he duration notice will stay on screen.
+    ///    It will be auto dismissed when the duration passed.
+    ///   - fromPosition: The position where the notice should be borned.
+    ///   - toPosition: The position of the window where the notice will be presented.
+    ///   - tapHandler: Handler closure when the notice is tapped
+    ///   - config: Configurations for animations physics.
+    ///   - delegate: Delegate for the notice
+    public init(
             id: String = UUID().uuidString,
             view: UIView,
             duration: DurationsEnum,
@@ -59,6 +98,7 @@ open class Notice: NSObject, NoticeProtocol {
         self.fromPosition = fromPosition
         self.toPosition = toPosition
         self.delegate = delegate
+        self.tapHandler = tapHandler
 
         containerView = UIView()
         panRecognizer = TestablePanRecognizer()
@@ -68,7 +108,6 @@ open class Notice: NSObject, NoticeProtocol {
         snapPoint = CGPoint.zero
         isDismissing = false
         fieldMargin = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height
-        tapAction = tapHandler
 
         super.init()
 
@@ -158,7 +197,7 @@ open class Notice: NSObject, NoticeProtocol {
         }
         animator.addBehavior(snapBehaviour)
     }
-
+    
     public func present(
             in window: UIWindow? = nil,
             completion: @escaping (_ completed: Bool) -> Void
@@ -250,7 +289,7 @@ open class Notice: NSObject, NoticeProtocol {
         animator.addBehavior(gravityBehaviour)
     }
 
-    @objc func onPan(gesture: UIPanGestureRecognizer) {
+    @objc private func onPan(gesture: UIPanGestureRecognizer) {
         let gestureView = gesture.view!
         let dragPoint: CGPoint = gesture.location(in: gestureView)
         let viewCenter = gestureView.center  //Center of message view in its superview
@@ -384,19 +423,19 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    @objc func onTap(gesture: UITapGestureRecognizer) {
+    @objc private func onTap(gesture: UITapGestureRecognizer) {
         if (gesture.state == .ended) {
             if let delegate = delegate {
                 delegate.noticeIsTapped(notice: self)
             }
 
-            if let tapAction = tapAction {
+            if let tapAction = tapHandler {
                 tapAction(id)
             }
         }
     }
 
-    @objc func onLongPress(gesture: UILongPressGestureRecognizer) {
+    @objc private func onLongPress(gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
             postStartPressingNotification()
@@ -448,10 +487,6 @@ open class Notice: NSObject, NoticeProtocol {
                 object: nil,
                 userInfo: userInfo
         )
-    }
-
-    public override var description: String {
-        "Notice(id: \(id))"
     }
 }
 

@@ -255,37 +255,37 @@ open class SwiftNotify: NoticeDelegate {
     }
 
     // MARK: - MessengerDelegate
-    func noticeDidAppear(notice: Notice) {
+    public func noticeDidAppear(notice: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyDidAppear(notice: notice)
         }
     }
 
-    func noticeStartPanning(atPoint: CGPoint, notice: Notice) {
+    public func noticeStartPanning(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyStartPanning(atPoint: atPoint, notice: notice)
         }
     }
 
-    func noticeIsPanning(atPoint: CGPoint, notice: Notice) {
+    public func noticeIsPanning(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyIsPanning(atPoint: atPoint, notice: notice)
         }
     }
 
-    func noticeEndPanning(atPoint: CGPoint, notice: Notice) {
+    public func noticeEndPanning(atPoint: CGPoint, notice: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyEndPanning(atPoint: atPoint, notice: notice)
         }
     }
 
-    func noticeDidDisappear(notice: Notice) {
+    public func noticeDidDisappear(notice: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyDidDisappear(notice: notice)
         }
     }
 
-    func noticeIsTapped(notice: Notice) {
+    public func noticeIsTapped(notice: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyIsTapped(notice: notice)
         }

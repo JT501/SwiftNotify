@@ -5,6 +5,7 @@
 
 import UIKit
 
+/// Type alias for completion closure
 public typealias CompletionCallBack = (_ completed: Bool) -> Void
 
 /// All Notice Object Conform to this protocol

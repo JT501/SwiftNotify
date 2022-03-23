@@ -383,7 +383,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         sut.containerView.bounds = view.bounds
         sut.containerView.addGestureRecognizer(sut.tapRecognizer)
         var tapActionIsCalled = false
-        sut.tapAction = { _ in tapActionIsCalled = true }
+        sut.tapHandler = { _ in tapActionIsCalled = true }
         let tapRecognizer = sut.tapRecognizer as? TestableTapRecognizer
         XCTAssertNotNil(tapRecognizer)
 

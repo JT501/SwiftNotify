@@ -29,7 +29,7 @@ public extension SwiftNotifyDelegate {
 }
 
 // Internal Use
-protocol NoticeDelegate: AnyObject {
+public protocol NoticeDelegate: AnyObject {
     func noticeDidAppear(notice: Notice)
     func noticeStartPanning(atPoint: CGPoint, notice: Notice)
     func noticeIsPanning(atPoint: CGPoint, notice: Notice)

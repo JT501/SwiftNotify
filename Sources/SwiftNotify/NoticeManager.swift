@@ -5,9 +5,15 @@
 
 import Foundation
 
+/// Manager class of SwiftNotify
+///
+/// It uses `DispatchQueue` to manage the lifecycles of notices.
+/// The queue is **FIFO**. This class provide a set of convenience methods to manage the queue.
+/// You can use this class to retrieve the pending notices and current presenting notices.
 public class NoticeManager {
 
-    let queue: DispatchQueue
+    /// The `DispatchQueue` for queuing all the notices.
+    public let queue: DispatchQueue
 
     internal var unsafePendingNotices: [NoticeProtocol] = [] {
         didSet {
@@ -27,7 +33,8 @@ public class NoticeManager {
         }
     }
 
-    var pendingNotices: [NoticeProtocol] {
+    /// Array of notices which are pending to be presented
+    public var pendingNotices: [NoticeProtocol] {
         var noticesCopy: [NoticeProtocol] = []
         queue.sync { [weak self] in
             noticesCopy = self?.unsafePendingNotices ?? []
@@ -35,7 +42,8 @@ public class NoticeManager {
         return noticesCopy
     }
 
-    var currentNotices: [NoticeProtocol] {
+    /// Array of notices which are currently presented on screen
+    public var currentNotices: [NoticeProtocol] {
         var noticesCopy: [NoticeProtocol] = []
         queue.sync { [weak self] in
             noticesCopy = self?.unsafeCurrentNotices ?? []
@@ -43,7 +51,11 @@ public class NoticeManager {
         return noticesCopy
     }
 
-    init(queue: DispatchQueue) {
+    /// Create a notice manager intance with specified queue
+    ///
+    /// - Parameter queue: The `DispatchQueue` for queuing all the notices.
+    /// **MUST** be a concurrent queue.
+    public init(queue: DispatchQueue) {
         self.queue = queue
 
         NotificationCenter.default.addObserver(
@@ -86,7 +98,11 @@ public class NoticeManager {
         NotificationCenter.default.removeObserver(self, name: NoticeNotification.endPressing, object: nil)
     }
 
-    func addPendingNotice(_ notice: NoticeProtocol) {
+
+    /// Add a notice to ``pendingNotices``
+    ///
+    /// - Parameter notice: The notice object
+    public func addPendingNotice(_ notice: NoticeProtocol) {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
             self.unsafePendingNotices.append(notice)
@@ -97,7 +113,11 @@ public class NoticeManager {
         }
     }
 
-    func removePendingNotice(_ notice: NoticeProtocol) {
+
+    /// Remove a notice from ``pendingNotices``
+    ///
+    /// - Parameter notice: The notice object to be remove
+    public func removePendingNotice(_ notice: NoticeProtocol) {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
             self.unsafePendingNotices.removeAll {
@@ -106,13 +126,19 @@ public class NoticeManager {
         }
     }
 
-    func removeAllPendingNotices() {
+
+    /// Remove all notices from ``pendingNotices``
+    public func removeAllPendingNotices() {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
             self.unsafePendingNotices.removeAll()
         }
     }
 
+
+    /// Show the first notice in ``pendingNotices``
+    ///
+    /// - Parameter completion: Called when the notice is shown. `nil` by default.
     func showNotice(completion: (() -> Void)? = nil) {
         guard !pendingNotices.isEmpty else { return }
         let currentNotice = pendingNotices.first!
@@ -132,11 +158,11 @@ public class NoticeManager {
         }
 
         dispatchGroup.notify(queue: .main) { [weak self] in
-            completion?()
             guard let self = self else { return }
 
             currentNotice.present { [weak self] completed in
                 if completed {
+                    completion?()
                     self?.autoDismissNotice(id: currentNotice.id)
                 }
             }
@@ -153,7 +179,11 @@ public class NoticeManager {
         }
     }
 
-    func dismissNotice(byId id: String) {
+    
+    /// Dismiss a notice in ``currentNotices`` by `id`.
+    ///
+    /// - Parameter id: The notice's id
+    public func dismissNotice(byId id: String) {
         queue.async(flags: .barrier) { [weak self] in
             guard let self = self else { return }
             guard let notice = self.unsafeCurrentNotices.first(where: { $0.id == id }) else { return }
@@ -165,7 +195,14 @@ public class NoticeManager {
         }
     }
 
-    func autoDismissNotice(id: String) {
+    
+    /// Create a auto dismiss task for a notice
+    ///
+    /// If the notice is not in ``currentNotices``, no tasks will be created.
+    /// If an auto dismiss task for the notice is already exist, no new tasks will be created.
+    ///
+    /// - Parameter id: The notice's id
+    public func autoDismissNotice(id: String) {
         guard let notice = currentNotices.first(where: { $0.id == id }) else { return }
         // If task for notice already exists, return
         guard autoDismissTasks[notice.id] == nil else { return }
@@ -198,14 +235,22 @@ public class NoticeManager {
         queue.asyncAfter(deadline: .now() + duration, execute: task)
     }
 
-    func cancelAutoDismiss(noticeId: String) {
+    
+    /// Cancel notice auto dismiss
+    ///
+    /// If there is no auto dismiss tasks for the notice, nothing's happened.
+    ///
+    /// - Parameter noticeId: The notice's id
+    public func cancelAutoDismiss(noticeId: String) {
         if let task = autoDismissTasks[noticeId] {
             task.cancel()
             autoDismissTasks.removeValue(forKey: noticeId)
         }
     }
 
-    func dismissCurrentNotices() {
+    
+    /// Dismiss all the notices in ``currentNotices``
+    public func dismissCurrentNotices() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard !self.unsafeCurrentNotices.isEmpty else { return }

@@ -10,9 +10,16 @@ import UIKit
 
 public typealias CompletionCallBack = (_ completed: Bool) -> Void
 
-public protocol NoticeProtocol {
+/// All Notice Object Conform to this protocol
+public protocol NoticeProtocol: NSObject {
+
+    /// A unique notice Id.
     var id: String { get }
-    var isHiding: Bool { get }
+    
+    /// State of notice if it starts dismissing process or not.
+    var isDismissing: Bool { get }
+    
+    /// The duration notice will stay on screen. It will be auto dismissed when the duration passed.
     var duration: DurationsEnum { get }
 
     func present(in window: UIWindow?, completion: @escaping CompletionCallBack)
@@ -40,7 +47,7 @@ open class Notice: NSObject, NoticeProtocol {
     public let toPosition: ToPositionsEnum
     public var tapAction: TapCallback?
 
-    public private(set) var isHiding: Bool
+    public private(set) var isDismissing: Bool
 
     weak var delegate: NoticeDelegate?
 
@@ -49,14 +56,14 @@ open class Notice: NSObject, NoticeProtocol {
     internal let tapRecognizer: UITapGestureRecognizer
     internal let longPressRecognizer: UILongPressGestureRecognizer
     internal var animator: UIDynamicAnimator
-    private var snapPoint: CGPoint
+    internal var snapPoint: CGPoint
     internal var snapBehaviour: UISnapBehavior!
     internal var attachmentBehaviour: UIAttachmentBehavior!
     internal var gravityBehaviour: UIGravityBehavior!
     internal var pushBehavior: UIPushBehavior!
     internal var itemBehaviour: UIDynamicItemBehavior!
 
-    private var fieldMargin: CGFloat  //Margin to remove message from view
+    internal var fieldMargin: CGFloat  //Margin to remove message from view
     internal var angularVelocity: CGFloat = 0
 
     lazy private var userInfo: [AnyHashable: NoticeInfo] = [
@@ -87,7 +94,7 @@ open class Notice: NSObject, NoticeProtocol {
         longPressRecognizer = TestableLongPressRecognizer()
         animator = UIDynamicAnimator()
         snapPoint = CGPoint.zero
-        isHiding = false
+        isDismissing = false
         fieldMargin = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height
         tapAction = tapHandler
 
@@ -243,7 +250,7 @@ open class Notice: NSObject, NoticeProtocol {
     }
 
     public func dismiss(completion: CompletionCallBack? = nil) {
-        isHiding = true
+        isDismissing = true
 
         animator.removeAllBehaviors()
 

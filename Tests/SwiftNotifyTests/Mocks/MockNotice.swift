@@ -6,7 +6,7 @@ import UIKit
 
 @testable import SwiftNotify
 
-class MockNotice: NoticeProtocol {
+class MockNotice: NSObject, NoticeProtocol {
     // Method Counter
     var presentCounter: Int = 0
     var presentCompletion: (() -> Void)?
@@ -14,7 +14,7 @@ class MockNotice: NoticeProtocol {
     var dismissCompletion: (() -> Void)?
 
     var id: String
-    var isHiding: Bool
+    var isDismissing: Bool
     var duration: DurationsEnum
 
     func present(in window: UIWindow?, completion: @escaping (Bool) -> Void) {
@@ -35,7 +35,7 @@ class MockNotice: NoticeProtocol {
             duration: DurationsEnum = .short
     ) {
         self.id = id
-        self.isHiding = isHiding
+        self.isDismissing = isHiding
         self.duration = duration
     }
 }

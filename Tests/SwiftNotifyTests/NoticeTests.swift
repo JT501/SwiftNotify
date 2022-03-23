@@ -280,7 +280,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
             }
         }
 
-        XCTAssertTrue(sut.isHiding)
+        XCTAssertTrue(sut.isDismissing)
         XCTAssertTrue(sut.animator.behaviors.contains(sut.gravityBehaviour))
         XCTAssertTrue(sut.containerView.gestureRecognizers!.isEmpty)
 
@@ -394,7 +394,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         XCTAssertTrue(tapActionIsCalled)
     }
 
-    func testOnLongPreseBegan() {
+    func testOnLongPressBegan() {
         let expectNotification = expectation(forNotification: NoticeNotification.startPressing, object: nil)
         sut.containerView.bounds = view.bounds
         sut.containerView.addGestureRecognizer(sut.longPressRecognizer)

@@ -158,7 +158,7 @@ public class NoticeManager {
             guard let self = self else { return }
             guard let notice = self.unsafeCurrentNotices.first(where: { $0.id == id }) else { return }
             DispatchQueue.main.async {
-                guard !notice.isHiding else { return }
+                guard !notice.isDismissing else { return }
                 notice.dismiss()
             }
             self.autoDismissTasks.removeValue(forKey: notice.id)
@@ -186,7 +186,7 @@ public class NoticeManager {
         let task = DispatchWorkItem { [weak self] in
             guard let self = self else { return }
             guard self.unsafeCurrentNotices.contains(where: { $0.id == id }) else { return }
-            guard !notice.isHiding else { return }
+            guard !notice.isDismissing else { return }
 
             self.autoDismissTasks.removeValue(forKey: notice.id)
 

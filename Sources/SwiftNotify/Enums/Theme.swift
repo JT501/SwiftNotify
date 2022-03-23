@@ -5,11 +5,23 @@
 
 import Foundation
 
+/// Represents the notice theme
 public enum Theme {
+    /// Classic theme
     case classic
+    
+    /// Classic theme (Dark Mode)
     case classicDark
+    
+    /// Blur theme
     case cyber
+    
+    /// Blur theme (Dark Mode)
     case cyberDark
+    
+    /// Toast theme
     case toast
+    
+    /// Toast theme (Dark Mode)
     case toastDark
 }

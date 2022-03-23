@@ -21,18 +21,6 @@ open class SwiftNotify: NoticeDelegate {
     /// SwiftNotify default icons enum
     public static let Icons = DefaultIcons.self
 
-    /// SwiftNotify themes enum
-    public static let Themes = Theme.self
-
-    /// SwiftNotify notice durations enum
-    public static let Duration = Duration.self
-
-    /// SwiftNotify from positions enum
-    public static let FromPositions = FromPosition.self
-
-    /// SwiftNotify to positions enum
-    public static let ToPositions = ToPositions.self
-
     /// `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
     public let noticeQueue: DispatchQueue
 
@@ -45,7 +33,7 @@ open class SwiftNotify: NoticeDelegate {
     /// Default theme appearance configuration
     public var defaultThemeConfig: ThemeConfig?
 
-    /// Default position outside visible view where the Notice born and move to ``ToPositionsEnum``
+    /// Default position outside visible view where the Notice born and move to ``ToPosition``
     public var defaultFromPosition: FromPosition
 
     /// Default position where the Notice stays before dismiss

@@ -82,7 +82,7 @@ open class NoticeViewBase: UIView, NoticeView {
             titleText: String?,
             bodyText: String?,
             themeConfig: ThemeConfig,
-            level: LevelsEnum
+            level: Level
     ) {
         guard let levelConfig = themeConfig.levelConfigs[level] else { fatalError("Level not found in theme config") }
         self.init(

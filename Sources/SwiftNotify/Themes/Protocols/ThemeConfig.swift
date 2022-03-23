@@ -26,7 +26,7 @@ public protocol ThemeConfig {
     var cornerRadius: CGFloat { get }
     var padding: CGFloat { get }
 
-    var levelConfigs: [LevelsEnum: LevelConfig] { get }
+    var levelConfigs: [Level: LevelConfig] { get }
 }
 
 extension ThemeConfig {

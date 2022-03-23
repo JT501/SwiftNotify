@@ -17,7 +17,7 @@ public struct ToastDarkConfig: ThemeConfig {
     public var iconImageTintColor: UIColor? = nil
     public var cornerRadius: CGFloat = 10
     public var padding: CGFloat = 10
-    public var levelConfigs: [LevelsEnum: LevelConfig] = [
+    public var levelConfigs: [Level: LevelConfig] = [
         .success: Success(),
         .fail: Fail(),
         .info: Info(),

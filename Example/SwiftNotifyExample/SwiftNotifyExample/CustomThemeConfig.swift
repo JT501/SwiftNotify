@@ -29,7 +29,7 @@ struct CustomThemeConfig: ThemeConfig {
 
     var padding: CGFloat = 15
 
-    var levelConfigs: [LevelsEnum: LevelConfig] = [
+    var levelConfigs: [Level: LevelConfig] = [
         .success: Success(),
         .fail: Fail(),
         .info: Info(),

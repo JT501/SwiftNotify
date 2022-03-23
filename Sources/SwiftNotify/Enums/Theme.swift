@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum ThemesEnum {
+public enum Theme {
     case classic
     case classicDark
     case cyber

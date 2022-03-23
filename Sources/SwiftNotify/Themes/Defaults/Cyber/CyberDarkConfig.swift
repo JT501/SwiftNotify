@@ -32,7 +32,7 @@ public struct CyberDarkConfig: CyberThemeConfig {
     public var padding: CGFloat = 10
     public var blurEffectStyle: UIBlurEffect.Style = .systemThinMaterialDark
     public var vibrancyEffectStyle: UIVibrancyEffectStyle = .label
-    public var levelConfigs: [LevelsEnum: LevelConfig] = [
+    public var levelConfigs: [Level: LevelConfig] = [
         .success: Success(),
         .fail: Fail(),
         .info: Info(),

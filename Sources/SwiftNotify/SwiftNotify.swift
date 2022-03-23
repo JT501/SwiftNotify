@@ -22,7 +22,7 @@ open class SwiftNotify: NoticeDelegate {
     public static let Icons = DefaultIcons.self
 
     /// SwiftNotify themes enum
-    public static let Themes = ThemesEnum.self
+    public static let Themes = Theme.self
 
     /// SwiftNotify notice durations enum
     public static let Duration = Duration.self
@@ -31,7 +31,7 @@ open class SwiftNotify: NoticeDelegate {
     public static let FromPositions = FromPosition.self
 
     /// SwiftNotify to positions enum
-    public static let ToPositions = ToPosition.self
+    public static let ToPositions = ToPositions.self
 
     /// `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
     public let noticeQueue: DispatchQueue
@@ -40,7 +40,7 @@ open class SwiftNotify: NoticeDelegate {
     public let noticeManager: NoticeManager
 
     /// Default theme for notice
-    public var defaultTheme: ThemesEnum
+    public var defaultTheme: Theme
 
     /// Default theme appearance configuration
     public var defaultThemeConfig: ThemeConfig?
@@ -85,7 +85,7 @@ open class SwiftNotify: NoticeDelegate {
                     label: "com.jt501.SwiftNotify.NoticeQueue",
                     attributes: .concurrent
             ),
-            defaultTheme: ThemesEnum = .cyber,
+            defaultTheme: Theme = .cyber,
             defaultThemeConfig: ThemeConfig? = nil,
             defaultFromPosition: FromPosition = .top(.random),
             defaultToPosition: ToPosition = .top(),
@@ -123,7 +123,7 @@ open class SwiftNotify: NoticeDelegate {
             title: String?,
             message: String?,
             themeConfig: ThemeConfig,
-            level: LevelsEnum,
+            level: Level,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0
     ) -> V {
@@ -152,9 +152,9 @@ open class SwiftNotify: NoticeDelegate {
     public func show(
             title: String? = nil,
             message: String? = nil,
-            theme: ThemesEnum? = nil,
+            theme: Theme? = nil,
             themeConfig: ThemeConfig? = nil,
-            level: LevelsEnum,
+            level: Level,
             duration: Duration? = nil,
             fromPosition: FromPosition? = nil,
             toPosition: ToPosition? = nil,

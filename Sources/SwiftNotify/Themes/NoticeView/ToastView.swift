@@ -29,7 +29,7 @@ open class ToastView: NoticeViewBase {
             titleText: String?,
             bodyText: String?,
             themeConfig: ThemeConfig,
-            level: LevelsEnum
+            level: Level
     ) {
         guard let levelConfig = themeConfig.levelConfigs[level] else { fatalError("Level not found in theme config") }
         super.init(

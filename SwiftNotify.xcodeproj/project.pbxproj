@@ -13,15 +13,15 @@
 		05B074D61DE6F358003611FE /* SwiftNotifyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */; };
 		05B074D71DE6F358003611FE /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D21DE6F358003611FE /* Notice.swift */; };
 		05F466CF27EA3D60001A3F46 /* SwiftNotify.docc in Sources */ = {isa = PBXBuildFile; fileRef = 05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */; };
+		05F466D127EB83BB001A3F46 /* NoticeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F466D027EB83BB001A3F46 /* NoticeNotification.swift */; };
 		05F750F527CA83EC0099A9C9 /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */; };
 		05F750FB27CA86170099A9C9 /* SwiftNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8272B1DD31B7A003E0C5E /* SwiftNotifyTests.swift */; };
 		21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210962F56689191028A92FAD /* CyberThemeConfig.swift */; };
 		210960A1578A3EE63F71B027 /* ToastLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C215B6F2293012E6085 /* ToastLightConfig.swift */; };
 		2109616D9775F2269F20426A /* TestableTapRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210967D2C1A5355CEE2ECD07 /* TestableTapRecognizer.swift */; };
-		210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096331922D41D34FB1854D /* NoticeNotification.swift */; };
 		210962A8984C4DCA8DC80B8D /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B1436056D7636453BA5 /* ClassicView.swift */; };
 		210962C6B0455A4B020EA06A /* ToastDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210962D274D6B9D681AF4700 /* ToastDarkConfig.swift */; };
-		21096450F7BAAC542C9E9869 /* LevelsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109609804B9C0E71BCB960E /* LevelsEnum.swift */; };
+		21096450F7BAAC542C9E9869 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109609804B9C0E71BCB960E /* Level.swift */; };
 		2109651BE0E7DA58BBA4735A /* CyberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210963925DE8694B088FA382 /* CyberView.swift */; };
 		210965459A46B63E3A4CE8A1 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096BF353F0D2383CCE4C13 /* NoticeProtocol.swift */; };
 		2109654E629B9632364FD855 /* TestableLongPressRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096573C3FA3CF75DA4D80C /* TestableLongPressRecognizer.swift */; };
@@ -34,7 +34,7 @@
 		21096774F87B64586301E898 /* MockNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096EAD90060F51F49DADF7 /* MockNotice.swift */; };
 		21096898C0B7339039DA1CD2 /* DefaultIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */; };
 		210968FA69FB585CD571DB41 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966FF8E0CA5F582FE70B1 /* Duration.swift */; };
-		210969751DDEA0FF75ABF036 /* ThemesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210967C10C8659F2C6F11984 /* ThemesEnum.swift */; };
+		210969751DDEA0FF75ABF036 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210967C10C8659F2C6F11984 /* Theme.swift */; };
 		210969B0192DF8D06BE73855 /* ClassicLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C9A5E0EFCDC3EE90618 /* ClassicLightConfig.swift */; };
 		21096AA450E4BC7A4EAD887C /* ThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096003BB2672E5504DFD69 /* ThemeConfig.swift */; };
 		21096C676797FCC3A4D68DAA /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C6224A82A2744032B56 /* LevelConfig.swift */; };
@@ -93,20 +93,20 @@
 		05C8272D1DD31B7A003E0C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SwiftNotify.docc; sourceTree = "<group>"; };
+		05F466D027EB83BB001A3F46 /* NoticeNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeNotification.swift; sourceTree = "<group>"; };
 		05F750F127CA83EC0099A9C9 /* SwiftNotifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNotifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21096003BB2672E5504DFD69 /* ThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeConfig.swift; sourceTree = "<group>"; };
-		2109609804B9C0E71BCB960E /* LevelsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsEnum.swift; sourceTree = "<group>"; };
+		2109609804B9C0E71BCB960E /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		21096182457F39E02B5F037E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		210962D274D6B9D681AF4700 /* ToastDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastDarkConfig.swift; sourceTree = "<group>"; };
 		210962F56689191028A92FAD /* CyberThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberThemeConfig.swift; sourceTree = "<group>"; };
-		21096331922D41D34FB1854D /* NoticeNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeNotification.swift; sourceTree = "<group>"; };
 		210963925DE8694B088FA382 /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberView.swift; sourceTree = "<group>"; };
 		21096573C3FA3CF75DA4D80C /* TestableLongPressRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableLongPressRecognizer.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		210966991022B78DC4EBF7C5 /* ToPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToPosition.swift; sourceTree = "<group>"; };
 		210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeManagerTests.swift; sourceTree = "<group>"; };
 		210966FF8E0CA5F582FE70B1 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
-		210967C10C8659F2C6F11984 /* ThemesEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesEnum.swift; sourceTree = "<group>"; };
+		210967C10C8659F2C6F11984 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		210967D2C1A5355CEE2ECD07 /* TestableTapRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableTapRecognizer.swift; sourceTree = "<group>"; };
 		21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberDarkConfig.swift; sourceTree = "<group>"; };
 		21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewBase.swift; sourceTree = "<group>"; };
@@ -190,7 +190,6 @@
 				21096C6846A7E6C01254CFBA /* Themes */,
 				21096CE2F5BC4A7631FC652C /* CustomRecognizers */,
 				210968E09F8C34791D946706 /* NoticeManager.swift */,
-				21096331922D41D34FB1854D /* NoticeNotification.swift */,
 				05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */,
 				05B074D01DE6F358003611FE /* SwiftNotify.swift */,
 				21096D2BAC679BAC1AE0C5C0 /* PhysicsConfig.swift */,
@@ -294,8 +293,9 @@
 		21096A91E16EF8D579E001D1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				210967C10C8659F2C6F11984 /* ThemesEnum.swift */,
-				2109609804B9C0E71BCB960E /* LevelsEnum.swift */,
+				05F466D027EB83BB001A3F46 /* NoticeNotification.swift */,
+				210967C10C8659F2C6F11984 /* Theme.swift */,
+				2109609804B9C0E71BCB960E /* Level.swift */,
 				210966FF8E0CA5F582FE70B1 /* Duration.swift */,
 				21096F8CD708FEE28BD9CEBD /* FromPosition.swift */,
 				210966991022B78DC4EBF7C5 /* ToPosition.swift */,
@@ -520,7 +520,6 @@
 				05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */,
 				05B074D71DE6F358003611FE /* Notice.swift in Sources */,
 				210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */,
-				210961DD53D062E4A0D3A97B /* NoticeNotification.swift in Sources */,
 				21096C72458D67A9048DE709 /* DefaultColors.swift in Sources */,
 				21096898C0B7339039DA1CD2 /* DefaultIcons.swift in Sources */,
 				21096AA450E4BC7A4EAD887C /* ThemeConfig.swift in Sources */,
@@ -540,11 +539,12 @@
 				210968FA69FB585CD571DB41 /* Duration.swift in Sources */,
 				21096F0CEB585EEF603D9009 /* FromPosition.swift in Sources */,
 				21096D6BF6B537E4148CC8E2 /* ToPosition.swift in Sources */,
-				210969751DDEA0FF75ABF036 /* ThemesEnum.swift in Sources */,
-				21096450F7BAAC542C9E9869 /* LevelsEnum.swift in Sources */,
+				210969751DDEA0FF75ABF036 /* Theme.swift in Sources */,
+				21096450F7BAAC542C9E9869 /* Level.swift in Sources */,
 				21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */,
 				2109616D9775F2269F20426A /* TestableTapRecognizer.swift in Sources */,
 				2109654E629B9632364FD855 /* TestableLongPressRecognizer.swift in Sources */,
+				05F466D127EB83BB001A3F46 /* NoticeNotification.swift in Sources */,
 				05F466CF27EA3D60001A3F46 /* SwiftNotify.docc in Sources */,
 				21096FB776C8C7EFC9B83C2E /* TestablePanRecognizer.swift in Sources */,
 				210965459A46B63E3A4CE8A1 /* NoticeProtocol.swift in Sources */,

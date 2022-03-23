@@ -20,7 +20,7 @@ open class CyberView: NoticeViewBase {
             titleText: String?,
             bodyText: String?,
             themeConfig: ThemeConfig,
-            level: LevelsEnum
+            level: Level
     ) {
         guard let themeConfig = themeConfig as? CyberThemeConfig else { fatalError("themeConfig is not CyberThemeConfig") }
         guard let levelConfig = themeConfig.levelConfigs[level] else { fatalError("Level not found in theme config") }

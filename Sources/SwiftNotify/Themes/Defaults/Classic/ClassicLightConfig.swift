@@ -22,7 +22,7 @@ public struct ClassicLightConfig: ThemeConfig {
     public var iconImageTintColor: UIColor? = .white
     public var cornerRadius: CGFloat = 10
     public var padding: CGFloat = 10
-    public var levelConfigs: [LevelsEnum: LevelConfig] = [
+    public var levelConfigs: [Level: LevelConfig] = [
         .success: Success(),
         .fail: Fail(),
         .info: Info(),

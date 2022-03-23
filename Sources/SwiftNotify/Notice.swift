@@ -8,16 +8,6 @@
 
 import UIKit
 
-extension NoticeProtocol {
-    public func dismiss(completion: CompletionCallBack? = nil) {
-        dismiss(completion: completion)
-    }
-
-    public func present(in window: UIWindow? = nil, completion: @escaping CompletionCallBack) {
-        present(in: window, completion: completion)
-    }
-}
-
 open class Notice: NSObject, NoticeProtocol {
     public typealias TapCallback = (String) -> Void
 

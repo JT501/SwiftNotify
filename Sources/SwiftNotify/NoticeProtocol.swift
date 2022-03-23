@@ -31,3 +31,14 @@ public protocol NoticeProtocol: NSObject {
     /// - Parameter completion: ``CompletionCallBack`` when the notice completed the dismiss process.
     func dismiss(completion: CompletionCallBack?)
 }
+
+extension NoticeProtocol {
+    public func dismiss(completion: CompletionCallBack? = nil) {
+        dismiss(completion: completion)
+    }
+
+    public func present(in window: UIWindow? = nil, completion: @escaping CompletionCallBack) {
+        present(in: window, completion: completion)
+    }
+}
+

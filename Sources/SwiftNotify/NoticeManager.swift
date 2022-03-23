@@ -211,7 +211,7 @@ public class NoticeManager {
             guard !self.unsafeCurrentNotices.isEmpty else { return }
 
             self.unsafeCurrentNotices.forEach { [weak self] in
-                if (!$0.isHiding) {
+                if (!$0.isDismissing) {
                     $0.dismiss()
                     self?.autoDismissTasks.removeValue(forKey: $0.id)
                 }

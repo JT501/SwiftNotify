@@ -8,24 +8,6 @@
 
 import UIKit
 
-public typealias CompletionCallBack = (_ completed: Bool) -> Void
-
-/// All Notice Object Conform to this protocol
-public protocol NoticeProtocol: NSObject {
-
-    /// A unique notice Id.
-    var id: String { get }
-    
-    /// State of notice if it starts dismissing process or not.
-    var isDismissing: Bool { get }
-    
-    /// The duration notice will stay on screen. It will be auto dismissed when the duration passed.
-    var duration: DurationsEnum { get }
-
-    func present(in window: UIWindow?, completion: @escaping CompletionCallBack)
-    func dismiss(completion: CompletionCallBack?)
-}
-
 extension NoticeProtocol {
     public func dismiss(completion: CompletionCallBack? = nil) {
         dismiss(completion: completion)

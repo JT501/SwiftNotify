@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Reference to `SwiftNotify.default` for quick bootstrapping.
+/// Reference to ``SwiftNotify/default`` for quick bootstrapping.
 public let SN = SwiftNotify.default
 
 /// Current SwiftNotify Version

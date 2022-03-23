@@ -23,6 +23,7 @@
 		210962C6B0455A4B020EA06A /* ToastDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210962D274D6B9D681AF4700 /* ToastDarkConfig.swift */; };
 		21096450F7BAAC542C9E9869 /* LevelsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109609804B9C0E71BCB960E /* LevelsEnum.swift */; };
 		2109651BE0E7DA58BBA4735A /* CyberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210963925DE8694B088FA382 /* CyberView.swift */; };
+		210965459A46B63E3A4CE8A1 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096BF353F0D2383CCE4C13 /* NoticeProtocol.swift */; };
 		2109654E629B9632364FD855 /* TestableLongPressRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096573C3FA3CF75DA4D80C /* TestableLongPressRecognizer.swift */; };
 		21096552B3D1DA1E4A390C7F /* PhysicsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096D2BAC679BAC1AE0C5C0 /* PhysicsConfig.swift */; };
 		210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210968E09F8C34791D946706 /* NoticeManager.swift */; };
@@ -113,6 +114,7 @@
 		21096B1436056D7636453BA5 /* ClassicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicView.swift; sourceTree = "<group>"; };
 		21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIcons.swift; sourceTree = "<group>"; };
 		21096B9EE11D98DEB5AE7693 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		21096BF353F0D2383CCE4C13 /* NoticeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeProtocol.swift; sourceTree = "<group>"; };
 		21096C13483858BFF10F12C0 /* TestablePanRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestablePanRecognizer.swift; sourceTree = "<group>"; };
 		21096C1B8C0C778BB56F1742 /* NoticeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTests.swift; sourceTree = "<group>"; };
 		21096C215B6F2293012E6085 /* ToastLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastLightConfig.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
 				05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */,
+				21096BF353F0D2383CCE4C13 /* NoticeProtocol.swift */,
 			);
 			path = SwiftNotify;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				2109654E629B9632364FD855 /* TestableLongPressRecognizer.swift in Sources */,
 				05F466CF27EA3D60001A3F46 /* SwiftNotify.docc in Sources */,
 				21096FB776C8C7EFC9B83C2E /* TestablePanRecognizer.swift in Sources */,
+				210965459A46B63E3A4CE8A1 /* NoticeProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

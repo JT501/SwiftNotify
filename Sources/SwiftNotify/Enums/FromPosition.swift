@@ -5,7 +5,10 @@
 
 import UIKit
 
-public enum FromPositionsEnum {
+/// Represents the starting position where a notice is created
+public enum FromPosition {
+    
+    
     case top(HorizontalPosition)
     case bottom(HorizontalPosition)
     case left

@@ -18,7 +18,7 @@ public protocol NoticeProtocol: NSObject {
     var isDismissing: Bool { get }
 
     /// The duration notice will stay on screen. It will be auto dismissed when the duration passed.
-    var duration: DurationsEnum { get }
+    var duration: Duration { get }
 
     /// Present the notice in the window
     ///

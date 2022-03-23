@@ -25,13 +25,13 @@ open class SwiftNotify: NoticeDelegate {
     public static let Themes = ThemesEnum.self
 
     /// SwiftNotify notice durations enum
-    public static let Duration = DurationsEnum.self
+    public static let Duration = Duration.self
 
     /// SwiftNotify from positions enum
-    public static let FromPositions = FromPositionsEnum.self
+    public static let FromPositions = FromPosition.self
 
     /// SwiftNotify to positions enum
-    public static let ToPositions = ToPositionsEnum.self
+    public static let ToPositions = ToPosition.self
 
     /// `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
     public let noticeQueue: DispatchQueue
@@ -46,13 +46,13 @@ open class SwiftNotify: NoticeDelegate {
     public var defaultThemeConfig: ThemeConfig?
 
     /// Default position outside visible view where the Notice born and move to ``ToPositionsEnum``
-    public var defaultFromPosition: FromPositionsEnum
+    public var defaultFromPosition: FromPosition
 
     /// Default position where the Notice stays before dismiss
-    public var defaultToPosition: ToPositionsEnum
+    public var defaultToPosition: ToPosition
 
     /// Default duration of the notice stays on screen
-    public var defaultNoticeDuration: DurationsEnum
+    public var defaultNoticeDuration: Duration
 
     /// Default configuration for animation's physics
     public var defaultPhysicsConfig: PhysicsConfig
@@ -87,9 +87,9 @@ open class SwiftNotify: NoticeDelegate {
             ),
             defaultTheme: ThemesEnum = .cyber,
             defaultThemeConfig: ThemeConfig? = nil,
-            defaultFromPosition: FromPositionsEnum = .top(.random),
-            defaultToPosition: ToPositionsEnum = .top(),
-            defaultNoticeDuration: DurationsEnum = .short,
+            defaultFromPosition: FromPosition = .top(.random),
+            defaultToPosition: ToPosition = .top(),
+            defaultNoticeDuration: Duration = .short,
             defaultPhysicsConfig: PhysicsConfig = DefaultPhysicsConfig(),
             intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),
             delegate: SwiftNotifyDelegate? = nil
@@ -155,9 +155,9 @@ open class SwiftNotify: NoticeDelegate {
             theme: ThemesEnum? = nil,
             themeConfig: ThemeConfig? = nil,
             level: LevelsEnum,
-            duration: DurationsEnum? = nil,
-            fromPosition: FromPositionsEnum? = nil,
-            toPosition: ToPositionsEnum? = nil,
+            duration: Duration? = nil,
+            fromPosition: FromPosition? = nil,
+            toPosition: ToPosition? = nil,
             tapHandler: ((String) -> ())? = nil,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0

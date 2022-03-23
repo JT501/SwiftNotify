@@ -33,7 +33,7 @@
 		210966D54557656FD4F57E06 /* NoticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C1B8C0C778BB56F1742 /* NoticeTests.swift */; };
 		21096774F87B64586301E898 /* MockNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096EAD90060F51F49DADF7 /* MockNotice.swift */; };
 		21096898C0B7339039DA1CD2 /* DefaultIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096B4519E5B46880BE3DB9 /* DefaultIcons.swift */; };
-		210968FA69FB585CD571DB41 /* DurationsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966FF8E0CA5F582FE70B1 /* DurationsEnum.swift */; };
+		210968FA69FB585CD571DB41 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966FF8E0CA5F582FE70B1 /* Duration.swift */; };
 		210969751DDEA0FF75ABF036 /* ThemesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210967C10C8659F2C6F11984 /* ThemesEnum.swift */; };
 		210969B0192DF8D06BE73855 /* ClassicLightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C9A5E0EFCDC3EE90618 /* ClassicLightConfig.swift */; };
 		21096AA450E4BC7A4EAD887C /* ThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096003BB2672E5504DFD69 /* ThemeConfig.swift */; };
@@ -41,9 +41,9 @@
 		21096C72458D67A9048DE709 /* DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CB51760D8F0E132BE6C /* DefaultColors.swift */; };
 		21096C734DC8F5B35A2C84AC /* NoticeViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096878CB2AC9C75EC6EC3C /* NoticeViewBase.swift */; };
 		21096C9F17C8058EBC2ABD70 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */; };
-		21096D6BF6B537E4148CC8E2 /* ToPositionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966991022B78DC4EBF7C5 /* ToPositionsEnum.swift */; };
+		21096D6BF6B537E4148CC8E2 /* ToPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966991022B78DC4EBF7C5 /* ToPosition.swift */; };
 		21096DF1D3FE67F7FCD471FD /* NoticeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */; };
-		21096F0CEB585EEF603D9009 /* FromPositionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096F8CD708FEE28BD9CEBD /* FromPositionsEnum.swift */; };
+		21096F0CEB585EEF603D9009 /* FromPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096F8CD708FEE28BD9CEBD /* FromPosition.swift */; };
 		21096F912853CC61F49D3482 /* CyberDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */; };
 		21096FB776C8C7EFC9B83C2E /* TestablePanRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C13483858BFF10F12C0 /* TestablePanRecognizer.swift */; };
 		B27359631FE61C89003333BC /* SwiftNotifyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */; };
@@ -103,9 +103,9 @@
 		210963925DE8694B088FA382 /* CyberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberView.swift; sourceTree = "<group>"; };
 		21096573C3FA3CF75DA4D80C /* TestableLongPressRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableLongPressRecognizer.swift; sourceTree = "<group>"; };
 		210966018DE8094708BE19D1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
-		210966991022B78DC4EBF7C5 /* ToPositionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToPositionsEnum.swift; sourceTree = "<group>"; };
+		210966991022B78DC4EBF7C5 /* ToPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToPosition.swift; sourceTree = "<group>"; };
 		210966E7DD180F461A4B39D1 /* NoticeManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeManagerTests.swift; sourceTree = "<group>"; };
-		210966FF8E0CA5F582FE70B1 /* DurationsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationsEnum.swift; sourceTree = "<group>"; };
+		210966FF8E0CA5F582FE70B1 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		210967C10C8659F2C6F11984 /* ThemesEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesEnum.swift; sourceTree = "<group>"; };
 		210967D2C1A5355CEE2ECD07 /* TestableTapRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableTapRecognizer.swift; sourceTree = "<group>"; };
 		21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberDarkConfig.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		21096CC6DDD7FFA6704AE5FC /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		21096D2BAC679BAC1AE0C5C0 /* PhysicsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsConfig.swift; sourceTree = "<group>"; };
 		21096EAD90060F51F49DADF7 /* MockNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNotice.swift; sourceTree = "<group>"; };
-		21096F8CD708FEE28BD9CEBD /* FromPositionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromPositionsEnum.swift; sourceTree = "<group>"; };
+		21096F8CD708FEE28BD9CEBD /* FromPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromPosition.swift; sourceTree = "<group>"; };
 		21096FA00F04FCB08F5CE823 /* CyberLightConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberLightConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,9 +296,9 @@
 			children = (
 				210967C10C8659F2C6F11984 /* ThemesEnum.swift */,
 				2109609804B9C0E71BCB960E /* LevelsEnum.swift */,
-				210966FF8E0CA5F582FE70B1 /* DurationsEnum.swift */,
-				21096F8CD708FEE28BD9CEBD /* FromPositionsEnum.swift */,
-				210966991022B78DC4EBF7C5 /* ToPositionsEnum.swift */,
+				210966FF8E0CA5F582FE70B1 /* Duration.swift */,
+				21096F8CD708FEE28BD9CEBD /* FromPosition.swift */,
+				210966991022B78DC4EBF7C5 /* ToPosition.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -537,9 +537,9 @@
 				21096C734DC8F5B35A2C84AC /* NoticeViewBase.swift in Sources */,
 				21096C9F17C8058EBC2ABD70 /* NoticeView.swift in Sources */,
 				21096552B3D1DA1E4A390C7F /* PhysicsConfig.swift in Sources */,
-				210968FA69FB585CD571DB41 /* DurationsEnum.swift in Sources */,
-				21096F0CEB585EEF603D9009 /* FromPositionsEnum.swift in Sources */,
-				21096D6BF6B537E4148CC8E2 /* ToPositionsEnum.swift in Sources */,
+				210968FA69FB585CD571DB41 /* Duration.swift in Sources */,
+				21096F0CEB585EEF603D9009 /* FromPosition.swift in Sources */,
+				21096D6BF6B537E4148CC8E2 /* ToPosition.swift in Sources */,
 				210969751DDEA0FF75ABF036 /* ThemesEnum.swift in Sources */,
 				21096450F7BAAC542C9E9869 /* LevelsEnum.swift in Sources */,
 				21096063356000BE6DA6996D /* CyberThemeConfig.swift in Sources */,

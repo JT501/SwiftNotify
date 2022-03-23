@@ -16,7 +16,7 @@ open class Notice: NSObject, NoticeProtocol {
 
     public let id: String
     public private(set) var isDismissing: Bool
-    public let duration: DurationsEnum
+    public let duration: Duration
     
     /// Configurations for animations physics.
     public let config: PhysicsConfig
@@ -25,10 +25,10 @@ open class Notice: NSObject, NoticeProtocol {
     public let view: UIView
     
     /// The position where the notice should be borned.
-    public let fromPosition: FromPositionsEnum
+    public let fromPosition: FromPosition
     
     /// The position of the window where the notice will be presented.
-    public let toPosition: ToPositionsEnum
+    public let toPosition: ToPosition
     
     /// Handler closure when the notice is tapped
     public var tapHandler: TapCallback?
@@ -84,9 +84,9 @@ open class Notice: NSObject, NoticeProtocol {
     public init(
             id: String = UUID().uuidString,
             view: UIView,
-            duration: DurationsEnum,
-            fromPosition: FromPositionsEnum,
-            toPosition: ToPositionsEnum,
+            duration: Duration,
+            fromPosition: FromPosition,
+            toPosition: ToPosition,
             tapHandler: TapCallback?,
             config: PhysicsConfig,
             delegate: NoticeDelegate? = nil
@@ -120,7 +120,7 @@ open class Notice: NSObject, NoticeProtocol {
         longPressRecognizer.delegate = self
     }
 
-    internal func getInitPoint(in window: UIWindow, fromPosition: FromPositionsEnum) -> CGPoint {
+    internal func getInitPoint(in window: UIWindow, fromPosition: FromPosition) -> CGPoint {
         switch fromPosition {
         case .top(let position):
             switch position {
@@ -165,7 +165,7 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    internal func getSnapPoint(in window: UIWindow, toPosition: ToPositionsEnum) -> CGPoint {
+    internal func getSnapPoint(in window: UIWindow, toPosition: ToPosition) -> CGPoint {
         switch toPosition {
         case .bottom(let offset):
             return CGPoint(x: window.bounds.midX, y: window.bounds.maxY - offset - containerView.bounds.midY)

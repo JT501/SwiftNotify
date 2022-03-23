@@ -15,7 +15,7 @@ class MockNotice: NSObject, NoticeProtocol {
 
     var id: String
     var isDismissing: Bool
-    var duration: DurationsEnum
+    var duration: Duration
 
     func present(in window: UIWindow?, completion: @escaping (Bool) -> Void) {
         presentCounter += 1
@@ -32,7 +32,7 @@ class MockNotice: NSObject, NoticeProtocol {
     init(
             id: String = UUID().uuidString,
             isHiding: Bool = false,
-            duration: DurationsEnum = .short
+            duration: Duration = .short
     ) {
         self.id = id
         self.isDismissing = isHiding

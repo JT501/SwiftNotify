@@ -79,6 +79,6 @@ open class ToastView: NoticeViewBase {
         bounds.size.height = viewHeight
 
         bodyLabel?.bounds.size = labelSize
-        bodyLabel?.center = center
+        bodyLabel?.center = CGPoint(x: bounds.midX, y: bounds.midY)
     }
 }

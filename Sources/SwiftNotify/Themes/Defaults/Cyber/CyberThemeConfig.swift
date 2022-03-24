@@ -5,7 +5,12 @@
 
 import UIKit
 
-protocol CyberThemeConfig: ThemeConfig {
+/// Represents cyber theme configurations
+public protocol CyberThemeConfig: ThemeConfig {
+    
+    /// The cyber view blur effect style
     var blurEffectStyle: UIBlurEffect.Style { get }
+    
+    /// The cyber vuew vubrancy effect style
     var vibrancyEffectStyle: UIVibrancyEffectStyle { get }
 }

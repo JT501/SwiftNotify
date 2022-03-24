@@ -5,13 +5,28 @@
 
 import UIKit
 
+/// Represents configurations for theming a notice by level
 public protocol LevelConfig {
+    
+    /// Notice background color
     var backgroundColor: UIColor? { get set }
+    
+    /// Notice title text color
     var titleTextColor: UIColor? { get set }
+    
+    /// Notice title label background color
     var titleBackgroundColor: UIColor? { get set }
+    
+    /// Notice body text color
     var bodyTextColor: UIColor? { get set }
+    
+    /// Notice body label background color
     var bodyBackgroundColor: UIColor? { get set }
+    
+    /// Notice icon image
     var iconImage: UIImage? { get set }
+    
+    /// Notice icon image tint color
     var iconImageTintColor: UIColor? { get set }
 }
 

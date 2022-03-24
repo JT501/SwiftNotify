@@ -5,7 +5,15 @@
 
 import UIKit
 
+/// Represents notice views
 public protocol NoticeView: UIView {
+    /// Create a notice view
+    ///
+    /// - Parameters:
+    ///   - titleText: Title string
+    ///   - bodyText: Body string
+    ///   - themeConfig: Theme configuration
+    ///   - level: Notice's level
     init(
             titleText: String?,
             bodyText: String?,

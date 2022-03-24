@@ -5,8 +5,8 @@
 
 import UIKit
 
-/// Represent the position of the window where a notice will be presented to
-/// from ``FromPosition``.
+/// Represent the position of the window where a notice will snap to
+/// from specific ``FromPosition``.
 public enum ToPosition {
     
     /// Top of the window

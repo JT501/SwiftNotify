@@ -5,7 +5,9 @@
 
 import UIKit
 
-/// Represents the starting position where a notice is created
+/// Represents the starting position where a notice is created.
+///
+/// The `FromPosition` is outside the visible bound of window.
 public enum FromPosition {
     
     /// Outside the top of the window's bound

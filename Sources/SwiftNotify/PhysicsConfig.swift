@@ -5,41 +5,44 @@
 
 import UIKit
 
-public protocol PhysicsConfig {
-    /// The max. drag distance that the view will return to snap point.
-    /// If it exceeds the thresholdDistance, the view will be dismissed.
-    /// 50.0 by default
-    var thresholdDistance: CGFloat { get set }
-    var minPushForce: CGFloat { get set }
-    var pushForceFactor: CGFloat { get set }
-    var defaultPushForce: CGFloat { get set }
-    /**
-        Rotation speed factor, default: 0.8
-        - 0.0 : View will not rotate
-        - The higher factor, the faster rotation
-        */
-    var angularVelocityFactor: CGFloat { get set }
-    /**
-        Rotation resistance, default: 1.2
-        */
-    var angularResistance: CGFloat { get set }
-    var snapDamping: CGFloat { get set }
-}
-
-public struct DefaultPhysicsConfig: PhysicsConfig {
+/// Represents the configuration for interactive animations.
+public struct PhysicsConfig {
+    
+    /// The max. drag distance from center of a notice view to snap point which
+    ///  the notice will return to its snap point (``ToPosition``).
+    ///
+    /// If it exceeds the ``thresholdDistance``, the view will be dismissed.
+    /// The default value is 50.0.
     public var thresholdDistance: CGFloat = 50.0
 
-    public var minPushForce: CGFloat = 8
+    /// Rotation resistance.
+    ///
+    /// Valid range is 0 through `CGFLOAT_MAX`. The greater the value,
+    /// the greater the angular damping and the faster rotation slows to a stop.
+    /// The default value is 1.0.
+    public var angularResistance: CGFloat = 1.0
 
-    public var pushForceFactor: CGFloat = 0.005
-
-    public var defaultPushForce: CGFloat = 12
-
-    public var angularVelocityFactor: CGFloat = 0.8
-
-    public var angularResistance: CGFloat = 1.2
-
+    /// The amount of oscillation of a dynamic item during the conclusion of a notice snap.
+    ///
+    /// The valid range for damping extends from 0.0, for maximum oscillation, through 1.0,
+    /// for minimum oscillation.
+    /// The default value is 0.3.
     public var snapDamping: CGFloat = 0.3
 
-    public init() {}
+    
+    /// Create a Physics Config based on given parameters.
+    /// - Parameters:
+    ///   - thresholdDistance: The max. drag distance from center of a notice view to snap point which
+    ///  the notice will return to its snap point (``ToPosition``).
+    ///   - angularResistance: Rotation resistance.
+    ///   - snapDamping: The amount of oscillation of a dynamic item during the conclusion of a notice snap.
+    public init(
+            thresholdDistance: CGFloat = 50.0,
+            angularResistance: CGFloat = 1.0,
+            snapDamping: CGFloat = 0.3
+    ) {
+        self.thresholdDistance = thresholdDistance
+        self.angularResistance = angularResistance
+        self.snapDamping = snapDamping
+    }
 }

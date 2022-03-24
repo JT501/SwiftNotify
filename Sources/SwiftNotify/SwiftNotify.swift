@@ -78,7 +78,7 @@ open class SwiftNotify: NoticeDelegate {
             defaultFromPosition: FromPosition = .top(.random),
             defaultToPosition: ToPosition = .top(),
             defaultNoticeDuration: Duration = .short,
-            defaultPhysicsConfig: PhysicsConfig = DefaultPhysicsConfig(),
+            defaultPhysicsConfig: PhysicsConfig = PhysicsConfig(),
             intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),
             delegate: SwiftNotifyDelegate? = nil
     ) {

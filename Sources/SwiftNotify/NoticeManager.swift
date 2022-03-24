@@ -17,19 +17,19 @@ public class NoticeManager {
 
     internal var unsafePendingNotices: [NoticeProtocol] = [] {
         didSet {
-            print("Pending Notices: \(unsafePendingNotices)")
+//            print("Pending Notices: \(unsafePendingNotices)")
         }
     }
 
     internal var unsafeCurrentNotices: [NoticeProtocol] = [] {
         didSet {
-            print("Current Notices: \(unsafeCurrentNotices)")
+//            print("Current Notices: \(unsafeCurrentNotices)")
         }
     }
 
     internal var autoDismissTasks: [String: DispatchWorkItem] = [:] {
         didSet {
-            print("Auto Dismiss Tasks: \(autoDismissTasks)")
+//            print("Auto Dismiss Tasks: \(autoDismissTasks)")
         }
     }
 

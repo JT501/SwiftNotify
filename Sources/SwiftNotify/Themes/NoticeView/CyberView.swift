@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// **Cyber** Notice view
 open class CyberView: NoticeViewBase {
     /// Blur Effect
     private let blurEffect: UIBlurEffect
@@ -15,7 +16,30 @@ open class CyberView: NoticeViewBase {
     private let blurEffectView: UIVisualEffectView
     private let vibrancyEffect: UIVibrancyEffect
     private let vibrancyEffectView: UIVisualEffectView
+    
+    /// Create a **cyber** notice view
+    ///
+    /// - Parameters:
+    ///   - titleText: The title
+    ///   - bodyText: The message
+    ///   - cyberThemeConfig: Cyber Theme configuration
+    ///   - level: Notice level
+    public convenience init(
+        titleText: String?,
+        bodyText: String?,
+        cyberThemeConfig: CyberThemeConfig,
+        level: Level
+    ) {
+        self.init(titleText: titleText, bodyText: bodyText, themeConfig: cyberThemeConfig, level: level)
+    }
 
+    /// Create a **cyber** notice view
+    ///
+    /// - Parameters:
+    ///   - titleText: The title
+    ///   - bodyText: The message
+    ///   - themeConfig: Cyber Theme configuration
+    ///   - level: Notice level
     public required convenience init(
             titleText: String?,
             bodyText: String?,
@@ -51,7 +75,7 @@ open class CyberView: NoticeViewBase {
         )
     }
 
-    public init(
+    init(
             titleText: String?,
             titleTextColor: UIColor,
             titleTextFont: UIFont,

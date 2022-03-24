@@ -8,19 +8,20 @@
 
 import UIKit
 
+/// **Classic** Notice view
 open class ClassicView: NoticeViewBase {
-
-    public init(
-            title: String? = nil,
-            body: String? = nil,
-            icon: UIImage? = nil) {
-        super.init(titleText: title, bodyText: body, iconImage: icon)
-    }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Create a **classic** notice view
+    ///
+    /// - Parameters:
+    ///   - titleText: The title
+    ///   - bodyText: The message
+    ///   - themeConfig: Theme configuration
+    ///   - level: Notice level
     public required init(
             titleText: String?,
             bodyText: String?,

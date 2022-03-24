@@ -5,6 +5,7 @@
 
 import UIKit
 
+/// Notice view base class for ``CyberView``, ``ClassicView`` and ``ToastView``.
 open class NoticeViewBase: UIView, NoticeView {
     /// Width of notice
     open var width: CGFloat
@@ -78,6 +79,13 @@ open class NoticeViewBase: UIView, NoticeView {
     /// Icon Image view's tint color
     open var iconViewTintColor: UIColor?
 
+    /// Create a notice view
+    ///
+    /// - Parameters:
+    ///   - titleText: The title
+    ///   - bodyText: The message
+    ///   - themeConfig: Theme configuration
+    ///   - level: Notice level
     public required convenience init(
             titleText: String?,
             bodyText: String?,
@@ -110,7 +118,7 @@ open class NoticeViewBase: UIView, NoticeView {
         )
     }
 
-    public init(
+    init(
             titleText: String? = nil,
             titleTextColor: UIColor = .white,
             titleTextFont: UIFont = .boldSystemFont(ofSize: 16),
@@ -162,6 +170,10 @@ open class NoticeViewBase: UIView, NoticeView {
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(frame: CGRect) {
+        fatalError("init(frame:) has not been implemented")
     }
 
     internal func setupView() {

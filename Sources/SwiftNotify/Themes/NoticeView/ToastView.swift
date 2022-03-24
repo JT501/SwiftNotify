@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// **Toast** Notice view
 open class ToastView: NoticeViewBase {
 
     /// Max. width of message view
@@ -15,16 +16,23 @@ open class ToastView: NoticeViewBase {
 
     /// Min. height of message view
     private let minHeight: CGFloat = 50
-
-    // MARK: - Initialization
-    public init(text: String) {
-        super.init(
-                bodyText: text,
-                bodyTextFont: .boldSystemFont(ofSize: 17),
-                bodyTextAlignment: .center
-        )
+    
+    /// Create a **toast** notice view
+    /// - Parameters:
+    ///   - bodyText: The message of notice
+    ///   - themeConfig: Theme configuration
+    ///   - level: Notice level
+    public convenience required init(bodyText: String?, themeConfig: ThemeConfig, level: Level) {
+        self.init(titleText: nil, bodyText: bodyText, themeConfig: themeConfig, level: level)
     }
 
+    /// Create a **toast** notice view
+    ///
+    /// - Parameters:
+    ///   - titleText: **Useless for toast view, since toast has no title**
+    ///   - bodyText: The message
+    ///   - themeConfig: Theme configuration
+    ///   - level: Notice level
     public required init(
             titleText: String?,
             bodyText: String?,

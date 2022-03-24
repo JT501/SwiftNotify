@@ -10,32 +10,32 @@ import UIKit
 
 /// A Notice object which stores the configuration and handles all the interactions and animations.
 open class Notice: NSObject, NoticeProtocol {
-    
+
     /// Type alias for on tap closure.
     public typealias TapCallback = (String) -> Void
 
     public let id: String
     public private(set) var isDismissing: Bool
     public let duration: Duration
-    
+
     /// Configurations for animations physics.
     public let config: PhysicsConfig
-    
+
     /// The notice view.
     public let view: UIView
-    
+
     /// The position where the notice should be borned.
     public let fromPosition: FromPosition
-    
-    /// The position of the window where the notice will be presented.
+
+    /// The position of the window where the notice will snap to.
     public let toPosition: ToPosition
-    
+
     /// Handler closure when the notice is tapped
     public var tapHandler: TapCallback?
 
     /// Delegate for the notice
     weak var delegate: NoticeDelegate?
-    
+
     /// String description of the notice
     public override var description: String {
         "Notice(id: \(id))"
@@ -59,7 +59,7 @@ open class Notice: NSObject, NoticeProtocol {
     lazy private var userInfo: [AnyHashable: NoticeInfo] = [
         NoticeInfo.userInfoKey: NoticeInfo(id: id)
     ]
-    
+
     internal override convenience init() {
         self.init(view: UIView(),
                   duration: .short,
@@ -68,7 +68,7 @@ open class Notice: NSObject, NoticeProtocol {
                   tapHandler: nil,
                   config: SN.defaultPhysicsConfig)
     }
-    
+
     /// Create a notice object
     ///
     /// - Parameters:
@@ -197,7 +197,7 @@ open class Notice: NSObject, NoticeProtocol {
         }
         animator.addBehavior(snapBehaviour)
     }
-    
+
     public func present(
             in window: UIWindow? = nil,
             completion: @escaping (_ completed: Bool) -> Void
@@ -300,7 +300,7 @@ open class Notice: NSObject, NoticeProtocol {
                 vertical: dragPoint.y - gestureView.bounds.midY
         )
         let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
-        let vector = CGVector(dx: (velocity.x), dy: (velocity.y))
+        let velocityMagnitude = sqrt(pow(velocity.x, 2) + pow(velocity.y, 2))
 
         var lastTime: CFAbsoluteTime
         var lastAngle: CGFloat
@@ -367,14 +367,7 @@ open class Notice: NSObject, NoticeProtocol {
                     }
                 }
 
-                //Add Push Behaviour
-                pushBehavior = UIPushBehavior(items: [gestureView], mode: .instantaneous)
-                pushBehavior.pushDirection = vector
-
-                let pushMagnitude: CGFloat = pushBehavior.magnitude * config.pushForceFactor
-                let massFactor: CGFloat = (gestureView.bounds.height * gestureView.bounds.width) / (100 * 100)
-
-                if pushMagnitude < 1 {
+                if velocityMagnitude < 100 {
                     gravityBehaviour = UIGravityBehavior(items: [containerView])
                     gravityBehaviour.action = { [weak self] in
                         guard let self = self else { return }
@@ -391,15 +384,18 @@ open class Notice: NSObject, NoticeProtocol {
 
                     animator.addBehavior(gravityBehaviour)
                 } else {
-                    pushBehavior.magnitude = (pushMagnitude > config.minPushForce) ?
-                            pushMagnitude * massFactor : config.defaultPushForce * massFactor
-                    //                pushBehavior.setTargetOffsetFromCenter(offsetFromCenterInWindow, for: gestureView)
+                    // If too slow, add some push
+                    if (velocityMagnitude < 800) {
+                        pushBehavior = UIPushBehavior(items: [gestureView], mode: .instantaneous)
+                        pushBehavior.setAngle(atan2(velocity.y, velocity.x), magnitude: 12)
 
-                    animator.addBehavior(pushBehavior)
+                        animator.addBehavior(pushBehavior)
+                    }
 
                     //Add Item Behaviour
                     itemBehaviour = UIDynamicItemBehavior(items: [gestureView])
-                    itemBehaviour.addAngularVelocity(angularVelocity * config.angularVelocityFactor, for: gestureView)
+                    itemBehaviour.addAngularVelocity(angularVelocity, for: gestureView)
+                    itemBehaviour.addLinearVelocity(velocity, for: gestureView)
                     itemBehaviour.angularResistance = config.angularResistance
 
                     itemBehaviour.action = { [weak self] in
@@ -415,6 +411,7 @@ open class Notice: NSObject, NoticeProtocol {
                             }
                         })
                     }
+
                     animator.addBehavior(itemBehaviour)
                 }
             }

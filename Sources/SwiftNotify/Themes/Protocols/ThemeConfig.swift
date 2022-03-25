@@ -53,6 +53,11 @@ public protocol ThemeConfig {
     var padding: CGFloat { get }
 
     /// Configurations for each level
+    ///
+    /// Level config values can override ``ThemeConfig`` values.
+    /// For example, if the title text color is set as `red` in a ``ThemeConfig``
+    /// and you set the title text color as `blue` in **success** ``LevelConfig``,
+    /// the title text color will be `blue` on **success** level.
     var levelConfigs: [Level: LevelConfig] { get }
 }
 

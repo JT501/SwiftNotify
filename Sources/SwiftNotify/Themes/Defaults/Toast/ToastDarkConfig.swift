@@ -71,28 +71,28 @@ public struct ToastDarkConfig: ThemeConfig {
 
     /// Config used for level **Success**
     public struct Success: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.SuccessDark
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.DarkBlue
 
         public init() {}
     }
 
     /// Config used for level **Fail**
     public struct Fail: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.FailDark
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.DarkRed
 
         public init() {}
     }
 
     /// Config used for level **Info**
     public struct Info: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.InfoDark
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.Black
 
         public init() {}
     }
 
     /// Config used for level **Warning**
     public struct Warning: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.WarningDark
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.Orange
 
         public init() {}
     }

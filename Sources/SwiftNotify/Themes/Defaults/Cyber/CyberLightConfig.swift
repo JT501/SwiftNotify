@@ -97,8 +97,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Success**
     public struct Success: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.Success
-        public var iconImageTintColor: UIColor? = DefaultColors.Success
+        public var iconImage: UIImage? = SwiftNotify.Icons.Success
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
 
         public init() {}
     }
@@ -106,8 +106,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Fail**
     public struct Fail: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.Fail
-        public var iconImageTintColor: UIColor? = DefaultColors.Fail
+        public var iconImage: UIImage? = SwiftNotify.Icons.Fail
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Red
 
         public init() {}
     }
@@ -115,8 +115,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Info**
     public struct Info: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.Info
-        public var iconImageTintColor: UIColor? = DefaultColors.InfoDark
+        public var iconImage: UIImage? = SwiftNotify.Icons.Info
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Black
 
         public init() {}
     }
@@ -124,8 +124,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Warning**
     public struct Warning: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.Warning
-        public var iconImageTintColor: UIColor? = DefaultColors.WarningDark
+        public var iconImage: UIImage? = SwiftNotify.Icons.Warning
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Orange
 
         public init() {}
     }

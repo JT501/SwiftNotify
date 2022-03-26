@@ -96,8 +96,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Success**
     public struct Success: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.SuccessSolid
-        public var iconImageTintColor: UIColor? = DefaultColors.Success
+        public var iconImage: UIImage? = SwiftNotify.Icons.SuccessSolid
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
 
         public init() {}
     }
@@ -105,8 +105,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Fail**
     public struct Fail: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.FailSolid
-        public var iconImageTintColor: UIColor? = DefaultColors.Fail
+        public var iconImage: UIImage? = SwiftNotify.Icons.FailSolid
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Red
 
         public init() {}
     }
@@ -114,8 +114,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Info**
     public struct Info: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.InfoSolid
-        public var iconImageTintColor: UIColor? = DefaultColors.Info
+        public var iconImage: UIImage? = SwiftNotify.Icons.InfoSolid
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Black
 
         public init() {}
     }
@@ -123,8 +123,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Warning**
     public struct Warning: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = DefaultIcons.WarningSolid
-        public var iconImageTintColor: UIColor? = DefaultColors.Warning
+        public var iconImage: UIImage? = SwiftNotify.Icons.WarningSolid
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Yellow
 
         public init() {}
     }

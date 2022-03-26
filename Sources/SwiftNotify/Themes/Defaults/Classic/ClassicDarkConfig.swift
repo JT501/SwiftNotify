@@ -87,32 +87,32 @@ public struct ClassicDarkConfig: ThemeConfig {
 
     /// Config used for level **Success**
     public struct Success: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.SuccessDark
-        public var iconImage: UIImage? = DefaultIcons.SuccessSolid
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.DarkBlue
+        public var iconImage: UIImage? = SwiftNotify.Icons.SuccessSolid
 
         public init() {}
     }
 
     /// Config used for level **Fail**
     public struct Fail: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.FailDark
-        public var iconImage: UIImage? = DefaultIcons.FailSolid
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.DarkRed
+        public var iconImage: UIImage? = SwiftNotify.Icons.FailSolid
 
         public init() {}
     }
 
     /// Config used for level **Info**
     public struct Info: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.InfoDark
-        public var iconImage: UIImage? = DefaultIcons.InfoSolid
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.Black
+        public var iconImage: UIImage? = SwiftNotify.Icons.InfoSolid
 
         public init() {}
     }
 
     /// Config used for level **Warning**
     public struct Warning: LevelConfig {
-        public var backgroundColor: UIColor? = DefaultColors.WarningDark
-        public var iconImage: UIImage? = DefaultIcons.WarningSolid
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.Orange
+        public var iconImage: UIImage? = SwiftNotify.Icons.WarningSolid
 
         public init() {}
     }

@@ -18,9 +18,6 @@ open class SwiftNotify: NoticeDelegate {
     /// Shared singleton instance used by all `SN` APIs. Cannot be modified.
     public static let `default` = SwiftNotify()
 
-    /// SwiftNotify default icons enum
-    public static let Icons = DefaultIcons.self
-
     /// `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
     public let noticeQueue: DispatchQueue
 

@@ -97,7 +97,7 @@ public struct CyberDarkConfig: CyberThemeConfig {
     public struct Success: LevelConfig {
         public var backgroundColor: UIColor? = .clear
         public var iconImage: UIImage? = SwiftNotify.Icons.SuccessSolid
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Green
 
         public init() {}
     }
@@ -115,7 +115,7 @@ public struct CyberDarkConfig: CyberThemeConfig {
     public struct Info: LevelConfig {
         public var backgroundColor: UIColor? = .clear
         public var iconImage: UIImage? = SwiftNotify.Icons.InfoSolid
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Black
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
 
         public init() {}
     }

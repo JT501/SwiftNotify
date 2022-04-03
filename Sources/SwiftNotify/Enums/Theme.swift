@@ -13,10 +13,10 @@ public enum Theme {
     /// Classic theme (Dark Mode)
     case classicDark
     
-    /// Blur theme
+    /// Cyber theme
     case cyber
     
-    /// Blur theme (Dark Mode)
+    /// Cyber theme (Dark Mode)
     case cyberDark
     
     /// Toast theme

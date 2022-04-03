@@ -96,16 +96,16 @@ public struct CyberLightConfig: CyberThemeConfig {
 
     /// Config used for level **Success**
     public struct Success: LevelConfig {
-        public var backgroundColor: UIColor? = .clear
+        public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
         public var iconImage: UIImage? = SwiftNotify.Icons.Success
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Green
 
         public init() {}
     }
 
     /// Config used for level **Fail**
     public struct Fail: LevelConfig {
-        public var backgroundColor: UIColor? = .clear
+        public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
         public var iconImage: UIImage? = SwiftNotify.Icons.Fail
         public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Red
 
@@ -114,16 +114,16 @@ public struct CyberLightConfig: CyberThemeConfig {
 
     /// Config used for level **Info**
     public struct Info: LevelConfig {
-        public var backgroundColor: UIColor? = .clear
+        public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
         public var iconImage: UIImage? = SwiftNotify.Icons.Info
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Black
+        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
 
         public init() {}
     }
 
     /// Config used for level **Warning**
     public struct Warning: LevelConfig {
-        public var backgroundColor: UIColor? = .clear
+        public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
         public var iconImage: UIImage? = SwiftNotify.Icons.Warning
         public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Orange
 

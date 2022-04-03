@@ -87,7 +87,7 @@ public struct ClassicDarkConfig: ThemeConfig {
 
     /// Config used for level **Success**
     public struct Success: LevelConfig {
-        public var backgroundColor: UIColor? = SwiftNotify.Colors.DarkBlue
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.DarkGreen
         public var iconImage: UIImage? = SwiftNotify.Icons.SuccessSolid
 
         public init() {}
@@ -103,7 +103,7 @@ public struct ClassicDarkConfig: ThemeConfig {
 
     /// Config used for level **Info**
     public struct Info: LevelConfig {
-        public var backgroundColor: UIColor? = SwiftNotify.Colors.Black
+        public var backgroundColor: UIColor? = SwiftNotify.Colors.DarkBlue
         public var iconImage: UIImage? = SwiftNotify.Icons.InfoSolid
 
         public init() {}

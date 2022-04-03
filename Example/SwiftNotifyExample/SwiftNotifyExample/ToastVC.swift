@@ -27,7 +27,7 @@ class ToastVC: UIViewController {
 
     @IBAction func showToastView() {
 
-        SN.show(message: "This is a Toast", level: .info)
+        SN.show(message: "Hello ! I am a Toast", level: .info)
 
         SN.show(message: "Tap here to hide the toast",
                 theme: .toastDark,

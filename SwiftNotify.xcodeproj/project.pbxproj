@@ -193,12 +193,12 @@
 				05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */,
 				05B074D01DE6F358003611FE /* SwiftNotify.swift */,
 				21096D2BAC679BAC1AE0C5C0 /* PhysicsConfig.swift */,
+				21096BF353F0D2383CCE4C13 /* NoticeProtocol.swift */,
 				05B074D21DE6F358003611FE /* Notice.swift */,
 				05B074CF1DE6F358003611FE /* SwiftNotify.h */,
 				05C827211DD31B7A003E0C5E /* Info.plist */,
 				2109614E5B2B7FC4D5422EE8 /* NotifyResources */,
 				05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */,
-				21096BF353F0D2383CCE4C13 /* NoticeProtocol.swift */,
 			);
 			path = SwiftNotify;
 			sourceTree = "<group>";

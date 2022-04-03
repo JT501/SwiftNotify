@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qg3-3z-P8F" secondAttribute="trailing" id="5Oa-K9-Me1"/>
                             <constraint firstItem="Qoe-cq-Vrt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jV-B5-vYA"/>
@@ -104,7 +104,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <state key="normal" title="Show Toast">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="showToastView" destination="okM-wt-rTR" eventType="touchUpInside" id="uKF-lf-EVz"/>
@@ -114,7 +114,7 @@
                                         <rect key="frame" x="0.0" y="34" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <state key="normal" title="Dismiss Message">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="hideMessage" destination="okM-wt-rTR" eventType="touchUpInside" id="sp8-Qk-zj7"/>
@@ -124,7 +124,7 @@
                                         <rect key="frame" x="0.0" y="68" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <state key="normal" title="Dismiss All">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="hideAll" destination="okM-wt-rTR" eventType="touchUpInside" id="aRt-vA-NUb"/>
@@ -133,7 +133,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ha7-P1-jmE" secondAttribute="bottom" id="2QO-Sx-kYX"/>
                             <constraint firstItem="XGE-t3-rh9" firstAttribute="centerY" secondItem="PuN-B0-QP3" secondAttribute="centerY" id="QR3-bU-BzT"/>
@@ -255,7 +255,7 @@
                                 <rect key="frame" x="126.5" y="541" width="122" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <state key="normal" title="Show Classic">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="showClassicView" destination="zNN-xZ-Txb" eventType="touchUpInside" id="hnU-pE-Qn3"/>
@@ -265,7 +265,7 @@
                                 <rect key="frame" x="111" y="583" width="153" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <state key="normal" title="Dismiss Message">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="hideMessage" destination="zNN-xZ-Txb" eventType="touchUpInside" id="RzS-yh-9Mz"/>
@@ -275,14 +275,14 @@
                                 <rect key="frame" x="135" y="625" width="105" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <state key="normal" title="Dismiss All">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="hideAll" destination="zNN-xZ-Txb" eventType="touchUpInside" id="ahR-hE-sQa"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2Ai-Vm-3U6" firstAttribute="top" secondItem="edR-1R-Ebr" secondAttribute="bottom" constant="8" id="1db-7k-LJC"/>
                             <constraint firstItem="edR-1R-Ebr" firstAttribute="top" secondItem="p7M-lr-5SA" secondAttribute="bottom" constant="8" id="8t1-hI-FMP"/>

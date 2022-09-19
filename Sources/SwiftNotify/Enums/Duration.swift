@@ -7,16 +7,16 @@ import Foundation
 
 /// Represents the duration of a notice
 public enum Duration {
-    
+
     /// 2 seconds
     case short
-    
+
     /// 4 seconds
     case long
-    
+
     /// Forever until dismiss manually
     case forever
-    
+
     /// Custom duration (in seconds)
     case custom(duration: DispatchTimeInterval)
 }

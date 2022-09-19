@@ -14,7 +14,7 @@ public let SN = SwiftNotify.default
 /// Current SwiftNotify Version
 public let version = "2.0.0"
 
-open class SwiftNotify: NoticeDelegate {
+open class SwiftNotify {
     /// Shared singleton instance used by all `SN` APIs. Cannot be modified.
     public static let `default` = SwiftNotify()
 
@@ -30,7 +30,7 @@ open class SwiftNotify: NoticeDelegate {
     /// Default theme appearance configuration
     public var defaultThemeConfig: ThemeConfig?
 
-    /// Default position outside visible view where the Notice born and move to ``ToPosition``
+    /// Default position outside visible view where the Notice is created and move to ``ToPosition``
     public var defaultFromPosition: FromPosition
 
     /// Default position where the Notice stays before dismiss
@@ -56,7 +56,7 @@ open class SwiftNotify: NoticeDelegate {
     ///                             by default.
     ///   - defaultTheme:           Default theme for notice. `NoticeThemes.Cyber` by default.
     ///   - defaultThemeConfig:     Default theme appearance configuration. `nil` by default.
-    ///   - defaultFromPosition:    Default position outside visible view where the Notice born and move to `ToPosition`.
+    ///   - defaultFromPosition:    Default position outside visible view where the Notice is created and move to `ToPosition`.
     ///                             `FromPosition.top(.HorizontalPosition.random)` by default.
     ///   - defaultToPosition:      Default position where the Notice stays before dismiss. `ToPosition.center` by default.
     ///   - defaultNoticeDuration:  Default duration of the notice stays on screen. `DurationsEnum.short` by default.
@@ -219,7 +219,7 @@ open class SwiftNotify: NoticeDelegate {
                 toPosition: toPosition,
                 tapHandler: tapHandler,
                 config: defaultPhysicsConfig,
-                delegate: self
+                delegate: delegate
         )
         noticeManager.addPendingNotice(notice)
 
@@ -240,6 +240,7 @@ open class SwiftNotify: NoticeDelegate {
     }
 
     // MARK: - MessengerDelegate
+
     public func noticeDidAppear(notice: Notice) {
         if let delegate = delegate {
             delegate.swiftNotifyDidAppear(notice: notice)

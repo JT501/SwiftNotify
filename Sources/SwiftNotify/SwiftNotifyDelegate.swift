@@ -27,13 +27,3 @@ public extension SwiftNotifyDelegate {
     func swiftNotifyDidDisappear(notice: Notice) {}
     func swiftNotifyIsTapped(notice: Notice) {}
 }
-
-// Internal Use
-public protocol NoticeDelegate: AnyObject {
-    func noticeDidAppear(notice: Notice)
-    func noticeStartPanning(atPoint: CGPoint, notice: Notice)
-    func noticeIsPanning(atPoint: CGPoint, notice: Notice)
-    func noticeEndPanning(atPoint: CGPoint, notice: Notice)
-    func noticeDidDisappear(notice: Notice)
-    func noticeIsTapped(notice: Notice)
-}

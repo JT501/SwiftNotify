@@ -51,7 +51,7 @@ public class NoticeManager {
         return noticesCopy
     }
 
-    /// Create a notice manager intance with specified queue
+    /// Create a notice manager instance with specified queue
     ///
     /// - Parameter queue: The `DispatchQueue` for queuing all the notices.
     /// **MUST** be a concurrent queue.
@@ -179,7 +179,7 @@ public class NoticeManager {
         }
     }
 
-    
+
     /// Dismiss a notice in ``currentNotices`` by `id`.
     ///
     /// - Parameter id: The notice's id
@@ -195,7 +195,7 @@ public class NoticeManager {
         }
     }
 
-    
+
     /// Create a auto dismiss task for a notice
     ///
     /// If the notice is not in ``currentNotices``, no tasks will be created.
@@ -235,7 +235,7 @@ public class NoticeManager {
         queue.asyncAfter(deadline: .now() + duration, execute: task)
     }
 
-    
+
     /// Cancel notice auto dismiss
     ///
     /// If there is no auto dismiss tasks for the notice, nothing's happened.
@@ -248,7 +248,7 @@ public class NoticeManager {
         }
     }
 
-    
+
     /// Dismiss all the notices in ``currentNotices``
     public func dismissCurrentNotices() {
         DispatchQueue.main.async { [weak self] in
@@ -288,6 +288,7 @@ public class NoticeManager {
     }
 
     // Cancel Auto Dismiss when pressing the notice
+
     @objc private func receiveNoticeStartPressing(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 
@@ -295,6 +296,7 @@ public class NoticeManager {
     }
 
     // Start Auto Dismiss when end pressing the notice
+
     @objc private func receiveNoticeEndPressing(notification: Notification) {
         guard let noticeInfo = NoticeInfo(notification: notification) else { return }
 

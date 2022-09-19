@@ -24,7 +24,7 @@ open class Notice: NSObject, NoticeProtocol {
     /// The notice view.
     public let view: UIView
 
-    /// The position where the notice should be borned.
+    /// The position where the notice should be created.
     public let fromPosition: FromPosition
 
     /// The position of the window where the notice will snap to.
@@ -34,7 +34,7 @@ open class Notice: NSObject, NoticeProtocol {
     public var tapHandler: TapCallback?
 
     /// Delegate for the notice
-    weak var delegate: NoticeDelegate?
+    weak var delegate: SwiftNotifyDelegate?
 
     /// String description of the notice
     public override var description: String {
@@ -76,7 +76,7 @@ open class Notice: NSObject, NoticeProtocol {
     ///   - view: Notice view.
     ///   - duration: he duration notice will stay on screen.
     ///    It will be auto dismissed when the duration passed.
-    ///   - fromPosition: The position where the notice should be borned.
+    ///   - fromPosition: The position where the notice should be created.
     ///   - toPosition: The position of the window where the notice will be presented.
     ///   - tapHandler: Handler closure when the notice is tapped
     ///   - config: Configurations for animations physics.
@@ -89,7 +89,7 @@ open class Notice: NSObject, NoticeProtocol {
             toPosition: ToPosition,
             tapHandler: TapCallback?,
             config: PhysicsConfig,
-            delegate: NoticeDelegate? = nil
+            delegate: SwiftNotifyDelegate? = nil
     ) {
         self.id = id
         self.config = config
@@ -223,7 +223,7 @@ open class Notice: NSObject, NoticeProtocol {
         window.addSubview(containerView)
 
         if let delegate = delegate {
-            delegate.noticeDidAppear(notice: self)
+            delegate.swiftNotifyDidAppear(notice: self)
         }
 
         snapPoint = getSnapPoint(in: window, toPosition: toPosition)
@@ -279,7 +279,7 @@ open class Notice: NSObject, NoticeProtocol {
                 if completed {
                     self.postDidDisappearNotification()
                     if let delegate = self.delegate {
-                        delegate.noticeDidDisappear(notice: self)
+                        delegate.swiftNotifyDidDisappear(notice: self)
                     }
                 }
                 completion?(completed)
@@ -311,7 +311,7 @@ open class Notice: NSObject, NoticeProtocol {
             postStartPanningNotification()
 
             if let delegate = delegate {
-                delegate.noticeStartPanning(atPoint: dragPoint, notice: self)
+                delegate.swiftNotifyStartPanning(atPoint: dragPoint, notice: self)
             }
             animator.removeAllBehaviors()
 
@@ -345,12 +345,12 @@ open class Notice: NSObject, NoticeProtocol {
             let touchPoint: CGPoint = gesture.location(in: gestureView.superview)
             attachmentBehaviour.anchorPoint = touchPoint
             if let delegate = delegate {
-                delegate.noticeIsPanning(atPoint: touchPoint, notice: self)
+                delegate.swiftNotifyIsPanning(atPoint: touchPoint, notice: self)
             }
                 // End Dragging
         case .ended:
             if let delegate = delegate {
-                delegate.noticeEndPanning(atPoint: dragPoint, notice: self)
+                delegate.swiftNotifyEndPanning(atPoint: dragPoint, notice: self)
             }
 
             animator.removeAllBehaviors()
@@ -376,7 +376,7 @@ open class Notice: NSObject, NoticeProtocol {
                             if completed {
                                 self.postDidDisappearNotification()
                                 if let delegate = self.delegate {
-                                    delegate.noticeDidDisappear(notice: self)
+                                    delegate.swiftNotifyDidDisappear(notice: self)
                                 }
                             }
                         })
@@ -406,7 +406,7 @@ open class Notice: NSObject, NoticeProtocol {
                             if completed {
                                 self.postDidDisappearNotification()
                                 if let delegate = self.delegate {
-                                    delegate.noticeDidDisappear(notice: self)
+                                    delegate.swiftNotifyDidDisappear(notice: self)
                                 }
                             }
                         })
@@ -423,7 +423,7 @@ open class Notice: NSObject, NoticeProtocol {
     @objc private func onTap(gesture: UITapGestureRecognizer) {
         if (gesture.state == .ended) {
             if let delegate = delegate {
-                delegate.noticeIsTapped(notice: self)
+                delegate.swiftNotifyIsTapped(notice: self)
             }
 
             if let tapAction = tapHandler {

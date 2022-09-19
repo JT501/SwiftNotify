@@ -10,7 +10,7 @@ import XCTest
 
 @testable import SwiftNotify
 
-class NoticeTests: XCTestCase, NoticeDelegate {
+class NoticeTests: XCTestCase, SwiftNotifyDelegate {
 
     func noticeDidAppear(notice: Notice) {
         noticeDidAppearIsCalled = true
@@ -407,7 +407,7 @@ class NoticeTests: XCTestCase, NoticeDelegate {
         wait(for: [expectNotification], timeout: 0.1)
     }
 
-    func testOnLongPreseEnded() {
+    func testOnLongPressEnded() {
         let expectNotification = expectation(forNotification: NoticeNotification.endPressing, object: nil)
         sut.containerView.bounds = view.bounds
         sut.containerView.addGestureRecognizer(sut.longPressRecognizer)

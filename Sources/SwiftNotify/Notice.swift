@@ -41,26 +41,26 @@ open class Notice: NSObject, NoticeProtocol {
         "Notice(id: \(id))"
     }
 
-    internal let containerView: UIView
-    internal let panRecognizer: UIPanGestureRecognizer
-    internal let tapRecognizer: UITapGestureRecognizer
-    internal let longPressRecognizer: UILongPressGestureRecognizer
-    internal var animator: UIDynamicAnimator
-    internal var snapPoint: CGPoint
-    internal var snapBehaviour: UISnapBehavior!
-    internal var attachmentBehaviour: UIAttachmentBehavior!
-    internal var gravityBehaviour: UIGravityBehavior!
-    internal var pushBehavior: UIPushBehavior!
-    internal var itemBehaviour: UIDynamicItemBehavior!
+    let containerView: UIView
+    let panRecognizer: UIPanGestureRecognizer
+    let tapRecognizer: UITapGestureRecognizer
+    let longPressRecognizer: UILongPressGestureRecognizer
+    var animator: UIDynamicAnimator
+    var snapPoint: CGPoint
+    var snapBehaviour: UISnapBehavior!
+    var attachmentBehaviour: UIAttachmentBehavior!
+    var gravityBehaviour: UIGravityBehavior!
+    var pushBehavior: UIPushBehavior!
+    var itemBehaviour: UIDynamicItemBehavior!
 
-    internal var fieldMargin: CGFloat  //Margin to remove message from view
-    internal var angularVelocity: CGFloat = 0
+    var fieldMargin: CGFloat  //Margin to remove message from view
+    var angularVelocity: CGFloat = 0
 
     lazy private var userInfo: [AnyHashable: NoticeInfo] = [
         NoticeInfo.userInfoKey: NoticeInfo(id: id)
     ]
 
-    internal override convenience init() {
+    override convenience init() {
         self.init(view: UIView(),
                   duration: .short,
                   fromPosition: .top(.random),
@@ -120,7 +120,7 @@ open class Notice: NSObject, NoticeProtocol {
         longPressRecognizer.delegate = self
     }
 
-    internal func getInitPoint(in window: UIWindow, fromPosition: FromPosition) -> CGPoint {
+    func getInitPoint(in window: UIWindow, fromPosition: FromPosition) -> CGPoint {
         switch fromPosition {
         case .top(let position):
             switch position {
@@ -165,7 +165,7 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    internal func getSnapPoint(in window: UIWindow, toPosition: ToPosition) -> CGPoint {
+    func getSnapPoint(in window: UIWindow, toPosition: ToPosition) -> CGPoint {
         switch toPosition {
         case .bottom(let offset):
             return CGPoint(x: window.bounds.midX, y: window.bounds.maxY - offset - containerView.bounds.midY)
@@ -178,7 +178,7 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    internal func addSnapBehaviour(
+    func addSnapBehaviour(
             for view: UIView,
             toPoint: CGPoint,
             completion: ((_ completed: Bool) -> Void)? = nil
@@ -233,7 +233,7 @@ open class Notice: NSObject, NoticeProtocol {
         }
     }
 
-    internal func removeFromSuperView(completion: @escaping CompletionCallBack) {
+    func removeFromSuperView(completion: @escaping CompletionCallBack) {
         if containerView.superview != nil {
             //TOP
             if containerView.frame.minY >= (containerView.superview!.bounds.maxY + fieldMargin) {
@@ -454,6 +454,7 @@ open class Notice: NSObject, NoticeProtocol {
     }
 
     // http://stackoverflow.com/questions/26029393/random-number-between-two-decimals-in-swift
+
     private func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }

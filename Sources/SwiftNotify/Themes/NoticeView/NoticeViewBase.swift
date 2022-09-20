@@ -171,12 +171,12 @@ open class NoticeViewBase: UIView, NoticeView {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override init(frame: CGRect) {
         fatalError("init(frame:) has not been implemented")
     }
 
-    internal func setupView() {
+    func setupView() {
         if let iconImage = iconImage {
             // Setup Icon View
             iconView = UIImageView(image: iconImage)
@@ -217,14 +217,15 @@ open class NoticeViewBase: UIView, NoticeView {
         clipsToBounds = true
     }
 
-    internal func addToSubViews() {
+    func addToSubViews() {
         if let iconView = iconView { addSubview(iconView) }
         if let titleLabel = titleLabel { addSubview(titleLabel) }
         if let bodyLabel = bodyLabel { addSubview(bodyLabel) }
     }
 
     // MARK: - Convenience functions
-    internal func getCalculatedLabelSize(
+
+    func getCalculatedLabelSize(
             text: String?,
             font: UIFont,
             width: CGFloat? = nil
@@ -243,7 +244,7 @@ open class NoticeViewBase: UIView, NoticeView {
     }
 
     /// Resize to fit content
-    internal func resizeToFit() {
+    func resizeToFit() {
         let isImageViewHidden = iconView == nil
         let isTitleLabelHidden = titleLabel == nil
         let isBodyLabelHidden = bodyLabel == nil

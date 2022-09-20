@@ -15,19 +15,19 @@ public class NoticeManager {
     /// The `DispatchQueue` for queuing all the notices.
     public let queue: DispatchQueue
 
-    internal var unsafePendingNotices: [NoticeProtocol] = [] {
+    var unsafePendingNotices: [NoticeProtocol] = [] {
         didSet {
 //            print("Pending Notices: \(unsafePendingNotices)")
         }
     }
 
-    internal var unsafeCurrentNotices: [NoticeProtocol] = [] {
+    var unsafeCurrentNotices: [NoticeProtocol] = [] {
         didSet {
 //            print("Current Notices: \(unsafeCurrentNotices)")
         }
     }
 
-    internal var autoDismissTasks: [String: DispatchWorkItem] = [:] {
+    var autoDismissTasks: [String: DispatchWorkItem] = [:] {
         didSet {
 //            print("Auto Dismiss Tasks: \(autoDismissTasks)")
         }
@@ -169,7 +169,7 @@ public class NoticeManager {
         }
     }
 
-    internal func showNext() {
+    func showNext() {
         guard !unsafePendingNotices.isEmpty else { return }
 
         let delay: DispatchTimeInterval = SN.intervalBetweenNotices

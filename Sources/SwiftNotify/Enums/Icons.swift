@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension SwiftNotify {
+extension Notify {
     
     /// SwiftNotify Default Icons
     public enum Icons {
@@ -15,7 +15,7 @@ extension SwiftNotify {
             let bundle = Bundle.module
             return bundle
             #else
-            let frameworkBundle = Bundle(for: SwiftNotify.self)
+            let frameworkBundle = Bundle(for: Notify.self)
             let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("SwiftNotifyResources.bundle")
             return Bundle(url: bundleURL!)
             #endif

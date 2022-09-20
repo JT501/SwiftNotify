@@ -96,8 +96,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Success**
     public struct Success: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = SwiftNotify.Icons.SuccessSolid
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Green
+        public var iconImage: UIImage? = Notify.Icons.SuccessSolid
+        public var iconImageTintColor: UIColor? = Notify.Colors.Green
 
         public init() {}
     }
@@ -105,8 +105,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Fail**
     public struct Fail: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = SwiftNotify.Icons.FailSolid
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Red
+        public var iconImage: UIImage? = Notify.Icons.FailSolid
+        public var iconImageTintColor: UIColor? = Notify.Colors.Red
 
         public init() {}
     }
@@ -114,8 +114,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Info**
     public struct Info: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = SwiftNotify.Icons.InfoSolid
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
+        public var iconImage: UIImage? = Notify.Icons.InfoSolid
+        public var iconImageTintColor: UIColor? = Notify.Colors.Blue
 
         public init() {}
     }
@@ -123,8 +123,8 @@ public struct CyberDarkConfig: CyberThemeConfig {
     /// Config used for level **Warning**
     public struct Warning: LevelConfig {
         public var backgroundColor: UIColor? = .clear
-        public var iconImage: UIImage? = SwiftNotify.Icons.WarningSolid
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Yellow
+        public var iconImage: UIImage? = Notify.Icons.WarningSolid
+        public var iconImageTintColor: UIColor? = Notify.Colors.Yellow
 
         public init() {}
     }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		056E709A27CAC35100C745DA /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056E709927CAC35100C745DA /* images.xcassets */; };
 		05B074D41DE6F358003611FE /* SwiftNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B074CF1DE6F358003611FE /* SwiftNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* SwiftNotify.swift */; };
+		05B074D51DE6F358003611FE /* Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* Notify.swift */; };
 		05B074D61DE6F358003611FE /* SwiftNotifyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */; };
 		05B074D71DE6F358003611FE /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D21DE6F358003611FE /* Notice.swift */; };
 		05F466CF27EA3D60001A3F46 /* SwiftNotify.docc in Sources */ = {isa = PBXBuildFile; fileRef = 05F466CE27EA3D60001A3F46 /* SwiftNotify.docc */; };
@@ -84,7 +84,7 @@
 		05A4828C27CA9449006805E5 /* SwiftNotify.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftNotify.podspec; sourceTree = "<group>"; };
 		05A4828D27CA9449006805E5 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		05B074CF1DE6F358003611FE /* SwiftNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftNotify.h; path = Sources/SwiftNotify/SwiftNotify.h; sourceTree = SOURCE_ROOT; };
-		05B074D01DE6F358003611FE /* SwiftNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotify.swift; path = Sources/SwiftNotify/SwiftNotify.swift; sourceTree = SOURCE_ROOT; };
+		05B074D01DE6F358003611FE /* Notify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notify.swift; path = Sources/SwiftNotify/Notify.swift; sourceTree = SOURCE_ROOT; };
 		05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotifyDelegate.swift; path = Sources/SwiftNotify/SwiftNotifyDelegate.swift; sourceTree = SOURCE_ROOT; };
 		05B074D21DE6F358003611FE /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notice.swift; path = Sources/SwiftNotify/Notice.swift; sourceTree = SOURCE_ROOT; };
 		05C8271D1DD31B7A003E0C5E /* SwiftNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +191,7 @@
 				21096CE2F5BC4A7631FC652C /* CustomRecognizers */,
 				210968E09F8C34791D946706 /* NoticeManager.swift */,
 				05B074D11DE6F358003611FE /* SwiftNotifyDelegate.swift */,
-				05B074D01DE6F358003611FE /* SwiftNotify.swift */,
+				05B074D01DE6F358003611FE /* Notify.swift */,
 				21096D2BAC679BAC1AE0C5C0 /* PhysicsConfig.swift */,
 				21096BF353F0D2383CCE4C13 /* NoticeProtocol.swift */,
 				05B074D21DE6F358003611FE /* Notice.swift */,
@@ -514,7 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B074D61DE6F358003611FE /* SwiftNotifyDelegate.swift in Sources */,
-				05B074D51DE6F358003611FE /* SwiftNotify.swift in Sources */,
+				05B074D51DE6F358003611FE /* Notify.swift in Sources */,
 				05B074D71DE6F358003611FE /* Notice.swift in Sources */,
 				210965564CC9758BEDA24863 /* NoticeManager.swift in Sources */,
 				21096AA450E4BC7A4EAD887C /* ThemeConfig.swift in Sources */,

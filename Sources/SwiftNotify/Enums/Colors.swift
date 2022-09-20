@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension SwiftNotify {
+extension Notify {
     
     /// SwiftNotify Default Colors
     public enum Colors {

@@ -9,14 +9,14 @@
 import UIKit
 
 /// Reference to ``SwiftNotify/default`` for quick bootstrapping.
-public let SN = SwiftNotify.default
+public let SN = Notify.default
 
 /// Current SwiftNotify Version
 public let version = "2.0.0"
 
-open class SwiftNotify {
+open class Notify {
     /// Shared singleton instance used by all `SN` APIs. Cannot be modified.
-    public static let `default` = SwiftNotify()
+    public static let `default` = Notify()
 
     /// `DispatchQueue` for managing notices' lifecycle. **MUST** be a concurrent queue.
     public let noticeQueue: DispatchQueue
@@ -146,7 +146,7 @@ open class SwiftNotify {
             tapHandler: ((String) -> ())? = nil,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0
-    ) -> String {
+    ) -> String? {
         // Use default theme if theme if nil
         let theme = theme ?? defaultTheme
         let duration = duration ?? defaultNoticeDuration

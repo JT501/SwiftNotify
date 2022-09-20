@@ -97,8 +97,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Success**
     public struct Success: LevelConfig {
         public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
-        public var iconImage: UIImage? = SwiftNotify.Icons.Success
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Green
+        public var iconImage: UIImage? = Notify.Icons.Success
+        public var iconImageTintColor: UIColor? = Notify.Colors.Green
 
         public init() {}
     }
@@ -106,8 +106,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Fail**
     public struct Fail: LevelConfig {
         public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
-        public var iconImage: UIImage? = SwiftNotify.Icons.Fail
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Red
+        public var iconImage: UIImage? = Notify.Icons.Fail
+        public var iconImageTintColor: UIColor? = Notify.Colors.Red
 
         public init() {}
     }
@@ -115,8 +115,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Info**
     public struct Info: LevelConfig {
         public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
-        public var iconImage: UIImage? = SwiftNotify.Icons.Info
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Blue
+        public var iconImage: UIImage? = Notify.Icons.Info
+        public var iconImageTintColor: UIColor? = Notify.Colors.Blue
 
         public init() {}
     }
@@ -124,8 +124,8 @@ public struct CyberLightConfig: CyberThemeConfig {
     /// Config used for level **Warning**
     public struct Warning: LevelConfig {
         public var backgroundColor: UIColor? = .lightGray.withAlphaComponent(0.3)
-        public var iconImage: UIImage? = SwiftNotify.Icons.Warning
-        public var iconImageTintColor: UIColor? = SwiftNotify.Colors.Orange
+        public var iconImage: UIImage? = Notify.Icons.Warning
+        public var iconImageTintColor: UIColor? = Notify.Colors.Orange
 
         public init() {}
     }

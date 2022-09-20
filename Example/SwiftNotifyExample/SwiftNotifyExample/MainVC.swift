@@ -12,7 +12,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let menuArray = ["#CyberView","#ClassicView","#ToastView"/*,"#CustomView"*/]
+    let menuArray = ["#CyberView","#ClassicView","#ToastView","#Playground"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,13 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.separatorStyle = .none
 //        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         tableView.tableFooterView = UIView()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        .lightContent
     }
     
     // MARK: - UITableViewDataSource
@@ -53,6 +53,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         else if (indexPath.row == 2) {
             self.performSegue(withIdentifier: "ShowToastSegue", sender: nil)
+        } else if indexPath.row == 3 {
+            performSegue(withIdentifier: "ShowPlaygroundSegue", sender: nil)
         }
     }
 }

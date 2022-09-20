@@ -9,7 +9,7 @@
 import UIKit
 import SwiftNotify
 
-class CyberVC: UIViewController, SwiftNotifyDelegate {
+class CyberVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,32 +23,6 @@ class CyberVC: UIViewController, SwiftNotifyDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - SwiftNotifyDelegate
-
-    func swiftNotifyDidAppear(notice: Notice) {
-        print("Notice \(notice.id) is shown")
-    }
-
-    func swiftNotifyDidDisappear(notice: Notice) {
-        print("Notice \(notice.id) is dismissed")
-    }
-
-    func swiftNotifyStartPanning(at point: CGPoint, notice: Notice) {
-        print("Notice \(notice.id) start panning at \(point)")
-    }
-
-    func swiftNotifyIsPanning(at point: CGPoint, notice: Notice) {
-        print("Notice \(notice.id) is panning at \(point)")
-    }
-
-    func swiftNotifyEndPanning(at point: CGPoint, notice: Notice) {
-        print("Notice \(notice.id) end dragging")
-    }
-
-    func swiftNotifyIsTapped(notice: Notice) {
-        print("Notice \(notice.id) is tapped")
     }
 
     @IBAction func showCyberView() {
@@ -100,3 +74,31 @@ class CyberVC: UIViewController, SwiftNotifyDelegate {
     }
 }
 
+
+// MARK: - SwiftNotifyDelegate
+
+extension CyberVC: SwiftNotifyDelegate {
+    func swiftNotifyDidAppear(notice: Notice) {
+        print("Notice \(notice.id) is shown")
+    }
+
+    func swiftNotifyDidDisappear(notice: Notice) {
+        print("Notice \(notice.id) is dismissed")
+    }
+
+    func swiftNotifyStartPanning(at point: CGPoint, notice: Notice) {
+        print("Notice \(notice.id) start panning at \(point)")
+    }
+
+    func swiftNotifyIsPanning(at point: CGPoint, notice: Notice) {
+        print("Notice \(notice.id) is panning at \(point)")
+    }
+
+    func swiftNotifyEndPanning(at point: CGPoint, notice: Notice) {
+        print("Notice \(notice.id) end dragging")
+    }
+
+    func swiftNotifyIsTapped(notice: Notice) {
+        print("Notice \(notice.id) is tapped")
+    }
+}

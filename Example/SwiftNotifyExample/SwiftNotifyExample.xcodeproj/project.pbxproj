@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05574B6628D9F19700B20641 /* PlaygroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05574B6528D9F19700B20641 /* PlaygroundVC.swift */; };
 		05840B2327CD2087009FD18A /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05840B2227CD2087009FD18A /* SwiftNotify.framework */; };
 		05840B2427CD2087009FD18A /* SwiftNotify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05840B2227CD2087009FD18A /* SwiftNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05840B2727CD208A009FD18A /* SwiftNotifyResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05840B2627CD208A009FD18A /* SwiftNotifyResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -27,6 +28,7 @@
 		05B074FD1DE83D7A003611FE /* Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074FC1DE83D7A003611FE /* Moon.jpg */; };
 		05B074FF1DE840B4003611FE /* ToastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074FE1DE840B4003611FE /* ToastVC.swift */; };
 		05B075011DE8479D003611FE /* CoFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B075001DE8479D003611FE /* CoFire.png */; };
+		05F60A0628D9FCB300F73B5A /* Playground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05F60A0528D9FCB300F73B5A /* Playground.jpg */; };
 		21096A81BF4758C09237A55F /* CustomThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05574B6528D9F19700B20641 /* PlaygroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundVC.swift; sourceTree = "<group>"; };
 		05840B2227CD2087009FD18A /* SwiftNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05840B2627CD208A009FD18A /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B074DC1DE6F4F8003611FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SwiftNotifyExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -76,6 +79,7 @@
 		05B074FC1DE83D7A003611FE /* Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Moon.jpg; path = SwiftNotifyExample/Resource/Moon.jpg; sourceTree = SOURCE_ROOT; };
 		05B074FE1DE840B4003611FE /* ToastVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastVC.swift; path = SwiftNotifyExample/ToastVC.swift; sourceTree = SOURCE_ROOT; };
 		05B075001DE8479D003611FE /* CoFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CoFire.png; path = SwiftNotifyExample/Resource/CoFire.png; sourceTree = SOURCE_ROOT; };
+		05F60A0528D9FCB300F73B5A /* Playground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Playground.jpg; sourceTree = "<group>"; };
 		2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThemeConfig.swift; sourceTree = "<group>"; };
 		B231B3701DD35A1400D29BD5 /* SwiftNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +99,7 @@
 		053212241DDDB3C70008581A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				05F60A0528D9FCB300F73B5A /* Playground.jpg */,
 				05B075001DE8479D003611FE /* CoFire.png */,
 				05B074FC1DE83D7A003611FE /* Moon.jpg */,
 				05B074F81DE80FC0003611FE /* Gradient.jpg */,
@@ -134,6 +139,7 @@
 				05B074DE1DE6F4FE003611FE /* CyberVC.swift */,
 				05B074FA1DE83851003611FE /* ClassicVC.swift */,
 				05B074FE1DE840B4003611FE /* ToastVC.swift */,
+				05574B6528D9F19700B20641 /* PlaygroundVC.swift */,
 				05B074DC1DE6F4F8003611FE /* AppDelegate.swift */,
 				05B074E81DE6F61E003611FE /* Main.storyboard */,
 				05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */,
@@ -221,6 +227,7 @@
 			files = (
 				05B074EA1DE6F61E003611FE /* Main.storyboard in Resources */,
 				05B074EB1DE6F63A003611FE /* Launch Screen.storyboard in Resources */,
+				05F60A0628D9FCB300F73B5A /* Playground.jpg in Resources */,
 				05B075011DE8479D003611FE /* CoFire.png in Resources */,
 				05B074E51DE6F552003611FE /* Prism.jpg in Resources */,
 				05B074F71DE7EF6D003611FE /* Eagle.jpg in Resources */,
@@ -243,6 +250,7 @@
 				05B074FF1DE840B4003611FE /* ToastVC.swift in Sources */,
 				05B074FB1DE83851003611FE /* ClassicVC.swift in Sources */,
 				05B074DF1DE6F4FE003611FE /* CyberVC.swift in Sources */,
+				05574B6628D9F19700B20641 /* PlaygroundVC.swift in Sources */,
 				05B074F11DE7E2C2003611FE /* MainVC.swift in Sources */,
 				05B074F31DE7E3C0003611FE /* MainTableViewCell.swift in Sources */,
 				05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */,

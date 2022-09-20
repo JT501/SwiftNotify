@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9z-uV-vXM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,12 +24,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-cq-Vrt">
-                                <rect key="frame" x="145" y="592" width="85" height="30"/>
+                                <rect key="frame" x="130.5" y="592" width="114" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65107834509999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="PQE-DH-LAo"/>
                                 </constraints>
-                                <state key="normal" title="Dismiss All">
+                                <state key="normal" title="Clear All Notices">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -41,7 +42,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="nnL-W4-ryt"/>
                                 </constraints>
-                                <state key="normal" title="Dismiss Message">
+                                <state key="normal" title="Dismiss Notice">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -82,6 +83,99 @@
             </objects>
             <point key="canvasLocation" x="174" y="785"/>
         </scene>
+        <!--Playground-->
+        <scene sceneID="2IG-2L-iHg">
+            <objects>
+                <viewController id="n26-Jo-BrB" customClass="PlaygroundVC" customModule="SwiftNotifyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wTj-eW-416"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pqz-CP-svT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bdx-mZ-3bI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Playground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-Un-NTa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2e-ww-t8E">
+                                <rect key="frame" x="150" y="612.5" width="75" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="showNotice" destination="n26-Jo-BrB" eventType="touchUpInside" id="GQd-PK-pKc"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1ue-kM-hUE">
+                                <rect key="frame" x="37.5" y="94" width="300" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaG-dK-JsD">
+                                        <rect key="frame" x="0.0" y="7" width="50" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="tV7-Lf-jH1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ygb-rL-TKu">
+                                        <rect key="frame" x="70" y="0.0" width="230" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aRi-zd-xNe">
+                                <rect key="frame" x="37.5" y="148" width="300" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVK-5M-r15">
+                                        <rect key="frame" x="0.0" y="20" width="50" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="S32-Bw-PlB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O1G-W1-uWU">
+                                        <rect key="frame" x="70" y="0.0" width="230" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Z7q-yf-3bK"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="aRi-zd-xNe" firstAttribute="width" secondItem="Bdx-mZ-3bI" secondAttribute="width" multiplier="0.8" id="5eE-6J-p5I"/>
+                            <constraint firstItem="IdV-Un-NTa" firstAttribute="leading" secondItem="Bdx-mZ-3bI" secondAttribute="leading" id="GxQ-BR-Q3B"/>
+                            <constraint firstItem="IdV-Un-NTa" firstAttribute="width" secondItem="Bdx-mZ-3bI" secondAttribute="width" id="IB1-zS-R7O"/>
+                            <constraint firstItem="a2e-ww-t8E" firstAttribute="centerX" secondItem="Bdx-mZ-3bI" secondAttribute="centerX" id="JOK-KR-ERb"/>
+                            <constraint firstItem="Pqz-CP-svT" firstAttribute="top" secondItem="a2e-ww-t8E" secondAttribute="bottom" constant="20" id="K0y-wd-0nB"/>
+                            <constraint firstItem="1ue-kM-hUE" firstAttribute="width" secondItem="Bdx-mZ-3bI" secondAttribute="width" multiplier="0.8" id="cck-Ps-WXz"/>
+                            <constraint firstItem="IdV-Un-NTa" firstAttribute="top" secondItem="Bdx-mZ-3bI" secondAttribute="top" id="gVC-3u-1vg"/>
+                            <constraint firstItem="aRi-zd-xNe" firstAttribute="centerX" secondItem="Bdx-mZ-3bI" secondAttribute="centerX" id="ibg-2b-npm"/>
+                            <constraint firstItem="1ue-kM-hUE" firstAttribute="top" secondItem="wTj-eW-416" secondAttribute="bottom" constant="50" id="r7k-0U-DJc"/>
+                            <constraint firstItem="aRi-zd-xNe" firstAttribute="top" secondItem="1ue-kM-hUE" secondAttribute="bottom" constant="20" id="rQY-qG-3Rc"/>
+                            <constraint firstItem="1ue-kM-hUE" firstAttribute="centerX" secondItem="Bdx-mZ-3bI" secondAttribute="centerX" id="utw-dG-jBA"/>
+                            <constraint firstItem="IdV-Un-NTa" firstAttribute="height" secondItem="Bdx-mZ-3bI" secondAttribute="height" id="wT7-2g-KUx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Playground" id="hLR-uq-BBQ"/>
+                    <connections>
+                        <outlet property="bodyTextView" destination="O1G-W1-uWU" id="sEQ-SJ-hBL"/>
+                        <outlet property="titleTextField" destination="ygb-rL-TKu" id="olb-AH-mi1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkU-XN-vVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.79999999999995" y="784.85757121439292"/>
+        </scene>
         <!--Toast View-->
         <scene sceneID="UQN-aE-6pZ">
             <objects>
@@ -98,10 +192,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XGE-t3-rh9">
-                                <rect key="frame" x="111" y="282.5" width="153" height="102"/>
+                                <rect key="frame" x="105.5" y="282.5" width="164" height="102"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I26-8I-ANE">
-                                        <rect key="frame" x="0.0" y="0.0" width="153" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <state key="normal" title="Show Toast">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,9 +205,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC8-jt-ZmI">
-                                        <rect key="frame" x="0.0" y="34" width="153" height="34"/>
+                                        <rect key="frame" x="0.0" y="34" width="164" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                        <state key="normal" title="Dismiss Message">
+                                        <state key="normal" title="Dismiss Notice">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -121,9 +215,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z5-iZ-jVY">
-                                        <rect key="frame" x="0.0" y="68" width="153" height="34"/>
+                                        <rect key="frame" x="0.0" y="68" width="164" height="34"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                        <state key="normal" title="Dismiss All">
+                                        <state key="normal" title="Clear All Notices">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -169,7 +263,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="134" id="J7s-E7-b5P" customClass="MainTableViewCell" customModule="SwiftNotifyExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="375" height="134"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J7s-E7-b5P" id="mDx-iH-J0f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
@@ -230,6 +324,7 @@
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ShowCyberViewSegue" id="sQS-C6-v2b"/>
                         <segue destination="zNN-xZ-Txb" kind="show" identifier="ShowClassicSegue" id="ZQH-ez-yjH"/>
                         <segue destination="okM-wt-rTR" kind="show" identifier="ShowToastSegue" id="5Wn-Jg-LOm"/>
+                        <segue destination="n26-Jo-BrB" kind="show" identifier="ShowPlaygroundSegue" id="zws-fu-KJz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BvT-SC-7gY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,9 +357,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edR-1R-Ebr">
-                                <rect key="frame" x="111" y="583" width="153" height="34"/>
+                                <rect key="frame" x="77.5" y="583" width="220" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                <state key="normal" title="Dismiss Message">
+                                <state key="normal" title="Dismiss Current Notice">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -272,9 +367,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ai-Vm-3U6">
-                                <rect key="frame" x="135" y="625" width="105" height="34"/>
+                                <rect key="frame" x="105.5" y="625" width="164" height="34"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                <state key="normal" title="Dismiss All">
+                                <state key="normal" title="Clear All Notices">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -333,6 +428,16 @@
         <image name="Eagle.jpg" width="518.4000244140625" height="921.5999755859375"/>
         <image name="Moon.jpg" width="750" height="1334"/>
         <image name="Night.jpg" width="750" height="1334"/>
+        <image name="Playground.jpg" width="1280" height="1918"/>
         <image name="Prism.jpg" width="1028" height="1920"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

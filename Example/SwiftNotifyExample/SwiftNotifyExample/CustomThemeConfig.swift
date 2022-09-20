@@ -38,21 +38,21 @@ struct CustomThemeConfig: ThemeConfig {
 
     struct Success: LevelConfig {
         var backgroundColor: UIColor? = .lightGray
-        var iconImage: UIImage? = SwiftNotify.Icons.Success
+        var iconImage: UIImage? = Notify.Icons.Success
     }
 
     struct Fail: LevelConfig {
         var backgroundColor: UIColor? = .systemPink
-        var iconImage: UIImage? = SwiftNotify.Icons.Fail
+        var iconImage: UIImage? = Notify.Icons.Fail
     }
 
     struct Info: LevelConfig {
         var backgroundColor: UIColor? = .systemPurple
-        var iconImage: UIImage? = SwiftNotify.Icons.Info
+        var iconImage: UIImage? = Notify.Icons.Info
     }
 
     struct Warning: LevelConfig {
         var backgroundColor: UIColor? = .systemYellow
-        var iconImage: UIImage? = SwiftNotify.Icons.Warning
+        var iconImage: UIImage? = Notify.Icons.Warning
     }
 }

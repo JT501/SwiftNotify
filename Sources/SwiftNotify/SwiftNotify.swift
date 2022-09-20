@@ -238,42 +238,4 @@ open class SwiftNotify {
         noticeManager.removeAllPendingNotices()
         noticeManager.dismissCurrentNotices()
     }
-
-    // MARK: - MessengerDelegate
-
-    public func noticeDidAppear(notice: Notice) {
-        if let delegate = delegate {
-            delegate.swiftNotifyDidAppear(notice: notice)
-        }
-    }
-
-    public func noticeStartPanning(atPoint: CGPoint, notice: Notice) {
-        if let delegate = delegate {
-            delegate.swiftNotifyStartPanning(atPoint: atPoint, notice: notice)
-        }
-    }
-
-    public func noticeIsPanning(atPoint: CGPoint, notice: Notice) {
-        if let delegate = delegate {
-            delegate.swiftNotifyIsPanning(atPoint: atPoint, notice: notice)
-        }
-    }
-
-    public func noticeEndPanning(atPoint: CGPoint, notice: Notice) {
-        if let delegate = delegate {
-            delegate.swiftNotifyEndPanning(atPoint: atPoint, notice: notice)
-        }
-    }
-
-    public func noticeDidDisappear(notice: Notice) {
-        if let delegate = delegate {
-            delegate.swiftNotifyDidDisappear(notice: notice)
-        }
-    }
-
-    public func noticeIsTapped(notice: Notice) {
-        if let delegate = delegate {
-            delegate.swiftNotifyIsTapped(notice: notice)
-        }
-    }
 }

@@ -311,7 +311,7 @@ open class Notice: NSObject, NoticeProtocol {
             postStartPanningNotification()
 
             if let delegate = delegate {
-                delegate.swiftNotifyStartPanning(atPoint: dragPoint, notice: self)
+                delegate.swiftNotifyStartPanning(at: dragPoint, notice: self)
             }
             animator.removeAllBehaviors()
 
@@ -345,12 +345,12 @@ open class Notice: NSObject, NoticeProtocol {
             let touchPoint: CGPoint = gesture.location(in: gestureView.superview)
             attachmentBehaviour.anchorPoint = touchPoint
             if let delegate = delegate {
-                delegate.swiftNotifyIsPanning(atPoint: touchPoint, notice: self)
+                delegate.swiftNotifyIsPanning(at: touchPoint, notice: self)
             }
                 // End Dragging
         case .ended:
             if let delegate = delegate {
-                delegate.swiftNotifyEndPanning(atPoint: dragPoint, notice: self)
+                delegate.swiftNotifyEndPanning(at: dragPoint, notice: self)
             }
 
             animator.removeAllBehaviors()

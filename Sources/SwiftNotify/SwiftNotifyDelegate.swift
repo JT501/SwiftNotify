@@ -11,9 +11,9 @@ import UIKit
 
 public protocol SwiftNotifyDelegate: AnyObject {
     func swiftNotifyDidAppear(notice: Notice)
-    func swiftNotifyStartPanning(atPoint: CGPoint, notice: Notice)
-    func swiftNotifyIsPanning(atPoint: CGPoint, notice: Notice)
-    func swiftNotifyEndPanning(atPoint: CGPoint, notice: Notice)
+    func swiftNotifyStartPanning(at point: CGPoint, notice: Notice)
+    func swiftNotifyIsPanning(at point: CGPoint, notice: Notice)
+    func swiftNotifyEndPanning(at point: CGPoint, notice: Notice)
     func swiftNotifyDidDisappear(notice: Notice)
     func swiftNotifyIsTapped(notice: Notice)
 }
@@ -21,9 +21,9 @@ public protocol SwiftNotifyDelegate: AnyObject {
 // Make the protocol methods to be optional
 public extension SwiftNotifyDelegate {
     func swiftNotifyDidAppear(notice: Notice) {}
-    func swiftNotifyStartPanning(atPoint: CGPoint, notice: Notice) {}
-    func swiftNotifyIsPanning(atPoint: CGPoint, notice: Notice) {}
-    func swiftNotifyEndPanning(atPoint: CGPoint, notice: Notice) {}
+    func swiftNotifyStartPanning(at point: CGPoint, notice: Notice) {}
+    func swiftNotifyIsPanning(at point: CGPoint, notice: Notice) {}
+    func swiftNotifyEndPanning(at point: CGPoint, notice: Notice) {}
     func swiftNotifyDidDisappear(notice: Notice) {}
     func swiftNotifyIsTapped(notice: Notice) {}
 }

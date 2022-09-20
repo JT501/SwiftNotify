@@ -26,28 +26,29 @@ class CyberVC: UIViewController, SwiftNotifyDelegate {
     }
 
     // MARK: - SwiftNotifyDelegate
-    func swiftNotifyDidAppear() {
-        print("Messgae is shown")
+
+    func swiftNotifyDidAppear(notice: Notice) {
+        print("Notice \(notice.id) is shown")
     }
 
-    func swiftNotifyStartDragging(atPoint: CGPoint) {
-        print("Start dragging")
+    func swiftNotifyDidDisappear(notice: Notice) {
+        print("Notice \(notice.id) is dismissed")
     }
 
-    public func swiftNotifyIsDragging(atPoint: CGPoint) {
-        print("Is dragging at \(atPoint)")
+    func swiftNotifyStartPanning(at point: CGPoint, notice: Notice) {
+        print("Notice \(notice.id) start panning at \(point)")
     }
 
-    func swiftNotifyEndDragging(atPoint: CGPoint) {
-        print("End dragging")
+    func swiftNotifyIsPanning(at point: CGPoint, notice: Notice) {
+        print("Notice \(notice.id) is panning at \(point)")
     }
 
-    func swiftNotifyDidDisappear() {
-        print("Message removed from view")
+    func swiftNotifyEndPanning(at point: CGPoint, notice: Notice) {
+        print("Notice \(notice.id) end dragging")
     }
 
-    public func swiftNotifyIsTapped() {
-        print("Message is tapped")
+    func swiftNotifyIsTapped(notice: Notice) {
+        print("Notice \(notice.id) is tapped")
     }
 
     @IBAction func showCyberView() {

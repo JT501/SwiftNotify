@@ -6,22 +6,22 @@
 import Foundation
 
 /// Represents the notice theme
-public enum Theme {
+public enum Theme: String, CaseIterable {
     /// Classic theme
-    case classic
+    case classic = "Classic"
     
     /// Classic theme (Dark Mode)
-    case classicDark
+    case classicDark = "Classic Dark"
     
     /// Cyber theme
-    case cyber
+    case cyber = "Cyber"
     
     /// Cyber theme (Dark Mode)
-    case cyberDark
+    case cyberDark = "Cyber Dark"
     
     /// Toast theme
-    case toast
+    case toast = "Toast"
     
     /// Toast theme (Dark Mode)
-    case toastDark
+    case toastDark = "Toast Dark"
 }

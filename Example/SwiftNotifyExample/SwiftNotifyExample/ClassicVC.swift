@@ -65,11 +65,11 @@ class ClassicVC: UIViewController {
     }
 
     @IBAction func hideMessage() {
-        SN.dismiss()
+        SN.dismissCurrent()
     }
 
     @IBAction func hideAll() {
-        SN.dismissAll()
+        SN.clearAllNotices()
     }
 
 }

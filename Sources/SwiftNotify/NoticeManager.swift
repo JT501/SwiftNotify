@@ -209,16 +209,9 @@ public class NoticeManager {
 
         let duration: DispatchTimeInterval
 
-        switch notice.duration {
-        case .forever:
-            return
-        case .short:
-            duration = DispatchTimeInterval.seconds(2)
-        case .long:
-            duration = DispatchTimeInterval.seconds(4)
-        case .custom(let time):
-            duration = time
-        }
+        guard notice.duration != .forever else { return }
+
+        duration = DispatchTimeInterval.milliseconds(notice.duration.value!)
 
         let task = DispatchWorkItem { [weak self] in
             guard let self = self else { return }

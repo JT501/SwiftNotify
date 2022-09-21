@@ -5,8 +5,9 @@
 
 import Foundation
 
-/// Represents the duration of a notice
-public enum Duration {
+/// Represents the duration (in ms) of a notice
+public enum Duration: CaseIterable, Hashable {
+    public static var allCases: [Duration] = [short, long, forever]
 
     /// 2 seconds
     case short
@@ -17,6 +18,20 @@ public enum Duration {
     /// Forever until dismiss manually
     case forever
 
-    /// Custom duration (in seconds)
-    case custom(duration: DispatchTimeInterval)
+    /// Custom duration in ms
+    case custom(Int)
+
+    var value: Int? {
+        switch self {
+        case .short:
+            return 2000
+        case .long:
+            return 4000
+        case .forever:
+            return nil
+        case .custom(let ms):
+            return ms
+        }
+    }
 }
+

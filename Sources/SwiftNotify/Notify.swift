@@ -133,10 +133,9 @@ open class Notify {
     ///   - width:          width of notice. `UIScreen.main.bounds.size.width * 0.8` by default.
     ///   - height:
     ///
-    /// - Returns: Notice Id
     public func show(
             title: String? = nil,
-            message: String? = nil,
+            message: String,
             theme: Theme? = nil,
             themeConfig: ThemeConfig? = nil,
             level: Level,
@@ -146,7 +145,7 @@ open class Notify {
             tapHandler: ((String) -> ())? = nil,
             width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
             height: CGFloat = 0
-    ) -> String? {
+    ) {
         // Use default theme if theme if nil
         let theme = theme ?? defaultTheme
         let duration = duration ?? defaultNoticeDuration
@@ -222,8 +221,6 @@ open class Notify {
                 delegate: delegate
         )
         noticeManager.addPendingNotice(notice)
-
-        return notice.id
     }
 
     public func dismiss() {

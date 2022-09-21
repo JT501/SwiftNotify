@@ -223,7 +223,7 @@ open class Notify {
         noticeManager.addPendingNotice(notice)
     }
 
-    public func dismiss() {
+    public func dismissCurrent() {
         noticeManager.dismissCurrentNotices()
     }
 

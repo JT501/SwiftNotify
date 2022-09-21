@@ -231,7 +231,7 @@ open class Notify {
         noticeManager.dismissNotice(byId: id)
     }
 
-    public func dismissAll() {
+    public func clearAllNotices() {
         noticeManager.removeAllPendingNotices()
         noticeManager.dismissCurrentNotices()
     }

@@ -6,7 +6,7 @@
 import Foundation
 
 /// Represent notice levels
-public enum Level: String {
+public enum Level: String, CaseIterable {
     case success
     case fail
     case info

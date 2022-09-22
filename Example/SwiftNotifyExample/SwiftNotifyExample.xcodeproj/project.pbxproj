@@ -30,6 +30,7 @@
 		05B075011DE8479D003611FE /* CoFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B075001DE8479D003611FE /* CoFire.png */; };
 		05F60A0628D9FCB300F73B5A /* Playground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05F60A0528D9FCB300F73B5A /* Playground.jpg */; };
 		21096A81BF4758C09237A55F /* CustomThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */; };
+		21096E2BA2CE14AD317DA18F /* UIViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210964395226B7AA86C73287 /* UIViewController+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,7 @@
 		05B075001DE8479D003611FE /* CoFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CoFire.png; path = SwiftNotifyExample/Resource/CoFire.png; sourceTree = SOURCE_ROOT; };
 		05F60A0528D9FCB300F73B5A /* Playground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Playground.jpg; sourceTree = "<group>"; };
 		2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThemeConfig.swift; sourceTree = "<group>"; };
+		210964395226B7AA86C73287 /* UIViewController+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ex.swift"; sourceTree = "<group>"; };
 		B231B3701DD35A1400D29BD5 /* SwiftNotifyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNotifyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				05B074ED1DE6F63A003611FE /* Launch Screen.storyboard */,
 				05B074E61DE6F5A6003611FE /* Info.plist */,
 				2109632AD53D7D5CE30E067D /* CustomThemeConfig.swift */,
+				210964395226B7AA86C73287 /* UIViewController+Ex.swift */,
 			);
 			path = SwiftNotifyExample;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				05B074F31DE7E3C0003611FE /* MainTableViewCell.swift in Sources */,
 				05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */,
 				21096A81BF4758C09237A55F /* CustomThemeConfig.swift in Sources */,
+				21096E2BA2CE14AD317DA18F /* UIViewController+Ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

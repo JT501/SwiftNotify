@@ -26,7 +26,7 @@ public enum FromPosition {
     case custom(CGPoint)
 
     /// Represents the horizontal position of ``top(_:)`` and ``bottom(_:)``
-    public enum HorizontalPosition {
+    public enum HorizontalPosition: String {
         case left
         case right
         case center

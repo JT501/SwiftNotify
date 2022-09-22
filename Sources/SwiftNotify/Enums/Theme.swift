@@ -6,7 +6,7 @@
 import Foundation
 
 /// Represents the notice theme
-public enum Theme: String, CaseIterable {
+public enum Theme: String {
     /// Classic theme
     case classic = "Classic"
     

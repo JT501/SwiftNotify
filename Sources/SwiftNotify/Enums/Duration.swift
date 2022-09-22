@@ -6,9 +6,7 @@
 import Foundation
 
 /// Represents the duration (in ms) of a notice
-public enum Duration: CaseIterable, Hashable {
-    public static var allCases: [Duration] = [short, long, forever]
-
+public enum Duration: Hashable {
     /// 2 seconds
     case short
 
@@ -34,4 +32,3 @@ public enum Duration: CaseIterable, Hashable {
         }
     }
 }
-

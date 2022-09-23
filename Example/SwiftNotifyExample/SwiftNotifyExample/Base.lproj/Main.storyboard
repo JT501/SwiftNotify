@@ -98,41 +98,47 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Playground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-Un-NTa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBl-AX-ufJ">
-                                <rect key="frame" x="115" y="602.5" width="145.5" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Dismiss Current"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7V-Aq-kxG">
+                                <rect key="frame" x="146.5" y="624" width="82" height="33"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Clear All">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="dismissCurrent" destination="n26-Jo-BrB" eventType="touchUpInside" id="Wrk-Zf-WyT"/>
+                                    <action selector="dismissCurrent" destination="n26-Jo-BrB" eventType="touchUpInside" id="AfJ-Ab-Cxc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2e-ww-t8E">
-                                <rect key="frame" x="154.5" y="558" width="66" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show"/>
+                                <rect key="frame" x="166" y="548" width="43" height="33"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Show">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="showNotice" destination="n26-Jo-BrB" eventType="touchUpInside" id="GQd-PK-pKc"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bu-rJ-MxB">
-                                <rect key="frame" x="0.0" y="44" width="375" height="506"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="496"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6h-c9-438">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="503.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="499"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1ue-kM-hUE">
                                                 <rect key="frame" x="19" y="20" width="337.5" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaG-dK-JsD">
-                                                        <rect key="frame" x="0.0" y="2.5" width="60" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="2" width="60" height="21.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="tV7-Lf-jH1"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ygb-rL-TKu">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ygb-rL-TKu">
                                                         <rect key="frame" x="80" y="0.0" width="257.5" height="25"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -148,12 +154,12 @@
                                                 <rect key="frame" x="19" y="70" width="337.5" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVK-5M-r15">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="21.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="S32-Bw-PlB"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O1G-W1-uWU">
@@ -169,22 +175,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aJi-HA-CcY">
-                                                <rect key="frame" x="19" y="155" width="337.5" height="34.5"/>
+                                                <rect key="frame" x="19" y="155" width="337.5" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Style:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeA-Kv-PQQ">
-                                                        <rect key="frame" x="0.0" y="7" width="60" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeA-Kv-PQQ">
+                                                        <rect key="frame" x="0.0" y="4.5" width="68" height="21.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="oZt-yd-SlK"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-ZK-NUm">
-                                                        <rect key="frame" x="80" y="0.0" width="257.5" height="34.5"/>
+                                                        <rect key="frame" x="88" y="0.0" width="249.5" height="30"/>
                                                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Select A Theme"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Select A Theme"/>
                                                         <connections>
                                                             <action selector="showStyleSheet" destination="n26-Jo-BrB" eventType="touchUpInside" id="Zxg-dm-nic"/>
                                                         </connections>
@@ -192,15 +198,15 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9hg-Z2-7vc">
-                                                <rect key="frame" x="19" y="214.5" width="337.5" height="34.5"/>
+                                                <rect key="frame" x="19" y="210" width="337.5" height="34.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wV-lm-PtM">
-                                                        <rect key="frame" x="0.0" y="7" width="60" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="6.5" width="60" height="21.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="m4R-Sv-ag0"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNr-rh-Y3I">
@@ -216,22 +222,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H4V-ww-pjU">
-                                                <rect key="frame" x="19" y="274" width="337.5" height="85.5"/>
+                                                <rect key="frame" x="19" y="269.5" width="337.5" height="85.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J21-Gq-fSG">
-                                                        <rect key="frame" x="0.0" y="32.5" width="85" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="32" width="89" height="21.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="4V5-0t-5n6"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0a8-SJ-eFc">
-                                                        <rect key="frame" x="95" y="0.0" width="242.5" height="85.5"/>
+                                                        <rect key="frame" x="99" y="0.0" width="238.5" height="85.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoM-4D-7Pi">
-                                                                <rect key="frame" x="24" y="0.0" width="194" height="34.5"/>
+                                                                <rect key="frame" x="23.5" y="0.0" width="191" height="34.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Select A Duration"/>
@@ -240,14 +246,14 @@
                                                                 </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tig-zy-Z5w">
-                                                                <rect key="frame" x="0.0" y="42.5" width="242.5" height="1"/>
+                                                                <rect key="frame" x="0.0" y="42.5" width="238.5" height="1"/>
                                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="Xb9-E5-Yyz"/>
                                                                 </constraints>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pe5-i9-emk">
-                                                                <rect key="frame" x="25.5" y="51.5" width="191.5" height="34"/>
+                                                                <rect key="frame" x="23.5" y="51.5" width="191.5" height="34"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom (ms)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mr-Ko-EhJ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="98.5" height="34"/>
@@ -276,15 +282,15 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ljb-zD-1Aq">
-                                                <rect key="frame" x="19" y="384.5" width="337.5" height="34.5"/>
+                                                <rect key="frame" x="19" y="380" width="337.5" height="34.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdX-Ik-xNd">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="34.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="k36-ye-zRb"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31p-PR-Jra">
@@ -293,21 +299,21 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Select From Position"/>
                                                         <connections>
-                                                            <action selector="showFromPicker" destination="n26-Jo-BrB" eventType="touchUpInside" id="7R5-td-1t2"/>
+                                                            <action selector="showFromPositionSheet" destination="n26-Jo-BrB" eventType="touchUpInside" id="7R5-td-1t2"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="76t-tE-kac">
-                                                <rect key="frame" x="19" y="444" width="337.5" height="34.5"/>
+                                                <rect key="frame" x="19" y="439.5" width="337.5" height="34.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8Y-lk-Aed">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="34.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="5wL-dt-1mD"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="0.67450980390000004" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-N6-GU1">
@@ -316,7 +322,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Select To Position"/>
                                                         <connections>
-                                                            <action selector="showToPicker" destination="n26-Jo-BrB" eventType="touchUpInside" id="dKU-0g-fAB"/>
+                                                            <action selector="showToPositionSheet" destination="n26-Jo-BrB" eventType="touchUpInside" id="dKU-0g-fAB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -349,7 +355,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.29548938070000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="w6h-c9-438" firstAttribute="leading" secondItem="F8w-59-7e8" secondAttribute="leading" id="IBl-0R-cpE"/>
                                     <constraint firstItem="w6h-c9-438" firstAttribute="trailing" secondItem="F8w-59-7e8" secondAttribute="trailing" id="NOu-hk-4Se"/>
@@ -360,9 +366,21 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="F8w-59-7e8"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="QGk-Vo-lve"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBl-AX-ufJ">
+                                <rect key="frame" x="116" y="586" width="143" height="33"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Dismiss Current">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissCurrent" destination="n26-Jo-BrB" eventType="touchUpInside" id="Wrk-Zf-WyT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
+                            <constraint firstItem="f7V-Aq-kxG" firstAttribute="top" secondItem="CBl-AX-ufJ" secondAttribute="bottom" constant="5" id="CYS-Xy-Hxn"/>
                             <constraint firstItem="CBl-AX-ufJ" firstAttribute="centerX" secondItem="Bdx-mZ-3bI" secondAttribute="centerX" id="EHA-NO-gmj"/>
                             <constraint firstItem="IdV-Un-NTa" firstAttribute="leading" secondItem="Bdx-mZ-3bI" secondAttribute="leading" id="GxQ-BR-Q3B"/>
                             <constraint firstItem="IdV-Un-NTa" firstAttribute="width" secondItem="Bdx-mZ-3bI" secondAttribute="width" id="IB1-zS-R7O"/>
@@ -370,10 +388,11 @@
                             <constraint firstAttribute="trailing" secondItem="4Bu-rJ-MxB" secondAttribute="trailing" id="Rxu-rL-Hmy"/>
                             <constraint firstItem="a2e-ww-t8E" firstAttribute="top" secondItem="4Bu-rJ-MxB" secondAttribute="bottom" constant="8" id="aeT-aF-drY"/>
                             <constraint firstItem="IdV-Un-NTa" firstAttribute="top" secondItem="Bdx-mZ-3bI" secondAttribute="top" id="gVC-3u-1vg"/>
+                            <constraint firstItem="f7V-Aq-kxG" firstAttribute="centerX" secondItem="Bdx-mZ-3bI" secondAttribute="centerX" id="lGo-Lm-HWA"/>
                             <constraint firstItem="4Bu-rJ-MxB" firstAttribute="leading" secondItem="Bdx-mZ-3bI" secondAttribute="leading" id="lR0-0a-2J9"/>
-                            <constraint firstItem="Pqz-CP-svT" firstAttribute="top" secondItem="CBl-AX-ufJ" secondAttribute="bottom" constant="30" id="mbG-TW-XDx"/>
+                            <constraint firstItem="Pqz-CP-svT" firstAttribute="top" secondItem="f7V-Aq-kxG" secondAttribute="bottom" constant="10" id="nEL-CZ-3Jy"/>
                             <constraint firstItem="4Bu-rJ-MxB" firstAttribute="top" secondItem="wTj-eW-416" secondAttribute="bottom" id="pTX-8j-1wV"/>
-                            <constraint firstItem="CBl-AX-ufJ" firstAttribute="top" secondItem="a2e-ww-t8E" secondAttribute="bottom" constant="10" id="rsi-gv-E2Q"/>
+                            <constraint firstItem="CBl-AX-ufJ" firstAttribute="top" secondItem="a2e-ww-t8E" secondAttribute="bottom" constant="5" id="rsi-gv-E2Q"/>
                             <constraint firstItem="IdV-Un-NTa" firstAttribute="height" secondItem="Bdx-mZ-3bI" secondAttribute="height" id="wT7-2g-KUx"/>
                         </constraints>
                     </view>
@@ -388,7 +407,7 @@
                         <outlet property="levelButton" destination="SNr-rh-Y3I" id="kXy-iH-Lkl"/>
                         <outlet property="themeButton" destination="ea9-ZK-NUm" id="hzL-Dk-n6E"/>
                         <outlet property="titleTextField" destination="ygb-rL-TKu" id="olb-AH-mi1"/>
-                        <outlet property="toButtom" destination="V0Y-N6-GU1" id="eJW-iB-lrs"/>
+                        <outlet property="toButton" destination="V0Y-N6-GU1" id="eJW-iB-lrs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkU-XN-vVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

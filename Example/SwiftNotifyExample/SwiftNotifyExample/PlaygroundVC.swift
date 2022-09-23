@@ -19,10 +19,13 @@ class PlaygroundVC: UIViewController {
     @IBOutlet var customLabel: UILabel!
     @IBOutlet var customTextField: UITextField!
     @IBOutlet var fromButton: UIButton!
-    @IBOutlet var toButtom: UIButton!
+    @IBOutlet var toButton: UIButton!
+
+    lazy var offsetLabel: UILabel = UILabel()
+    lazy var offsetTextField: UITextField = UITextField()
 
     let width = UIScreen.main.bounds.width * 0.9
-    let height = UIScreen.main.bounds.height / 3
+    let height = UIScreen.main.bounds.height / 5
 
     var theme: Theme = .cyber
     var level: Level = .info
@@ -69,7 +72,7 @@ class PlaygroundVC: UIViewController {
         let sheetController = UIAlertController(title: "Style", message: "Select A Style", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         Theme.allCases.forEach { (theme: Theme) in
-            let action = UIAlertAction(title: theme.rawValue, style: .destructive) { [weak self] action in
+            let action = UIAlertAction(title: theme.rawValue, style: .default) { [weak self] action in
                 self?.theme = theme
                 self?.themeButton.setTitle(theme.rawValue, for: .normal)
             }
@@ -85,7 +88,7 @@ class PlaygroundVC: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         sheetController.addAction(cancelAction)
         Level.allCases.forEach { (level: Level) in
-            let action = UIAlertAction(title: level.rawValue.capitalized, style: .destructive) { [weak self] action in
+            let action = UIAlertAction(title: level.rawValue.capitalized, style: .default) { [weak self] action in
                 self?.level = level
                 self?.levelButton.setTitle(level.rawValue.capitalized, for: .normal)
             }
@@ -105,7 +108,7 @@ class PlaygroundVC: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         sheetController.addAction(cancelAction)
         Duration.allCases.forEach { (duration) in
-            let action = UIAlertAction(title: durationStringMap[duration], style: .destructive) { [weak self] action in
+            let action = UIAlertAction(title: durationStringMap[duration], style: .default) { [weak self] action in
                 self?.duration = duration
                 self?.durationButton.setTitle(durationStringMap[duration], for: .normal)
                 self?.customLabel.isEnabled = false
@@ -113,7 +116,7 @@ class PlaygroundVC: UIViewController {
             }
             sheetController.addAction(action)
         }
-        let customAction = UIAlertAction(title: "Custom", style: .default) { [weak self] action in
+        let customAction = UIAlertAction(title: "Custom", style: .destructive) { [weak self] action in
             self?.duration = .custom(0)
             self?.durationButton.setTitle("Custom", for: .normal)
             self?.customLabel.isEnabled = true
@@ -124,7 +127,7 @@ class PlaygroundVC: UIViewController {
         present(sheetController, animated: true)
     }
 
-    @IBAction func showFromPicker() {
+    @IBAction func showFromPositionSheet() {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: width, height: height)
 
@@ -179,11 +182,10 @@ class PlaygroundVC: UIViewController {
         present(sheetController, animated: true)
     }
 
-    @IBAction func showToPicker() {
+    @IBAction func showToPositionSheet() {
         let vc = UIViewController()
-        let width = UIScreen.main.bounds.width * 0.9
-        let height = UIScreen.main.bounds.height / 3
-        vc.preferredContentSize = CGSize(width: width, height: height)
+        vc.hideKeyboardWhenTappedAround()
+        vc.preferredContentSize = CGSize(width: width, height: height + 50)
 
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         pickerView.tag = 2
@@ -193,8 +195,28 @@ class PlaygroundVC: UIViewController {
         pickerView.selectRow(0, inComponent: 0, animated: false)
 
         vc.view.addSubview(pickerView)
+        pickerView.leadingAnchor.constraint(equalTo: vc.view.leadingAnchor).isActive = true
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
-        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+
+        offsetLabel.text = "Offset:"
+        offsetLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
+
+        offsetTextField.text = "100"
+        offsetTextField.textAlignment = .center
+        offsetTextField.borderStyle = .line
+        offsetTextField.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        offsetTextField.keyboardType = .numberPad
+
+        let stack = UIStackView(arrangedSubviews: [offsetLabel, offsetTextField])
+        stack.axis = .horizontal
+        stack.distribution = .equalSpacing
+        stack.alignment = .center
+        stack.spacing = 10
+        stack.translatesAutoresizingMaskIntoConstraints = false
+
+        vc.view.addSubview(stack)
+        stack.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
+        stack.topAnchor.constraint(equalTo: pickerView.bottomAnchor).isActive = true
 
         let sheetController = UIAlertController(
                 title: "To Position",
@@ -202,8 +224,8 @@ class PlaygroundVC: UIViewController {
                 preferredStyle: .actionSheet
         )
 
-        sheetController.popoverPresentationController?.sourceView = toButtom
-        sheetController.popoverPresentationController?.sourceRect = toButtom.bounds
+        sheetController.popoverPresentationController?.sourceView = toButton
+        sheetController.popoverPresentationController?.sourceRect = toButton.bounds
 
         sheetController.setValue(vc, forKey: "contentViewController")
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -214,7 +236,21 @@ class PlaygroundVC: UIViewController {
             let selectedRow = pickerView.selectedRow(inComponent: 0)
 
             self.to = ToPosition.allCases[selectedRow]
-            self.toButtom.setTitle(self.toPositions[selectedRow], for: .normal)
+
+            switch self.to {
+            case .top:
+                if let text = self.offsetTextField.text, let num = NumberFormatter().number(from: text) {
+                    self.to = .top(offset: CGFloat(num))
+                    self.toButton.setTitle("\(self.toPositions[selectedRow]) (\(num))", for: .normal)
+                }
+            case .bottom:
+                if let text = self.offsetTextField.text, let num = NumberFormatter().number(from: text) {
+                    self.to = .bottom(offset: CGFloat(num))
+                    self.toButton.setTitle("\(self.toPositions[selectedRow]) (\(num))", for: .normal)
+                }
+            default:
+                self.toButton.setTitle(self.toPositions[selectedRow], for: .normal)
+            }
         }
 
         sheetController.addAction(selectAction)
@@ -282,6 +318,24 @@ extension PlaygroundVC: UIPickerViewDelegate, UIPickerViewDataSource {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1 && component == 0 {
             pickerView.reloadComponent(1)
+        }
+        if pickerView.tag == 2 {
+            let selectedTo = ToPosition.allCases[pickerView.selectedRow(inComponent: 0)]
+
+            switch selectedTo {
+            case .top:
+                offsetLabel.isEnabled = true
+                offsetTextField.isEnabled = true
+                offsetTextField.text = "100"
+            case .bottom:
+                offsetLabel.isEnabled = true
+                offsetTextField.isEnabled = true
+                offsetTextField.text = "50"
+            default:
+                offsetTextField.isEnabled = false
+                offsetLabel.isEnabled = false
+            }
+            customTextField.endEditing(true)
         }
     }
 }

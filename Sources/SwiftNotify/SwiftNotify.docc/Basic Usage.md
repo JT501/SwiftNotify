@@ -21,7 +21,7 @@ SN.show(
     level: .success)
 ```
 
-For more configurations for showing a notice, please read the api reference of ``SwiftNotify/SwiftNotify/show(title:message:theme:themeConfig:level:duration:fromPosition:toPosition:tapHandler:width:height:)``.
+For more configurations for showing a notice, please read the api reference of ``Notify/show(title:message:theme:themeConfig:level:duration:fromPosition:toPosition:tapHandler:width:height:)``.
 
 ## Global configurations
 You just have to setup the configurations in one place (normally in *AppDelegate.swift*), all notices will share the same configurations.
@@ -41,10 +41,10 @@ SN.defaultNoticeDuration = .short
 
 ```
 
-- ``SwiftNotify/defaultTheme`` is the default theme.
-- ``SwiftNotify/defaultFromPosition``
-- ``SwiftNotify/defaultToPosition``
-- ``SwiftNotify/defaultNoticeDuration``
+- ``Notify/defaultTheme`` is the default theme.
+- ``Notify/defaultFromPosition``
+- ``Notify/defaultToPosition``
+- ``Notify/defaultNoticeDuration``
 
 ## Topics
 

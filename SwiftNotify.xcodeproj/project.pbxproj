@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051148A028E1B5080087838C /* SwiftNotifyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */; };
 		056E709A27CAC35100C745DA /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056E709927CAC35100C745DA /* images.xcassets */; };
 		05B074D41DE6F358003611FE /* SwiftNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B074CF1DE6F358003611FE /* SwiftNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B074D51DE6F358003611FE /* Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074D01DE6F358003611FE /* Notify.swift */; };
@@ -46,11 +47,10 @@
 		21096F0CEB585EEF603D9009 /* FromPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096F8CD708FEE28BD9CEBD /* FromPosition.swift */; };
 		21096F912853CC61F49D3482 /* CyberDarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096850DADBB65CE7EFE236 /* CyberDarkConfig.swift */; };
 		21096FB776C8C7EFC9B83C2E /* TestablePanRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096C13483858BFF10F12C0 /* TestablePanRecognizer.swift */; };
-		B27359631FE61C89003333BC /* SwiftNotifyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E511D91DE6A69900D3B765 /* SwiftNotifyResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		05E511E11DE6A72200D3B765 /* PBXContainerItemProxy */ = {
+		0511489C28E1AF7F0087838C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 05C827141DD31B7A003E0C5E /* Project object */;
 			proxyType = 1;
@@ -380,7 +380,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				05E511E21DE6A72200D3B765 /* PBXTargetDependency */,
+				0511489D28E1AF7F0087838C /* PBXTargetDependency */,
 			);
 			name = SwiftNotify;
 			productName = CFDraggableMessage;
@@ -470,7 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B27359631FE61C89003333BC /* SwiftNotifyResources.bundle in Resources */,
+				051148A028E1B5080087838C /* SwiftNotifyResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,10 +569,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		05E511E21DE6A72200D3B765 /* PBXTargetDependency */ = {
+		0511489D28E1AF7F0087838C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 05E511D81DE6A69900D3B765 /* SwiftNotifyResources */;
-			targetProxy = 05E511E11DE6A72200D3B765 /* PBXContainerItemProxy */;
+			targetProxy = 0511489C28E1AF7F0087838C /* PBXContainerItemProxy */;
 		};
 		05F750F727CA83EC0099A9C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

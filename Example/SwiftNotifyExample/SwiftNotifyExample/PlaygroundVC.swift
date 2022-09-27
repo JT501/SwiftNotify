@@ -240,12 +240,12 @@ class PlaygroundVC: UIViewController {
             switch self.to {
             case .top:
                 if let text = self.offsetTextField.text, let num = NumberFormatter().number(from: text) {
-                    self.to = .top(offset: CGFloat(num))
+                    self.to = .top(offset: CGFloat(truncating: num))
                     self.toButton.setTitle("\(self.toPositions[selectedRow]) (\(num))", for: .normal)
                 }
             case .bottom:
                 if let text = self.offsetTextField.text, let num = NumberFormatter().number(from: text) {
-                    self.to = .bottom(offset: CGFloat(num))
+                    self.to = .bottom(offset: CGFloat(truncating: num))
                     self.toButton.setTitle("\(self.toPositions[selectedRow]) (\(num))", for: .normal)
                 }
             default:

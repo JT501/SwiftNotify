@@ -3,14 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051148A428E1B6E90087838C /* SwiftNotify in Frameworks */ = {isa = PBXBuildFile; productRef = 051148A328E1B6E90087838C /* SwiftNotify */; };
 		05574B6628D9F19700B20641 /* PlaygroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05574B6528D9F19700B20641 /* PlaygroundVC.swift */; };
-		05840B2327CD2087009FD18A /* SwiftNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05840B2227CD2087009FD18A /* SwiftNotify.framework */; };
-		05840B2427CD2087009FD18A /* SwiftNotify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05840B2227CD2087009FD18A /* SwiftNotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		05840B2727CD208A009FD18A /* SwiftNotifyResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 05840B2627CD208A009FD18A /* SwiftNotifyResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05B074DD1DE6F4F8003611FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DC1DE6F4F8003611FE /* AppDelegate.swift */; };
 		05B074DF1DE6F4FE003611FE /* CyberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B074DE1DE6F4FE003611FE /* CyberVC.swift */; };
 		05B074E31DE6F552003611FE /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B074E01DE6F552003611FE /* Dog.jpg */; };
@@ -34,24 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		05840B2527CD2087009FD18A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				05840B2427CD2087009FD18A /* SwiftNotify.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		05840B2827CD208A009FD18A /* Embed PlugIns */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				05840B2727CD208A009FD18A /* SwiftNotifyResources.bundle in Embed PlugIns */,
 			);
 			name = "Embed PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		051148A228E1B6B90087838C /* SwiftNotify */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftNotify; path = ../..; sourceTree = "<group>"; };
 		05574B6528D9F19700B20641 /* PlaygroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundVC.swift; sourceTree = "<group>"; };
 		05840B2227CD2087009FD18A /* SwiftNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05840B2627CD208A009FD18A /* SwiftNotifyResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftNotifyResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,13 +78,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05840B2327CD2087009FD18A /* SwiftNotify.framework in Frameworks */,
+				051148A428E1B6E90087838C /* SwiftNotify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051148A128E1B6B90087838C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				051148A228E1B6B90087838C /* SwiftNotify */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		053212241DDDB3C70008581A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +113,7 @@
 		B231B3671DD35A1400D29BD5 = {
 			isa = PBXGroup;
 			children = (
+				051148A128E1B6B90087838C /* Packages */,
 				B231B3721DD35A1400D29BD5 /* SwiftNotifyExample */,
 				B231B3711DD35A1400D29BD5 /* Products */,
 				B231B3851DD35A2A00D29BD5 /* Frameworks */,
@@ -171,7 +167,6 @@
 				B231B36C1DD35A1400D29BD5 /* Sources */,
 				B231B36D1DD35A1400D29BD5 /* Frameworks */,
 				B231B36E1DD35A1400D29BD5 /* Resources */,
-				05840B2527CD2087009FD18A /* Embed Frameworks */,
 				05840B2827CD208A009FD18A /* Embed PlugIns */,
 			);
 			buildRules = (
@@ -180,6 +175,7 @@
 			);
 			name = SwiftNotifyExample;
 			packageProductDependencies = (
+				051148A328E1B6E90087838C /* SwiftNotify */,
 			);
 			productName = CFMessageExample;
 			productReference = B231B3701DD35A1400D29BD5 /* SwiftNotifyExample.app */;
@@ -394,7 +390,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -409,7 +406,10 @@
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftNotifyExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotifyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -427,7 +427,10 @@
 				DEVELOPMENT_TEAM = 6J24DF2E7Y;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftNotifyExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jt501.SwiftNotifyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -457,6 +460,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		051148A328E1B6E90087838C /* SwiftNotify */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftNotify;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B231B3681DD35A1400D29BD5 /* Project object */;
 }

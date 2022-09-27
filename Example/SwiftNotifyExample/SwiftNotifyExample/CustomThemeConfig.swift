@@ -3,7 +3,7 @@
 // Copyright (c) 2022 Johnny@Co-fire. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SwiftNotify
 
 struct CustomThemeConfig: ThemeConfig {

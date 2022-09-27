@@ -153,7 +153,7 @@ class NoticeManagerTests: XCTestCase {
     }
 
     func testAutoDismissNoticeWhenDurationIsCustom() {
-        let notice = MockNotice(duration: .custom(duration: DispatchTimeInterval.seconds(1)))
+        let notice = MockNotice(duration: .custom(1000))
         let duration: TimeInterval = 1
         let expectDismiss = expectation(description: "Notice Dismiss")
         notice.dismissCompletion = { expectDismiss.fulfill() }
@@ -170,7 +170,7 @@ class NoticeManagerTests: XCTestCase {
     }
 
     func testAutoDismissNoticeWhenNoticeNotExistsInCurrentQueue() {
-        let notice = MockNotice(duration: .custom(duration: .milliseconds(500)))
+        let notice = MockNotice(duration: .custom(500))
         let duration: TimeInterval = 0.5
         let expectDismiss = expectation(description: "Notice Dismiss")
         expectDismiss.isInverted = true
@@ -183,7 +183,7 @@ class NoticeManagerTests: XCTestCase {
     }
 
     func testAutoDismissNoticeWhenAutoDismissTaskAlreadyExists() {
-        let notice = MockNotice(duration: .custom(duration: .milliseconds(500)))
+        let notice = MockNotice(duration: .custom(500))
         let duration: TimeInterval = 0.5
         let task = DispatchWorkItem {}
         let expectDismiss = expectation(description: "Notice Dismiss")

@@ -66,18 +66,18 @@ open class Notify {
     ///   - delegate:               `SwiftNotifyDelegate` that handles notices interactions. `nil` by default.
     ///
     public init(
-            noticeQueue: DispatchQueue = DispatchQueue(
-                    label: "com.jt501.SwiftNotify.NoticeQueue",
-                    attributes: .concurrent
-            ),
-            defaultTheme: Theme = .cyber,
-            defaultThemeConfig: ThemeConfig? = nil,
-            defaultFromPosition: FromPosition = .top(.random),
-            defaultToPosition: ToPosition = .top(),
-            defaultNoticeDuration: Duration = .short,
-            defaultPhysicsConfig: PhysicsConfig = PhysicsConfig(),
-            intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),
-            delegate: SwiftNotifyDelegate? = nil
+        noticeQueue: DispatchQueue = DispatchQueue(
+            label: "com.jt501.SwiftNotify.NoticeQueue",
+            attributes: .concurrent
+        ),
+        defaultTheme: Theme = .cyber,
+        defaultThemeConfig: ThemeConfig? = nil,
+        defaultFromPosition: FromPosition = .top(.random),
+        defaultToPosition: ToPosition = .top(),
+        defaultNoticeDuration: Duration = .short,
+        defaultPhysicsConfig: PhysicsConfig = PhysicsConfig(),
+        intervalBetweenNotices: DispatchTimeInterval = .milliseconds(500),
+        delegate: SwiftNotifyDelegate? = nil
     ) {
         self.noticeQueue = noticeQueue
         self.defaultTheme = defaultTheme
@@ -105,14 +105,14 @@ open class Notify {
     ///   - height:         height of notice. Zero by default for auto calculation.
     /// - Returns:      `NoticeView`
     public func createNoticeView<V: NoticeView>(
-            title: String?,
-            message: String?,
-            themeConfig: ThemeConfig,
-            level: Level,
-            width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
-            height: CGFloat = 0
+        title: String?,
+        message: String?,
+        themeConfig: ThemeConfig,
+        level: Level,
+        width _: CGFloat = UIScreen.main.bounds.size.width * 0.8,
+        height _: CGFloat = 0
     ) -> V {
-        V.init(titleText: title, bodyText: message, themeConfig: themeConfig, level: level)
+        V(titleText: title, bodyText: message, themeConfig: themeConfig, level: level)
     }
 
     /// Create a `Notice` and add to `noticeQueue`.
@@ -132,95 +132,96 @@ open class Notify {
     ///   - tapHandler:
     ///   - width:          width of notice. `UIScreen.main.bounds.size.width * 0.8` by default.
     ///   - height:
-    ///
+    /// - Returns: Notice ID
+    @discardableResult
     public func show(
-            title: String? = nil,
-            message: String,
-            theme: Theme? = nil,
-            themeConfig: ThemeConfig? = nil,
-            level: Level,
-            duration: Duration? = nil,
-            fromPosition: FromPosition? = nil,
-            toPosition: ToPosition? = nil,
-            tapHandler: ((String) -> ())? = nil,
-            width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
-            height: CGFloat = 0
-    ) {
+        title: String? = nil,
+        message: String,
+        theme: Theme? = nil,
+        themeConfig: ThemeConfig? = nil,
+        level: Level,
+        duration: Duration? = nil,
+        fromPosition: FromPosition? = nil,
+        toPosition: ToPosition? = nil,
+        tapHandler: ((String) -> Void)? = nil,
+        width: CGFloat = UIScreen.main.bounds.size.width * 0.8,
+        height: CGFloat = 0
+    ) -> String {
         // Use default theme if theme if nil
         let theme = theme ?? defaultTheme
         let duration = duration ?? defaultNoticeDuration
         let fromPosition = fromPosition ?? defaultFromPosition
         let toPosition = toPosition ?? defaultToPosition
 
-        var noticeView: NoticeView
-
-        switch theme {
-        case .classic:
-            noticeView = createNoticeView(
+        var noticeView: NoticeView = switch theme {
+            case .classic:
+                createNoticeView(
                     title: title,
                     message: message,
                     themeConfig: themeConfig ?? defaultThemeConfig ?? ClassicLightConfig(),
                     level: level,
                     width: width,
                     height: height
-            ) as ClassicView
-        case .classicDark:
-            noticeView = createNoticeView(
+                ) as ClassicView
+            case .classicDark:
+                createNoticeView(
                     title: title,
                     message: message,
                     themeConfig: themeConfig ?? defaultThemeConfig ?? ClassicDarkConfig(),
                     level: level,
                     width: width,
                     height: height
-            ) as ClassicView
-        case .cyber:
-            noticeView = createNoticeView(
+                ) as ClassicView
+            case .cyber:
+                createNoticeView(
                     title: title,
                     message: message,
                     themeConfig: themeConfig ?? defaultThemeConfig ?? CyberLightConfig(),
                     level: level,
                     width: width,
                     height: height
-            ) as CyberView
-        case .cyberDark:
-            noticeView = createNoticeView(
+                ) as CyberView
+            case .cyberDark:
+                createNoticeView(
                     title: title,
                     message: message,
                     themeConfig: themeConfig ?? defaultThemeConfig ?? CyberDarkConfig(),
                     level: level,
                     width: width,
                     height: height
-            ) as CyberView
-        case .toast:
-            noticeView = createNoticeView(
+                ) as CyberView
+            case .toast:
+                createNoticeView(
                     title: title,
                     message: message,
                     themeConfig: themeConfig ?? defaultThemeConfig ?? ToastLightConfig(),
                     level: level,
                     width: width,
                     height: height
-            ) as ToastView
-        case .toastDark:
-            noticeView = createNoticeView(
+                ) as ToastView
+            case .toastDark:
+                createNoticeView(
                     title: title,
                     message: message,
                     themeConfig: themeConfig ?? defaultThemeConfig ?? ToastDarkConfig(),
                     level: level,
                     width: width,
                     height: height
-            ) as ToastView
+                ) as ToastView
         }
 
         let notice = Notice(
-                view: noticeView,
-                duration: duration,
-                fromPosition: fromPosition,
-                toPosition: toPosition,
-                tapHandler: tapHandler,
-                config: defaultPhysicsConfig,
-                delegate: delegate
+            view: noticeView,
+            duration: duration,
+            fromPosition: fromPosition,
+            toPosition: toPosition,
+            tapHandler: tapHandler,
+            config: defaultPhysicsConfig,
+            delegate: delegate
         )
         noticeManager.addPendingNotice(notice)
+
+        return notice.id
     }
 
     public func dismissCurrent() {

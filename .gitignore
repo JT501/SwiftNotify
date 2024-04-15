@@ -8,6 +8,9 @@
 # Idea IDE
 .idea/
 
+# VS Code IDE
+.vscode/
+
 ## User settings
 xcuserdata/
 

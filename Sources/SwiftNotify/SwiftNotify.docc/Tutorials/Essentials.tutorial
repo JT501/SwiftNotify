@@ -1,0 +1,13 @@
+@Tutorials(name: "SwiftNotify Essential") {
+    @Intro(title: "Essentials") {
+        Some interactive tutorials for SwiftNotify.
+    }
+    
+    @Chapter(name: "Basic Usage") {
+        The very basic usage of SwiftNotify.
+        
+        @Image(source: "Classic.jpg", alt: "basic usage")
+        
+        @TutorialReference(tutorial: "doc:Tutorial")
+    }
+}

@@ -1,0 +1,60 @@
+@Tutorial(time: 5) {
+    @Intro(title: "Basic Usage") {
+        Basic
+    }
+    
+    @Section(title: "Global Configurations") {
+
+        @ContentAndMedia {
+            You can setup the global configurations in one place (normally in *AppDelegate.swift*), all notices will share the same configurations.
+        }
+        
+        @Steps {
+            
+            @Step {
+                Go to AppDelegate.swift.
+                
+                @Code(name: "AppDelegate.swift", file: 01-AppDelegate-00.swift)
+            }
+            
+            @Step {
+                Import SwiftNotify package.
+                
+                @Code(name: "AppDelegate.swift", file: 01-AppDelegate-01.swift)
+            }
+            
+            @Step {
+                Set the default theme.
+                
+                @Code(name: "AppDelegate.swift", file: 01-AppDelegate-02.swift)
+            }
+            
+            
+            @Step {
+                More global configurations.
+                
+                @Code(name: "AppDelegate.swift", file: 01-AppDelegate-03.swift)
+            }
+        }
+    }
+        
+    @Section(title: "Show a notice") {
+        @ContentAndMedia {
+            
+        }
+        
+        @Steps {
+            @Step {
+                Create a UIViewController file.
+                
+                @Code(name: "ExampleViewController.swift", file: 01-ExampleVC-00.swift)
+            }
+            
+            @Step {
+                Add a @IBAction with **SN.show()**.
+                
+                @Code(name: "ExampleViewController.swift", file: 01-ExampleVC-01.swift)
+            }
+        }
+    }
+}

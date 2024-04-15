@@ -37,7 +37,7 @@ public struct ToastLightConfig: ThemeConfig {
     ///   - padding: Notice content padding
     ///   - levelConfigs: Configs for each level
     public init(
-            bodyTextColor: UIColor = .white,
+            bodyTextColor: UIColor = .black,
             bodyTextFont: UIFont = .boldSystemFont(ofSize: 17),
             bodyBackgroundColor: UIColor = .clear,
             bodyTextAlignment: NSTextAlignment = .left,

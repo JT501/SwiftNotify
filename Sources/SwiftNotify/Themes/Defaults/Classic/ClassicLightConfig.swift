@@ -45,11 +45,11 @@ public struct ClassicLightConfig: ThemeConfig {
     ///   - padding: Notice content padding
     ///   - levelConfigs: Configs for each level
     public init(
-            titleTextColor: UIColor = .white,
+            titleTextColor: UIColor = .black,
             titleTextFont: UIFont = .boldSystemFont(ofSize: 16),
             titleBackgroundColor: UIColor = .clear,
             titleTextAlignment: NSTextAlignment = .left,
-            bodyTextColor: UIColor = .white,
+            bodyTextColor: UIColor = .black,
             bodyTextFont: UIFont = .systemFont(ofSize: 13, weight: UIFont.Weight.regular),
             bodyBackgroundColor: UIColor = .clear,
             bodyTextAlignment: NSTextAlignment = .left,
@@ -57,7 +57,7 @@ public struct ClassicLightConfig: ThemeConfig {
             iconViewHeight: CGFloat = 50,
             iconViewContentMode: UIView.ContentMode = .scaleAspectFit,
             iconViewCornerRadius: CGFloat = 25,
-            iconImageTintColor: UIColor? = .white,
+            iconImageTintColor: UIColor? = .black,
             cornerRadius: CGFloat = 10,
             padding: CGFloat = 10,
             levelConfigs: [Level: LevelConfig] = [

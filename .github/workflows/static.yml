@@ -31,6 +31,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Add Mask
+        run: |
+          echo "::add-mask::${{ secrets.MASK_NAME }}" 
         
       - name: Install the Apple certificate and provisioning profile
         env:

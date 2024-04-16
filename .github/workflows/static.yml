@@ -76,6 +76,9 @@ jobs:
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: Remove .xcodeproj and .xcworkspace
+        run: rm -rf SwiftNotify.xcodeproj && rm -rf SwiftNotify.xcworkspace
         
       - name: Build DocC Archive
         run: |

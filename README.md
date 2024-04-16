@@ -30,15 +30,6 @@ As simple as that.
 - Swift 5.5+
 - iOS 13.0+
 
-Features
------------------
-
-- [x] Work with **ANY** `UIView` object !
-- [x] Using UIKit Dynamics. Light and Smooth !
-- [x] Highly Customizable
-- [x] Included **three** ready to use views: `CyberView`, `ClassicView`, `ToastView`
-- [x] Simple to implement
-
 Change Log
 ------------------
 Please read [CHANGELOG.md](CHANGELOG.md).

@@ -98,3 +98,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 /*.SwiftNotify.iml
+docs/

@@ -92,6 +92,10 @@ jobs:
           transform-for-static-hosting /tmp/docbuild/Build/Products/Debug-iphoneos/SwiftNotify.doccarchive \
           --hosting-base-path SwiftNotify \
           --output-path docs;
+
+      - name: Route documentation page
+        run: |
+          echo "<script>window.location.href += \"/documentation/swiftnotify\"</script>" > docs/index.html
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

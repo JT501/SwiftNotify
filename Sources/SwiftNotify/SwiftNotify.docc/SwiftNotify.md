@@ -35,43 +35,50 @@ As simple as that.
 
 ### Themes
 
-SwiftNotify provides six beautiful ``Theme``s for notices.
+SwiftNotify provides **three** pre-made notice ``Theme``s. Each theme has a **light** and a **dark** mode.
 In additional, every theme has four ``Level``: **success**, **fail**, **warning** and **info**.
 
 They are:
 
-- **Cyber**
+@Row {
+    @Column {
+        - **Cyber**
 
-@TabNavigator {
-    @Tab("Light") {
-        ![Cyber](Cyber)
+        @TabNavigator {
+            @Tab("Light") {
+                ![Cyber](Cyber)
+            }
+            @Tab("Dark") {
+                ![CyberDark](CyberDark)
+            }
+        }
     }
-    @Tab("Dark") {
-        ![CyberDark](CyberDark)
+    @Column {
+        - **Classic**
+
+        @TabNavigator {
+            @Tab("Light") {
+                ![Classic](Classic)
+            }
+            @Tab("Dark") {
+                ![ClassicDark](ClassicDark)
+            }
+        }
+    }
+    @Column {
+        - **Toast**
+
+        @TabNavigator {
+            @Tab("Light") {
+                ![Toast](Toast)
+            }
+            @Tab("Dark") {
+                ![ToastDark](ToastDark)
+            }
+        }
     }
 }
 
-- **Classic**
-
-@TabNavigator {
-    @Tab("Light") {
-        ![Classic](Classic)
-    }
-    @Tab("Dark") {
-        ![ClassicDark](ClassicDark)
-    }
-}
-
-- **Toast**
-
-@TabNavigator {
-    @Tab("Light") {
-        ![Toast](Toast)
-    }
-    @Tab("Dark") {
-        ![ToastDark](ToastDark)
-    }
-}
 
 Every theme has its own appearence configuration (``ThemeConfig``). And every level has its own appearence configuration (``LevelConfig``).
 

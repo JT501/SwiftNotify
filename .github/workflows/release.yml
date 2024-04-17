@@ -1,0 +1,53 @@
+name: Deploy to Cocoapods
+
+on:
+  push:
+    tags: 
+      - '*'
+    paths-ignore:
+      - 'Sources/SwiftNotify/SwiftNotify.docc/**'
+      - '**.md'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # Check if the tag is pushed to master
+  check-tag-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get tag commit hash
+        id: tag-commit-hash
+        run: |
+          hash=${{ GITHUB.SHA }}
+          echo "::set-output name=tag-hash::${hash}"
+          echo $hash
+      - name: checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: get latest master commit hash
+        id: master-commit-hash
+        run: |
+          hash=$(git log -n1 --format=format:"%H")
+          echo "::set-output name=master-hash::${hash}"
+          echo $hash
+      - name: exit if tag commit hash don't match master commit hash
+        if: steps.tag-commit-hash.outputs.tag-hash != steps.master-commit-hash.outputs.master-hash
+        run: exit 1
+
+  deploy:
+    needs: [check-tag-branch]
+    runs-on: macos-14
+    steps:
+      - name: Install Cocoapods
+        run: gem install cocoapods
+
+      - name: Deploy to Cocoapods
+        run: |
+          set -eo pipefail
+          export LIB_VERSION=${{ github.ref_name }}
+          pod lib lint --allow-warnings
+          pod trunk push --allow-warnings
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}

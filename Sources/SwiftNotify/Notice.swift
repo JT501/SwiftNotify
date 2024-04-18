@@ -1,5 +1,5 @@
 //
-//  Notifier.swift
+//  Notice.swift
 //  SwiftNotify
 //
 //  Created by Johnny on 12/11/2016.
@@ -10,7 +10,6 @@ import UIKit
 
 /// A Notice object which stores the configuration and handles all the interactions and animations.
 open class Notice: NSObject, NoticeProtocol {
-
     /// Type alias for on tap closure.
     public typealias TapCallback = (String) -> Void
 
@@ -37,7 +36,7 @@ open class Notice: NSObject, NoticeProtocol {
     weak var delegate: SwiftNotifyDelegate?
 
     /// String description of the notice
-    public override var description: String {
+    override public var description: String {
         "Notice(id: \(id))"
     }
 
@@ -53,11 +52,11 @@ open class Notice: NSObject, NoticeProtocol {
     var pushBehavior: UIPushBehavior!
     var itemBehaviour: UIDynamicItemBehavior!
 
-    var fieldMargin: CGFloat  //Margin to remove message from view
+    var fieldMargin: CGFloat // Margin to remove message from view
     var angularVelocity: CGFloat = 0
 
-    lazy private var userInfo: [AnyHashable: NoticeInfo] = [
-        NoticeInfo.userInfoKey: NoticeInfo(id: id)
+    private lazy var userInfo: [AnyHashable: NoticeInfo] = [
+        NoticeInfo.userInfoKey: NoticeInfo(id: id),
     ]
 
     override convenience init() {
@@ -82,14 +81,14 @@ open class Notice: NSObject, NoticeProtocol {
     ///   - config: Configurations for animations physics.
     ///   - delegate: Delegate for the notice
     public init(
-            id: String = UUID().uuidString,
-            view: UIView,
-            duration: Duration,
-            fromPosition: FromPosition,
-            toPosition: ToPosition,
-            tapHandler: TapCallback?,
-            config: PhysicsConfig,
-            delegate: SwiftNotifyDelegate? = nil
+        id: String = UUID().uuidString,
+        view: UIView,
+        duration: Duration,
+        fromPosition: FromPosition,
+        toPosition: ToPosition,
+        tapHandler: TapCallback?,
+        config: PhysicsConfig,
+        delegate: SwiftNotifyDelegate? = nil
     ) {
         self.id = id
         self.config = config
@@ -122,7 +121,7 @@ open class Notice: NSObject, NoticeProtocol {
 
     func getInitPoint(in window: UIWindow, fromPosition: FromPosition) -> CGPoint {
         switch fromPosition {
-        case .top(let position):
+        case let .top(position):
             switch position {
             case .center:
                 return CGPoint(x: window.bounds.midX, y: -view.bounds.height)
@@ -132,14 +131,14 @@ open class Notice: NSObject, NoticeProtocol {
                 return CGPoint(x: window.bounds.width, y: -view.bounds.height)
             case .random:
                 return CGPoint(
-                        x: randomBetweenNumbers(
-                                firstNum: -view.bounds.width,
-                                secondNum: window.bounds.width + view.bounds.width
-                        ),
-                        y: -view.bounds.height
+                    x: randomBetweenNumbers(
+                        firstNum: -view.bounds.width,
+                        secondNum: window.bounds.width + view.bounds.width
+                    ),
+                    y: -view.bounds.height
                 )
             }
-        case .bottom(let position):
+        case let .bottom(position):
             switch position {
             case .center:
                 return CGPoint(x: window.bounds.midX, y: window.bounds.height)
@@ -149,39 +148,39 @@ open class Notice: NSObject, NoticeProtocol {
                 return CGPoint(x: window.bounds.width, y: window.bounds.height)
             case .random:
                 return CGPoint(
-                        x: randomBetweenNumbers(
-                                firstNum: -view.bounds.width,
-                                secondNum: window.bounds.width + view.bounds.width
-                        ),
-                        y: window.bounds.height
+                    x: randomBetweenNumbers(
+                        firstNum: -view.bounds.width,
+                        secondNum: window.bounds.width + view.bounds.width
+                    ),
+                    y: window.bounds.height
                 )
             }
         case .left:
             return CGPoint(x: -view.bounds.width, y: window.bounds.midY)
         case .right:
             return CGPoint(x: window.bounds.width, y: window.bounds.midY)
-        case .custom(let point):
+        case let .custom(point):
             return point
         }
     }
 
     func getSnapPoint(in window: UIWindow, toPosition: ToPosition) -> CGPoint {
         switch toPosition {
-        case .bottom(let offset):
+        case let .bottom(offset):
             return CGPoint(x: window.bounds.midX, y: window.bounds.maxY - offset - containerView.bounds.midY)
         case .center:
             return window.center
-        case .top(let offset):
+        case let .top(offset):
             return CGPoint(x: window.bounds.midX, y: offset + containerView.bounds.minY)
-        case .custom(let point):
+        case let .custom(point):
             return point
         }
     }
 
     func addSnapBehaviour(
-            for view: UIView,
-            toPoint: CGPoint,
-            completion: ((_ completed: Bool) -> Void)? = nil
+        for view: UIView,
+        toPoint: CGPoint,
+        completion: ((_ completed: Bool) -> Void)? = nil
     ) {
         var counter = 0
         snapBehaviour = UISnapBehavior(item: view, snapTo: toPoint)
@@ -199,8 +198,8 @@ open class Notice: NSObject, NoticeProtocol {
     }
 
     public func present(
-            in window: UIWindow? = nil,
-            completion: @escaping (_ completed: Bool) -> Void
+        in window: UIWindow? = nil,
+        completion: @escaping (_ completed: Bool) -> Void
     ) {
         let window = window ?? UIApplication.shared.delegate?.window!
 
@@ -228,29 +227,29 @@ open class Notice: NSObject, NoticeProtocol {
 
         snapPoint = getSnapPoint(in: window, toPosition: toPosition)
 
-        addSnapBehaviour(for: containerView, toPoint: snapPoint) { (completed) in
+        addSnapBehaviour(for: containerView, toPoint: snapPoint) { completed in
             completion(completed)
         }
     }
 
     func removeFromSuperView(completion: @escaping CompletionCallBack) {
         if containerView.superview != nil {
-            //TOP
+            // TOP
             if containerView.frame.minY >= (containerView.superview!.bounds.maxY + fieldMargin) {
                 containerView.removeFromSuperview()
                 completion(true)
             }
-            //BOTTOM
+            // BOTTOM
             else if (containerView.frame.maxY) <= (containerView.superview!.bounds.minY - fieldMargin) {
                 containerView.removeFromSuperview()
                 completion(true)
             }
-            //RIGHT
+            // RIGHT
             else if (containerView.frame.maxX) <= (containerView.superview!.bounds.minX - fieldMargin) {
                 containerView.removeFromSuperview()
                 completion(true)
             }
-            //LEFT
+            // LEFT
             else if containerView.frame.minX >= (containerView.superview!.bounds.maxY + fieldMargin) {
                 containerView.removeFromSuperview()
                 completion(true)
@@ -274,7 +273,7 @@ open class Notice: NSObject, NoticeProtocol {
         gravityBehaviour = UIGravityBehavior(items: [containerView])
         gravityBehaviour.action = { [weak self] in
             guard let self = self else { return }
-            self.removeFromSuperView(completion: { [weak self] (completed) in
+            self.removeFromSuperView(completion: { [weak self] completed in
                 guard let self = self else { return }
                 if completed {
                     self.postDidDisappearNotification()
@@ -292,12 +291,12 @@ open class Notice: NSObject, NoticeProtocol {
     @objc private func onPan(gesture: UIPanGestureRecognizer) {
         let gestureView = gesture.view!
         let dragPoint: CGPoint = gesture.location(in: gestureView)
-        let viewCenter = gestureView.center  //Center of message view in its superview
+        let viewCenter = gestureView.center // Center of message view in its superview
         let movedDistance = distance(from: snapPoint, to: viewCenter)
 
-        let offsetFromCenterInView: UIOffset = UIOffset(
-                horizontal: dragPoint.x - gestureView.bounds.midX,
-                vertical: dragPoint.y - gestureView.bounds.midY
+        let offsetFromCenterInView = UIOffset(
+            horizontal: dragPoint.x - gestureView.bounds.midX,
+            vertical: dragPoint.y - gestureView.bounds.midY
         )
         let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
         let velocityMagnitude = sqrt(pow(velocity.x, 2) + pow(velocity.y, 2))
@@ -306,7 +305,7 @@ open class Notice: NSObject, NoticeProtocol {
         var lastAngle: CGFloat
 
         switch gesture.state {
-                //Start Dragging
+        // Start Dragging
         case .began:
             postStartPanningNotification()
 
@@ -317,9 +316,9 @@ open class Notice: NSObject, NoticeProtocol {
 
             let anchorPoint: CGPoint = gesture.location(in: gestureView.superview)
             attachmentBehaviour = UIAttachmentBehavior(
-                    item: gestureView,
-                    offsetFromCenter: offsetFromCenterInView,
-                    attachedToAnchor: anchorPoint
+                item: gestureView,
+                offsetFromCenter: offsetFromCenterInView,
+                attachedToAnchor: anchorPoint
             )
 
             lastTime = CFAbsoluteTime()
@@ -329,25 +328,25 @@ open class Notice: NSObject, NoticeProtocol {
                 guard let self = self else {
                     return
                 }
-                //Calculate Angular Velocity
+                // Calculate Angular Velocity
                 let time = CFAbsoluteTimeGetCurrent()
                 let angle = CGFloat(self.angleRotated(of: gestureView))
                 if time > lastTime {
-                    self.angularVelocity = (angle - lastAngle) / CGFloat((time - lastTime))
+                    self.angularVelocity = (angle - lastAngle) / CGFloat(time - lastTime)
                     lastTime = time
                     lastAngle = angle
                 }
             }
 
             animator.addBehavior(attachmentBehaviour)
-                //Dragging
+        // Dragging
         case .changed:
             let touchPoint: CGPoint = gesture.location(in: gestureView.superview)
             attachmentBehaviour.anchorPoint = touchPoint
             if let delegate = delegate {
                 delegate.swiftNotifyIsPanning(at: touchPoint, notice: self)
             }
-                // End Dragging
+        // End Dragging
         case .ended:
             if let delegate = delegate {
                 delegate.swiftNotifyEndPanning(at: dragPoint, notice: self)
@@ -371,7 +370,7 @@ open class Notice: NSObject, NoticeProtocol {
                     gravityBehaviour = UIGravityBehavior(items: [containerView])
                     gravityBehaviour.action = { [weak self] in
                         guard let self = self else { return }
-                        self.removeFromSuperView(completion: { [weak self] (completed) in
+                        self.removeFromSuperView(completion: { [weak self] completed in
                             guard let self = self else { return }
                             if completed {
                                 self.postDidDisappearNotification()
@@ -385,14 +384,14 @@ open class Notice: NSObject, NoticeProtocol {
                     animator.addBehavior(gravityBehaviour)
                 } else {
                     // If too slow, add some push
-                    if (velocityMagnitude < 800) {
+                    if velocityMagnitude < 800 {
                         pushBehavior = UIPushBehavior(items: [gestureView], mode: .instantaneous)
                         pushBehavior.setAngle(atan2(velocity.y, velocity.x), magnitude: 12)
 
                         animator.addBehavior(pushBehavior)
                     }
 
-                    //Add Item Behaviour
+                    // Add Item Behaviour
                     itemBehaviour = UIDynamicItemBehavior(items: [gestureView])
                     itemBehaviour.addAngularVelocity(angularVelocity, for: gestureView)
                     itemBehaviour.addLinearVelocity(velocity, for: gestureView)
@@ -401,7 +400,7 @@ open class Notice: NSObject, NoticeProtocol {
                     itemBehaviour.action = { [weak self] in
                         guard let self = self else { return }
 
-                        self.removeFromSuperView(completion: { [weak self] (completed) in
+                        self.removeFromSuperView(completion: { [weak self] completed in
                             guard let self = self else { return }
                             if completed {
                                 self.postDidDisappearNotification()
@@ -421,7 +420,7 @@ open class Notice: NSObject, NoticeProtocol {
     }
 
     @objc private func onTap(gesture: UITapGestureRecognizer) {
-        if (gesture.state == .ended) {
+        if gesture.state == .ended {
             if let delegate = delegate {
                 delegate.swiftNotifyIsTapped(notice: self)
             }
@@ -481,17 +480,17 @@ open class Notice: NSObject, NoticeProtocol {
 
     private func postNotification(_ notificationName: Notification.Name) {
         NotificationCenter.default.post(
-                name: notificationName,
-                object: nil,
-                userInfo: userInfo
+            name: notificationName,
+            object: nil,
+            userInfo: userInfo
         )
     }
 }
 
 extension Notice: UIGestureRecognizerDelegate {
     public func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+        _ gestureRecognizer: UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
     ) -> Bool {
         gestureRecognizer == longPressRecognizer && otherGestureRecognizer == panRecognizer
     }

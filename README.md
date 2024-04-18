@@ -1,13 +1,14 @@
 SwiftNotify
 ===============
 [![GitHub license](https://img.shields.io/github/license/JT501/SwiftNotify.svg?style=flat-square)](https://github.com/JT501/SwiftNotify/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/JT501/SwiftNotify.svg?style=flat-square)](https://github.com/JT501/SwiftNotify/issues)
 [![Swift](https://img.shields.io/badge/Swift-5.5+-orange.svg?style=flat-square)](https://developer.apple.com/swift/)
 ![Static Badge](https://img.shields.io/badge/spm-compatible-orange?style=flat-square)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jt501/SwiftNotify/static.yml?branch=master&style=flat-square&label=Doc%20Deploy&color=blue)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![CocoaPods](https://img.shields.io/cocoapods/v/SwiftNotify.svg?style=flat-square)](https://cocoapods.org/pods/SwiftNotify)
 [![GitHub forks](https://img.shields.io/github/forks/JT501/SwiftNotify.svg?style=flat-square)](https://github.com/JT501/SwiftNotify/network)
 [![GitHub stars](https://img.shields.io/github/stars/JT501/SwiftNotify.svg?style=flat-square)](https://github.com/JT501/SwiftNotify/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/JT501/SwiftNotify.svg?style=flat-square)](https://github.com/JT501/SwiftNotify/issues)
 
 A *Swifty* UI framework for **notifications** and **alerts**.
 

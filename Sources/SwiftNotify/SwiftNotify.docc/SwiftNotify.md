@@ -4,6 +4,8 @@ A *Swifty* UI framework for **notifications** and **alerts**.
 
 ## Overview
 
+![Logo](logo-r-256.png)
+
 **SwiftNotify** makes notifications interactive, playful and fun! 
 
 @Row {
